@@ -22,7 +22,7 @@
  |
 |MediaEncode|Integer|是|编码选项，具体请参见本文中的MediaEncode枚举值。|
 |BackgroundColor|Integer|是|背景色RGB，默认是0（黑色）。|
-|LayoutIds|RepeatList|是|布局ID数据，用户可在一次任务中指定多个布局，系统会根据当时channel中的人数进行切换。详情请参见[关于布局的说明]()。|
+|LayoutIds|RepeatList|是|布局ID数据，用户可在一次任务中指定多个布局，系统会根据当时channel中的人数进行切换。详情请参见[布局](../../../../cn.zh-CN/录制&旁路直播/布局.md#)。|
 |UserPanes|RepeatList|否|用户指定的布局参数。用户可以指定某个窗格\(pane\)展示一个指定的userID。|
 |StreamURL|String|是|直播推流地址，生成规则请参见[推流地址与播流地址](https://helpcdn.aliyun.com/document_detail/87396.html)，对已开防盗链鉴权的域名，需要在推流地址中包含鉴权串。|
 
@@ -42,7 +42,7 @@ UserPanes结构
 |--|--|----|--|
 |PaneId|Integer|是|布局ID，从左上到右下排序，从0开始。|
 |UserId|String|是|对应布局框格的用户ID。|
-|SourceType|String|是|对应布局的用户视频输入，camera 和 shareScreen 两种。|
+|SourceType|String|是|对应布局的用户视频输入，camera和shareScreen两种。|
 
 ## 返回参数 { .section}
 
