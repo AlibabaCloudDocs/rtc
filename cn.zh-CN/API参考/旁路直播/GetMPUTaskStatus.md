@@ -2,7 +2,7 @@
 
 调用GetMPUTaskStatus获取任务状态。
 
-## 请求参数 { .section}
+## 请求参数 {#section_7mm_2go_osr .section}
 
 |参数|类型|是否必选|描述|
 |--|--|----|--|
@@ -11,7 +11,7 @@
 |ChannelId|String|是|频道ID。|
 |TaskId|String|是|任务ID。|
 
-## 返回参数 { .section}
+## 返回参数 {#section_6uy_hz4_svq .section}
 
 |参数|类型|是否必选|描述|
 |--|--|----|--|
@@ -20,14 +20,17 @@
 -   1：任务运行中 。
 -   2：任务已停止 。
 -   3：用户停止任务。
+-   4：Channel已停止。
+-   5：CDN网络问题，直播停止。
+-   6：直播URL问题，直播停止。
 
  |
 
-## 示例 { .section}
+## 示例 {#section_cv1_f86_3xy .section}
 
 请求示例
 
-```
+``` {#codeblock_u0g_q0o_vfe}
 https://rtc.aliyuncs.com?Action=GetMPUTaskStatus&AppId=xxxx&ChannelId=xxx&TaskId=xxx<公共请求参数>
 ```
 
@@ -35,7 +38,7 @@ https://rtc.aliyuncs.com?Action=GetMPUTaskStatus&AppId=xxxx&ChannelId=xxx&TaskId
 
 `JSON`格式
 
-```language-json
+``` {#codeblock_h2m_e70_3d3 .language-json}
 {
   "RequestId": "760bad53276431c499e30dc36f6b26be", 
   "Status":0
