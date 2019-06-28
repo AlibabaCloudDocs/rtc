@@ -2,14 +2,14 @@
 
 调用StartMPUTask开始任务。
 
-## 请求参数 { .section}
+## 请求参数 {#section_rxf_ag0_34n .section}
 
 |参数|类型|是否必选|描述|
 |--|--|----|--|
 |Action|String|是|操作接口名，系统规定参数，取值：StartMPUTask。|
 |AppId|String|是|应用ID，创建应用后生成。|
 |ChannelId|String|是|频道ID。|
-|TaskID|String|是|任务ID, 此ID为旁路直播的标识，需保证唯一。 只允许\[A-Za-z0-9\_-\]。长度限制64字节。|
+|TaskID|String|是|任务ID, 此ID为旁路直播的标识，需保证唯一。只允许\[A-Za-z0-9\_-\]。长度限制64字节。|
 |TaskProfile|String|是|任务计费配置，根据您的不同设置，进行收费。TaskProfile设置： -   4IN\_720P。
 -   2IN\_720P。
 -   1IN\_720P。
@@ -20,11 +20,16 @@
 -   1IN\_Audio。
 
  |
+|CropMode|Integer|否|视频的裁剪方式，默认值为2。 -   0：不保持比例铺满。
+-   1：保持比例裁剪。
+-   2：保持比例留边。
+
+ |
 |MediaEncode|Integer|是|编码选项，具体请参见本文中的MediaEncode枚举值。|
 |BackgroundColor|Integer|是|背景色RGB，默认是0（黑色）。|
 |LayoutIds|RepeatList|是|布局ID数据，用户可在一次任务中指定多个布局，系统会根据当时channel中的人数进行切换。详情请参见[布局](../../../../cn.zh-CN/旁路直播和录制/布局.md#)。|
 |UserPanes|RepeatList|否|用户指定的布局参数。用户可以指定某个窗格\(pane\)展示一个指定的userID。|
-|StreamURL|String|是|直播推流地址，生成规则请参见[推流地址与播流地址](https://helpcdn.aliyun.com/document_detail/87396.html)，对已开防盗链鉴权的域名，需要在推流地址中包含鉴权串。|
+|StreamURL|String|是|直播推流地址，生成规则请参见[推流地址与播流地址（原画）](../../../../cn.zh-CN/用户指南/推播流配置/推流地址和播流地址/推流地址与播流地址（原画）.md#)。对已开防盗链鉴权的域名，需要在推流地址中包含鉴权串。|
 
 MediaEncode枚举值
 
@@ -44,17 +49,17 @@ UserPanes结构
 |UserId|String|是|对应布局框格的用户ID。|
 |SourceType|String|是|对应布局的用户视频输入，camera和shareScreen两种。|
 
-## 返回参数 { .section}
+## 返回参数 {#section_vxj_r2m_pkn .section}
 
-|参数|类型|是否必选|描述|
-|--|--|----|--|
-|RequestId|String|是|该条任务请求Id。|
+|参数|类型|描述|
+|--|--|--|
+|RequestId|String|该条任务请求Id。|
 
-## 示例 { .section}
+## 示例 {#section_9o6_5w3_9rq .section}
 
 请求示例
 
-```
+``` {#codeblock_pr6_9i9_28m}
 https://rtc.aliyuncs.com?Action=StartMPUTask&AppId=xxxx&ChannelId=xxxTaskId=xxx&MediaEncode=2&BackgroundColor=0&LayoutIds.1=1&LayoutIds.2=2&UserPanes.0.PaneId=xxx&UserPanes.0.UserId=xxx&UserPanes.0.SourceType=xxx&UserPanes.1.PaneId=xxx&UserPanes.1.UserId=xxx&UserPanes.1.SourceType=xxx&StreamURL=xxx&<公共请求参数>
 ```
 
@@ -62,7 +67,7 @@ https://rtc.aliyuncs.com?Action=StartMPUTask&AppId=xxxx&ChannelId=xxxTaskId=xxx&
 
 `JSON`格式
 
-```language-json
+``` {#codeblock_v1o_58c_po2 .language-json}
 {
   "RequestId": "760bad53276431c499e30dc36f6b26be", 
 }
