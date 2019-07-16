@@ -2,7 +2,9 @@
 
 调用DescribeRtcUserCntData查询应用在一段时间内的活跃用户数，即发生通信的用户终端数。
 
-## 请求参数 { .section}
+**说明：** 数据查询的起止时间跨度最大为30天。
+
+## 请求参数 {#section_blr_rlo_n0u .section}
 
 |参数|类型|是否必选|描述|
 |--|--|----|--|
@@ -10,9 +12,9 @@
 |AppId|String|否|应用id，不填则返回所有AppId的汇总数据。|
 |StartTime|String|是|起始时间，UTC格式，例如：2018-01-29T00:00:00Z。|
 |EndTime|String|是|结束时间，UTC格式，例如：2018-01-29T00:00:00Z。|
-|Interval|Enum|否|时间粒度参数，取值为 3600（小时粒度） 或 86400（天粒度），默认为 3600。|
+|Interval|Enum|否|时间粒度参数，取值为 3600（小时粒度） 或86400（天粒度），默认为3600。|
 
-## 返回参数 { .section}
+## 返回参数 {#section_aj9_f3d_088 .section}
 
 |参数|类型|描述|
 |--|--|--|
@@ -21,11 +23,11 @@
 |└TimeStamp|String|时间戳，UTC格式，例如：2018-01-29T00:00:00Z。|
 |└ActiveUserCnt|Long|当前活跃用户数（基于发生通信的用户终端统计）。|
 
-## 示例 { .section}
+## 示例 {#section_jb7_qus_oxp .section}
 
 请求示例
 
-```
+``` {#codeblock_c5g_2m2_jcm}
 https://rtc.aliyuncs.com?Action=DescribeRtcUserCntData&AppId=xxx&StartTime=2018-01-29T00:00:00Z&EndTime=2018-01-30T00:00:00Z&<公共请求参数>
 ```
 
@@ -33,7 +35,7 @@ https://rtc.aliyuncs.com?Action=DescribeRtcUserCntData&AppId=xxx&StartTime=2018-
 
 `JSON`格式
 
-```language-json
+``` {#codeblock_bpw_0dv_hmw .language-json}
 {
     "RequestId": "16A96B9A-F203-4EC5-8E43-CB92E68F4CD8",
     "UserCntDataPerInterval": [ 
