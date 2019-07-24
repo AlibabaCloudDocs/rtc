@@ -1,6 +1,6 @@
 # 搭建App Server {#task_1096283 .task}
 
-应用服务器（App Server）是指由用户自行研发的程序层。通过对接阿里云RTC云端服务实现用户应用的业务逻辑，如用户管理、鉴权校验等。本文以开发工具IDEA使用Java语言为例，为您介绍搭建App Server（应用服务器）的具体操作步骤。搭建好App Server后，您可以下发频道鉴权信息。
+应用服务器（App Server）是指由用户自行研发的程序层。通过对接阿里云RTC云端服务实现用户应用的业务逻辑，如用户管理、鉴权校验等。本文以开发工具IDEA使用Java语言为例，为您介绍搭建App Server的具体操作步骤。
 
 在进行操作前，您需要：
 
@@ -59,9 +59,8 @@
 
     ``` {#codeblock_aog_chp_rl4 .language-java}
     --listen=8080
-    --access-key-id=xxxxxxx
-    --access-key-secret=xxxxxxxx
-    --appid=xxxx
+    --appid=xxxxxxxx
+    --appkey=xxxxxxxxx
     --gslb=https://rgslb.rtc.aliyuncs.com
     ```
 
@@ -72,22 +71,22 @@
 
     -   App Server启动成功。
 
-        ![AppServer成功](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/170801/156387299351338_zh-CN.png)
+        ![AppServer成功](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/170801/156394887951338_zh-CN.png)
 
     -   App Server未启动，访问失败。
 
-        ![AppServer失败](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/170801/156387299351340_zh-CN.png)
+        ![AppServer失败](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/170801/156394888051340_zh-CN.png)
 
         **说明：** 音视频通信Password并没有提供校验机制，您可以随意填写，建议默认即可。
 
 7.  校验Token，请单击[Token Verification](http://ossrs.net/talks/ng_index.html?spm=a2c4g.11186623.2.22.22965188TERfAg#/token-check?schema=http&host=127.0.0.1&port=8080&path=%2Fapp%2Fv1%2Flogin&room=1237&user=jzufp&password=12345678)。 
     -   校验Token成功。
 
-        ![Token成功](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/170801/156387299351342_zh-CN.png)
+        ![Token成功](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/170801/156394888051342_zh-CN.png)
 
     -   校验Token失败。
 
-        ![Token失败](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/170801/156387299451344_zh-CN.png)
+        ![Token失败](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/170801/156394888051344_zh-CN.png)
 
 
 AliRtcSDK为您提供完整的频道鉴权开发流程，详情请参见[生成频道鉴权令牌](cn.zh-CN/快速入门/生成频道鉴权令牌.md#)。
