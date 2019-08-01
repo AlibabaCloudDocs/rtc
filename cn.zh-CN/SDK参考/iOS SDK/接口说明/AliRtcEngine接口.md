@@ -445,7 +445,7 @@
     |--|--|--|
     |enable|BOOL|YES为听筒模式，NO为扬声器模式|
 
--   startAudioCapture：开启音频采集。您可以控制提前打开音频采集，如果不设置，SDK会在推流的时候打开音频采集。
+-   startAudioCapture：开启音频采集。您可以控制提前打开音频采集，如果不设置，SDK会在开始推流的时候打开音频采集。
 
     ``` {#codeblock_tvm_az8_1nm .lanuage-c}
     - (void)startAudioCapture;
@@ -457,7 +457,7 @@
     - (void)stopAudioCapture;
     ```
 
--   startAudioPlayer：开启音频播放。您可以控制提前打开音频播放，如果不设置，则SDK会在订阅的收获打开音频播放。
+-   startAudioPlayer：开启音频播放。您可以控制提前打开音频播放，如果不设置，SDK会在订阅成功的时候打开音频播放。
 
     ``` {#codeblock_gpu_8s4_rv3 .lanuage-c}
     - (void)startAudioPlayer;
