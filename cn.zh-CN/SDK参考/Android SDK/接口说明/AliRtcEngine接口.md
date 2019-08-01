@@ -537,7 +537,7 @@
     public abstract boolean isSpeakerOn()                  
     ```
 
--   startAudioCapture：开启音频采集。您可以控制提前打开音频采集，如果不设置，SDK会在推流的时候打开音频采集。
+-   startAudioCapture：开启音频采集。您可以控制提前打开音频采集，如果不设置，SDK会在开始推流的时候打开音频采集。
 
     ``` {#codeblock_5np_fsr_oxs .language-java}
     public int startAudioCapture();
@@ -549,7 +549,7 @@
     public int stopAudioCapture();
     ```
 
--   startAudioPlayer：开启音频播放。您可以控制提前打开音频播放，如果不设置，则SDK会在订阅的收获打开音频播放。
+-   startAudioPlayer：开启音频播放。您可以控制提前打开音频播放，如果不设置，SDK会在订阅成功的时候打开音频播放。
 
     ``` {#codeblock_iu8_9t7_2r2 .language-java}
     public int startAudioPlayer();
