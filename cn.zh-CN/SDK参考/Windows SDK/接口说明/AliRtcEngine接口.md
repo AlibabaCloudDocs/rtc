@@ -605,7 +605,7 @@
     |--|--|--|
     |audio\_device|int|音频设备类型，1：麦克风, 3：扬声器/耳机|
 
--   startAudioCapture：开启音频采集。您可以控制提前打开音频采集，如果不设置，SDK会在推流的时候打开音频采集。
+-   startAudioCapture：开启音频采集。您可以控制提前打开音频采集，如果不设置，SDK会在开始推流的时候打开音频采集。
 
     ``` {#codeblock_pbs_bnz_m87 .lanuage-c}
     void startAudioCapture() = 0;
@@ -617,7 +617,7 @@
     void stopAudioCapture();
     ```
 
--   startAudioPlayer：开启音频播放。您可以控制提前打开音频播放，如果不设置，则SDK会在订阅的收获打开音频播放。
+-   startAudioPlayer：开启音频播放。您可以控制提前打开音频播放，如果不设置，SDK会在订阅成功的时候打开音频播放。
 
     ``` {#codeblock_sq0_fkx_mkx .lanuage-c}
      void startAudioPlayer();
