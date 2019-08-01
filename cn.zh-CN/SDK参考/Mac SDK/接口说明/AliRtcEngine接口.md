@@ -335,7 +335,7 @@
     |--|--|--|
     |userId|NSString \*|需要查询的userId，self请赋值空字符串""|
     |videoTrack|AliRtcVideoTrack|需要查询的媒体流类型|
-    |keys|NSArray<NSString \*\> \*\)|查询key值数组|
+    |keys|NSArray<NSString \*\> \*|查询key值数组|
 
     返回key-value的json格式字符串。
 
