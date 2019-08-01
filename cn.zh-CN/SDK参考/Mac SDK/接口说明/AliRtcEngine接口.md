@@ -519,33 +519,25 @@
     |--|--|--|
     |renderer|NSString \*|音频播放设备名称|
 
--   startAudioCapture：开启音频采集。
-
-    **说明：** 可以控制提前打开音频采集，如果不设置，则SDK会在合适的时机在打开音频采集。
+-   startAudioCapture：开启音频采集。您可以控制提前打开音频采集，如果不设置，SDK会在开始推流的时候打开音频采集。
 
     ``` {#codeblock_tkj_rij_2ds}
     - (void)startAudioCapture;
     ```
 
--   stopAudioCapture：关闭音频采集。
-
-    **说明：** 此接口可以控制关闭音频采集，与startAudioCapture对应。
+-   stopAudioCapture：关闭音频采集。您可以控制关闭音频采集。
 
     ``` {#codeblock_5zt_4fn_2y6}
     - (void)stopAudioCapture;
     ```
 
--   startAudioPlayer：开启音频播放。
-
-    **说明：** 此接口可以控制提前打开音频播放，如果不设置，则SDK会在合适的时机在打开音频播放。
+-   startAudioPlayer：开启音频播放。您可以控制提前打开音频播放，如果不设置，SDK会在订阅成功的时候打开音频播放。
 
     ``` {#codeblock_yvs_lct_q6z}
     - (void)startAudioPlayer;
     ```
 
--   stopAudioPlayer：关闭音频播放。
-
-    **说明：** 此接口可以控制关闭音频播放，与stopAudioPlayer对应。
+-   stopAudioPlayer：关闭音频播放。您可以控制关闭音频播放。
 
     ``` {#codeblock_c3u_5ev_od6}
     - (void)stopAudioPlayer;
