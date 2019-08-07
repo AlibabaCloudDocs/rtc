@@ -2,7 +2,9 @@
 
 本文档为您介绍了Mac SDK的AliRtcEngine接口详情。
 
-## 基础接口 {#section_adu_i2s_s22 .section}
+## 目录 {#section_adu_i2s_s22 .section}
+
+基础接口
 
 |API|描述|
 |---|--|
@@ -155,7 +157,7 @@
 
     |参数|类型|描述|
     |--|--|--|
-    |authInfo|AliRtcAuthInfo \*|鉴权信息，从App Server下发，APP Server可通过OpenAPI获取|
+    |authInfo|[AliRtcAuthInfo \*](cn.zh-CN/SDK参考/Mac SDK/接口说明/数据类型.md#)|鉴权信息，从App Server下发，APP Server可通过OpenAPI获取|
     |userName|NSString \*|用户的显示名称，不是uid|
     |onResult|void\(^\)\(NSInteger errCode\)|当joinChannel执行结束后回调|
 
@@ -236,7 +238,7 @@
     |参数|类型|描述|
     |--|--|--|
     |enabled|BOOL|YES表示允许发布次要流，NO表示不允许|
-    |track|AliRtcVideoTrack|流类型，当前只支持相机流：AliVideoTrackCamera|
+    |track|[AliRtcVideoTrack](cn.zh-CN/SDK参考/Mac SDK/接口说明/数据类型.md#)|流类型，当前只支持相机流：AliVideoTrackCamera|
 
 -   isLocalSimulcastEnabled：查询当前是否允许发布次要视频流，返回YES为允许，NO为不允许。
 
@@ -321,7 +323,7 @@
     |参数|类型|描述|
     |--|--|--|
     |uid|NSString \*|用户ID，从App server获取的唯一标示符|
-    |onResult|void \(^\)\(NSString \*uid, AliRtcVideoTrack vt, AliRtcAudioTrack at\)|当subscribe执行结束后回调|
+    |onResult|void \(^\)\(NSString \*uid, [AliRtcVideoTrack](cn.zh-CN/SDK参考/Mac SDK/接口说明/数据类型.md#) vt, [AliRtcAudioTrack](cn.zh-CN/SDK参考/Mac SDK/接口说明/数据类型.md#) at\)|当subscribe执行结束后回调|
 
 -   getMediaInfoWithUserId： 获取当前的媒体流信息。
 
@@ -334,7 +336,7 @@
     |参数|类型|描述|
     |--|--|--|
     |userId|NSString \*|需要查询的userId，self请赋值空字符串""|
-    |videoTrack|AliRtcVideoTrack|需要查询的媒体流类型|
+    |videoTrack|[AliRtcVideoTrack](cn.zh-CN/SDK参考/Mac SDK/接口说明/数据类型.md#)|需要查询的媒体流类型|
     |keys|NSArray<NSString \*\> \*|查询key值数组|
 
     返回key-value的json格式字符串。
@@ -349,8 +351,8 @@
 
     |参数|类型|描述|
     |--|--|--|
-    |profile|AliRtcVideoProfile|视频流参数|
-    |track|AliRtcVideoTrack|需要设置的videoTrack类型|
+    |profile|[AliRtcVideoProfile](cn.zh-CN/SDK参考/Mac SDK/接口说明/数据类型.md#)|视频流参数|
+    |track|[AliRtcVideoTrack](cn.zh-CN/SDK参考/Mac SDK/接口说明/数据类型.md#)|需要设置的videoTrack类型|
 
 -   setLocalViewConfig：为本地预览设置渲染窗口以及绘制参数。
 
@@ -365,8 +367,8 @@
 
     |参数|类型|描述|
     |--|--|--|
-    |viewConfig|AliVideoCanvas \*|渲染参数，包含渲染窗口以及渲染方式|
-    |track|AliRtcVideoTrack|预览只允许AliVideoTrackCamera|
+    |viewConfig|[AliVideoCanvas \*](cn.zh-CN/SDK参考/Mac SDK/接口说明/数据类型.md#)|渲染参数，包含渲染窗口以及渲染方式|
+    |track|[AliRtcVideoTrack](cn.zh-CN/SDK参考/Mac SDK/接口说明/数据类型.md#)|预览只允许AliVideoTrackCamera|
 
 -   muteLocalCamera：设置是否停止发布本地视频流，不改变当前视频流的采集状态。
 
@@ -379,7 +381,7 @@
     |参数|类型|描述|
     |--|--|--|
     |mute|BOOL|YES表示停止发布视频流；NO表示恢复发布|
-    |track|AliRtcVideoTrack|需要改变发布状态的videoTrack类型|
+    |track|[AliRtcVideoTrack](cn.zh-CN/SDK参考/Mac SDK/接口说明/数据类型.md#)|需要改变发布状态的videoTrack类型|
 
 -   setRemoteViewConfig：为远端的视频设置渲染窗口以及绘制参数。
 
@@ -394,9 +396,9 @@
 
     |参数|类型|描述|
     |--|--|--|
-    |canvas|AliVideoCanvas \*|渲染参数，包含渲染窗口以及渲染方式|
+    |canvas|[AliVideoCanvas \*](cn.zh-CN/SDK参考/Mac SDK/接口说明/数据类型.md#)|渲染参数，包含渲染窗口以及渲染方式|
     |uid|NSString \*|用户ID，从App server获取的唯一标示符|
-    |track|AliRtcVideoTrack|需要设置的videoTrack类型|
+    |track|[AliRtcVideoTrack](cn.zh-CN/SDK参考/Mac SDK/接口说明/数据类型.md#)|需要设置的videoTrack类型|
 
 -   getCameraList：获取摄像头列表。
 
@@ -595,7 +597,7 @@
 
     |参数|类型|描述|
     |--|--|--|
-    |logLevel|AliRtcLogLevel|log级别|
+    |logLevel|[AliRtcLogLevel](cn.zh-CN/SDK参考/Mac SDK/接口说明/数据类型.md#)|log级别|
 
 -   getSdkVersion：获取sdk版本号。
 
