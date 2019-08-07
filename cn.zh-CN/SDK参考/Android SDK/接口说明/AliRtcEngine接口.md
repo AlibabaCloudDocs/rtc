@@ -22,6 +22,7 @@
 |[joinChannel](#)|加入频道|
 |[leaveChannel](#)|离开频道|
 |[isInCall](#)|检查当前是否在频道中|
+|[destroy](#)|销毁引擎|
 
 发布相关接口
 
@@ -179,7 +180,7 @@
 
     |参数|类型|说明|
     |--|--|--|
-    |authInfo|AliRtcAuthInfo|鉴权信息，从App Server下发，APP Server可通过OpenAPI获取|
+    |authInfo|[AliRtcAuthInfo](cn.zh-CN/SDK参考/Android SDK/接口说明/数据类型.md#)|鉴权信息，从App Server下发，APP Server可通过OpenAPI获取|
     |userName|String|用户的显示名称，不是uid|
 
 -   leaveChannel：离开频道。
@@ -202,6 +203,14 @@
 
     ``` {#codeblock_f7k_b72_8eo .language-java}
     public abstract boolean isInCall()                  
+    ```
+
+-   destroy：销毁引擎，和leaveChannel中两者调用一个即可。
+
+    离开频道时，AliRtcEngine实例会被销毁，如需继续joinChannel等操作，需要先重新调用getInstance初始化AliRtcEngine实例。
+
+    ``` {#codeblock_yyd_vcb_y9b .language-java}
+    public abstract void destroy();                  
     ```
 
 -   isAutoPublish：查询当前是否为自动发布模式，返回true为自动发布，false为手动发布。
@@ -275,7 +284,7 @@
     |参数|类型|说明|
     |--|--|--|
     |enable|boolean|true表示允许发布次要流，false表示不允许|
-    |track|AliRtcVideoTrack|流类型，当前只支持相机流：AliVideoTrackCamera|
+    |track|[AliRtcVideoTrack](cn.zh-CN/SDK参考/Android SDK/接口说明/数据类型.md#)|流类型，当前只支持相机流：AliVideoTrackCamera|
 
 -   isLocalSimulcastEnabled：查询当前是否允许发布次要视频流，返回true为允许，false为不允许。
 
@@ -365,8 +374,8 @@
 
     |参数|类型|说明|
     |--|--|--|
-    |profile|AliRtcVideoProfile|视频流参数|
-    |track|AliRtcVideoTrack|需要设置的视频流类型|
+    |profile|[AliRtcVideoProfile](cn.zh-CN/SDK参考/Android SDK/接口说明/数据类型.md#)|视频流参数|
+    |track|[AliRtcVideoTrack](cn.zh-CN/SDK参考/Android SDK/接口说明/数据类型.md#)|需要设置的视频流类型|
 
 -   getVideoProfile：查询当前视频流参数。
 
@@ -378,7 +387,7 @@
 
     |参数|类型|说明|
     |--|--|--|
-    |track|AliRtcVideoTrack|需要查询的视频流类型|
+    |track|[AliRtcVideoTrack](cn.zh-CN/SDK参考/Android SDK/接口说明/数据类型.md#)|需要查询的视频流类型|
 
 -   setLocalViewConfig：为本地预览设置渲染窗口以及绘制参数。
 
@@ -393,8 +402,8 @@
 
     |参数|类型|说明|
     |--|--|--|
-    |viewConfig|AliVideoCanvas|渲染参数，包含渲染窗口以及渲染方式|
-    |track|AliRtcVideoTrack|预览只允许AliVideoTrackCamera|
+    |viewConfig|[AliVideoCanvas](cn.zh-CN/SDK参考/Android SDK/接口说明/数据类型.md#)|渲染参数，包含渲染窗口以及渲染方式|
+    |track|[AliRtcVideoTrack](cn.zh-CN/SDK参考/Android SDK/接口说明/数据类型.md#)|预览只允许AliVideoTrackCamera|
 
 -   muteLocalCamera：设置是否停止发布本地视频流。不改变当前视频流的采集状态。
 
@@ -407,7 +416,7 @@
     |参数|类型|说明|
     |--|--|--|
     |mute|boolean|true表示停止发布视频流；false表示恢复发布|
-    |track|AliRtcVideoTrack|需要改变发布状态的videoTrack类型|
+    |track|[AliRtcVideoTrack](cn.zh-CN/SDK参考/Android SDK/接口说明/数据类型.md#)|需要改变发布状态的videoTrack类型|
 
 -   setRemoteViewConfig：为远端的视频设置渲染窗口以及绘制参数。
 
@@ -422,9 +431,9 @@
 
     |参数|类型|说明|
     |--|--|--|
-    |canvas|AliVideoCanvas|渲染参数，包含渲染窗口以及渲染方式|
+    |canvas|[AliVideoCanvas](cn.zh-CN/SDK参考/Android SDK/接口说明/数据类型.md#)|渲染参数，包含渲染窗口以及渲染方式|
     |uid|String|用户ID，从App server分配的唯一标示符|
-    |track|AliRtcVideoTrack|需要设置的videoTrack类型|
+    |track|[AliRtcVideoTrack](cn.zh-CN/SDK参考/Android SDK/接口说明/数据类型.md#)|需要设置的videoTrack类型|
 
 -   switchCamera：切换前后摄像头，返回0为切换成功，其他为切换失败。
 
@@ -614,7 +623,7 @@
     |参数|类型|说明|
     |--|--|--|
     |userId|String|用户的userId|
-    |track|AliRtcVideoTrack|需要查询的媒体流类型|
+    |track|[AliRtcVideoTrack](cn.zh-CN/SDK参考/Android SDK/接口说明/数据类型.md#)|需要查询的媒体流类型|
     |keys|String\[\]|查询key值数组|
 
 -   setLogLevel：设置log级别。
@@ -627,7 +636,7 @@
 
     |参数|类型|说明|
     |--|--|--|
-    |logLevel|AliRtcLogLevel|log级别|
+    |logLevel|[AliRtcLogLevel](cn.zh-CN/SDK参考/Android SDK/接口说明/数据类型.md#)|log级别|
 
 -   getSdkVersion：获取sdk版本号。
 
