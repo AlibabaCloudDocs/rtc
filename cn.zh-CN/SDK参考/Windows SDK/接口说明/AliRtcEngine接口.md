@@ -161,7 +161,7 @@
 
     |参数|类型|描述|
     |--|--|--|
-    |authInfo|const AliRtcAuthInfo&|鉴权信息，从App Server下发，APP Server可通过OpenAPI获取|
+    |authInfo|const [AliRtcAuthInfo](cn.zh-CN/SDK参考/Windows SDK/接口说明/数据类型.md#)&|鉴权信息，从App Server下发，APP Server可通过OpenAPI获取|
     |userName|const AliRtc::String&|用户的显示名称，不是uid|
     |onResult|void\(\)\(void opaquePtr, int errCode\)|当joinChannel执行结束后回调|
     |opaquePtr|void\*|app提供的UserData，在调用onResult时传回app|
@@ -266,7 +266,7 @@
     |参数|类型|说明|
     |--|--|--|
     |enable|bool|true表示允许发布次要流，false表示不允许|
-    |track|AliRtcVideoTrack|流类型，当前只支持相机流：AliVideoTrackCamera|
+    |track|[AliRtcVideoTrack](cn.zh-CN/SDK参考/Windows SDK/接口说明/数据类型.md#)|流类型，当前只支持相机流：AliVideoTrackCamera|
 
 -   isLocalSimulcastEnabled：查询当前是否允许发布次要视频流，返回true为允许，false为不允许。
 
@@ -365,7 +365,7 @@
     |参数|类型|说明|
     |--|--|--|
     |uid|const AliRtc::String&|用户ID，从App server分配的唯一标示符|
-    |onResult|void\(\)\(void opaquePtr, const AliRtc::String& uid, AliRtcVideoTrack vt, AliRtcAudioTrack at\)|当subscribe执行结束后回调|
+    |onResult|void\(\)\(void opaquePtr, const AliRtc::String& uid, [AliRtcVideoTrack](cn.zh-CN/SDK参考/Windows SDK/接口说明/数据类型.md#) vt, [AliRtcAudioTrack](cn.zh-CN/SDK参考/Windows SDK/接口说明/数据类型.md#) at\)|当subscribe执行结束后回调|
     |opaquePtr|void \*|app提供的UserData，在调用onResult时传回app|
 
     注解：异步接口，通过onResult判断结果。lambda表达式转换成onResult。
@@ -390,8 +390,8 @@
 
     |参数|类型|说明|
     |--|--|--|
-    |profile|AliRtcVideoProfile|视频流参数|
-    |track|AliRtcVideoTrack|需要设置的视频流类型|
+    |profile|[AliRtcVideoProfile](cn.zh-CN/SDK参考/Windows SDK/接口说明/数据类型.md#)|视频流参数|
+    |track|[AliRtcVideoTrack](cn.zh-CN/SDK参考/Windows SDK/接口说明/数据类型.md#)|需要设置的视频流类型|
 
 -   setLocalViewConfig：为本地预览设置渲染窗口以及绘制参数。
 
@@ -406,8 +406,8 @@
 
     |参数|类型|说明|
     |--|--|--|
-    |canvas|const AliVideoCanvas&|渲染参数，包含渲染窗口以及渲染方式|
-    |track|AliRtcVideoTrack|预览只允许AliVideoTrackCamera|
+    |canvas|const [AliVideoCanvas](cn.zh-CN/SDK参考/Windows SDK/接口说明/数据类型.md#)&|渲染参数，包含渲染窗口以及渲染方式|
+    |track|[AliRtcVideoTrack](cn.zh-CN/SDK参考/Windows SDK/接口说明/数据类型.md#)|预览只允许AliVideoTrackCamera|
 
 -   muteLocalCamera：设置是否停止发布本地视频流。不改变当前视频流的采集状态。
 
@@ -420,7 +420,7 @@
     |参数|类型|说明|
     |--|--|--|
     |mute|bool|true表示停止发布视频流；false表示恢复发布|
-    |track|AliRtcVideoTrack|需要改变发布状态的videoTrack类型|
+    |track|[AliRtcVideoTrack](cn.zh-CN/SDK参考/Windows SDK/接口说明/数据类型.md#)|需要改变发布状态的videoTrack类型|
 
 -   setRemoteViewConfig：为远端的视频设置渲染窗口以及绘制参数。
 
@@ -435,9 +435,9 @@
 
     |参数|类型|说明|
     |--|--|--|
-    |canvas|AliVideoCanvas\*|渲染参数，包含渲染窗口以及渲染方式|
+    |canvas|[AliVideoCanvas](cn.zh-CN/SDK参考/Windows SDK/接口说明/数据类型.md#)|渲染参数，包含渲染窗口以及渲染方式|
     |uid|const AliRtc::String&|用户ID，从App server分配的唯一标示符|
-    |track|AliRtcVideoTrack|需要设置的videoTrack类型|
+    |track|[AliRtcVideoTrack](cn.zh-CN/SDK参考/Windows SDK/接口说明/数据类型.md#)|需要设置的videoTrack类型|
 
 -   getCameraList：获取摄像头列表。
 
@@ -691,7 +691,7 @@
     |参数|类型|说明|
     |--|--|--|
     |call\_id|AliRtc::String|需要查询的userId|
-    |track|AliRtcVideoTrack|需要查询的媒体流类型|
+    |track|[AliRtcVideoTrack](cn.zh-CN/SDK参考/Windows SDK/接口说明/数据类型.md#)|需要查询的媒体流类型|
     |length|int|数组长度|
     |key\_list|AliRtc::String|查询key值数组|
 
@@ -717,7 +717,7 @@
 
     |参数|类型|说明|
     |--|--|--|
-    |logLevel|AliRtcLogLevel|log级别|
+    |logLevel|[AliRtcLogLevel](cn.zh-CN/SDK参考/Windows SDK/接口说明/数据类型.md#)|log级别|
 
 -   getSdkVersion：获取sdk版本号。
 
