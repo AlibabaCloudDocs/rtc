@@ -5,9 +5,9 @@
 在进行操作前，您需要：
 
 -   获取应用ID，具体操作请参见[创建应用](cn.zh-CN/快速入门/创建应用.md#)。
--   获取AccessKeyId和AccessKeySecret，具体操作请参见[获取AccessKey](../../../../cn.zh-CN/API参考/获取AccessKey.md#)。
+-   获取AppKey，具体操作请参见[查询AppKey](../cn.zh-CN/控制台指南/查询AppKey.md#)。
 
-**警告：** 主账号Accesskey泄露会威胁您所有资源的安全。建议使用子账号（RAM用户）Accesskey进行操作，可有效降低Accesskey泄露的风险。
+**说明：** AppKey是应用的唯一鉴权凭证，请您妥善保管。如果不慎泄露，为避免造成严重损失，请及时[提交工单](https://selfservice.console.aliyun.com/ticket/createIndex)，申请更新AppKey。
 
 1.  根据您的需求下载对应版本的App Server源码，阿里云音视频通信为您提供以下版本。 
     -   [Golang](https://github.com/aliyunvideo/AliRtcAppServer/tree/master/golang#appserver)
@@ -65,29 +65,29 @@
     ```
 
 5.  单击**运行**。
-6.  验证App Server，请单击[AppServer Verification](http://127.0.0.1:8080/app/v1/login?room=1237&user=jzufp&passwd=12345678)。 
+6.  验证App Server，请单击[AppServer Verification](http://ossrs.net/talks/ng_index.html?spm=a2c4g.11186623.2.22.22965188TERfAg#/rtc-check?schema=http&host=127.0.0.1&port=8080&path=%2Fapp%2Fv1%2Flogin&room=1237&user=jzufp&password=12345678)。 
 
     **说明：** 请将App Server`http://127.0.0.1:8080/app/v1/login`替换成`您的AppServer地址:端口/app/v1/login`。
 
     -   App Server启动成功。
 
-        ![AppServer成功](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/170801/156394887951338_zh-CN.png)
+        ![AppServer成功](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/170801/156516651251338_zh-CN.png)
 
     -   App Server未启动，访问失败。
 
-        ![AppServer失败](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/170801/156394888051340_zh-CN.png)
+        ![AppServer失败](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/170801/156516651251340_zh-CN.png)
 
         **说明：** 音视频通信Password并没有提供校验机制，您可以随意填写，建议默认即可。
 
 7.  校验Token，请单击[Token Verification](http://ossrs.net/talks/ng_index.html?spm=a2c4g.11186623.2.22.22965188TERfAg#/token-check?schema=http&host=127.0.0.1&port=8080&path=%2Fapp%2Fv1%2Flogin&room=1237&user=jzufp&password=12345678)。 
     -   校验Token成功。
 
-        ![Token成功](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/170801/156394888051342_zh-CN.png)
+        ![Token成功](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/170801/156516651251342_zh-CN.png)
 
     -   校验Token失败。
 
-        ![Token失败](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/170801/156394888051344_zh-CN.png)
+        ![Token失败](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/170801/156516651351344_zh-CN.png)
 
 
-AliRtcSDK为您提供完整的频道鉴权开发流程，详情请参见[生成频道鉴权令牌](cn.zh-CN/快速入门/生成频道鉴权令牌.md#)。
+阿里云音视频通信为您提供完整的频道鉴权开发流程，详情请参见[生成频道鉴权令牌](cn.zh-CN/快速入门/生成频道鉴权令牌.md#)。
 
