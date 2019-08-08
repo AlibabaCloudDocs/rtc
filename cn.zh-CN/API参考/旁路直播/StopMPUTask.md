@@ -1,43 +1,62 @@
-# StopMPUTask {#reference974 .reference}
+# StopMPUTask {#doc_api_rtc_StopMPUTask .reference}
 
 调用StopMPUTask停止任务。
 
-## 请求参数 { .section}
+## 调试 {#api_explorer .section}
 
-|参数|类型|是否必选|描述|
-|--|--|----|--|
-|Action|String|是|操作接口名，系统规定参数，取值：StopMPUTask。|
-|AppId|String|是|应用ID，创建应用后生成。|
-|TaskId|String|是|任务ID。|
+[您可以在OpenAPI Explorer中直接运行该接口，免去您计算签名的困扰。运行成功后，OpenAPI Explorer可以自动生成SDK代码示例。](https://api.aliyun.com/#product=rtc&api=StopMPUTask&type=RPC&version=2018-01-11)
 
-## 返回参数 { .section}
+## 请求参数 {#parameters .section}
 
-|参数|类型|是否必选|描述|
-|--|--|----|--|
-|RequestId|String|是|该条任务请求Id。|
+|名称|类型|是否必选|示例值|描述|
+|--|--|----|---|--|
+|Action|String|是|StopMPUTask|操作接口名，系统规定参数，取值：**StopMPUTask**。
 
-## 示例 { .section}
+ |
+|AppId|String|是|yourAppId|应用ID，创建应用后生成。
+
+ |
+|TaskId|String|是|yourTaskId|任务ID。
+
+ |
+
+## 返回数据 {#resultMapping .section}
+
+|名称|类型|示例值|描述|
+|--|--|---|--|
+|RequestId|String|760bad53276431c499e30dc36f6b26be|请求ID。
+
+ |
+
+## 示例 {#demo .section}
 
 请求示例
 
-```
-https://rtc.aliyuncs.com?Action=StopMPUTask&AppId=xxxx&TaskId=xxx<公共请求参数>
+``` {#request_demo}
+https://rtc.aliyuncs.com?Action=StopMPUTask
+&AppId=xxxx
+&TaskId=xxx<公共请求参数>
 ```
 
 正常返回示例
 
-`JSON`格式
+`XML` 格式
 
-```language-json
+``` {#xml_return_success_demo}
+<StopMPUTaskResponse>
+	  <RequestId>760bad53276431c499e30dc36f6b26be</RequestId>
+</StopMPUTaskResponse>
+```
+
+`JSON` 格式
+
+``` {#json_return_success_demo}
 {
-  "RequestId": "760bad53276431c499e30dc36f6b26be", 
+	"RequestId":"760bad53276431c499e30dc36f6b26be"
 }
 ```
 
-## 特殊错误码 {#section_9ik_z82_vu9 .section}
+## 错误码 { .section}
 
-|错误ID|错误代码|描述|Http 状态码|语义|
-|----|----|--|--------|--|
-|0x0702000C|InternalError|The request processing has failed due to some unknown error, exception or failure.|500|内部错误。|
-|0x07020010|InternalError|The request processing has failed due to some unknown error, exception or failure.|500|内部错误。|
+访问[错误中心](https://error-center.aliyun.com/status/product/rtc)查看更多错误码。
 
