@@ -1,57 +1,63 @@
-# DeleteChannel {#reference1640 .reference}
+# DeleteChannel {#doc_api_rtc_DeleteChannel .reference}
 
 调用DeleteChannel删除频道。
 
-## 请求参数 { .section}
+## 调试 {#api_explorer .section}
 
-|参数|类型|是否必选|描述|
-|--|--|----|--|
-|Action|String|是|操作接口名，系统规定参数，取值：DeleteChannel。|
-|AppId|String|是|应用ID，通过控制台开通创建。|
-|ChannelId|String|是|频道ID，用户加入的频道。|
+[您可以在OpenAPI Explorer中直接运行该接口，免去您计算签名的困扰。运行成功后，OpenAPI Explorer可以自动生成SDK代码示例。](https://api.aliyun.com/#product=rtc&api=DeleteChannel&type=RPC&version=2018-01-11)
 
-## 返回参数 { .section}
+## 请求参数 {#parameters .section}
 
-|参数|类型|描述|
-|--|--|--|
-|RequestId|String|该条任务请求ID。|
+|名称|类型|是否必选|示例值|描述|
+|--|--|----|---|--|
+|Action|String|是|DeleteChannel|操作接口名，系统规定参数，取值：**DeleteChannel**。
 
-## 示例 { .section}
+ |
+|AppId|String|是|yourAppId|应用ID，通过控制台开通创建。
+
+ |
+|ChannelId|String|是|yourChannelId|频道ID，用户加入的频道。
+
+ |
+
+## 返回数据 {#resultMapping .section}
+
+|名称|类型|示例值|描述|
+|--|--|---|--|
+|RequestId|String|16A96B9A-F203-4EC5-8E43-CB92E68F4CF8|该条任务请求ID。
+
+ |
+
+## 示例 {#demo .section}
 
 请求示例
 
-```
-https://rtc.aliyuncs.com/?Action=DeleteChannel&AppId=xxx&ChannelId=xxx&<公共请求参数>
+``` {#request_demo}
+https://rtc.aliyuncs.com/?Action=DeleteChannel
+&AppId=xxx
+&ChannelId=xxx
+&<公共请求参数>
 ```
 
 正常返回示例
 
-```language-json
+`XML` 格式
+
+``` {#xml_return_success_demo}
+<DeleteChannelResesponse>
+	  <RequestId>16A96B9A-F203-4EC5-8E43-CB92E68F4CF8</RequestId>
+</DeleteChannelResesponse>
+```
+
+`JSON` 格式
+
+``` {#json_return_success_demo}
 {
-    "RequestId":"16A96B9A-F203-4EC5-8E43-CB92E68F4CF8"
+	"RequestId":"16A96B9A-F203-4EC5-8E43-CB92E68F4CF8"
 }
 ```
 
-异常返回示例
+## 错误码 { .section}
 
-```language-json
-{
-    "Code":"InternalError",
-    "HostId":"rtc.aliyuncs.com",
-    "Message":"The request processing has failed due to some unknown error.",
-    "RequestId":"6EBD1AC4-C34D-4AE1-963E-B688A228BE31"
-}
-```
-
-## 特殊错误码 {#section_yc3_8ia_ik0 .section}
-
-|错误代码|描述|Http 状态码|语义|
-|----|--|--------|--|
-|MissingParameter|AppIdis mandatory for this action.|400|AppId缺失。|
-|MissingParameter|ChannelIdis mandatory for this action.|400|ChannelId缺失。|
-|InvalidAppId.ExceedsMaximum|AppId should be less than or equal to 64 bytes.|400|AppId过长。|
-|InvalidChannelId.ExceedsMaximum|ChannelIdshould be less than or equal to 64 bytes.|400|ChannelId过长。|
-|InvalidAppId.NotFound|AppIdnot found.|404|AppId不存在。|
-|InvalidChannelId.NotFound|ChannelIdnot found.|404|ChannelId不存在。|
-|InternalError|The request processing has failed due to some unknown error, exception or failure.|500|内部错误。|
+访问[错误中心](https://error-center.aliyun.com/status/product/rtc)查看更多错误码。
 
