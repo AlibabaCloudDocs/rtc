@@ -16,7 +16,7 @@
 |AppId|String|否|yourAppId|应用ID，通过控制台开通创建，长度最大8个字节，不填则返回该用户下所有应用信息。
 
  |
-|Order|String|否|asc|不填则默认desc取最近记录：
+|Order|String|否|asc|不填则默认desc取最近记录： 、
 
  -   **asc**：递增。
 -   **desc**：递减。
@@ -49,26 +49,29 @@
 |AppName|String|abc|应用名称。
 
  |
-|AppType|String|conference|应用类型。conference：会议；universal：通用型。
+|AppType|String|conference|应用类型。
+
+ -   **conference**：会议。
+-   **universal**：通用型。
 
  |
-|BillType|String|payByDuration|按时长计费：payByDuration。
+|BillType|String|payByDuration|按时长计费：**payByDuration**。
 
  |
 |CreateTime|String|2017-08-30 10:47:25.0|创建时间。
 
  |
-|ServiceAreas| |\[\\"CN\\"\]|服务地区。
+|ServiceAreas| |\["CN"\]|服务地区。
 
  |
 |Status|Integer|1|状态：
 
- -   1：可用。
--   2：停用。
-    -   3：欠费停用。
+ -   **1**：可用。
+-   **2**：停用。
+-   **3**：欠费停用。
 
  |
-|RequestId|String|6159ba01-6687-4fb2-a831-f0cd8d188648|该条任务请求ID。
+|RequestId|String|6159ba01-6687-4fb2-a831-f0cd8d188648|请求ID。
 
  |
 |TotalNum|Integer|2|返回结果数。
