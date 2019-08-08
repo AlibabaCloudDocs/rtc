@@ -1,66 +1,101 @@
-# RemoveTerminals {#reference_264108 .reference}
+# RemoveTerminals {#doc_api_rtc_RemoveTerminals .reference}
 
-调用RemoveTerminals删除指定终端
+调用RemoveTerminals将指定终端用户从频道踢出。
 
-## 请求参数 {#section_m95_rgh_x6c .section}
+## 调试 {#api_explorer .section}
 
-|参数|类型|是否必选|描述|
-|--|--|----|--|
-|Action|String|是|操作接口名，系统规定参数，取值：RemoveTerminals。|
-|AppId|String|是|应用ID，通过控制台开通创建。|
-|ChannelId|String|是|频道Id，用户加入的频道。|
-|TerminalIds|\[\]String|是|终端ID列表。|
+[您可以在OpenAPI Explorer中直接运行该接口，免去您计算签名的困扰。运行成功后，OpenAPI Explorer可以自动生成SDK代码示例。](https://api.aliyun.com/#product=rtc&api=RemoveTerminals&type=RPC&version=2018-01-11)
 
-## 返回参数 {#section_8wp_mw9_0lx .section}
+## 请求参数 {#parameters .section}
 
-|参数|类型|描述|
-|--|--|--|
-|RequestId|String|该条任务请求Id。|
+|名称|类型|是否必选|示例值|描述|
+|--|--|----|---|--|
+|Action|String|是|RemoveTerminals|操作接口名，系统规定参数，取值：**RemoveTerminals**。
 
-Terminals
+ |
+|AppId|String|是|yourAppId|应用ID，通过控制台开通创建。
 
-|参数|类型|描述|
-|--|--|--|
-|Id|String|终端ID。|
-|Code|Int|状态码。|
-|Message|String|删除终端操作结果。|
+ |
+|ChannelId|String|是|yourChannelId|频道Id，用户加入的频道。
 
-## 示例 {#section_0z0_imn_9n2 .section}
+ |
+|TerminalIds.N|RepeatList|是|yourTerminalIds|终端ID列表。
+
+ |
+
+## 返回数据 {#resultMapping .section}
+
+|名称|类型|示例值|描述|
+|--|--|---|--|
+|RequestId|String|16A96B9A-F203-4EC5-8E43-CB92E68F4CD8|请求ID。
+
+ |
+|Terminals| | |终端信息。
+
+ |
+|Code|Integer|0|状态码。
+
+ |
+|Id|String|181131|终端ID。
+
+ |
+|Message|String|Success|删除终端操作结果。
+
+ |
+
+## 示例 {#demo .section}
 
 请求示例
 
-``` {#codeblock_i9t_zmp_up2}
-https://rtc.aliyuncs.com?Action=RemoveTerminals&ChannelId=xxxx&TerminalIds=xxx&AppId=xxxx&<公共请求参数>
+``` {#request_demo}
+https://rtc.aliyuncs.com?Action=RemoveTerminals
+&ChannelId=xxxx
+&Terminals.N=xxx
+&AppId=xxxx
+&<公共请求参数>
 ```
 
 正常返回示例
 
-`JSON`格式
+`XML` 格式
 
-``` {#codeblock_q7s_vvg_326}
+``` {#xml_return_success_demo}
+<RemoveTerminalsResponse>
+	  <RequestId>16A96B9A-F203-4EC5-8E43-CB92E68F4CD8</RequestId>
+	  <Terminals>
+		    <Id>181131</Id>
+		    <Code>0</Code>
+		    <Message>Success</Message>
+	  </Terminals>
+	  <Terminals>
+		    <Id>181131</Id>
+		    <Code>0</Code>
+		    <Message>Success</Message>
+	  </Terminals>
+</RemoveTerminalsResponse>
+```
+
+`JSON` 格式
+
+``` {#json_return_success_demo}
 {
-   "RequestId":"16A96B9A-F203-4EC5-8E43-CB92E68F4CD8",
-   "Terminals":[
-      {
-         "Id":"181131",
-         "Code":0,
-         "Message":"Success"
-      },
-      {
-         "Id":"181131",
-         "Code":0,
-         "Message":"Success"
-      }
-   ]
+	"Terminals":[
+		{
+			"Message":"Success",
+			"Id":"181131",
+			"Code":0
+		},
+		{
+			"Message":"Success",
+			"Id":"181131",
+			"Code":0
+		}
+	],
+	"RequestId":"16A96B9A-F203-4EC5-8E43-CB92E68F4CD8"
 }
 ```
 
-## 特殊错误码 {#section_iie_8xu_g6o .section}
+## 错误码 { .section}
 
-|错误ID|错误代码|描述|Http 状态码|语义|
-|----|----|--|--------|--|
-|0x02030901|MissingParameter|AppIdis mandatory for this action.|400|AppId缺失。|
-|0x02030902|MissingParameter|ChannelIdis mandatory for this action.|400|ChannelId缺失。|
-|0x02030903|MissingParameter|TerminalIdsis mandatory for this action.|400|TerminalIds缺失。|
-|0x02030904|InternalError|The request processing has failed due to some unknown error, exception or failure.|500|内部错误。|
+访问[错误中心](https://error-center.aliyun.com/status/product/rtc)查看更多错误码。
 
