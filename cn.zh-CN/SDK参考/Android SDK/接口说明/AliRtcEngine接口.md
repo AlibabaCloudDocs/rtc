@@ -6,102 +6,102 @@
 
 基础接口
 
-|API|描述|
-|---|--|
-|[setH5CompatibleMode](#)|设置H5兼容模式|
-|[getH5CompatibleMode](#)|检查当前是否兼容H5|
-|[getInstance](#)|创建AliRTCEngine实例（同一时间只会存在一个实例），只能在主线程调用|
-|[setRtcEngineEventListener](#)|设置本地用户行为的回调事件的监听|
-|[setRtcEngineNotify](#)|设置远端用户行为的通知事件的监听|
+|API|描述|以上版本支持|
+|---|--|------|
+|[setH5CompatibleMode](#)|设置H5兼容模式。|1.1|
+|[getH5CompatibleMode](#)|检查当前是否兼容H5。|1.1|
+|[getInstance](#)|创建AliRTCEngine实例（同一时间只会存在一个实例），只能在主线程调用。|1.1|
+|[setRtcEngineEventListener](#)|设置本地用户行为的回调事件的监听。|1.1|
+|[setRtcEngineNotify](#)|设置远端用户行为的通知事件的监听。|1.1|
 
 频道相关接口
 
-|API|描述|
-|---|--|
-|[setAutoPublish](#)|设置是否自动发布，是否自动订阅|
-|[joinChannel](#)|加入频道|
-|[leaveChannel](#)|离开频道|
-|[isInCall](#)|检查当前是否在频道中|
-|[destroy](#)|销毁引擎|
+|API|描述|以上版本支持|
+|---|--|------|
+|[setAutoPublish](#)|设置是否自动发布，是否自动订阅。|1.1|
+|[joinChannel](#)|加入频道。|1.1|
+|[leaveChannel](#)|离开频道。|1.1|
+|[isInCall](#)|检查当前是否在频道中。|1.1|
+|[destroy](#)|销毁引擎。|1.1|
 
 发布相关接口
 
-|API|描述|
-|---|--|
-|[isAutoPublish](#)|查询当前是否为自动发布模式|
-|[configLocalCameraPublish](#)|设置是否允许发布相机流|
-|[isLocalCameraPublishEnabled](#)|查询当前是否允许发布相机流|
-|[configLocalScreenPublish](#)|设置是否允许发布屏幕流|
-|[isLocalScreenPublishEnabled](#)|查询当前是否允许发布屏幕流|
-|[configLocalAudioPublish](#)|设置是否允许发布音频流|
-|[isLocalAudioPublishEnabled](#)|查询当前是否允许发布音频流|
-|[configLocalSimulcast](#)|设置是否允许发布次要视频流|
-|[isLocalSimulcastEnabled](#)|查询当前是否允许发布次要视频流|
-|[publish](#)|手动发布视频和音频流|
+|API|描述|以上版本支持|
+|---|--|------|
+|[isAutoPublish](#)|查询当前是否为自动发布模式。|1.1|
+|[configLocalCameraPublish](#)|设置是否允许发布相机流。|1.1|
+|[isLocalCameraPublishEnabled](#)|查询当前是否允许发布相机流。|1.1|
+|[configLocalScreenPublish](#)|设置是否允许发布屏幕流。|1.1|
+|[isLocalScreenPublishEnabled](#)|查询当前是否允许发布屏幕流。|1.1|
+|[configLocalAudioPublish](#)|设置是否允许发布音频流。|1.1|
+|[isLocalAudioPublishEnabled](#)|查询当前是否允许发布音频流。|1.1|
+|[configLocalSimulcast](#)|设置是否允许发布次要视频流。|1.1|
+|[isLocalSimulcastEnabled](#)|查询当前是否允许发布次要视频流。|1.1|
+|[publish](#)|手动发布视频和音频流。|1.1|
 
 订阅相关接口
 
-|API|描述|
-|---|--|
-|[isAutoSubscribe](#)|查询当前是否为自动订阅模式|
-|[configRemoteCameraTrack](#)|设置是否订阅远端相机流|
-|[configRemoteScreenTrack](#)|设置是否订阅远端屏幕流|
-|[configRemoteAudio](#)|设置是否订阅远端音频流|
-|[subscribe](#)|手动订阅视频和音频流|
+|API|描述|以上版本支持|
+|---|--|------|
+|[isAutoSubscribe](#)|查询当前是否为自动订阅模式。|1.1|
+|[configRemoteCameraTrack](#)|设置是否订阅远端相机流。|1.1|
+|[configRemoteScreenTrack](#)|设置是否订阅远端屏幕流。|1.1|
+|[configRemoteAudio](#)|设置是否订阅远端音频流。|1.1|
+|[subscribe](#)|手动订阅视频和音频流。|1.1|
 
 视频相关接口
 
-|API|描述|
-|---|--|
-|[setVideoProfile](#)|设置视频流参数|
-|[getVideoProfile](#)|查询当前视频流参数|
-|[setLocalViewConfig](#)|为本地预览设置渲染窗口以及绘制参数|
-|[muteLocalCamera](#)|设置是否停止发布本地视频流|
-|[setRemoteViewConfig](#)|为远端的视频设置渲染窗口以及绘制参数|
-|[switchCamera](#)|切换前后摄像头|
-|[getCurrentCameraType](#)|获取当前摄像头类型|
-|[setPreCameraType](#)|预设值摄像头方向|
-|[getPreCameraType](#)|获取预设值摄像头方向|
-|[setCameraZoom](#)|设置摄像头参数|
-|[isCameraOn](#)|检查摄像头是否打开|
+|API|描述|以上版本支持|
+|---|--|------|
+|[setVideoProfile](#)|设置视频流参数。|1.1|
+|[getVideoProfile](#)|查询当前视频流参数。|1.1|
+|[setLocalViewConfig](#)|为本地预览设置渲染窗口以及绘制参数。|1.1|
+|[muteLocalCamera](#)|设置是否停止发布本地视频流。|1.1|
+|[setRemoteViewConfig](#)|为远端的视频设置渲染窗口以及绘制参数。|1.1|
+|[switchCamera](#)|切换前后摄像头。|1.1|
+|[getCurrentCameraType](#)|获取当前摄像头类型。|1.1|
+|[setPreCameraType](#)|预设值摄像头方向。|1.1|
+|[getPreCameraType](#)|获取预设值摄像头方向。|1.1|
+|[setCameraZoom](#)|设置摄像头参数。|1.1|
+|[isCameraOn](#)|检查摄像头是否打开。|1.1|
 
 音频相关接口
 
-|API|描述|
-|---|--|
-|[setAudioOnlyMode](#)|设置纯音频模式还是音视频模式|
-|[isAudioOnly](#)|查询当前是否为纯音频模式|
-|[muteLocalMic](#)|设置是否停止发布本地音频|
-|[muteRemoteAudioPlaying](#)|设置是否停止播放远端音频流|
-|[enableSpeakerphone](#)|切换听筒、扬声器输出|
-|[isSpeakerOn](#)|查询是否开启扬声器|
-|[startAudioCapture](#)|开启音频采集|
-|[stopAudioCapture](#)|关闭音频采集|
-|[startAudioPlayer](#)|开启音频播放|
-|[stopAudioPlayer](#)|关闭音频播放|
+|API|描述|以上版本支持|
+|---|--|------|
+|[setAudioOnlyMode](#)|设置纯音频模式还是音视频模式。|1.1|
+|[isAudioOnly](#)|查询当前是否为纯音频模式。|1.1|
+|[muteLocalMic](#)|设置是否停止发布本地音频。|1.1|
+|[muteRemoteAudioPlaying](#)|设置是否停止播放远端音频流。|1.1|
+|[enableSpeakerphone](#)|切换听筒、扬声器输出。|1.1|
+|[isSpeakerOn](#)|查询是否开启扬声器。|1.1|
+|[startAudioCapture](#)|开启音频采集。|1.11|
+|[stopAudioCapture](#)|关闭音频采集。|1.11|
+|[startAudioPlayer](#)|开启音频播放。|1.11|
+|[stopAudioPlayer](#)|关闭音频播放。|1.11|
 
 预览接口
 
-|API|描述|
-|---|--|
-|[startPreview](#)|开始本地预览|
-|[stopPreview](#)|停止本地预览|
+|API|描述|以上版本支持|
+|---|--|------|
+|[startPreview](#)|开始本地预览。|1.1|
+|[stopPreview](#)|停止本地预览。|1.1|
 
 远端用户查询接口
 
-|API|描述|
-|---|--|
-|[getOnlineRemoteUsers](#)|获取远端在线用户列表|
-|[getUserInfo](#)|查询远端用户信息|
-|[isUserOnline](#)|判断用户是否在线|
-|[getMediaInfoWithUserId](#)|获取媒体流信息|
+|API|描述|以上版本支持|
+|---|--|------|
+|[getOnlineRemoteUsers](#)|获取远端在线用户列表。|1.1|
+|[getUserInfo](#)|查询远端用户信息。|1.1|
+|[isUserOnline](#)|判断用户是否在线。|1.1|
+|[getMediaInfoWithUserId](#)|获取媒体流信息。|1.9|
 
 其他接口
 
-|API|描述|
-|---|--|
-|[setLogLevel](#)|设置log级别|
-|[getSdkVersion](#)|获取sdk版本号|
+|API|描述|以上版本支持|
+|---|--|------|
+|[setLogLevel](#)|设置log级别。|1.1|
+|[getSdkVersion](#)|获取SDK版本号。|1.1|
 
 ## 接口详情 {#section_8vc_ul5_3s7 .section}
 
@@ -115,7 +115,7 @@
 
     |参数|类型|说明|
     |--|--|--|
-    |enable|int|0表示不兼容H5，1表示兼容H5|
+    |enable|int|0表示不兼容H5，1表示兼容H5。|
 
 -   getH5CompatibleMode：检查当前是否兼容H5，返回1表示兼容，0表示不兼容。
 
@@ -133,7 +133,7 @@
 
     |参数|类型|说明|
     |--|--|--|
-    |context|Context|上下文|
+    |context|Context|上下文。|
 
 -   setRtcEngineEventListener：设置本地用户行为的回调事件的监听。
 
@@ -145,7 +145,7 @@
 
     |参数|类型|说明|
     |--|--|--|
-    |listener|AliRtcEngineEventListener|接收回调事件的监听器|
+    |listener|AliRtcEngineEventListener|接收回调事件的监听器。|
 
 -   setRtcEngineNotify：设置远端用户行为的通知事件的监听。
 
@@ -157,7 +157,7 @@
 
     |参数|类型|说明|
     |--|--|--|
-    |engineNotify|AliRtcEngineNotify|接收通知的监听器|
+    |engineNotify|AliRtcEngineNotify|接收通知的监听器。|
 
 -   setAutoPublish：设置是否自动发布，是否自动订阅。默认是自动发布和订阅，必须在joinChannel之前设置。
 
@@ -165,8 +165,8 @@
 
     |参数|类型|说明|
     |--|--|--|
-    |autoPub|boolean|true表示自动发布；false表示手动发布|
-    |autoSub|boolean|true表示自动订阅；false表示手动订阅|
+    |autoPub|boolean|true表示自动发布；false表示手动发布。|
+    |autoSub|boolean|true表示自动订阅；false表示手动订阅。|
 
 -   joinChannel：加入频道。
 
@@ -180,8 +180,8 @@
 
     |参数|类型|说明|
     |--|--|--|
-    |authInfo|[AliRtcAuthInfo](cn.zh-CN/SDK参考/Android SDK/接口说明/数据类型.md#)|鉴权信息，从App Server下发，APP Server可通过OpenAPI获取|
-    |userName|String|用户的显示名称，不是uid|
+    |authInfo|[AliRtcAuthInfo](cn.zh-CN/SDK参考/Android SDK/接口说明/数据类型.md#)|鉴权信息，从App Server下发，APP Server可通过API获取。|
+    |userName|String|用户的显示名称，不是uid。|
 
 -   leaveChannel：离开频道。
 
@@ -229,7 +229,7 @@
 
     |参数|类型|说明|
     |--|--|--|
-    |enable|boolean|true为允许发布相机流；false表示不允许|
+    |enable|boolean|true为允许发布相机流；false表示不允许。|
 
 -   isLocalCameraPublishEnabled：查询当前是否允许发布相机流，返回true为允许，false为不允许。
 
@@ -247,7 +247,7 @@
 
     |参数|类型|说明|
     |--|--|--|
-    |enable|boolean|true表示允许发布屏幕流；false表示不允许|
+    |enable|boolean|true表示允许发布屏幕流；false表示不允许。|
 
 -   isLocalScreenPublishEnabled：查询当前是否允许发布屏幕流，返回true为允许，false为不允许。
 
@@ -265,7 +265,7 @@
 
     |参数|类型|说明|
     |--|--|--|
-    |enable|boolean|true表示允许；false表示不允许|
+    |enable|boolean|true表示允许；false表示不允许。|
 
 -   isLocalAudioPublishEnabled：查询当前是否允许发布音频流，返回true为允许，false为不允许。
 
@@ -283,8 +283,8 @@
 
     |参数|类型|说明|
     |--|--|--|
-    |enable|boolean|true表示允许发布次要流，false表示不允许|
-    |track|[AliRtcVideoTrack](cn.zh-CN/SDK参考/Android SDK/接口说明/数据类型.md#)|流类型，当前只支持相机流：AliVideoTrackCamera|
+    |enable|boolean|true表示允许发布次要流，false表示不允许。|
+    |track|[AliRtcVideoTrack](cn.zh-CN/SDK参考/Android SDK/接口说明/数据类型.md#)|流类型，当前只支持相机流：AliVideoTrackCamera。|
 
 -   isLocalSimulcastEnabled：查询当前是否允许发布次要视频流，返回true为允许，false为不允许。
 
@@ -318,9 +318,9 @@
 
     |参数|类型|说明|
     |--|--|--|
-    |uid|String|用户ID，从App server分配的唯一标示符|
-    |master|boolean|是否优先订阅大流1\)master为YES，则订阅大流2\)master为NO，则订阅次小流|
-    |enable|boolean|true为订阅远端相机流，false为停止订阅远端相机流|
+    |uid|String|用户ID，从App server分配的唯一标示符。|
+    |master|boolean|是否优先订阅大流。true为订阅大流；false为订阅次小流。|
+    |enable|boolean|true为订阅远端相机流，false为停止订阅远端相机流。|
 
 -   configRemoteScreenTrack：设置是否订阅远端屏幕流。默认为不订阅远端屏幕流，手动订阅时，需要调用subscribe才能生效。
 
@@ -332,8 +332,8 @@
 
     |参数|类型|说明|
     |--|--|--|
-    |uid|String|用户ID，从App server分配的唯一标示符|
-    |enable|boolean|true为订阅远端屏幕流，false为停止订阅远端屏幕流|
+    |uid|String|用户ID，从App server分配的唯一标示符。|
+    |enable|boolean|true为订阅远端屏幕流，false为停止订阅远端屏幕流。|
 
 -   configRemoteAudio：设置是否订阅远端音频流。默认为订阅远端音频流，手动订阅时，需要调用subscribe才能生效。
 
@@ -345,8 +345,8 @@
 
     |参数|类型|说明|
     |--|--|--|
-    |uid|String|用户ID，从App server分配的唯一标示符|
-    |enable|boolean|true为订阅远端音频流，false为停止订阅远端音频流|
+    |uid|String|用户ID，从App server分配的唯一标示符。|
+    |enable|boolean|true为订阅远端音频流，false为停止订阅远端音频流。|
 
 -   subscribe：手动订阅视频和音频流。返回为0时说明接口执行正常，但是否订阅成功还得看回调结果；返回为非0时，说明接口执行异常中断，订阅失败。
 
@@ -362,7 +362,7 @@
 
     |参数|类型|说明|
     |--|--|--|
-    |uid|String|用户ID，从App server分配的唯一标示符|
+    |uid|String|用户ID，从App server分配的唯一标示符。|
 
 -   setVideoProfile：设置视频流参数。
 
@@ -374,8 +374,8 @@
 
     |参数|类型|说明|
     |--|--|--|
-    |profile|[AliRtcVideoProfile](cn.zh-CN/SDK参考/Android SDK/接口说明/数据类型.md#)|视频流参数|
-    |track|[AliRtcVideoTrack](cn.zh-CN/SDK参考/Android SDK/接口说明/数据类型.md#)|需要设置的视频流类型|
+    |profile|[AliRtcVideoProfile](cn.zh-CN/SDK参考/Android SDK/接口说明/数据类型.md#)|视频流参数。|
+    |track|[AliRtcVideoTrack](cn.zh-CN/SDK参考/Android SDK/接口说明/数据类型.md#)|需要设置的视频流类型。|
 
 -   getVideoProfile：查询当前视频流参数。
 
@@ -387,7 +387,7 @@
 
     |参数|类型|说明|
     |--|--|--|
-    |track|[AliRtcVideoTrack](cn.zh-CN/SDK参考/Android SDK/接口说明/数据类型.md#)|需要查询的视频流类型|
+    |track|[AliRtcVideoTrack](cn.zh-CN/SDK参考/Android SDK/接口说明/数据类型.md#)|需要查询的视频流类型。|
 
 -   setLocalViewConfig：为本地预览设置渲染窗口以及绘制参数。
 
@@ -402,8 +402,8 @@
 
     |参数|类型|说明|
     |--|--|--|
-    |viewConfig|[AliVideoCanvas](cn.zh-CN/SDK参考/Android SDK/接口说明/数据类型.md#)|渲染参数，包含渲染窗口以及渲染方式|
-    |track|[AliRtcVideoTrack](cn.zh-CN/SDK参考/Android SDK/接口说明/数据类型.md#)|预览只允许AliVideoTrackCamera|
+    |viewConfig|[AliVideoCanvas](cn.zh-CN/SDK参考/Android SDK/接口说明/数据类型.md#)|渲染参数，包含渲染窗口以及渲染方式。|
+    |track|[AliRtcVideoTrack](cn.zh-CN/SDK参考/Android SDK/接口说明/数据类型.md#)|预览只允许AliVideoTrackCamera。|
 
 -   muteLocalCamera：设置是否停止发布本地视频流。不改变当前视频流的采集状态。
 
@@ -415,8 +415,8 @@
 
     |参数|类型|说明|
     |--|--|--|
-    |mute|boolean|true表示停止发布视频流；false表示恢复发布|
-    |track|[AliRtcVideoTrack](cn.zh-CN/SDK参考/Android SDK/接口说明/数据类型.md#)|需要改变发布状态的videoTrack类型|
+    |mute|boolean|true表示停止发布视频流；false表示恢复发布。|
+    |track|[AliRtcVideoTrack](cn.zh-CN/SDK参考/Android SDK/接口说明/数据类型.md#)|需要改变发布状态的videoTrack类型。|
 
 -   setRemoteViewConfig：为远端的视频设置渲染窗口以及绘制参数。
 
@@ -431,9 +431,9 @@
 
     |参数|类型|说明|
     |--|--|--|
-    |canvas|[AliVideoCanvas](cn.zh-CN/SDK参考/Android SDK/接口说明/数据类型.md#)|渲染参数，包含渲染窗口以及渲染方式|
-    |uid|String|用户ID，从App server分配的唯一标示符|
-    |track|[AliRtcVideoTrack](cn.zh-CN/SDK参考/Android SDK/接口说明/数据类型.md#)|需要设置的videoTrack类型|
+    |canvas|[AliVideoCanvas](cn.zh-CN/SDK参考/Android SDK/接口说明/数据类型.md#)|渲染参数，包含渲染窗口以及渲染方式。|
+    |uid|String|用户ID，从App server分配的唯一标示符。|
+    |track|[AliRtcVideoTrack](cn.zh-CN/SDK参考/Android SDK/接口说明/数据类型.md#)|需要设置的videoTrack类型。|
 
 -   switchCamera：切换前后摄像头，返回0为切换成功，其他为切换失败。
 
@@ -457,7 +457,7 @@
 
     |参数|类型|说明|
     |--|--|--|
-    |faceTo|int|0表示后置，1表示前置|
+    |faceTo|int|0表示后置，1表示前置。|
 
 -   getPreCameraType：获取预设值摄像头方向。返回0为后置摄像头，1为前置摄像头。
 
@@ -475,9 +475,9 @@
 
     |参数|类型|说明|
     |--|--|--|
-    |zoom|float|zoom变焦的级别|
-    |flash|boolean|是否打开闪光灯|
-    |autoFocus|boolean|是否打开自动对焦|
+    |zoom|float|zoom变焦的级别。|
+    |flash|boolean|是否打开闪光灯。|
+    |autoFocus|boolean|是否打开自动对焦。|
 
 -   isCameraOn：检查摄像头是否打开。返回true表示摄像头已打开，false表示摄像头未打开。
 
@@ -495,7 +495,7 @@
 
     |参数|类型|说明|
     |--|--|--|
-    |audioOnly|boolean|true表示只有音频发布和订阅；false表示音视频都支持|
+    |audioOnly|boolean|true表示只有音频发布和订阅；false表示音视频都支持。|
 
 -   isAudioOnly：查询当前是否为纯音频模式，返回true为纯音频，false为音视频。
 
@@ -513,7 +513,7 @@
 
     |参数|类型|说明|
     |--|--|--|
-    |mute|boolean|true表示停止发布本地音频；false表示恢复发布|
+    |mute|boolean|true表示停止发布本地音频；false表示恢复发布。|
 
 -   muteRemoteAudioPlaying：设置是否停止播放远端音频流，返回0表示设置成功，-1表示设置失败。
 
@@ -525,8 +525,8 @@
 
     |参数|类型|说明|
     |--|--|--|
-    |uid|String|用户ID，从App server分配的唯一标示符|
-    |mute|boolean|true表示停止播放；false表示恢复播放|
+    |uid|String|用户ID，从App server分配的唯一标示符。|
+    |mute|boolean|true表示停止播放；false表示恢复播放。|
 
 -   enableSpeakerphone：切换听筒、扬声器输出。
 
@@ -538,7 +538,7 @@
 
     |参数|类型|说明|
     |--|--|--|
-    |enable|boolean|true为扬声器模式；false为听筒模式|
+    |enable|boolean|true为扬声器模式；false为听筒模式。|
 
 -   isSpeakerOn：查询是否开启扬声器。返回true表示已开启扬声器，false表示未开启扬声器。
 
@@ -598,7 +598,7 @@
 
     |参数|类型|说明|
     |--|--|--|
-    |uid|String|用户ID，从App server分配的唯一标示符|
+    |uid|String|用户ID，从App server分配的唯一标示符。|
 
 -   isUserOnline：查询用户是否在线，返回true表示在线，false表示不在线。
 
@@ -610,7 +610,7 @@
 
     |参数|类型|说明|
     |--|--|--|
-    |uid|String|用户ID，从App server分配的唯一标示符|
+    |uid|String|用户ID，从App server分配的唯一标示符。|
 
 -   getMediaInfoWithUserId：获取媒体流信息。
 
@@ -622,9 +622,9 @@
 
     |参数|类型|说明|
     |--|--|--|
-    |userId|String|用户的userId|
-    |track|[AliRtcVideoTrack](cn.zh-CN/SDK参考/Android SDK/接口说明/数据类型.md#)|需要查询的媒体流类型|
-    |keys|String\[\]|查询key值数组|
+    |userId|String|用户的userId。|
+    |track|[AliRtcVideoTrack](cn.zh-CN/SDK参考/Android SDK/接口说明/数据类型.md#)|需要查询的媒体流类型。|
+    |keys|String\[\]|查询key值数组。|
 
 -   setLogLevel：设置log级别。
 
@@ -636,9 +636,9 @@
 
     |参数|类型|说明|
     |--|--|--|
-    |logLevel|[AliRtcLogLevel](cn.zh-CN/SDK参考/Android SDK/接口说明/数据类型.md#)|log级别|
+    |logLevel|[AliRtcLogLevel](cn.zh-CN/SDK参考/Android SDK/接口说明/数据类型.md#)|log级别。|
 
--   getSdkVersion：获取sdk版本号。
+-   getSdkVersion：获取SDK版本号。
 
     ``` {#codeblock_wms_y5j_6tk .language-java}
     public abstract String getSdkVersion()                   
