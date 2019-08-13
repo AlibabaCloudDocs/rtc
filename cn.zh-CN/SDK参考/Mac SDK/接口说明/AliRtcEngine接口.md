@@ -74,7 +74,7 @@
 |[setCurrentAudioCapture](#)|选择音频采集设备。|1.1|
 |[getAudioRenderers](#)|获取音频播放设备列表。|1.1|
 |[getCurrentAudioRenderer](#)|获取当前使用的音频播放设备。|1.1|
-|[setCurrentAudioRenderer](#)|选择音频播放设备。| |
+|[setCurrentAudioRenderer](#)|选择音频播放设备。|1.1|
 |[startAudioCapture](#)|开启音频采集。|1.11|
 |[stopAudioCapture](#)|关闭音频采集。|1.11|
 |[startAudioPlayer](#)|开启音频播放。|1.11|
