@@ -6,74 +6,75 @@
 
 基础接口
 
-|API|描述|
-|---|--|
-|[isSupport](#)|检测浏览器是否支持|
-|[getDevices](#)|获取设备信息|
-|[getAvailableResolutions](#)|获取可支持的分辨率|
+|API|描述|以上版本支持|
+|---|--|------|
+|[isSupport](#)|检测浏览器是否支持。|1.7|
+|[getDevices](#)|获取设备信息。|1.2|
+|[getAvailableResolutions](#)|获取可支持的分辨率。|1.2|
 
 频道相关接口
 
-|API|描述|
-|---|--|
-|[joinChannel](#)|加入频道|
-|[leaveChannel](#)|离开频道|
+|API|描述|以上版本支持|
+|---|--|------|
+|[joinChannel](#)|加入频道。|1.2|
+|[leaveChannel](#)|离开频道。|1.2|
 
 发布相关接口
 
-|API|描述|
-|---|--|
-|[configLocalAudioPublish](#)|设置是否允许发布音频流|
-|[configLocalCameraPublish](#)|设置是否允许发布相机流|
-|[configLocalScreenPublish](#)|设置是否允许发布屏幕共享流|
-|[publish](#)|发布本地视频流|
-|[unPublish](#)|结束发布本地流|
+|API|描述|以上版本支持|
+|---|--|------|
+|[configLocalAudioPublish](#)|设置是否允许发布音频流。|1.9|
+|[configLocalCameraPublish](#)|设置是否允许发布相机流。|1.9|
+|[configLocalScreenPublish](#)|设置是否允许发布屏幕共享流。|1.9|
+|[publish](#)|发布本地视频流。|1.2|
+|[unPublish](#)|结束发布本地流。|1.2|
 
 订阅相关接口
 
-|API|描述|
-|---|--|
-|[configRemoteAudio](#)|设置是否订阅远端音频流|
-|[configRemoteCameraTrack](#)|设置是否订阅远端相机流|
-|[configRemoteScreenTrack](#)|设置是否订阅远端屏幕流|
-|[subscribe](#)|订阅远程发布流|
-|[unSubscribe](#)|取消订阅该用户所有的流|
+|API|描述|以上版本支持|
+|---|--|------|
+|[configRemoteAudio](#)|设置是否订阅远端音频流。|1.9|
+|[configRemoteCameraTrack](#)|设置是否订阅远端相机流。|1.9|
+|[configRemoteScreenTrack](#)|设置是否订阅远端屏幕流。|1.9|
+|[subscribe](#)|订阅远程发布流。|1.2|
+|[unSubscribe](#)|取消订阅该用户所有的流。|1.2|
 
 视频相关接口
 
-|API|描述|
-|---|--|
-|[currentCamera](#)|指定摄像头设备|
-|[videoProfile](#)|指定帧率和分辨率设备|
-|[muteLocalCamera](#)|是否停止本地视频采集|
+|API|描述|以上版本支持|
+|---|--|------|
+|[currentCamera](#)|指定摄像头设备。|1.9|
+|[videoProfile](#)|指定帧率和分辨率设备。|1.9|
+|[muteLocalCamera](#)|是否停止本地视频采集。|1.2|
+|[setDisplayRemoteVideo](#)|为远端的视频设置渲染窗口以及绘制参数。|1.5|
 
 音频相关接口
 
-|API|描述|
-|---|--|
-|[currentAudioCapture](#)|指定麦克风设备|
-|[muteLocalMic](#)|是否停止本地音频采集|
+|API|描述|以上版本支持|
+|---|--|------|
+|[currentAudioCapture](#)|指定麦克风设备。|1.9|
+|[muteLocalMic](#)|是否停止本地音频采集。|1.2|
 
 预览接口
 
-|API|描述|
-|---|--|
-|[startPreview](#)|预览本地摄像头|
-|[stopPreview](#)|结束预览本地摄像头|
+|API|描述|以上版本支持|
+|---|--|------|
+|[startPreview](#)|预览本地摄像头。|1.2|
+|[stopPreview](#)|结束预览本地摄像头。|1.2|
 
 远端用户查询接口
 
-|API|描述|
-|---|--|
-|[getUserList](#)|获取当前房间在线用户|
-|[getUserInfo](#)|获取用户信息|
+|API|描述|以上版本支持|
+|---|--|------|
+|[getUserList](#)|获取当前房间在线用户。|1.9|
+|[getUserInfo](#)|获取用户信息。|1.9|
 
 其他接口
 
-|API|描述|
-|---|--|
-|[on](#)|订阅事件|
-|[off](#)|取消订阅事件|
+|API|描述|以上版本支持|
+|---|--|------|
+|[on](#)|订阅事件。|1.2|
+|[off](#)|取消订阅事件。|1.2|
 
 ## 接口详情 {#section_eh0_lef_s32 .section}
 
@@ -93,14 +94,14 @@ AliRtcSDK Web端接口信息如下所示。
 
     |参数|类型|描述|
     |--|--|--|
-    |audioDevice|Boolean|true表示音频设备可用，false表示音频设备不可用|
-    |browser|String|浏览器名称|
-    |browser\_version|String|浏览器版本|
-    |isSupported|Boolean|是否支持webRTC|
-    |message|String|错误信息|
-    |supportH264|Boolean|true表示支持H264，false表示不支持H264|
-    |supportScreenShare|Boolean|true表示支持屏幕分享，false表示不支持屏幕分享|
-    |videoDevice|Boolean|true表示支持摄像头可用，false表示摄像头不可用|
+    |audioDevice|Boolean|true表示音频设备可用，false表示音频设备不可用。|
+    |browser|String|浏览器名称。|
+    |browser\_version|String|浏览器版本。|
+    |isSupported|Boolean|是否支持webRTC。|
+    |message|String|错误信息。|
+    |supportH264|Boolean|true表示支持H264，false表示不支持H264。|
+    |supportScreenShare|Boolean|true表示支持屏幕分享，false表示不支持屏幕分享。|
+    |videoDevice|Boolean|true表示支持摄像头可用，false表示摄像头不可用。|
 
 -   getDevices\(\)：获取设备信息，返回摄像头和音频输入设备，在Safari浏览器下面，如果外接设备重插拔后获取不到，请尝试重新启动电脑。
 
@@ -124,7 +125,7 @@ AliRtcSDK Web端接口信息如下所示。
 
     |参数|类型|描述|
     |--|--|--|
-    |deviceId|String|摄像头ID|
+    |deviceId|String|摄像头ID。|
 
 -   joinChannel\(config,displayName\)：加入频道。
 
@@ -148,14 +149,14 @@ AliRtcSDK Web端接口信息如下所示。
 
     |参数|类型|描述|
     |--|--|--|
-    |config|—|Object|鉴权频道信息|
-    |userid|String|用户ID（只能包含数字和字母）|
-    |channel|String|频道|
-    |appid|String|应用ID|
-    |nonce|String|nonce|
-    |timestamp|String|时间戳|
-    |gslb|Array|Global Server Load Balancing（简称gslb）|
-    |displayName|String|用户名字|
+    |config|—|Object|鉴权频道信息。|
+    |userid|String|用户ID（只能包含数字和字母）。|
+    |channel|String|频道。|
+    |appid|String|应用ID。|
+    |nonce|String|nonce。|
+    |timestamp|String|时间戳。|
+    |gslb|Array|Global Server Load Balancing（简称gslb）。|
+    |displayName|String|用户名字。|
 
 -   leaveChannel\(\)：离开频道。
 
@@ -178,7 +179,7 @@ AliRtcSDK Web端接口信息如下所示。
 
     |参数|类型|描述|
     |--|--|--|
-    |enable|Boolean|true表示允许发布音频流；false表示不允许|
+    |enable|Boolean|true表示允许发布音频流；false表示不允许。|
 
 -   configLocalCameraPublish：设置是否允许发布相机流。
 
@@ -192,7 +193,7 @@ AliRtcSDK Web端接口信息如下所示。
 
     |参数|类型|描述|
     |--|--|--|
-    |enable|Boolean|true表示允许发布音频流，false表示不允许|
+    |enable|Boolean|true表示允许发布音频流，false表示不允许。|
 
 -   configLocalScreenPublish：设置是否允许发布屏幕共享流。
 
@@ -206,7 +207,7 @@ AliRtcSDK Web端接口信息如下所示。
 
     |参数|类型|描述|
     |--|--|--|
-    |enable|Boolean|true表示允许发布音频流；false表示不允许|
+    |enable|Boolean|true表示允许发布音频流；false表示不允许。|
 
 -   publish\(\)：发布本地视频流，如果需要让远程订阅本地的流，需要调用publish接口，发布本地流，远程会接收到onPublisher事件。
 
@@ -238,8 +239,8 @@ AliRtcSDK Web端接口信息如下所示。
 
     |参数|类型|描述|
     |--|--|--|
-    |userId|String|用户ID|
-    |enable|Boolean|true为订阅远端音频流，false为停止订阅远端音频流|
+    |userId|String|用户ID。|
+    |enable|Boolean|true为订阅远端音频流，false为停止订阅远端音频流。|
 
 -   configRemoteCameraTrack：设置是否订阅远端相机流。
 
@@ -255,9 +256,9 @@ AliRtcSDK Web端接口信息如下所示。
 
     |参数|类型|描述|
     |--|--|--|
-    |userId|String|用户ID|
-    |preferMaster|Boolean|是否优先订阅大流。true为订阅大流，false为订阅次小流|
-    |enable|Boolean|true为订阅远端相机流，false为停止订阅远端相机流|
+    |userId|String|用户ID。|
+    |preferMaster|Boolean|是否优先订阅大流。true为订阅大流，false为订阅次小流。|
+    |enable|Boolean|true为订阅远端相机流，false为停止订阅远端相机流。|
 
 -   configRemoteScreenTrack：设置是否订阅远端屏幕流。
 
@@ -271,8 +272,8 @@ AliRtcSDK Web端接口信息如下所示。
 
     |参数|类型|描述|
     |--|--|--|
-    |userId|String|用户ID|
-    |enable|Boolean|true为订阅远端屏幕流，false为停止订阅远端屏幕流|
+    |userId|String|用户ID。|
+    |enable|Boolean|true为订阅远端屏幕流，false为停止订阅远端屏幕流。|
 
 -   subscribe\(userId\)：订阅远程发布流，通过subscirbe方法可以订阅远程的流，默认订阅相机流和音频流，可以通过调用configRemoteAudio、configRemoteCameraTrack、configRemoteScreenTrack来设置订阅内容。
 
@@ -287,7 +288,7 @@ AliRtcSDK Web端接口信息如下所示。
 
     |参数|类型|描述|
     |--|--|--|
-    |userId|String|用户ID|
+    |userId|String|用户ID。|
 
 -   unSubscribe\(userId\)：取消订阅该用户所有的流。
 
@@ -302,7 +303,7 @@ AliRtcSDK Web端接口信息如下所示。
 
     |参数|类型|描述|
     |--|--|--|
-    |userId|String|用户ID|
+    |userId|String|用户ID。|
 
 -   currentCamera：指定摄像头设备。
 
@@ -321,7 +322,7 @@ AliRtcSDK Web端接口信息如下所示。
 
     |参数|类型|描述|
     |--|--|--|
-    |deviceId|String|摄像头ID|
+    |deviceId|String|摄像头ID。|
 
 -   videoProfile：指定帧率和分辨率设备。
 
@@ -337,9 +338,9 @@ AliRtcSDK Web端接口信息如下所示。
 
     |参数|类型|描述|
     |--|--|--|
-    |frameRate|int|帧率|
-    |width|int|视频宽度|
-    |height|int|设备高度|
+    |frameRate|int|帧率。|
+    |width|int|视频宽度。|
+    |height|int|设备高度。|
 
 -   muteLocalCamera\(mute\)：是否停止本地视频采集。
 
@@ -351,7 +352,17 @@ AliRtcSDK Web端接口信息如下所示。
 
     |参数|类型|描述|
     |--|--|--|
-    |mute|Boolean|true为视频采集，false为恢复正常|
+    |mute|Boolean|true为视频采集，false为恢复正常。|
+
+-   setDisplayRemoteVideo：为远端的视频设置渲染窗口以及绘制参数。
+
+    ``` {#codeblock_j0i_26z_om5}
+    aliwebrtc.setDisplayRemoteVideo(
+        subscriber,        // onMediaStream中返回的参数
+        video,               // html中用于显示stream对象的video元素
+        stream             // onMediaStream中返回的参数
+    )
+    ```
 
 -   currentAudioCapture：指定麦克风设备。
 
@@ -365,7 +376,7 @@ AliRtcSDK Web端接口信息如下所示。
 
     |参数|类型|描述|
     |--|--|--|
-    |deviceId|String|麦克风ID|
+    |deviceId|String|麦克风ID。|
 
 -   muteLocalMic\(mute\)：是否停止本地音频采集。
 
@@ -377,7 +388,7 @@ AliRtcSDK Web端接口信息如下所示。
 
     |参数|类型|描述|
     |--|--|--|
-    |mute|Boolean|true为停止视频采集，false为恢复正常|
+    |mute|Boolean|true为停止视频采集，false为恢复正常。|
 
 -   startPreview\(video\)：预览本地摄像头，通过video标签播放。
 
@@ -409,8 +420,8 @@ AliRtcSDK Web端接口信息如下所示。
 
     |参数|类型|描述|
     |--|--|--|
-    |displayName|String|用户名称|
-    |userId|String|用户ID|
+    |displayName|String|用户名称。|
+    |userId|String|用户ID。|
 
 -   getUserInfo\(userId\)：获取用户信息。
 
@@ -422,13 +433,13 @@ AliRtcSDK Web端接口信息如下所示。
 
     |参数| |类型|描述|
     |--|--|--|--|
-    |displayName|String|用户名称|
-    |streamConfigs|——|Array|音视频流数组|
-    |label|String|流标签|
-    |state|String|active表示流可用，inactive表示流不可用|
-    |subscribed|Boolean|true表示已订阅，false表示未订阅|
-    |type|String|audio表示音频，video表示视频|
-    |userId|String|用户ID|
+    |displayName|String|用户名称。|
+    |streamConfigs|——|Array|音视频流数组。|
+    |label|String|流标签。|
+    |state|String|active表示流可用，inactive表示流不可用。|
+    |subscribed|Boolean|true表示已订阅，false表示未订阅。|
+    |type|String|audio表示音频，video表示视频。|
+    |userId|String|用户ID。|
 
 -   on\(name, handler\)：订阅事件。
 
@@ -436,8 +447,8 @@ AliRtcSDK Web端接口信息如下所示。
 
     |参数|类型|描述|
     |--|--|--|
-    |name|String|事件名字|
-    |handler|String|处理事件的方法|
+    |name|String|事件名字。|
+    |handler|String|处理事件的方法。|
 
 -   off\(name, handler\)：取消订阅事件。
 
@@ -445,7 +456,7 @@ AliRtcSDK Web端接口信息如下所示。
 
     |参数|类型|描述|
     |--|--|--|
-    |name|String|事件名字|
-    |handler|String|处理事件的方法|
+    |name|String|事件名字。|
+    |handler|String|处理事件的方法。|
 
 
