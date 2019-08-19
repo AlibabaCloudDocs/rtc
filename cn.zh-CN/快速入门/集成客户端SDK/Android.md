@@ -6,9 +6,9 @@
 
 |类别|说明|
 |--|--|
-|系统版本|最低支持Android 4.1|
+|系统版本|支持Android 4.1及以上|
 |API版本|不低于16|
-|CPU架构|支持真机架构armeabi、armeabi-v7a|
+|CPU架构|支持真机架构armeabi、armeabi-v7a、arm64-v8a|
 
 您需要下载[Android SDK](http://docs-aliyun.cn-hangzhou.oss.aliyun-inc.com/assets/attach/125204/cn_zh/1564562210629/AliRTCSdk_1.11.5.1907174.zip)。解压后的文件需导入到Android Studio工程libs文件下，文件类型如下表所示。
 
@@ -24,29 +24,37 @@
 
     **说明：** 本文档的Android Studio版本为3.4.1。
 
-    ![创建Project](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/763460/156457359950610_zh-CN.png)
+    ![创建Project](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/763460/156620795150610_zh-CN.png)
 
 2.  把解压的SDK文件导入到app/libs目录下。 
 
-    ![引jar包](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/763460/156457359950658_zh-CN.png)
+    ![引jar包](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/763460/156620795150658_zh-CN.png)
 
 3.  在app/src/build.gradle文件中添加如下配置。 
 
     ``` {#codeblock_ch2_k58_64e .language-json}
     android {
-        ...
-        repositories {
-            flatDir {
-                dirs 'libs'
-            }
-        }
+       ...
+       defaultConfig{
+            ...
+            ndk {
+              abiFilters  "armeabi", "armeabi-v7a", "arm64-v8a"
+           }
+            ...
+        } 
+       ...
+       repositories {
+          flatDir {
+            dirs 'libs'
+          }
+       }
     }
-    dependencies {
+    dependencies {  
     implementation fileTree(dir: 'libs', include: ['*.jar','*.aar'])
     ...
     ```
 
-    ![配置build.gradle](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/763460/156457359950719_zh-CN.png)
+    ![配置build.gradle](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/763460/156620795150719_zh-CN.png)
 
 4.  在app/src/main/AndroidManifest.xml文件中添加摄像头、麦克风、网络，访问存储权限。在代码里面需要添加动态权限申请。 
 
