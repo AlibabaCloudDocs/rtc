@@ -24,15 +24,16 @@
 
 2.  运行。 
 
-    **说明：** Mac端Demo如果使用Mac mini等不包含自带摄像头和麦克风的设备，需要插入外置摄像头和麦克风。系统版本最低支持macOS 10.12。
+    **说明：** Mac端Demo如果使用Mac mini等不包含自带摄像头和麦克风的设备，需要插入外置摄像头和麦克风。系统版本支持macOS 10.12及以上。
 
-    1.  Demo运行成功进入首页，输入相应频道号，单击确定按钮，进入下一页面。 
+    1.  Demo运行成功进入首页，输入频道号，单击**确定**，进入下一页面。 
 
-        ![Mac Demo](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/170948/156462389449638_zh-CN.png)
+        ![Mac Demo](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/170948/156627559349638_zh-CN.png)
 
-    2.  进入频道页面后，可以看到本地已经开启的预览视图。单击开始按钮加入频道，如果该频道中有其他用户即可开始实时音视频通话。 
+    2.  进入频道页面后，可以看到本地已经开启的预览视图。单击**开始**加入频道，如果该频道中有其他用户即可开始实时音视频通话。 
 
-        ![Mac Demo](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/170948/156462389549639_zh-CN.png)
+        ![Mac Demo](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/170948/156627559349639_zh-CN.png)
 
-    3.  您可以单击屏幕共享按钮把自己的屏幕分享给远端用户。
+        您也可以单击**屏幕共享**把自己的屏幕分享给远端用户。
+
 
