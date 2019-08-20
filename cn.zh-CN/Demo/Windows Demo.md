@@ -18,13 +18,20 @@
 
     **说明：** Windows端Demo如果使用不包含自带摄像头和麦克风的设备，需要插入外置摄像头和麦克风。系统支持Windows XP（SP3）、Windows 7、Windows 8.X、Windows 10，不支持Windows XP（SP3）以下版本。
 
-    1.  Demo运行成功进入首页，输入相应频道号，单击确定按钮，进入下一页面。 
+    1.  Demo运行成功进入首页，单击**设置**进入参数设置界面，输入您的AppServer地址，例如：https://xxx.com/app/v1/。 
 
-        ![Windows Demo](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/170947/156462388649615_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/170947/156627558356334_zh-CN.png)
 
-    2.  进入频道页面后，可以看到本地已经开启的预览视图。单击开始按钮加入频道，如果该频道中有其他用户，即可开始实时音视频通话。 
+        如果您想和Web端连接，请勾选**兼容H5模式**。推视频请勾选**视频流**，推音频请勾选**音频流**。
 
-        ![Windows Demo](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/170947/156462388649616_zh-CN.png)
+    2.  关闭设置页面，在首页输入相应频道号和用户名，单击**创建/加入房间**按钮，进入下一页面。 
 
-    3.  您可以单击屏幕共享按钮把自己的屏幕分享给远端用户。
+        ![Windows Demo输入](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/170947/156627558449615_zh-CN.png)
+
+    3.  进入频道页面后，可以看到本地已经开启的预览视图。单击**开始**加入频道，如果该频道中有其他用户，即可开始实时音视频通话。 
+
+        ![Windows Demo](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/170947/156627558449616_zh-CN.png)
+
+        您也可以勾选**屏幕共享**把自己的屏幕分享给远端用户。
+
 
