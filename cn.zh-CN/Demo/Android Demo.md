@@ -39,14 +39,14 @@
 
 2.  运行。 
 
-    **说明：** android端Demo必须在真机上运行，最低支持Android 4.1，完成以上设置即可运行DemoDemo。
+    **说明：** android端Demo必须在真机上运行，支持Android 4.1及以上，完成以上配置即可运行Demo。
 
-    1.  Demo运行成功进入首页，输入相应频道号，单击确定按钮，进入下一页面。 
+    1.  Demo运行成功进入首页，输入频道号，单击**确定**，进入下一页面。 
 
-        ![Android Demo](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/170945/156462387049548_zh-CN.png)
+        ![Android Demo](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/170945/156627556449548_zh-CN.png)
 
-    2.  进入频道页面后，可以看到本地已经开启的预览视图，单击开始按钮加入频道，如果该频道中有其他用户即可开始实时音视频通话。 
+    2.  进入频道页面后，可以看到本地已经开启的预览视图，单击**开始**加入频道，如果该频道中有其他用户即可开始实时音视频通话。 
 
-        ![Android Demo](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/170945/156462387149549_zh-CN.png)
+        ![运行成功](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/170945/156627556549549_zh-CN.png)
 
 
