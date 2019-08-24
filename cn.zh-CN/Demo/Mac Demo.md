@@ -9,7 +9,7 @@
 1.  打开FakeAuthrization.h文件，配置App Server地址。 
 
     ``` {#codeblock_624_8s7_uut .language-objc}
-    static NSString *AppServer   = "your URL" ;//在此处填写服务器App Server地址
+    static NSString *AppServer   = @"your URL" ;//在此处填写服务器App Server地址
     ```
 
 2.  运行。 
@@ -18,11 +18,11 @@
 
     1.  Demo运行成功进入首页，输入频道号，单击**确定**，进入下一页面。 
 
-        ![Mac Demo](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/170948/156646051849638_zh-CN.png)
+        ![Mac Demo](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/170948/156664207549638_zh-CN.png)
 
     2.  进入频道页面后，可以看到本地已经开启的预览视图。单击**开始**加入频道，如果该频道中有其他用户即可开始实时音视频通话。 
 
-        ![Mac Demo](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/170948/156646051849639_zh-CN.png)
+        ![Mac Demo](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/170948/156664207549639_zh-CN.png)
 
         您也可以单击**屏幕共享**把自己的屏幕分享给远端用户。
 
