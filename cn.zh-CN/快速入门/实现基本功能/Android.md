@@ -2,9 +2,13 @@
 
 阿里云音视频通信的基本功能包含初始化SDK、加入频道、本地发布和订阅远端、离开频道等。当您成功初始化SDK，您可以进行本地预览视频功能，进行简单的预览和测试，您也可以设置手动或者自动模式。
 
+在实现基本功能前，请您确保下载最新SDK，请参见[SDK下载](../../../../cn.zh-CN/快速入门/SDK下载.md#)。
+
+**说明：** 本文中的实现方法为主要功能方法，仅供参考，您可以根据您的业务需求进行实际开发。
+
 1.  初始化SDK。 
 
-    在app/src/main/java/come.xample.myapplication/MainActivity文件中，您需要调用onCreate方法创建AliRtcEngine实例，并注册回调。相关回调有AliRtcEngineEventListener和AliRtcEngineNotify。具体回调及监听请参见[回调及监听](../../../../cn.zh-CN//回调及监听.md#)。
+    在app/src/main/java/come.xample.myapplication/MainActivity文件中，您需要调用onCreate方法创建AliRtcEngine实例，并注册回调。相关回调有AliRtcEngineEventListener和AliRtcEngineNotify。具体回调及监听请参见[回调及监听](../../../../cn.zh-CN/API参考/Android SDK/接口说明/回调及监听.md#)。
 
     ``` {#codeblock_2b8_1ou_4ge .language-java}
     mEngine = AliRtcEngine.getInstance(getApplicationContext());
@@ -87,36 +91,36 @@
     }
     ```
 
-3.  发布/取消发布本地流。 
+3.  发布或取消发布本地流。 
 
-    -   发布本地流。
+    发布本地流。
 
-        -   自动pub模式下：加入频道成功后，即可发布本地流，无需再次调用publish接口。
-        -   非自动pub模式下：加入成功后，可通过以下接口发布本地流。
-        如果publish过程中需要变更配置或者停止publish，需要按如下流程先重新设置配置参数，然后再调用publish接口。
+    -   自动pub模式下：加入频道成功后，即可发布本地流，无需再次调用publish接口。
+    -   非自动pub模式下：加入成功后，可通过以下接口发布本地流。
+    如果publish过程中需要变更配置或者停止publish，需要按如下流程先重新设置配置参数，然后再调用publish接口。
 
-        ``` {#codeblock_n57_6ud_2t8 .language-java}
-        //发布本地流设置
-        //true表示允许发布音频流，false表示不允许
-        mEngine.configLocalAudioPublish(true);
-        //true表示允许发布相机流，false表示不允许
-        mEngine.configLocalCameraPublish(true);
-        //true表示允许发布屏幕流，false表示不允许
-        mEngine.configLocalScreenPublish(true);
-        //true表示允许发布次要视频流；false表示不允许
-        mEngine.configLocalSimulcast(true, AliRtcEngine.AliRtcVideoTrack.AliRtcVideoTrackCamera);
-        mEngine.publish();
-        ```
+    ``` {#codeblock_n57_6ud_2t8 .language-java}
+    //发布本地流设置
+    //true表示允许发布音频流，false表示不允许
+    mEngine.configLocalAudioPublish(true);
+    //true表示允许发布相机流，false表示不允许
+    mEngine.configLocalCameraPublish(true);
+    //true表示允许发布屏幕流，false表示不允许
+    mEngine.configLocalScreenPublish(true);
+    //true表示允许发布次要视频流；false表示不允许
+    mEngine.configLocalSimulcast(true, AliRtcEngine.AliRtcVideoTrack.AliRtcVideoTrackCamera);
+    mEngine.publish();
+    ```
 
-    -   取消发布本地流。
+    取消发布本地流。
 
-        ``` {#codeblock_iri_faa_zo2 .language-java}
-        mEngine.configLocalAudioPublish(false);
-        mEngine.configLocalCameraPublish(false);
-        mEngine.configLocalScreenPublish(false);
-        mEngine.configLocalSimulcast(false, AliRtcEngine.AliRtcVideoTrack.AliRtcVideoTrackCamera);
-        mEngine.publish();
-        ```
+    ``` {#codeblock_iri_faa_zo2 .language-java}
+    mEngine.configLocalAudioPublish(false);
+    mEngine.configLocalCameraPublish(false);
+    mEngine.configLocalScreenPublish(false);
+    mEngine.configLocalSimulcast(false, AliRtcEngine.AliRtcVideoTrack.AliRtcVideoTrackCamera);
+    mEngine.publish();
+    ```
 
     发布和取消发布本地流回调代码如下所示。
 
@@ -135,31 +139,31 @@
 
 4.  订阅或取消订阅远程流。 
 
-    -   订阅远程流。
+    订阅远程流。
 
-        -   自动sub模式下：加入频道成功后，即可订阅远端流，无需再次调用subscribe接口。
-        -   非自动sub模式下：加入频道成功后，可通过以下接口订阅远端流。
-        如果subscribe过程中需要变更配置或者停止subscribe，需要按如下流程先重新设置配置参数，然后再调用subscribe接口。
+    -   自动sub模式下：加入频道成功后，即可订阅远端流，无需再次调用subscribe接口。
+    -   非自动sub模式下：加入频道成功后，可通过以下接口订阅远端流。
+    如果subscribe过程中需要变更配置或者停止subscribe，需要按如下流程先重新设置配置参数，然后再调用subscribe接口。
 
-        ``` {#codeblock_doe_w89_xls .language-java}
-        // 订阅远端音频流
-        mEngine.configRemoteAudio(/* remoteUserID */, true);
-        // 订阅远端屏幕流
-        mEngine.configRemoteScreenTrack(/* remoteUserID */, true);
-        // 订阅远端相机流
-        mEngine.configRemoteCameraTrack(/* remoteUserID */, true, true);
-        // 订阅远端用户ID
-        mEngine.subscribe(/* remoteUserID */);
-        ```
+    ``` {#codeblock_doe_w89_xls .language-java}
+    // 订阅远端音频流
+    mEngine.configRemoteAudio(/* remoteUserID */, true);
+    // 订阅远端屏幕流
+    mEngine.configRemoteScreenTrack(/* remoteUserID */, true);
+    // 订阅远端相机流
+    mEngine.configRemoteCameraTrack(/* remoteUserID */, true, true);
+    // 订阅远端用户ID
+    mEngine.subscribe(/* remoteUserID */);
+    ```
 
-    -   取消订阅远程流。
+    取消订阅远程流。
 
-        ``` {#codeblock_qal_v1o_773 .language-java}
-        mEngine.configRemoteAudio(/* remoteUserID */, false);
-        mEngine.configRemoteScreenTrack(/* remoteUserID */, false);
-        mEngine.configRemoteCameraTrack(/* remoteUserID */, true, false);
-        mEngine.subscribe(/* remoteUserID */);
-        ```
+    ``` {#codeblock_qal_v1o_773 .language-java}
+    mEngine.configRemoteAudio(/* remoteUserID */, false);
+    mEngine.configRemoteScreenTrack(/* remoteUserID */, false);
+    mEngine.configRemoteCameraTrack(/* remoteUserID */, true, false);
+    mEngine.subscribe(/* remoteUserID */);
+    ```
 
     远程流回调代码如下所示。
 
@@ -195,12 +199,12 @@
         mEngine.leaveChannel();
         ```
 
-    -   对于版本号小于等于1.7的SDK，请增加timeout参数，一般建议设置为1000，表示该接口的调用超时时间为1秒，建议在Activity的onDestroy中调用。leavechannel调用后不要再操作AliRtcEngine实例。
+    -   对于版本号小于等于1.7的SDK，请增加timeout参数，一般建议设置为1000，表示该接口的调用超时时间为1秒，建议在Activity的onDestroy中调用。调用leavechannel后请不要再操作AliRtcEngine实例。
 
         ``` {#codeblock_lwo_9vs_50d .language-java}
         mEngine.leaveChannel(1000);
         ```
 
-    您可以下载示例代码，尝试跑通Demo，详情请参见[Android Demo](../../../../cn.zh-CN/.md#)。
+    您可以下载示例代码，快速跑通Demo，实现频道内和其他用户进行实时音视频通话，详情请参见[Android Demo](../../../../cn.zh-CN/Demo/Android Demo.md#)。
 
 
