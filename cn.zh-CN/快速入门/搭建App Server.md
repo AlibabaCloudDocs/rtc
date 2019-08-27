@@ -19,6 +19,8 @@
 2.  创建新工程（Project），将下载的源码复制在工程文件里。
 3.  在pom.xml文件中添加Maven依赖。 
 
+    **说明：** 本文的版本号仅供参考，具体版本号请参见[AliRtcAppServer](https://github.com/aliyunvideo/AliRtcAppServer)。
+
     ``` {#codeblock_ybd_a9b_pwl}
     <?xml version="1.0" encoding="UTF-8"?>
     <project xmlns="http://maven.apache.org/POM/4.0.0"
@@ -71,22 +73,22 @@
 
     -   App Server启动成功。
 
-        ![AppServer成功](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/170801/156516651251338_zh-CN.png)
+        ![AppServer成功](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/170801/156689429351338_zh-CN.png)
 
     -   App Server未启动，访问失败。
 
-        ![AppServer失败](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/170801/156516651251340_zh-CN.png)
+        ![AppServer失败](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/170801/156689429351340_zh-CN.png)
 
         **说明：** 音视频通信Password并没有提供校验机制，您可以随意填写，建议默认即可。
 
 7.  校验Token，请单击[Token Verification](http://ossrs.net/talks/ng_index.html?spm=a2c4g.11186623.2.22.22965188TERfAg#/token-check?schema=http&host=127.0.0.1&port=8080&path=%2Fapp%2Fv1%2Flogin&room=1237&user=jzufp&password=12345678)。 
     -   校验Token成功。
 
-        ![Token成功](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/170801/156516651251342_zh-CN.png)
+        ![Token成功](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/170801/156689429451342_zh-CN.png)
 
     -   校验Token失败。
 
-        ![Token失败](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/170801/156516651351344_zh-CN.png)
+        ![Token失败](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/170801/156689429451344_zh-CN.png)
 
 
 阿里云音视频通信为您提供完整的频道鉴权开发流程，详情请参见[生成频道鉴权令牌](cn.zh-CN/快速入门/生成频道鉴权令牌.md#)。
