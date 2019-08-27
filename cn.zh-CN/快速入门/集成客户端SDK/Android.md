@@ -10,9 +10,9 @@
 |API版本|不低于16|
 |CPU架构|支持真机架构armeabi、armeabi-v7a、arm64-v8a|
 
-您需要下载[SDK](../../../../cn.zh-CN/SDK参考/SDK下载.md#khd_sdk_1)。解压后的文件需导入到Android Studio工程libs文件下，文件类型如下表所示。
+您需要下载[SDK](../../../../cn.zh-CN/快速入门/SDK下载.md#khd_sdk_1)。解压后的文件需导入到Android Studio工程libs文件下，文件类型如下表所示。
 
-|文件/文件夹名称|文件类型|
+|文件或文件夹名称|文件类型|
 |--------|----|
 |AliRTCSdk|jar|
 |utdid4all-1.5.0-proguard|jar|
@@ -24,11 +24,11 @@
 
     **说明：** 本文档的Android Studio版本为3.4.1。
 
-    ![创建Project](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/763460/156664203750610_zh-CN.png)
+    ![创建Project](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/763460/156689432850610_zh-CN.png)
 
 2.  把解压的SDK文件导入到app/libs目录下。 
 
-    ![引jar包](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/763460/156664203750658_zh-CN.png)
+    ![引jar包](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/763460/156689432850658_zh-CN.png)
 
 3.  在app/src/build.gradle文件中添加如下配置。 
 
