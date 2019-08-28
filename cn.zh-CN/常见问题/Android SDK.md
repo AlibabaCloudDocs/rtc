@@ -4,22 +4,19 @@
 
 ## gradle中未正确配置对RTC库的引用 {#section_a0k_bo1_or5 .section}
 
-![Android SDK](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/170951/156689844149496_zh-CN.png)
+![Android SDK](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/170951/156698612149496_zh-CN.png)
 
 解决办法：
 
-根据[接入指南](../../../../cn.zh-CN/API参考/Android SDK/接入指南.md#)，请正确导入aar和jar包，并在gradle中配置引用。
+请按照正确步骤导入aar包和jar包，并在gradle中配置引用，详情请参见[集成Android SDK](../../../../cn.zh-CN/快速入门/集成客户端SDK/Android.md#)。
 
 ## 隐私权限未申请 {#section_p10_8o3_ce2 .section}
 
-![Android SDK](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/170951/156689844149497_zh-CN.png)
+![Android SDK](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/170951/156698612249497_zh-CN.png)
 
 解决办法：
 
--   您需要添加摄像头、麦克风、网络，访问存储权限。
-
--   在AndroidManifest.xml文件中添加权限。
-
+您需要添加摄像头、麦克风、网络，访问存储权限。在AndroidManifest.xml文件中添加权限。
 
 ``` {#codeblock_p3h_a6y_p1e .language-xml}
 <uses-permission android:name="android.permission.CAMERA" />
@@ -33,7 +30,7 @@
 
 ## 未在主线程初始化SDK {#section_klc_8kj_3up .section}
 
-![Android SDK](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/170951/156689844249498_zh-CN.png)
+![Android SDK](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/170951/156698612249498_zh-CN.png)
 
 解决办法：
 
