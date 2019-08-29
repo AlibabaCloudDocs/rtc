@@ -16,7 +16,7 @@
 |AppId|String|是|yourAppId|应用ID，通过控制台开通创建。
 
  |
-|ChannelId|String|是|yourChannelId|频道Id，用户加入的频道。
+|ChannelId|String|是|yourChannelId|频道ID，加入的频道。
 
  |
 |TerminalIds.N|RepeatList|是|yourTerminalIds|终端ID列表。
