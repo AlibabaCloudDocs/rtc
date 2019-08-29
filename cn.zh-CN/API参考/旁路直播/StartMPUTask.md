@@ -27,10 +27,14 @@
 |MediaEncode|Integer|是|2|编码选项，具体请参见本文中的MediaEncode枚举值。
 
  |
-|StreamURL|String|是|yourStreamURL|直播推流地址，生成规则请参见[推流地址与播流地址（原画）](~~87396~~)。对已开防盗链鉴权的域名，需要在推流地址中包含鉴权串。
+|StreamURL|String|是|yourStreamURL|直播推流地址，生成规则请参见[推流地址与播流地址（原画）](~~87396~~)。
+
+ 对已开防盗链鉴权的域名，需要在推流地址中包含鉴权串。
 
  |
-|TaskId|String|是|yourTaskId|任务ID, 此ID为旁路直播的标识，需保证唯一。只允许A-Za-z0-9\_-，长度限制64字节。
+|TaskId|String|是|yourTaskId|任务ID，此ID为旁路直播的标识，需保证唯一。
+
+ 字符只允许A-Za-z0-9\_-，长度限制64字节。
 
  |
 |BackgroundColor|Integer|否|0|背景色RGB，默认是**0**（黑色）。
