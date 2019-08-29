@@ -19,7 +19,7 @@
 |ChannelId|String|是|0101|频道ID。
 
  |
-|TimePoint|String|是|2018-01-29T00:00:00Z|时间点, 天粒度, UTC格式。
+|TimePoint|String|是|2018-01-29T00:00:00Z|时间点，天粒度，UTC格式。
 
  |
 
