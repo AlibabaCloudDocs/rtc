@@ -35,7 +35,8 @@
 ``` {#request_demo}
 https://rtc.aliyuncs.com?Action=StopMPUTask
 &AppId=xxxx
-&TaskId=xxx<公共请求参数>
+&TaskId=xxx
+&<公共请求参数>
 ```
 
 正常返回示例
