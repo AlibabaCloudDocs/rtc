@@ -16,7 +16,7 @@
 |AppId|String|是|yourAppId|应用ID，通过控制台开通创建。
 
  |
-|ChannelId|String|是|yourChannelId|频道ID，用户加入的频道。
+|ChannelId|String|是|yourChannelId|频道ID，加入的频道。
 
  |
 
@@ -24,7 +24,7 @@
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
-|RequestId|String|16A96B9A-F203-4EC5-8E43-CB92E68F4CF8|该条任务请求ID。
+|RequestId|String|16A96B9A-F203-4EC5-8E43-CB92E68F4CF8|请求ID。
 
  |
 
