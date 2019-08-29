@@ -15,13 +15,15 @@
 |Action|String|是|DescribeRtcUserCntData|操作接口名，系统规定参数，取值：**DescribeRtcUserCntData**。
 
  |
-|AppId|String|否|AppId|应用id，不填则返回所有AppId的汇总数据。
+|AppId|String|否|AppId|应用ID，不填则返回所有应用的汇总数据。
 
  |
 |EndTime|String|否|2018-01-29T00:00:00Z|结束时间，UTC格式。
 
  |
-|Interval|String|否|3600|时间粒度参数，取值为**3600**（小时粒度） 或**86400**（天粒度），默认为**3600**。
+|Interval|String|否|3600|时间粒度参数，单位：秒。
+
+ 取值为**3600**（小时粒度） 或**86400**（天粒度），默认为**3600**。
 
  |
 |ServiceArea|String|否|cn|服务区域。
@@ -35,7 +37,7 @@
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
-|RequestId|String|16A96B9A-F203-4EC5-8E43-CB92E68F4CD8|该条任务请求Id。
+|RequestId|String|16A96B9A-F203-4EC5-8E43-CB92E68F4CD8|请求ID。
 
  |
 |UserCntDataPerInterval| | |活跃用户统计数据结构。
