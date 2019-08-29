@@ -24,7 +24,7 @@
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
-|RequestId|String|16A96B9A-F203-4EC5-8E43-CB92E68F4CD8|该条任务请求ID。
+|RequestId|String|16A96B9A-F203-4EC5-8E43-CB92E68F4CD8|请求ID。
 
  |
 
@@ -35,6 +35,7 @@
 ``` {#request_demo}
 https://rtc.aliyuncs.com?Action=ModifyApp
 &AppName=coco-conf
+&AppId=xxx
 &<公共请求参数>
 ```
 
