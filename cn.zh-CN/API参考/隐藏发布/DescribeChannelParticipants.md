@@ -25,10 +25,10 @@
 -   递减：**desc**。
 
  |
-|PageNum|Integer|否|1|不输入默认1页, 必须大于0。
+|PageNum|Integer|否|1|不输入默认**1**页，必须大于**0**。
 
  |
-|PageSize|Integer|否|10|不输入如默认为10， 必须大于0。
+|PageSize|Integer|否|10|不输入如默认为**10**， 必须大于**0**。
 
  |
 
