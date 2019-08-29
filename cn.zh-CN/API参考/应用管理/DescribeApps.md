@@ -16,7 +16,7 @@
 |AppId|String|否|yourAppId|应用ID，通过控制台开通创建，长度最大8个字节，不填则返回该用户下所有应用信息。
 
  |
-|Order|String|否|asc|不填则默认desc取最近记录： 、
+|Order|String|否|asc|排序，不填默认**desc**取最近记录。取值： 、
 
  -   **asc**：递增。
 -   **desc**：递减。
