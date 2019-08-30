@@ -44,7 +44,7 @@
 |API|描述|以上版本支持|
 |---|--|------|
 |[currentCamera](#)|指定摄像头设备。|1.9|
-|[videoProfile](#)|指定帧率和分辨率设备。|1.9|
+|[videoProfile](#)|设置视频流参数。|1.9|
 |[muteLocalCamera](#)|是否停止本地视频采集。|1.2|
 |[setDisplayRemoteVideo](#)|为远端的视频设置渲染窗口以及绘制参数。|1.5|
 
@@ -324,7 +324,9 @@ AliRtcSDK Web端接口信息如下所示。
     |--|--|--|
     |deviceId|String|摄像头ID。|
 
--   videoProfile：指定帧率和分辨率设备。
+-   videoProfile：设置视频流参数。您要设置的分辨率需要调用getAvailableResolutions\(\)返回，然后调用publish\(\)才能生效。
+
+    **说明：** 如果您设置的分辨率不合适，系统会自动进行调整。
 
     ``` {#codeblock_266_8f2_4a3}
     aliWebrtc.videoProfile = { 
@@ -338,7 +340,7 @@ AliRtcSDK Web端接口信息如下所示。
 
     |参数|类型|描述|
     |--|--|--|
-    |frameRate|int|帧率。|
+    |frameRate|int|帧率（5~30）。|
     |width|int|视频宽度。|
     |height|int|设备高度。|
 
@@ -431,8 +433,8 @@ AliRtcSDK Web端接口信息如下所示。
 
     返回参数：
 
-    |参数| |类型|描述|
-    |--|--|--|--|
+    |参数|类型|描述|
+    |--|--|--|
     |displayName|String|用户名称。|
     |streamConfigs|——|Array|音视频流数组。|
     |label|String|流标签。|
