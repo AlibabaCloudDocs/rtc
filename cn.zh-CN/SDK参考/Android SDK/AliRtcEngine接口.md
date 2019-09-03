@@ -389,6 +389,12 @@
     |--|--|--|
     |track|[AliRtcVideoTrack](cn.zh-CN/SDK参考/Android SDK/数据类型.md#)|需要查询的视频流类型。|
 
+    返回值：
+
+    |返回值|描述|
+    |---|--|
+    |[AliRtcVideoProfile](cn.zh-CN/SDK参考/Android SDK/数据类型.md#)|视频流规格|
+
 -   setLocalViewConfig：为本地预览设置渲染窗口以及绘制参数。
 
     -   支持joinChannel之前和之后切换窗口。如果viewConfig为NULL或者其成员渲染视图为NULL，则停止渲染。
@@ -446,6 +452,10 @@
     ``` {#codeblock_bz7_6fm_44x .language-java}
     public abstract AliRTCCameraType getCurrentCameraType()                   
     ```
+
+    |返回值|描述|
+    |---|--|
+    |[AliRTCCameraType](cn.zh-CN/SDK参考/Android SDK/数据类型.md#)|摄像头类型|
 
 -   setPreCameraType：预设值摄像头方向。
 
@@ -599,6 +609,11 @@
     |参数|类型|说明|
     |--|--|--|
     |uid|String|用户ID，从App server分配的唯一标示符。|
+
+    返回值：
+
+    |返回值|描述|
+    |[AliRtcRemoteUserInfo](cn.zh-CN/SDK参考/Android SDK/数据类型.md#)|远程用户信息|
 
 -   isUserOnline：查询用户是否在线，返回true表示在线，false表示不在线。
 
