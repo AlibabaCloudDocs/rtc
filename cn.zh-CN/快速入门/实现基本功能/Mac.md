@@ -2,7 +2,7 @@
 
 阿里云音视频通信的基本功能包含初始化SDK、加入频道、本地发布和订阅远端、离开频道等。当您成功初始化SDK，您可以进行本地预览视频功能，进行简单的预览和测试，您也可以设置手动或者自动模式。
 
-在实现基本功能前，请您确保下载最新SDK，请参见[SDK下载](../../../../cn.zh-CN/快速入门/SDK下载.md#)。
+在实现基本功能前，请您确保下载最新SDK，请参见[SDK下载](../../../../cn.zh-CN/SDK参考/SDK下载.md#)。
 
 **说明：** 本文中的实现方法为主要功能方法，仅供参考，您可以根据您的业务需求进行实际开发。
 
@@ -18,7 +18,7 @@
 
     创建SDK实例并注册delegate。
 
-    Mac回调详情请参见[回调及监听](../../../../cn.zh-CN/API参考/Mac SDK/接口说明/回调及监听.md#)。
+    Mac回调详情请参见[回调及监听](../../../../cn.zh-CN/SDK参考/iOS和Mac SDK/回调及监听.md#)。
 
     ``` {#codeblock_jn2_m36_lg3}
     self.engine = [AliRtcEngine sharedInstance:self extras:@""];                    
@@ -67,7 +67,7 @@
 
     -   name：无需APP Server下发。
     -   channelID 、userID、name命名要求：字符内容只允许\[A-Za-z0-9\_-\]，长度限制64字节，非法命名系统将拒绝提供服务。
-    ```
+    ``` {#codeblock_wkm_wkz_sr9}
     AliRtcAuthInfo *authinfo = [[AliRtcAuthInfo alloc]init];
     authinfo.channel   = /* 您的channelId */;
     authinfo.appid     = /* 您的Appid */;
