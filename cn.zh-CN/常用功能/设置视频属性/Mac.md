@@ -36,14 +36,18 @@
 
 阿里云RTC SDK通过setVideoProfile方法设置视频属性。
 
-``` {#codeblock_dfl_mh1_7t7}
+setVideoProfile：设置视频流的参数。
+
+``` {#codeblock_cxl_tkp_4vs .lanuage-c}
 - (void)setVideoProfile:(AliRtcVideoProfile)profile forTrack:(AliRtcVideoTrack)track;
 ```
 
+参数：
+
 |参数|类型|描述|
 |--|--|--|
-|profile|[AliRtcVideoProfile](../cn.zh-CN/SDK参考/Mac SDK/数据类型.md#)|视频流参数。|
-|track|[AliRtcVideoTrack](../cn.zh-CN/SDK参考/Mac SDK/数据类型.md#)|需要设置的videoTrack类型。|
+|profile|[AliRtcVideoProfile](../cn.zh-CN/SDK参考/iOS和Mac SDK/数据类型.md#)|视频流参数。|
+|track|[AliRtcVideoTrack](../cn.zh-CN/SDK参考/iOS和Mac SDK/数据类型.md#)|需要设置的videoTrack类型。|
 
-获得更多视频类功能实现方法，请参见[AliRtcEngine接口](../cn.zh-CN/SDK参考/Mac SDK/AliRtcEngine接口.md#)。
+获得更多视频类功能实现方法，请参见[AliRtcEngine接口](../cn.zh-CN/SDK参考/iOS和Mac SDK/AliRtcEngine接口.md#)。
 
