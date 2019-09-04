@@ -36,13 +36,11 @@
     |--|--|--|
     |camera|NSString \*|摄像头名称。|
 
--   isCameraOn：检查摄像头是否打开。
+-   isCameraOn：检查摄像头是否打开，YES表示摄像头已打开，NO表示摄像头没有打开。
 
-    ``` {#d10e140}
+    ``` {#d9e2548 .lanuage-c}
     - (BOOL)isCameraOn;
     ```
-
-    该方法返回YES表示摄像头已打开，NO表示摄像头没有打开
 
 -   getAudioCaptures：获取音频采集设备列表。
 
@@ -92,9 +90,9 @@
     |--|--|--|
     |renderer|NSString \*|音频播放设备名称。|
 
--   -   enableSpeakerphone：切换听筒、扬声器输出。
+-   enableSpeakerphone（仅iOS可用）：切换听筒、扬声器输出。
 
-    ``` {#d10e152}
+    ``` {#d9e2745 .lanuage-c}
      - (int)enableSpeakerphone:(BOOL)enable;
     ```
 
@@ -105,5 +103,5 @@
     |enable|BOOL|YES为听筒模式，NO为扬声器模式。|
 
 
-获得更多视频类功能实现方法，请参见[AliRtcEngine接口](../cn.zh-CN/API参考/Mac SDK/接口说明/AliRtcEngine接口.md#)。
+获得更多视频类功能实现方法，请参见[AliRtcEngine接口](../cn.zh-CN/SDK参考/Mac SDK/AliRtcEngine接口.md#)。
 
