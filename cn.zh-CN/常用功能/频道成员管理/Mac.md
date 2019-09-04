@@ -10,17 +10,15 @@ AliRtcSDK提供了getOnlineRemoteUsers、getUserInfo和isUserOnline三个方法�
 
 在设置视频属性前，需要您已经搭建App Server、实现基本功能等操作。详情请参见[入门概述](../cn.zh-CN/快速入门/入门概述.md#)。
 
--   getOnlineRemoteUsers：获取远端在线用户列表。
+-   getOnlineRemoteUsers：获取远端在线用户列表，返回用户ID列表。
 
-    ``` {#d8e54}
+    ``` {#d9e3001 .lanuage-c}
     - (NSArray<NSString *> *)getOnlineRemoteUsers;
     ```
 
-    该方法返回用户ID列表。
-
 -   getUserInfo：查询远端用户信息。
 
-    ``` {#d8e66}
+    ``` {#d9e3010 .lanuage-c}
     - (NSDictionary *)getUserInfo:(NSString *)uid;
     ```
 
@@ -30,9 +28,9 @@ AliRtcSDK提供了getOnlineRemoteUsers、getUserInfo和isUserOnline三个方法�
     |--|--|--|
     |uid|NSString \*|用户ID，从App server获取的唯一标示符。|
 
--   isUserOnline：查询用户是否在线。
+-   isUserOnline：查询用户是否在线，YES表示在线，NO表示不在线。
 
-    ``` {#d8e132}
+    ``` {#d9e3065 .lanuage-c}
     - (BOOL)isUserOnline:(NSString *)uid;
     ```
 
@@ -42,8 +40,6 @@ AliRtcSDK提供了getOnlineRemoteUsers、getUserInfo和isUserOnline三个方法�
     |--|--|--|
     |uid|NSString \*|用户ID，从App server获取的唯一标示符。|
 
-    返回YES表示在线，NO表示不在线。
 
-
-获得更多视频类功能实现方法，请参见[AliRtcEngine接口](../cn.zh-CN/API参考/Mac SDK/接口说明/AliRtcEngine接口.md#)。
+获得更多视频类功能实现方法，请参见[AliRtcEngine接口](../cn.zh-CN/SDK参考/Mac SDK/AliRtcEngine接口.md#)。
 
