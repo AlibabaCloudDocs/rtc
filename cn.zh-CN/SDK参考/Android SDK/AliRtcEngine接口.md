@@ -169,6 +169,10 @@
 
 -   setAutoPublish：设置是否自动发布，是否自动订阅。默认是自动发布和订阅，必须在joinChannel之前设置。
 
+    ``` {#codeblock_68c_ss2_ico}
+    public int setAutoPublish(boolean autoPub, boolean autoSub);
+    ```
+
     参数：
 
     |参数|类型|说明|
