@@ -38,7 +38,7 @@
 
 -   isCameraOn：检查摄像头是否打开，YES表示摄像头已打开，NO表示摄像头没有打开。
 
-    ``` {#d9e2548 .lanuage-c}
+    ``` {#d12e2548 .lanuage-c}
     - (BOOL)isCameraOn;
     ```
 
@@ -92,7 +92,7 @@
 
 -   enableSpeakerphone（仅iOS可用）：切换听筒、扬声器输出。
 
-    ``` {#d9e2745 .lanuage-c}
+    ``` {#d12e2745 .lanuage-c}
      - (int)enableSpeakerphone:(BOOL)enable;
     ```
 
@@ -103,5 +103,5 @@
     |enable|BOOL|YES为听筒模式，NO为扬声器模式。|
 
 
-获得更多视频类功能实现方法，请参见[AliRtcEngine接口](../cn.zh-CN/SDK参考/Mac SDK/AliRtcEngine接口.md#)。
+获得更多视频类功能实现方法，请参见[AliRtcEngine接口](../cn.zh-CN/SDK参考/iOS和Mac SDK/AliRtcEngine接口.md#)。
 
