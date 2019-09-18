@@ -2,6 +2,11 @@
 
 调用StartMPUTask开始任务。
 
+ **调用该接口前，请您注意：** 
+
+-   禁止同一个StreamURL（直播推流地址）在不同Task（任务）中同时使用。
+-   Task（任务）停止10S之内，禁止使用同一个StreamURL（直播推流地址）。
+
 ## 调试 {#api_explorer .section}
 
 [您可以在OpenAPI Explorer中直接运行该接口，免去您计算签名的困扰。运行成功后，OpenAPI Explorer可以自动生成SDK代码示例。](https://api.aliyun.com/#product=rtc&api=StartMPUTask&type=RPC&version=2018-01-11)
@@ -34,7 +39,7 @@
  |
 |TaskId|String|是|yourTaskId|任务ID，此ID为旁路直播的标识，需保证唯一。
 
- 字符只允许A-Za-z0-9\_-，长度限制64字节。
+ 字符只允许**A-Za-z0-9\_-**，长度限制**64**字节。
 
  |
 |BackgroundColor|Integer|否|0|背景色RGB，默认是**0**（黑色）。
@@ -92,7 +97,7 @@ MediaEncode枚举值如下所示。
 |
 |1
 
-|360p
+|360p（640 x 360）
 
 |500Kbps
 
@@ -101,7 +106,7 @@ MediaEncode枚举值如下所示。
 |
 |10
 
-|540p
+|540p（960 x 540）
 
 |700Kbps
 
@@ -110,16 +115,25 @@ MediaEncode枚举值如下所示。
 |
 |20
 
-|720p
+|720p（1280 x 720）
 
 |1Mbps
 
 |25fps
 
 |
+|22
+
+|720p（ 720 x 1280，竖屏）
+
+|1Mbps
+
+|30fps
+
+|
 |30
 
-|1080p
+|1080p（1920 x 1080）
 
 |2Mbps
 
