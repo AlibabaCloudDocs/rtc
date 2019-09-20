@@ -590,8 +590,6 @@
     |userId|String|用户id。|
     |track|AliRtcVideoTrack|视频track的类型。|
 
-    回调
-
 -   setAudioOnlyMode：设置纯音频模式还是音视频模式。返回0代表设置成功，其他代表设置失败。默认为音视频模式（非纯音频），必须在joinChannel之前设置。
 
     ``` {#codeblock_pf1_8nl_8rt .language-java}
