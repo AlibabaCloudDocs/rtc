@@ -27,7 +27,7 @@
 |RequestId|String|760bad53276431c499e30dc36f6b26be|请求ID。
 
  |
-|Status|Integer|0|任务的状态id：
+|Status|Integer|0|任务的状态ID：
 
  -   **0**：等待channel开始。
 -   **1**：任务运行中 。

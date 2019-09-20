@@ -1,8 +1,8 @@
-# AliRtcEngine接口 {#concept_109088_zh .concept}
+# AliRtcEngine接口 {#concept_109116_zh .concept}
 
-本文档为您介绍了iOS SDK和Mac SDK的AliRtcEngine接口详情。
+本文档为您介绍了Mac SDK的AliRtcEngine接口详情。
 
-## 目录 {#section_tep_vdx_8br .section}
+## 目录 {#section_adu_i2s_s22 .section}
 
 基础接口
 
@@ -29,11 +29,11 @@
 |[isAutoPublish](#)|查询当前是否为自动发布模式。|1.1|
 |[configLocalCameraPublish](#)|设置是否允许发布相机流。|1.1|
 |[isLocalCameraPublishEnabled](#)|查询当前是否允许发布相机流。|1.1|
-|[configLocalScreenPublish](#)|设置是否允许发布屏幕流（仅Mac）。|1.1|
-|[isLocalScreenPublishEnabled](#)|查询当前是否允许发布屏幕流（仅Mac）。|1.1|
+|[configLocalScreenPublish](#)|设置是否允许发布屏幕流。|1.1|
+|[isLocalScreenPublishEnabled](#)|查询当前是否允许发布屏幕流。|1.1|
 |[configLocalAudioPublish](#)|设置是否允许发布音频流。|1.1|
 |[isLocalAudioPublishEnabled](#)|查询当前是否允许发布音频流。|1.1|
-|[configLocalSimulcast](#)|是否允许发布次要视频流。|1.1|
+|[configLocalSimulcast](#)|设置是否允许发布次要视频流。|1.1|
 |[isLocalSimulcastEnabled](#)|查询当前是否允许发布次要视频流。|1.1|
 |[publish](#)|手动发布视频和音频流。|1.1|
 
@@ -46,6 +46,7 @@
 |[configRemoteScreenTrack](#)|设置是否订阅远端屏幕流。|1.1|
 |[configRemoteAudio](#)|设置是否订阅远端音频流。|1.1|
 |[subscribe](#)|手动订阅视频和音频流。|1.1|
+|[getMediaInfoWithUserId](#)|获取当前的媒体流信息。|1.9|
 
 视频相关接口
 
@@ -55,36 +56,25 @@
 |[setLocalViewConfig](#)|为本地预览设置渲染窗口以及绘制参数。|1.1|
 |[muteLocalCamera](#)|设置是否停止发布本地视频流。|1.1|
 |[setRemoteViewConfig](#)|为远端的视频设置渲染窗口以及绘制参数。|1.1|
-|[getCameraList](#)|获取摄像头列表（仅Mac）。|1.1|
-|[getCurrentCamera](#)|获取当前使用的摄像头名称（仅Mac）。|1.1|
-|[setCurrentCamera](#)|选择摄像头（仅Mac）。|1.1|
-|[switchCamera](#)|切换前后摄像头（仅iOS）。|1.1|
-|[setCameraZoom](#)|设置摄像头参数（仅iOS）。|1.1|
-|[isCameraOn](#)|检查摄像头是否打开（仅iOS）。|1.1|
-|[isCameraFocusPointSupported](#)|摄像头是否支持手动聚焦（仅iOS）。|1.14|
-|[isCameraExposurePointSupported](#)|摄像头是否支持设置曝光区域（仅iOS）。|1.14|
-|[setCameraFocusPoint](#)|设置摄像头手动聚焦（仅iOS）。|1.14|
-|[setCameraExposurePoint](#)|设置摄像头曝光点（仅iOS）。|1.14|
-|[unSubscribeVideoData](#)|取消订阅视频数据（仅iOS）。|1.14|
-|[subscribeVideoPreprocessData](#)|订阅采集视频前处理裸数据（仅iOS）。|1.14|
-|[unSubscribeVideoPreprocessData](#)|取消采集订阅前处理裸数据（仅iOS）。|1.14|
-|[enableHighDefinitionPreview](#)|是否允许高清预览，默认打开（仅iOS）。|1.14|
+|[getCameraList](#)|获取摄像头列表。|1.1|
+|[getCurrentCamera](#)|获取当前使用的摄像头名称。|1.1|
+|[setCurrentCamera](#)|选择摄像头。|1.1|
+|[isCameraOn](#)|检查摄像头是否打开。|1.1|
 
 音频相关接口
 
 |API|描述|以上版本支持|
 |---|--|------|
-|[setAudioOnlyMode](#)|设置是否为纯音频模式还是音视频模式。|1.1|
+|[setAudioOnlyMode](#)|设置纯音频模式还是音视频模式。|1.1|
 |[isAudioOnly](#)|查询当前是否为纯音频模式。|1.1|
 |[muteLocalMic](#)|设置是否停止发布本地音频。|1.1|
 |[muteRemoteAudioPlaying](#)|设置是否停止播放远端音频流。|1.1|
-|[enableSpeakerphone](#)|切换听筒、扬声器输出（仅iOS）。|1.1|
-|[getAudioCaptures](#)|获取音频采集设备列表（仅Mac）。|1.1|
-|[getCurrentAudioCapture](#)|获取当前使用的音频采集设备名称（仅Mac）。|1.1|
-|[setCurrentAudioCapture](#)|选择音频采集设备（仅Mac）。|1.1|
-|[getAudioRenderers](#)|获取音频播放设备列表（仅Mac）。|1.1|
-|[getCurrentAudioRenderer](#)|获取当前使用的音频播放设备（仅Mac）。|1.1|
-|[setCurrentAudioRenderer](#)|选择音频播放设备（仅Mac）。|1.1|
+|[getAudioCaptures](#)|获取音频采集设备列表。|1.1|
+|[getCurrentAudioCapture](#)|获取当前使用的音频采集设备名称。|1.1|
+|[setCurrentAudioCapture](#)|选择音频采集设备。|1.1|
+|[getAudioRenderers](#)|获取音频播放设备列表。|1.1|
+|[getCurrentAudioRenderer](#)|获取当前使用的音频播放设备。|1.1|
+|[setCurrentAudioRenderer](#)|选择音频播放设备。|1.1|
 |[startAudioCapture](#)|开启音频采集。|1.11|
 |[stopAudioCapture](#)|关闭音频采集。|1.11|
 |[startAudioPlayer](#)|开启音频播放。|1.11|
@@ -104,7 +94,6 @@
 |[getOnlineRemoteUsers](#)|获取远端在线用户列表。|1.1|
 |[getUserInfo](#)|查询远端用户信息。|1.1|
 |[isUserOnline](#)|查询用户是否在线。|1.1|
-|[getMediaInfoWithUserId](#)|获取当前的媒体流信息。|1.9|
 
 其他接口
 
@@ -113,11 +102,11 @@
 |[setLogLevel](#)|设置log级别。|1.1|
 |[getSdkVersion](#)|获取SDK版本号。|1.1|
 
-## 接口详情 {#section_0fj_2xy_sfz .section}
+## 接口详情 {#section_6de_6os_4em .section}
 
 -   setH5CompatibleMode：设置H5兼容模式，当前版本不支持在创建SDK实例之后更改H5兼容模式，必须在创建实例之前就调用此方法，默认不兼容H5。
 
-    ``` {#codeblock_2s6_oxs_k9k .lanuage-c}
+    ``` {#codeblock_ejy_61n_o1e .lanuage-c}
     + (void)setH5CompatibleMode:(BOOL)comp;
     ```
 
@@ -129,13 +118,13 @@
 
 -   getH5CompatibleMode：检查当前是否兼容H5，返回YES标识兼容H5，NO表示不兼容H5。
 
-    ``` {#codeblock_eft_k48_fi5 .lanuage-c}
+    ``` {#codeblock_3ap_pnm_mnh .lanuage-c}
     + (BOOL)getH5CompatibleMode;
     ```
 
--   sharedInstance:：创建AliRtcEngine实例（同一时间只会存在一个实例）。
+-   sharedInstance：创建AliRtcEngine实例（同一时间只会存在一个实例）。
 
-    ``` {#codeblock_bw6_5z8_7jv .lanuage-c}
+    ``` {#codeblock_uid_jlm_b6i .lanuage-c}
     + (instancetype)sharedInstance:(id<AliRtcEngineDelegate>)delegate extras:(NSString *)extras;
     ```
 
@@ -143,18 +132,18 @@
 
     |参数|类型|描述|
     |--|--|--|
-    |delegate|[AliRtcEngineDelegate](cn.zh-CN/SDK参考/iOS和Mac SDK/回调及监听.md#)类型的代理|监听回调的代理。|
+    |delegate|[AliRtcEngineDelegate](cn.zh-CN/SDK参考/Mac SDK/回调及监听.md#)类型的代理|监听回调的代理。|
     |extras|NSString \*|SDK初始化配置，目前请使用@””。|
 
 -   destroy：销毁SDK，在所有操作结束之后调用。
 
-    ``` {#codeblock_pr9_qrz_7xp}
+    ``` {#codeblock_anx_q7u_u9n}
     + (void)destroy;
     ```
 
 -   setAutoPublish：设置是否自动发布，是否自动订阅。默认是自动发布和订阅，必须在joinChannel之前设置。
 
-    ``` {#codeblock_y78_hmq_j13 .lanuage-c}
+    ``` {#codeblock_fuw_jeh_y6x .lanuage-c}
     - (int)setAutoPublish:(BOOL)autoPub withAutoSubscribe:(BOOL)autoSub;
     ```
 
@@ -167,7 +156,7 @@
 
 -   joinChannel：加入频道。加入频道成功后，如果中途需要加入其他频道，必须先调用leaveChannel离开当前频道；如果加入频道失败，需要重试时，无需先调用leaveChannel。
 
-    ``` {#codeblock_xx4_0pg_f93 .lanuage-c}
+    ``` {#codeblock_ciy_fd2_5hq .lanuage-c}
     - (void)joinChannel:(AliRtcAuthInfo *)authInfo name:(NSString *)userName onResult:(void(^)(NSInteger errCode))onResult;
     ```
 
@@ -175,31 +164,31 @@
 
     |参数|类型|描述|
     |--|--|--|
-    |authInfo|[AliRtcAuthInfo \*](cn.zh-CN/SDK参考/iOS和Mac SDK/数据类型.md#)|鉴权信息，从App Server下发，APP Server通过API获取。|
+    |authInfo|[AliRtcAuthInfo \*](cn.zh-CN/SDK参考/Mac SDK/数据类型.md#)|鉴权信息，从App Server下发，APP Server可通API获取。|
     |userName|NSString \*|用户的显示名称，不是uid。|
     |onResult|void\(^\)\(NSInteger errCode\)|当joinChannel执行结束后回调。|
 
--   leaveChannel：离开频道。离开频道时，AliRtcEngine实例会被销毁，如需继续joinChannel等操作，需要先重新调用sharedInstance初始化AliRtcEngine实例。
+-   leaveChannel：离开频道。离开频道时，AliRtcEngine实例会被销毁，如果需要继续joinChannel等操作，需要先重新调用sharedInstance初始化AliRtcEngine实例。
 
-    ``` {#codeblock_ml8_466_7zg .lanuage-c}
+    ``` {#codeblock_p4r_tri_wbc .lanuage-c}
     - (void)leaveChannel;
     ```
 
 -   isInCall：检查当前是否在频道中，返回YES表示在频道中，NO表示不在频道中。
 
-    ``` {#codeblock_fr2_spm_rux .lanuage-c}
+    ``` {#codeblock_gmi_729_iz6 .lanuage-c}
     - (BOOL)isInCall;
     ```
 
 -   isAutoPublish：查询当前是否为自动发布模式，返回YES为自动发布，NO为手动发布。
 
-    ``` {#codeblock_an3_j9b_9h5 .lanuage-c}
+    ``` {#codeblock_jmq_ldu_tm9 .lanuage-c}
     - (BOOL)isAutoPublish;
     ```
 
 -   configLocalCameraPublish：设置是否允许发布相机流。默认为允许发布相机流，手动发布时，需要调用publish才能生效。
 
-    ``` {#codeblock_jxq_jn9_e1l .lanuage-c}
+    ``` {#codeblock_nhb_el6_8vq .lanuage-c}
     - (void)configLocalCameraPublish:(BOOL)enable;
     ```
 
@@ -207,17 +196,17 @@
 
     |参数|类型|描述|
     |--|--|--|
-    |enable|BOOL|YES为允许发布相机流；NO为不允许。|
+    |enable|BOOL|YES为允许发布相机流；NO为不允许发布相机流。|
 
 -   isLocalCameraPublishEnabled：查询当前是否允许发布相机流，返回YES为允许，NO为不允许。
 
-    ``` {#codeblock_la6_sx5_eda .lanuage-c}
+    ``` {#codeblock_0sz_zkh_vl5 .lanuage-c}
     - (BOOL)isLocalCameraPublishEnabled;
     ```
 
--   configLocalScreenPublish（仅Mac可用）：设置是否允许发布屏幕流。默认为不允许发布屏幕流，手动发布时，需要调用publish才能生效。
+-   configLocalScreenPublish：设置是否允许发布屏幕流。默认为不允许发布屏幕流，手动发布时，需要调用publish才能生效。
 
-    ``` {#codeblock_ndh_wks_gwd .lanuage-c}
+    ``` {#codeblock_cc0_pvu_neo .lanuage-c}
     - (void)configLocalScreenPublish:(BOOL)enable;
     ```
 
@@ -227,33 +216,27 @@
     |--|--|--|
     |enable|BOOL|YES为允许发布屏幕流，NO为不允许发布屏幕流。|
 
--   isLocalScreenPublishEnabled（仅Mac可用）：查询当前是否允许发布屏幕流，返回YES为允许，NO为不允许。
+-   isLocalScreenPublishEnabled：查询当前是否允许发布屏幕流，返回YES为允许，NO为不允许。
 
-    ``` {#codeblock_vlp_1kv_2k5 .lanuage-c}
+    ``` {#codeblock_c9i_nw4_5zi .lanuage-c}
     - (BOOL)isLocalScreenPublishEnabled;
     ```
 
--   configLocalAudioPublish：设置是否允许发布音频流。默认为允许发布音频流，手动发布时，需要调用publish才能生效。
+-   configLocalAudioPublish：设置是否允许发布音频流，默认为允许发布音频流，手动发布时，需要调用publish才能生效。
 
-    ``` {#codeblock_7de_pwm_zen .lanuage-c}
+    ``` {#codeblock_db6_9jy_f56 .lanuage-c}
     - (void)configLocalAudioPublish:(BOOL)enable;
     ```
 
-    参数：
-
-    |参数|类型|描述|
-    |--|--|--|
-    |enable|BOOL|YES为允许发布音频流，NO为不允许。|
-
 -   isLocalAudioPublishEnabled：查询当前是否允许发布音频流，返回YES为允许，NO为不允许。
 
-    ``` {#codeblock_03l_fvl_wup .lanuage-c}
+    ``` {#codeblock_thi_o9v_nkn .lanuage-c}
     - (BOOL)isLocalAudioPublishEnabled;
     ```
 
 -   configLocalSimulcast：设置是否允许发布次要视频流。默认为允许发布次要视频流，手动发布时，需要调用publish才能生效。
 
-    ``` {#codeblock_oql_d7z_ghs .lanuage-c}
+    ``` {#codeblock_17z_vhv_3tk .lanuage-c}
     - (int)configLocalSimulcast:(BOOL)enabled forTrack:(AliRtcVideoTrack)track;
     ```
 
@@ -262,21 +245,21 @@
     |参数|类型|描述|
     |--|--|--|
     |enabled|BOOL|YES表示允许发布次要流，NO表示不允许。|
-    |track|[AliRtcVideoTrack](cn.zh-CN/SDK参考/iOS和Mac SDK/数据类型.md#)|流类型，当前只支持相机流：AliVideoTrackCamera。|
+    |track|[AliRtcVideoTrack](cn.zh-CN/SDK参考/Mac SDK/数据类型.md#)|流类型，当前只支持相机流：AliVideoTrackCamera。|
 
 -   isLocalSimulcastEnabled：查询当前是否允许发布次要视频流，返回YES为允许，NO为不允许。
 
-    ``` {#codeblock_s36_1ea_th5 .lanuage-c}
+    ``` {#codeblock_hqy_jlt_jh0 .lanuage-c}
     - (BOOL)isLocalSimulcastEnabled;
     ```
 
 -   publish：手动发布视频和音频流。
 
-    -   调用publish的实际表现需要结合configLocalCameraPublish、configLocalAudioPublish、configLocalSimulcast等接口才能确定。
-    -   根据您的具体业务需求配置上述3个接口的参数，以发布相应的视频和音频流 。
+    -   调用publish的实际表现需要结合configLocalCameraPublish、 configLocalScreenPublish、configLocalAudioPublish、configLocalSimulcast等接口才能确定。
+    -   根据您的具体业务需求配置上述4个接口的参数，以发布相应的视频和音频流 。
     -   发布和停止发布都是调用publish。
     -   如需停止发布，则需要上述3个配置接口的参数都置为NO，再调用publish。
-    ``` {#codeblock_vzi_5dy_q8i .lanuage-c}
+    ``` {#codeblock_4d4_98n_nth .lanuage-c}
     - (void)publish:(void (^)(int errCode))onResult;
     ```
 
@@ -288,13 +271,13 @@
 
 -   isAutoSubscribe：查询当前是否为自动订阅模式，返回YES为自动订阅，NO为手动订阅。
 
-    ``` {#codeblock_c9t_11i_ogq .lanuage-c}
+    ``` {#codeblock_cqz_m29_cci .lanuage-c}
     - (BOOL)isAutoSubscribe;
     ```
 
 -   configRemoteCameraTrack：设置是否订阅远端相机流。默认为订阅大流，手动订阅时，需要调用subscribe才能生效。
 
-    ``` {#codeblock_xdv_z32_9qu .lanuage-c}
+    ``` {#codeblock_1x2_n9c_wqp .lanuage-c}
     - (void)configRemoteCameraTrack:(NSString *)uid preferMaster:(BOOL)master enable:(BOOL)enable;
     ```
 
@@ -308,7 +291,7 @@
 
 -   configRemoteScreenTrack：设置是否订阅远端屏幕流。默认为不订阅远端屏幕流，手动订阅时，需要调用subscribe才能生效。
 
-    ``` {#codeblock_fll_8qz_78r .lanuage-c}
+    ``` {#codeblock_zlm_hsc_p0f .lanuage-c}
     - (void)configRemoteScreenTrack:(NSString *)uid enable:(BOOL)enable;
     ```
 
@@ -321,7 +304,7 @@
 
 -   configRemoteAudio：设置是否订阅远端音频流。默认为订阅远端音频流，手动订阅时，需要调用subscribe才能生效。
 
-    ``` {#codeblock_pjx_3in_klh .lanuage-c}
+    ``` {#codeblock_195_16k_fan .lanuage-c}
     - (void)configRemoteAudio:(NSString *)uid enable:(BOOL)enable;
     ```
 
@@ -338,7 +321,7 @@
     -   根据您的具体业务需求配置上述3个接口的参数，以订阅相应的视频和音频流。
     -   订阅和停止订阅都是调用subscribe。
     -   如需停止订阅，则需要上述3个配置接口的参数都置为false，再调用subscribe。
-    ``` {#codeblock_ama_6gv_wsu .lanuage-c}
+    ``` {#codeblock_gtm_a1t_ai8 .lanuage-c}
     - (void)subscribe:(NSString *)uid onResult:(void (^)(NSString *uid, AliRtcVideoTrack vt, AliRtcAudioTrack at))onResult;
     ```
 
@@ -347,11 +330,27 @@
     |参数|类型|描述|
     |--|--|--|
     |uid|NSString \*|用户ID，从App server获取的唯一标示符。|
-    |onResult|void \(^\)\(NSString \*uid, [AliRtcVideoTrack](cn.zh-CN/SDK参考/iOS和Mac SDK/数据类型.md#) vt, [AliRtcAudioTrack](cn.zh-CN/SDK参考/iOS和Mac SDK/数据类型.md#) at\)|当subscribe执行结束后回调。|
+    |onResult|void \(^\)\(NSString \*uid, [AliRtcVideoTrack](cn.zh-CN/SDK参考/Mac SDK/数据类型.md#) vt, [AliRtcAudioTrack](cn.zh-CN/SDK参考/Mac SDK/数据类型.md#) at\)|当subscribe执行结束后回调。|
+
+-   getMediaInfoWithUserId： 获取当前的媒体流信息。
+
+    ``` {#codeblock_qq5_me7_9wq}
+    - (NSString *)getMediaInfoWithUserId:(NSString *)userId videoTrack:(AliRtcVideoTrack)videoTrack keys:(NSArray<NSString *> *)keys;
+    ```
+
+    参数：
+
+    |参数|类型|描述|
+    |--|--|--|
+    |userId|NSString \*|需要查询的userId，self请赋值空字符串。|
+    |videoTrack|[AliRtcVideoTrack](cn.zh-CN/SDK参考/Mac SDK/数据类型.md#)|需要查询的媒体流类型。|
+    |keys|NSArray<NSString \*\> \*|查询key值数组。|
+
+    返回key-value的json格式字符串。
 
 -   setVideoProfile：设置视频流的参数。
 
-    ``` {#codeblock_y05_16w_ua4 .lanuage-c}
+    ``` {#codeblock_nkn_b6v_btt .lanuage-c}
     - (void)setVideoProfile:(AliRtcVideoProfile)profile forTrack:(AliRtcVideoTrack)track;
     ```
 
@@ -359,15 +358,15 @@
 
     |参数|类型|描述|
     |--|--|--|
-    |profile|[AliRtcVideoProfile](cn.zh-CN/SDK参考/iOS和Mac SDK/数据类型.md#)|视频流参数。|
-    |track|[AliRtcVideoTrack](cn.zh-CN/SDK参考/iOS和Mac SDK/数据类型.md#)|需要设置的videoTrack类型。|
+    |profile|[AliRtcVideoProfile](cn.zh-CN/SDK参考/Mac SDK/数据类型.md#)|视频流参数。|
+    |track|[AliRtcVideoTrack](cn.zh-CN/SDK参考/Mac SDK/数据类型.md#)|需要设置的videoTrack类型。|
 
 -   setLocalViewConfig：为本地预览设置渲染窗口以及绘制参数。
 
     -   支持joinChannel之前和之后切换窗口。如果viewConfig为NULL或者其成员渲染视图为NULL，则停止渲染。
     -   如果在播放过程中需要重新设置渲染方式，请保持viewConfig中其他成员变量不变，仅修改renderMode。
     -   viewConfig中渲染方式默认为AliRtcRenderModeAuto。
-    ``` {#codeblock_ssd_ika_anz .lanuage-c}
+    ``` {#codeblock_03t_8sq_0vi .lanuage-c}
     - (int)setLocalViewConfig:(AliVideoCanvas *)viewConfig forTrack:(AliRtcVideoTrack)track;
     ```
 
@@ -375,12 +374,12 @@
 
     |参数|类型|描述|
     |--|--|--|
-    |viewConfig|[AliVideoCanvas \*](cn.zh-CN/SDK参考/iOS和Mac SDK/数据类型.md#)|渲染参数，包含渲染窗口以及渲染方式。|
-    |track|[AliRtcVideoTrack](cn.zh-CN/SDK参考/iOS和Mac SDK/数据类型.md#)|预览只允许AliVideoTrackCamera。|
+    |viewConfig|[AliVideoCanvas \*](cn.zh-CN/SDK参考/Mac SDK/数据类型.md#)|渲染参数，包含渲染窗口以及渲染方式。|
+    |track|[AliRtcVideoTrack](cn.zh-CN/SDK参考/Mac SDK/数据类型.md#)|预览只允许AliVideoTrackCamera。|
 
 -   muteLocalCamera：设置是否停止发布本地视频流，不改变当前视频流的采集状态。
 
-    ``` {#codeblock_eq3_skh_3p4 .lanuage-c}
+    ``` {#codeblock_a7v_c5b_mc7 .lanuage-c}
     - (int)muteLocalCamera:(BOOL)mute forTrack:(AliRtcVideoTrack)track;
     ```
 
@@ -389,14 +388,14 @@
     |参数|类型|描述|
     |--|--|--|
     |mute|BOOL|YES表示停止发布视频流；NO表示恢复发布。|
-    |track|[AliRtcVideoTrack](cn.zh-CN/SDK参考/iOS和Mac SDK/数据类型.md#)|需要改变发布状态的videoTrack类型。|
+    |track|[AliRtcVideoTrack](cn.zh-CN/SDK参考/Mac SDK/数据类型.md#)|需要改变发布状态的videoTrack类型。|
 
 -   setRemoteViewConfig：为远端的视频设置渲染窗口以及绘制参数。
 
     -   支持joinChannel之前和之后切换窗口。如果canvas为NULL或者其成员view为NULL，则停止渲染相应的流。
     -   如果在播放过程中需要重新设置渲染方式，请保持canvas中其他成员变量不变，仅修改renderMode。
     -   canvas中渲染方式默认为AliRtcRenderModeAuto。
-    ``` {#codeblock_428_q0c_iyr .lanuage-c}
+    ``` {#codeblock_qqp_plg_u6q .lanuage-c}
     - (int)setRemoteViewConfig:(AliVideoCanvas *)canvas uid:(NSString *)uid forTrack:(AliRtcVideoTrack)track;
     ```
 
@@ -404,25 +403,25 @@
 
     |参数|类型|描述|
     |--|--|--|
-    |canvas|[AliVideoCanvas \*](cn.zh-CN/SDK参考/iOS和Mac SDK/数据类型.md#)|渲染参数，包含渲染窗口以及渲染方式。|
+    |canvas|[AliVideoCanvas \*](cn.zh-CN/SDK参考/Mac SDK/数据类型.md#)|渲染参数，包含渲染窗口以及渲染方式。|
     |uid|NSString \*|用户ID，从App server获取的唯一标示符。|
-    |track|[AliRtcVideoTrack](cn.zh-CN/SDK参考/iOS和Mac SDK/数据类型.md#)|需要设置的videoTrack类型。|
+    |track|[AliRtcVideoTrack](cn.zh-CN/SDK参考/Mac SDK/数据类型.md#)|需要设置的videoTrack类型。|
 
--   getCameraList（仅Mac可用）：获取摄像头列表。
+-   getCameraList：获取摄像头列表。
 
-    ``` {#codeblock_b9d_1d6_xz0 .lanuage-c}
+    ``` {#codeblock_9nk_j7q_qrx .lanuage-c}
     - (NSArray<NSString *> *)getCameraList;
     ```
 
--   getCurrentCamera（仅Mac可用）：获取当前使用的摄像头名称。
+-   getCurrentCamera：获取当前使用的摄像头名称。
 
-    ``` {#codeblock_p4f_fvo_n1h .lanuage-c}
+    ``` {#codeblock_0nz_p13_3ar .lanuage-c}
     - (NSString *)getCurrentCamera;
     ```
 
--   setCurrentCamera（仅Mac可用）：选择摄像头。必须先调用getCameraList接口获取设备列表后再调用此接口设置。
+-   setCurrentCamera：选择摄像头。必须先调用getCameraList接口获取设备列表后再调用此接口设置。
 
-    ``` {#codeblock_29w_pfj_qsr .lanuage-c}
+    ``` {#codeblock_gnd_0re_hmf .lanuage-c}
     - (void)setCurrentCamera:(NSString *)camera;
     ```
 
@@ -432,132 +431,15 @@
     |--|--|--|
     |camera|NSString \*|摄像头名称。|
 
--   switchCamera（仅iOS可用）：切换前后摄像头，返回0为切换成功，其他为切换失败
-
-    ``` {#codeblock_h6s_mtf_tbn .lanuage-c}
-    - (int)switchCamera;
-    ```
-
--   setCameraZoom（仅iOS可用）：设置摄像头参数，返回0表示设置成功，其他表示设置失败。
-
-    ``` {#codeblock_jsc_8zf_zfw .lanuage-c}
-     - (int)setCameraZoom:(float)zoom flash:(BOOL)flash autoFocus:(BOOL)autoFocus;
-    ```
-
-    参数：
-
-    |参数|类型|描述|
-    |--|--|--|
-    |zoom|float|zoom变焦的级别。|
-    |flash|BOOL|是否打开闪光灯。|
-    |autoFocus|BOOL|是否打开自动对焦。|
-
 -   isCameraOn：检查摄像头是否打开，YES表示摄像头已打开，NO表示摄像头没有打开。
 
-    ``` {#codeblock_frs_b6q_6n6 .lanuage-c}
+    ``` {#codeblock_t1v_nxz_00q .lanuage-c}
     - (BOOL)isCameraOn;
     ```
 
--   isCameraFocusPointSupported（仅iOS可用）：摄像头是否支持手动聚焦。
-
-    ``` {#codeblock_4mu_6rc_dtc}
-    - (BOOL)isCameraFocusPointSupported;
-    ```
-
-    该方法返回YES表示支持，NO表示不支持。
-
--   isCameraExposurePointSupported（仅iOS可用）：摄像头是否支持设置曝光区域。
-
-    ``` {#codeblock_77e_3f0_hb6}
-    - (BOOL)isCameraExposurePointSupported;
-    ```
-
-    该方法返回YES表示支持，NO表示不支持。
-
--   setCameraFocusPoint（仅iOS可用）：设置摄像头手动聚焦。
-
-    ``` {#codeblock_yp9_dcx_26q}
-    - (int)setCameraFocusPoint:(CGPoint)point;
-    ```
-
-    参数：
-
-    |参数|类型|描述|
-    |--|--|--|
-    |point|CGPoint|聚焦点坐标。|
-
-    该方法返回0表示成功，其他表示失败。
-
--   setCameraExposurePoint（仅iOS可用）：设置摄像头曝光点。
-
-    ``` {#codeblock_n1c_qwj_m7a}
-    - (int)setCameraExposurePoint:(CGPoint)point;
-    ```
-
-    参数：
-
-    |参数|类型|描述|
-    |--|--|--|
-    |point|CGPoint|曝光点坐标。|
-
-    该方法返回0表示成功，其他表示失败。
-
--   unSubscribeVideoData（仅iOS可用）：取消订阅视频数据。
-
-    ``` {#codeblock_4yg_ixw_nwm}
-    - (void)unSubscribeVideoData:(NSString *)uid videoSource:(AliRtcVideoSource)videoSource;
-    ```
-
-    参数：
-
-    |参数|类型|描述|
-    |--|--|--|
-    |uid|NSString \*|用户id。|
-    |videoSource|AliRtcVideoSource|视频流类型。|
-
--   subscribeVideoPreprocessData（仅iOS可用）：订阅采集视频前处理裸数据。
-
-    ``` {#codeblock_byf_eyx_kd0}
-    - (void)subscribeVideoPreprocessData:(AliRtcVideoSource)videoSource;
-    ```
-
-    参数：
-
-    |参数|类型|描述|
-    |--|--|--|
-    |videoSource|AliRtcVideoSource|视频流类型。|
-
--   unSubscribeVideoPreprocessData（仅iOS可用）：取消采集订阅前处理裸数据。
-
-    ``` {#codeblock_z9c_evq_ftn}
-    - (void)unSubscribeVideoPreprocessData:(AliRtcVideoSource)videoSource;
-    ```
-
-    参数：
-
-    |参数|类型|描述|
-    |--|--|--|
-    |videoSource|AliRtcVideoSource|视频流类型。|
-
--   enableHighDefinitionPreview（仅iOS可用）：是否允许高清预览，默认打开。
-
-    **说明：** 需要在开启预览和开启推流之前调用。
-
-    ``` {#codeblock_sho_iso_p3b}
-    - (BOOL)enableHighDefinitionPreview:(BOOL)enable;
-    ```
-
-    参数：
-
-    |参数|类型|描述|
-    |--|--|--|
-    |enable|BOOL|YES表示允许，NO表示不允许。|
-
-    该方法返回0表示成功，其他表示失败。
-
 -   setAudioOnlyMode：设置是否为纯音频模式还是音视频模式，返回0代表设置成功，其他代表设置失败。默认为音视频模式（非纯音频），必须在joinChannel之前设置。
 
-    ``` {#codeblock_mfl_bpt_k3f .lanuage-c}
+    ``` {#codeblock_jh0_mjd_6vj .lanuage-c}
     - (int)setAudioOnlyMode:(BOOL)audioOnly;
     ```
 
@@ -569,13 +451,13 @@
 
 -   isAudioOnly：查询当前是否为纯音频模式，返回YES为纯音频，NO为音视频。
 
-    ``` {#codeblock_18y_ui9_adv .lanuage-c}
+    ``` {#codeblock_jv9_04m_6g4 .lanuage-c}
     - (BOOL)isAudioOnly;
     ```
 
 -   muteLocalMic：设置是否停止发布本地音频，返回0表示设置成功，-1表示设置失败。不改变当前音频的采集状态。
 
-    ``` {#codeblock_cvl_ll1_kvz .lanuage-c}
+    ``` {#codeblock_6p5_z8q_zwz .lanuage-c}
     - (int)muteLocalMic:(BOOL)mute;
     ```
 
@@ -587,7 +469,7 @@
 
 -   muteRemoteAudioPlaying：设置是否停止播放远端音频流，返回0表示设置成功，-1表示设置失败。
 
-    ``` {#codeblock_8c8_9xn_u0i .lanuage-c}
+    ``` {#codeblock_zis_2k3_749 .lanuage-c}
     - (int)muteRemoteAudioPlaying:(NSString *)uid mute:(BOOL)mute;
     ```
 
@@ -598,33 +480,21 @@
     |uid|NSString \*|用户ID，从App server获取的唯一标示符。|
     |mute|BOOL|YES表示停止播放；NO表示恢复播放。|
 
--   enableSpeakerphone（仅iOS可用）：切换听筒、扬声器输出。
+-   getAudioCaptures：获取音频采集设备列表。
 
-    ``` {#codeblock_40b_z3c_in1 .lanuage-c}
-     - (int)enableSpeakerphone:(BOOL)enable;
-    ```
-
-    参数：
-
-    |参数|类型|描述|
-    |--|--|--|
-    |enable|BOOL|YES为听筒模式，NO为扬声器模式。|
-
--   getAudioCaptures（仅Mac可用）：获取音频采集设备列表。
-
-    ``` {#codeblock_8ew_55i_w6h .lanuage-c}
+    ``` {#codeblock_xzo_okx_h9q .lanuage-c}
     - (NSArray<NSString *> *)getAudioCaptures;
     ```
 
--   getCurrentAudioCapture（仅Mac可用）：获取当前使用的音频采集设备名称。
+-   getCurrentAudioCapture：获取当前使用的音频采集设备名称。
 
-    ``` {#codeblock_j4h_1fu_mz6 .lanuage-c}
+    ``` {#codeblock_1w1_xow_9hm .lanuage-c}
     - (NSString *)getCurrentAudioCapture;
     ```
 
--   setCurrentAudioCapture（仅Mac可用）：选择音频采集设备。必须先调用getCurrentAudioCapture接口获取设备列表后再调用此接口设置。
+-   setCurrentAudioCapture：选择音频采集设备。必须先调用getCurrentAudioCapture接口获取设备列表后再调用此接口设置。
 
-    ``` {#codeblock_04j_wt8_w6b .lanuage-c}
+    ``` {#codeblock_jtm_sz8_6cn .lanuage-c}
     - (void)setCurrentAudioCapture:(NSString *)capture;
     ```
 
@@ -634,21 +504,21 @@
     |--|--|--|
     |capture|NSString \*|音频采集设备名称。|
 
--   getAudioRenderers（仅Mac可用）：获取音频播放设备列表。
+-   getAudioRenderers：获取音频播放设备列表。
 
-    ``` {#codeblock_wwa_cxw_u70 .lanuage-c}
+    ``` {#codeblock_onk_5hf_svv .lanuage-c}
     - (NSArray<NSString *> *)getAudioRenderers;
     ```
 
--   getCurrentAudioRenderer（仅Mac可用）：获取当前使用的音频播放设备。
+-   getCurrentAudioRenderer：获取当前使用的音频播放设备。
 
-    ``` {#codeblock_p7u_xeq_uta .lanuage-c}
+    ``` {#codeblock_glv_u0w_4f4 .lanuage-c}
     - (NSString *)getCurrentAudioRenderer;
     ```
 
--   setCurrentAudioRenderer（仅Mac可用）：选择音频播放设备。必须先调用getAudioRenderers接口获取设备列表后再调用此接口设置。
+-   setCurrentAudioRenderer：选择音频播放设备。必须先调用getAudioRenderers接口获取设备列表后再调用此接口设置。
 
-    ``` {#codeblock_n4u_bw7_jg7 .lanuage-c}
+    ``` {#codeblock_ino_yfo_d8e .lanuage-c}
     - (void)setCurrentAudioRenderer:(NSString *)renderer;
     ```
 
@@ -660,49 +530,49 @@
 
 -   startAudioCapture：开启音频采集。您可以控制提前打开音频采集，如果不设置，SDK会在开始推流的时候打开音频采集。
 
-    ``` {#codeblock_tvm_az8_1nm .lanuage-c}
+    ``` {#codeblock_tkj_rij_2ds}
     - (void)startAudioCapture;
     ```
 
 -   stopAudioCapture：关闭音频采集。您可以控制关闭音频采集。
 
-    ``` {#codeblock_z82_g8w_x81 .lanuage-c}
+    ``` {#codeblock_5zt_4fn_2y6}
     - (void)stopAudioCapture;
     ```
 
 -   startAudioPlayer：开启音频播放。您可以控制提前打开音频播放，如果不设置，SDK会在订阅成功的时候打开音频播放。
 
-    ``` {#codeblock_gpu_8s4_rv3 .lanuage-c}
+    ``` {#codeblock_yvs_lct_q6z}
     - (void)startAudioPlayer;
     ```
 
 -   stopAudioPlayer：关闭音频播放。您可以控制关闭音频播放。
 
-    ``` {#codeblock_m9g_nz1_dld .lanuage-c}
+    ``` {#codeblock_c3u_5ev_od6}
     - (void)stopAudioPlayer;
     ```
 
 -   startPreview：开始本地预览，可以在joinChannel之前就开启预览。
 
-    ``` {#codeblock_x4w_yuv_xy1 .lanuage-c}
+    ``` {#codeblock_5i8_cng_jx3 .lanuage-c}
     - (int)startPreview;
     ```
 
 -   stopPreview：停止本地预览。
 
-    ``` {#codeblock_s1j_cv4_rsz .lanuage-c}
+    ``` {#codeblock_2oq_734_u9y .lanuage-c}
     - (int)stopPreview;
     ```
 
 -   getOnlineRemoteUsers：获取远端在线用户列表，返回用户ID列表。
 
-    ``` {#codeblock_wpe_u97_vwb .lanuage-c}
+    ``` {#codeblock_bom_6al_drj .lanuage-c}
     - (NSArray<NSString *> *)getOnlineRemoteUsers;
     ```
 
 -   getUserInfo：查询远端用户信息。
 
-    ``` {#codeblock_tcg_x4l_blj .lanuage-c}
+    ``` {#codeblock_a8o_csa_mbj .lanuage-c}
     - (NSDictionary *)getUserInfo:(NSString *)uid;
     ```
 
@@ -714,7 +584,7 @@
 
 -   isUserOnline：查询用户是否在线，YES表示在线，NO表示不在线。
 
-    ``` {#codeblock_xqv_190_hpn .lanuage-c}
+    ``` {#codeblock_0ox_65t_5a6 .lanuage-c}
     - (BOOL)isUserOnline:(NSString *)uid;
     ```
 
@@ -724,23 +594,9 @@
     |--|--|--|
     |uid|NSString \*|用户ID，从App server获取的唯一标示符。|
 
--   getMediaInfoWithUserId： 获取当前的媒体流信息。返回key-value的json格式字符串。
-
-    ``` {#codeblock_dai_nqi_nfq .lanuage-c}
-    - (NSString *)getMediaInfoWithUserId:(NSString *)userId videoTrack:(AliRtcVideoTrack)videoTrack keys:(NSArray<NSString *> *)keys;
-    ```
-
-    参数：
-
-    |参数|类型|描述|
-    |--|--|--|
-    |userId|NSString \*|需要查询的userId，self请赋值空字符串。|
-    |videoTrack|[AliRtcVideoTrack](cn.zh-CN/SDK参考/iOS和Mac SDK/数据类型.md#)|需要查询的媒体流类型。|
-    |keys|NSArray<NSString \*\> \*|查询key值数组。|
-
 -   setLogLevel：设置log级别。
 
-    ``` {#codeblock_12l_t43_7a0 .lanuage-c}
+    ``` {#codeblock_0jm_puh_qdt .lanuage-c}
     - (void)setLogLevel:(AliRtcLogLevel)logLevel;
     ```
 
@@ -748,11 +604,11 @@
 
     |参数|类型|描述|
     |--|--|--|
-    |logLevel|[AliRtcLogLevel](cn.zh-CN/SDK参考/iOS和Mac SDK/数据类型.md#)|log级别。|
+    |logLevel|[AliRtcLogLevel](cn.zh-CN/SDK参考/Mac SDK/数据类型.md#)|log级别。|
 
 -   getSdkVersion：获取SDK版本号。
 
-    ``` {#codeblock_sd1_5h0_u4z .lanuage-c}
+    ``` {#codeblock_z4m_myr_3ng .lanuage-c}
     + (NSString *)getSdkVersion;
     ```
 
