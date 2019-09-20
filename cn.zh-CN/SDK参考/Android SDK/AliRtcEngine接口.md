@@ -64,6 +64,15 @@
 |[getPreCameraType](#)|获取预设值摄像头方向。|1.1|
 |[setCameraZoom](#)|设置摄像头参数。|1.1|
 |[isCameraOn](#)|检查摄像头是否打开。|1.1|
+|[isCameraSupportExposurePoint](#)|相机是否支持手动曝光|1.14|
+|[isCameraSupportFocusPoint](#)|相机是否支持手动聚焦|1.14|
+|[setCameraExposurePoint](#)|设置手动曝光的坐标点|1.14|
+|[setCameraFocusPoint](#)|设置手动聚焦的坐标点|1.14|
+|[isCameraFlash](#)|是否开启了闪光灯|1.14|
+|[getCameraZoom](#)|获取相机的zoom值|1.14|
+|[RegisterPreprocessVideoObserver](#)|注册人脸识别预处理|1.14|
+|[RegisterVideoObserver](#)|注册视频观察者|1.14|
+|[UnRegisterVideoObserver](#)|注销视频观察者|1.14|
 
 音频相关接口
 
@@ -451,15 +460,11 @@
     public abstract int switchCamera()                  
     ```
 
--   getCurrentCameraType：获取当前摄像头类型，返回摄像头的类型。
+-   getCurrentCameraType：获取当前摄像头类型，返回摄像头的类型[AliRTCCameraType](cn.zh-CN/SDK参考/Android SDK/数据类型.md#)。
 
     ``` {#codeblock_bz7_6fm_44x .language-java}
     public abstract AliRTCCameraType getCurrentCameraType()                   
     ```
-
-    |返回值|描述|
-    |---|--|
-    |[AliRTCCameraType](cn.zh-CN/SDK参考/Android SDK/数据类型.md#)|摄像头类型|
 
 -   setPreCameraType：预设值摄像头方向。
 
@@ -498,6 +503,94 @@
     ``` {#codeblock_814_rwa_s0j .language-java}
     public abstract boolean isCameraOn()                   
     ```
+
+-   isCameraSupportExposurePoint：查看摄像头是否支持手动曝光，返回true表示支持，否则返回false。
+
+    ``` {#codeblock_fh9_m3k_kec}
+    public abstract boolean isCameraSupportExposurePoint();
+    ```
+
+-   isCameraSupportFocusPoint： 查看是否支持手动聚焦，返回true表示支持，否则返回false。
+
+    ``` {#codeblock_tmp_2cy_y5d}
+    public abstract boolean isCameraSupportFocusPoint();
+    ```
+
+-   setCameraExposurePoint： 设置手动曝光点。返回0表示设置成功，其他表示设置失败。
+
+    ``` {#codeblock_mxe_s6g_zja}
+    public abstract int setCameraExposurePoint(float x, float y);
+    ```
+
+    参数：
+
+    |参数|类型|描述|
+    |--|--|--|
+    |x|float|x坐标。|
+    |y|float|y坐标。|
+
+-   setCameraFocusPoint：设置手动聚焦点，返回0表示设置成功，非0表示设置失败
+
+    ``` {#codeblock_4g7_fag_l7s}
+    public abstract int setCameraFocusPoint(float x, float y);
+    ```
+
+    参数：
+
+    |参数|类型|描述|
+    |--|--|--|
+    |x|float|x坐标。|
+    |y|float|y坐标。|
+
+-   isCameraFlash\(\)：查看摄像头闪光灯是否开启，返回true表示开启，否则返回false。
+
+    ``` {#codeblock_wgv_2hc_pbh}
+    public abstract boolean isCameraFlash();
+    ```
+
+-   getCameraZoom\(\)： 获取相机zoom值，返回值范围：1~相机支持的最大值。
+
+    ``` {#codeblock_rmi_8nt_wry}
+    public abstract float getCameraZoom();
+    ```
+
+-   RegisterPreprocessVideoObserver：注册人脸识别预处理。
+
+    ``` {#codeblock_8jn_0g0_7he}
+    public abstract void RegisterPreprocessVideoObserver(AliDetectObserver observer);
+    ```
+
+    参数：
+
+    |参数|类型|描述|
+    |observer|AliDetectObserver|人脸识别预处理。|
+
+-   RegisterVideoObserver：注册视频观察者。
+
+    ``` {#codeblock_c47_zyj_0pv}
+    public abstract void RegisterVideoObserver(String userId, AliRtcVideoTrack track, final AliVideoObserver observer);
+    ```
+
+    参数：
+
+    |参数|类型|描述|
+    |userId|String|用户id。|
+    |track|AliRtcVideoTrack|视频track的类型。|
+    |observer|AliVideoObserver|视频观察者。|
+
+-   UnRegisterVideoObserver：注销视频观察者。
+
+    ``` {#codeblock_66h_86d_b1a}
+    public abstract void UnRegisterVideoObserver(String userId, AliRtcVideoTrack track);
+    ```
+
+    参数：
+
+    |参数|类型|描述|
+    |userId|String|用户id。|
+    |track|AliRtcVideoTrack|视频track的类型。|
+
+    回调
 
 -   setAudioOnlyMode：设置纯音频模式还是音视频模式。返回0代表设置成功，其他代表设置失败。默认为音视频模式（非纯音频），必须在joinChannel之前设置。
 
