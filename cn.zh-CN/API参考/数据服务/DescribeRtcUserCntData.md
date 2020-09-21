@@ -14,7 +14,7 @@
 |--|--|----|---|--|
 |Action|String|是|DescribeRtcUserCntData|操作接口名，系统规定参数，取值：**DescribeRtcUserCntData**。 |
 |StartTime|String|否|2018-01-29T00:00:00Z|查询数据起始时间，UTC格式，格式为yyyy-MM-ddTHH:mm:ssZ。 |
-|EndTime|String|否|2018-01-29T00:00:00Z|查询数据结束时间，UTC格式，格式为yyyy-MM-ddTHH:mm:ssZ。
+|EndTime|String|否|2018-01-29T01:00:00Z|查询数据结束时间，UTC格式，格式为yyyy-MM-ddTHH:mm:ssZ。
 
  结束时间需大于起始时间。 |
 |AppId|String|否|yourAppId|应用ID，仅支持传单个ID。
@@ -30,7 +30,7 @@
 |名称|类型|示例值|描述|
 |--|--|---|--|
 |RequestId|String|16A96B9A-F203-4EC5-8E43-CB92E68F4CD8|请求ID。 |
-|UserCntDataPerInterval|Array| |活跃用户统计数据结构。 |
+|UserCntDataPerInterval|Array of UserCntModule| |活跃用户统计数据结构。 |
 |UserCntModule| | | |
 |ActiveUserCnt|Long|10|当前活跃用户数（基于发生通信的用户终端统计）。 |
 |TimeStamp|String|2018-01-29T00:00:00Z|时间戳，UTC格式，格式为yyyy-MM-ddTHH:mm:ssZ。 |
@@ -53,11 +53,13 @@ https://rtc.aliyuncs.com?Action=DescribeRtcUserCntData
 
 ```
 <DescribeRtcUserCntDataResponse>
-	  <RequestId>16A96B9A-F203-4EC5-8E43-CB92E68F4CD8</RequestId>
-	  <UserCntDataPerInterval>
-		    <TimeStamp>2018-01-29T00:00:00Z</TimeStamp>
-		    <ActiveUserCnt>10</ActiveUserCnt>
-	  </UserCntDataPerInterval>
+  <RequestId>16A96B9A-F203-4EC5-8E43-CB92E68F4CD8</RequestId>
+  <UserCntDataPerInterval>
+        <UserCntModule>
+              <TimeStamp>2018-01-29T00:00:00Z</TimeStamp>
+              <ActiveUserCnt>10</ActiveUserCnt>
+        </UserCntModule>
+  </UserCntDataPerInterval>
 </DescribeRtcUserCntDataResponse>
 ```
 
@@ -66,12 +68,14 @@ https://rtc.aliyuncs.com?Action=DescribeRtcUserCntData
 ```
 {
     "RequestId": "16A96B9A-F203-4EC5-8E43-CB92E68F4CD8",
-    "UserCntDataPerInterval": [ 
+    "UserCntDataPerInterval": {
+        "UserCntModule": [
         {  
             "TimeStamp": "2018-01-29T00:00:00Z",
             "ActiveUserCnt": 10
         }
-    ]
+      ]
+    }
 }
 ```
 
