@@ -71,9 +71,3 @@ https://rtc.aliyuncs.com?Action=UpdateMPULayout
 }
 ```
 
-## 错误码
-
-访问[错误中心](https://error-center.aliyun.com/status/product/rtc)查看更多错误码。
-
-访问[错误中心](https://error-center.alibabacloud.com/status/product/rtc)查看更多错误码。
-
