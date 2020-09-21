@@ -1,57 +1,45 @@
-# RemoveTerminals {#doc_api_rtc_RemoveTerminals .reference}
+# RemoveTerminals
 
 调用RemoveTerminals将指定终端用户从频道踢出。
 
-## 调试 {#api_explorer .section}
+## 调试
 
 [您可以在OpenAPI Explorer中直接运行该接口，免去您计算签名的困扰。运行成功后，OpenAPI Explorer可以自动生成SDK代码示例。](https://api.aliyun.com/#product=rtc&api=RemoveTerminals&type=RPC&version=2018-01-11)
 
-## 请求参数 {#parameters .section}
+## 请求参数
 
 |名称|类型|是否必选|示例值|描述|
 |--|--|----|---|--|
-|Action|String|是|RemoveTerminals|操作接口名，系统规定参数，取值：**RemoveTerminals**。
+|Action|String|是|RemoveTerminals|操作接口名，系统规定参数，取值：**RemoveTerminals**。 |
+|AppId|String|是|yourAppId|应用ID，仅支持传单个ID。
 
- |
-|AppId|String|是|yourAppId|应用ID，通过控制台开通创建。
+ 可通过控制台创建和查询。 |
+|ChannelId|String|是|yourChannelId|已加入的频道ID，仅支持传单个ID。 |
+|TerminalIds.N|RepeatList|是|1811xxxx|UserID（用户ID）列表，多个用逗号（,）分隔。N的取值：**1**~**30**。 |
 
- |
-|ChannelId|String|是|yourChannelId|频道ID，加入的频道。
-
- |
-|TerminalIds.N|RepeatList|是|yourTerminalIds|终端ID列表。
-
- |
-
-## 返回数据 {#resultMapping .section}
+## 返回数据
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
-|RequestId|String|16A96B9A-F203-4EC5-8E43-CB92E68F4CD8|请求ID。
+|RequestId|String|16A96B9A-F203-4EC5-8E43-CB92E68F4CD8|请求ID。 |
+|Terminals|Array of Terminal| |用户ID信息列表。 |
+|Terminal| | | |
+|Code|Integer|0|状态码，成功返回0，失败返回错误码描述。 |
+|Id|String|1811xxxx|用户ID。 |
+|Message|String|Success|删除终端操作结果。取值：
 
- |
-|Terminals| | |终端信息。
+ -   Success：成功。
+-   Failed：失败。 |
 
- |
-|Code|Integer|0|状态码。
-
- |
-|Id|String|181131|终端ID。
-
- |
-|Message|String|Success|删除终端操作结果。
-
- |
-
-## 示例 {#demo .section}
+## 示例
 
 请求示例
 
-``` {#request_demo}
-https://rtc.aliyuncs.com?Action=RemoveTerminals
-&ChannelId=xxxx
-&Terminals.N=xxx
-&AppId=xxxx
+```
+https://rtc.aliyuncs.com/?Action=RemoveTerminals
+&ChannelId=yourChannelId
+&Terminals.1=1811xxxx
+&AppId=yourAppId
 &<公共请求参数>
 ```
 
@@ -59,16 +47,16 @@ https://rtc.aliyuncs.com?Action=RemoveTerminals
 
 `XML` 格式
 
-``` {#xml_return_success_demo}
+```
 <RemoveTerminalsResponse>
 	  <RequestId>16A96B9A-F203-4EC5-8E43-CB92E68F4CD8</RequestId>
 	  <Terminals>
-		    <Id>181131</Id>
+		    <Id>1811xxxx</Id>
 		    <Code>0</Code>
 		    <Message>Success</Message>
 	  </Terminals>
 	  <Terminals>
-		    <Id>181131</Id>
+		    <Id>1811xxxx</Id>
 		    <Code>0</Code>
 		    <Message>Success</Message>
 	  </Terminals>
@@ -77,25 +65,21 @@ https://rtc.aliyuncs.com?Action=RemoveTerminals
 
 `JSON` 格式
 
-``` {#json_return_success_demo}
+```
 {
-	"Terminals":[
-		{
-			"Message":"Success",
-			"Id":"181131",
-			"Code":0
-		},
-		{
-			"Message":"Success",
-			"Id":"181131",
-			"Code":0
-		}
-	],
-	"RequestId":"16A96B9A-F203-4EC5-8E43-CB92E68F4CD8"
+   "RequestId":"16A96B9A-F203-4EC5-8E43-CB92E68F4CD8",
+   "Terminals":[
+      {
+         "Id":"1811xxxx",
+         "Code":0,
+         "Message":"Success"
+      },
+      {
+         "Id":"1811xxxx",
+         "Code":0,
+         "Message":"Success"
+      }
+   ]
 }
 ```
-
-## 错误码 { .section}
-
-访问[错误中心](https://error-center.aliyun.com/status/product/rtc)查看更多错误码。
 
