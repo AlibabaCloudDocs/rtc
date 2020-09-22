@@ -29,7 +29,7 @@
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
-|DurationDataPerInterval|Array| |通信时长统计信息。 |
+|DurationDataPerInterval|Array of DurationModule| |通信时长统计信息。 |
 |DurationModule| | | |
 |AudioDuration|Long|200|纯音频通信时长，单位：分钟。 |
 |ContentDuration|Long|200|屏幕共享时长，单位：分钟。 |
@@ -45,7 +45,7 @@
 请求示例
 
 ```
-https://rtc.aliyuncs.com?Action=DescribeRtcDurationData
+https://rtc.aliyuncs.com/?Action=DescribeRtcDurationData
 &AppId=yourAppId
 &StartTime=2020-02-04T05:00:00Z
 &EndTime=2020-02-04T07:00:00Z
