@@ -25,10 +25,10 @@
 |---|--|------|
 |[SetVideoProfile](#li_nbc_k0o_jkl)|设置视频流推流参数|1.16|
 |[GetVideoProfile](#li_a5i_rk5_7ha)|获取视频流推流参数|1.16|
-|[ConfigLocalCameraPublish](#li_gbb_iev_fo5)|设置是否允许推送相机流|1.16|
-|[IsLocalCameraPublishEnabled](#li_sq5_96z_f8v)|查询是否允许推送相机流|1.16|
-|[ConfigLocalScreenPublish](#li_f4d_pqa_91i)|设置是否允许推送屏幕流|1.16|
-|[IsLocalScreenPublishEnabled](#li_o5a_ciq_xeq)|查询是否允许推送屏幕流|1.16|
+|[ConfigLocalCameraPublish](#li_gbb_iev_fo5)|设置是否允许推送视频流（原相机流）|1.16|
+|[IsLocalCameraPublishEnabled](#li_sq5_96z_f8v)|查询是否允许推送视频流（原相机流）|1.16|
+|[ConfigLocalScreenPublish](#li_f4d_pqa_91i)|设置是否允许推送视频流（原屏幕流）|1.16|
+|[IsLocalScreenPublishEnabled](#li_o5a_ciq_xeq)|查询是否允许推送视频流（原屏幕流）|1.16|
 |[ConfigLocalAudioPublish](#li_f7p_epu_ssn)|设置是否允许推送音频流|1.16|
 |[IsLocalAudioPublishEnabled](#li_wzp_2al_2hs)|查询是否允许推送音频流|1.16|
 |[ConfigLocalSimulcast](#li_pnj_yud_oi3)|设置是否允许推送次要视频流小流|1.16|
@@ -133,9 +133,9 @@ AliRTCEngineInterface * CreateAliRTCEngine(EngineEventHandlerInterface * eventHa
     |---|--|--|
     |track|AliRTCSdk::Linux:[VideoTrack](/cn.zh-CN/SDK参考/Linux SDK/C++/数据类型.md)|视频流的类型，详细请参见[VideoTrack](/cn.zh-CN/SDK参考/Linux SDK/C++/数据类型.md)。|
 
--   ConfigLocalCameraPublish：设置是否允许推送相机流。
+-   ConfigLocalCameraPublish：设置是否允许推送视频流（原相机流）。
 
-    **说明：** 需要调用[Publish](#li_p7r_dnm_syc)接口才能生效。默认允许相机流推流。
+    **说明：** 需要调用[Publish](#li_p7r_dnm_syc)接口才能生效。默认允许视频流（原相机流）推流。
 
     ```
     virtual void ConfigLocalCameraPublish(bool enable) = 0;
@@ -143,17 +143,17 @@ AliRTCEngineInterface * CreateAliRTCEngine(EngineEventHandlerInterface * eventHa
 
     |参数名|类型|描述|
     |---|--|--|
-    |enable|bool|是否允许推送相机流。true：允许，false：禁止。|
+    |enable|bool|是否允许推送视频流（原相机流）。true：允许，false：禁止。|
 
--   IsLocalCameraPublishEnabled：查询是否允许推送相机流。返回值，true表示允许，false表示禁止。
+-   IsLocalCameraPublishEnabled：查询是否允许推送视频流（原相机流）。返回值，true表示允许，false表示禁止。
 
     ```
     virtual bool IsLocalCameraPublishEnabled() = 0;
     ```
 
--   ConfigLocalScreenPublish：设置是否允许推送屏幕流。
+-   ConfigLocalScreenPublish：设置是否允许推送视频流（原屏幕流）。
 
-    **说明：** 需要调用[Publish](#li_p7r_dnm_syc)接口才能生效。默认不允许屏幕流推流。
+    **说明：** 需要调用[Publish](#li_p7r_dnm_syc)接口才能生效。默认不允许视频流（原屏幕流）推流。
 
     ```
     virtual void ConfigLocalScreenPublish(bool enable) = 0;
@@ -161,9 +161,9 @@ AliRTCEngineInterface * CreateAliRTCEngine(EngineEventHandlerInterface * eventHa
 
     |参数名|类型|描述|
     |---|--|--|
-    |enable|bool|是否允许推送屏幕流。true：允许，false：禁止。|
+    |enable|bool|是否允许推送视频流（原屏幕流）。true：允许，false：禁止。|
 
--   IsLocalScreenPublishEnabled：查询是否允许推送屏幕流。返回值，true表示允许，false表示禁止。
+-   IsLocalScreenPublishEnabled：查询是否允许推送视频流（原屏幕流）。返回值，true表示允许，false表示禁止。
 
     ```
     virtual bool IsLocalScreenPublishEnabled() = 0;
@@ -189,7 +189,7 @@ AliRTCEngineInterface * CreateAliRTCEngine(EngineEventHandlerInterface * eventHa
 
 -   ConfigLocalSimulcast：设置是否允许推送次要视频流小流。
 
-    **说明：** 需要调用[Publish](#li_p7r_dnm_syc)接口才能生效。默认允许推送次要视频流。目前只支持相机流，不支持屏幕流。
+    **说明：** 需要调用[Publish](#li_p7r_dnm_syc)接口才能生效。默认允许推送次要视频流。目前只支持视频流（原相机流），不支持视频流（原屏幕流）。
 
     ```
     virtual int ConfigLocalSimulcast(bool enabled, AliRTCSdk::Linux::VideoTrack track) = 0;
