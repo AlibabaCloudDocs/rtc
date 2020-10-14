@@ -1282,10 +1282,10 @@ keyword: [AliRtcEngine, Android]
 
     |参数|类型|描述|
     |--|--|--|
-    |mode|AliRtcOrientationMode|设备方向。取值：     -   AliRtcOrientationModePortrait（默认值）：固定竖屏模式。
-    -   AliRtcOrientationModeLandscape：固定横屏模式Left。
-    -   AliRtcOrientationModeLandscapeRight：固定横屏模式Right。
-    -   AliRtcOrientationModeAuto：自适应 |
+    |mode|[AliRtcOrientationMode](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)|设备方向。取值：     -   AliRtcOrientationModePortrait（默认值）：固定竖屏模式。
+    -   AliRtcOrientationModeLandscapeLeft：固定左横屏模式。
+    -   AliRtcOrientationModeLandscapeRight：固定右横屏模式。
+    -   AliRtcOrientationModeAuto：自适应模式。 |
 
 -   startNetworkQualityProbeTest：开始网络质量探测。返回0为成功，其他返回错误码。
 
