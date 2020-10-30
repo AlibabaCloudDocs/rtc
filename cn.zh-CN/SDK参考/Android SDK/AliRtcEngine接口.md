@@ -93,7 +93,7 @@ keyword: [AliRtcEngine, Android]
 |[isAudioOnly](#li_cwx_qty_qbb)|查询当前是否为纯音频模式|1.1|
 |[muteLocalMic](#li_5vx_o8j_tlo)|设置是否停止发布本地音频|1.1|
 |[muteRemoteAudioPlaying](#li_wlu_fck_m75)|设置是否停止播放远端音频流|1.1|
-|[enableSpeakerphone](#li_xto_65v_jbg)|切换听筒、扬声器输出|1.1|
+|[startAudioCapture](#li_xto_65v_jbg)|切换听筒、扬声器输出|1.1|
 |[isSpeakerOn](#li_x8k_hqf_0tw)|查询是否开启扬声器|1.1|
 |[startAudioCapture](#li_g46_fsz_4kc)|开启音频采集|1.11|
 |[stopAudioCapture](#li_o2b_5d5_k55)|关闭音频采集|1.11|
@@ -177,35 +177,41 @@ keyword: [AliRtcEngine, Android]
 
 ## 接口详情
 
--   setH5CompatibleMode：设置是否兼容H5，默认不兼容H5。
-
-    **说明：** 该接口仅支持在创建AliRtcEngine实例前调用。
+-   setH5CompatibleMode：设置是否兼容H5。
 
     ```
     AliRtcEngine.setH5CompatibleMode(int enable)           
     ```
 
-    |参数|类型|描述|
+    |名称|类型|描述|
     |--|--|--|
-    |enable|int|0表示不兼容H5，1表示兼容H5。|
+    |enable|int|0表示不兼容H5，1表示兼容H5。默认不兼容H5。|
 
--   getH5CompatibleMode：检查当前是否兼容H5，返回1表示兼容，0表示不兼容。
+    **说明：** 该接口仅支持在创建AliRtcEngine实例前调用。
+
+-   getH5CompatibleMode：检查当前是否兼容H5。
+
+    ```
+    public static int getH5CompatibleMode()
+    ```
+
+    返回说明
+
+    1表示兼容，0表示不兼容。
 
     **说明：** 该接口仅支持在创建AliRtcEngine实例后调用。
 
-    ```
-    public static int getH5CompatibleMode()                 
-    ```
-
--   getInstance：创建AliRTCEngine实例。同一时间只会存在一个实例，并且只能在主线程调用。
+-   getInstance：创建AliRTCEngine实例。
 
     ```
     public static AliRtcEngineImpl getInstance(Context context)          
     ```
 
-    |参数|类型|描述|
+    |名称|类型|描述|
     |--|--|--|
     |context|Context|上下文。|
+
+    **说明：** 同一时间只会存在一个实例，并且只能在主线程调用。
 
 -   setRtcEngineEventListener：设置本地用户行为的回调事件的监听。
 
@@ -213,7 +219,7 @@ keyword: [AliRtcEngine, Android]
     public abstract void setRtcEngineEventListener(AliRtcEngineEventListener listener)                    
     ```
 
-    |参数|类型|描述|
+    |名称|类型|描述|
     |--|--|--|
     |listener|[AliRtcEngineEventListener](/cn.zh-CN/SDK参考/Android SDK/回调及监听.md)|接收回调事件的监听器。|
 
@@ -223,11 +229,11 @@ keyword: [AliRtcEngine, Android]
     public abstract void setRtcEngineNotify(AliRtcEngineNotify engineNotify)               
     ```
 
-    |参数|类型|描述|
+    |名称|类型|描述|
     |--|--|--|
     |engineNotify|[AliRtcEngineNotify](/cn.zh-CN/SDK参考/Android SDK/回调及监听.md)|接收通知的监听器。|
 
--   destroy：销毁SDK（只能在主线程调用）。
+-   destroy：销毁SDK。
 
     1.15及以上版本：销毁SDK只能通过destroy方法。
 
@@ -237,24 +243,32 @@ keyword: [AliRtcEngine, Android]
     public abstract void destroy();                  
     ```
 
--   uploadLog：上传日志。
+    **说明：** 该接口只能在主线程调用。
 
-    **说明：** 1.17及以上版本修改为静态方法，1.17以下版本请使用：`public abstract void uploadLog();`。
+-   uploadLog：上传日志。
 
     ```
     AliRtcEngine.uploadLog();
     ```
 
--   setAutoPublish：设置是否自动发布，是否自动订阅。默认自动发布和订阅，并且必须在加入频道之前设置。
+    **说明：** 1.17及以上版本修改为静态方法，1.17以下版本请使用：`public abstract void uploadLog();`。
+
+-   setAutoPublish：设置是否自动发布，是否自动订阅。
 
     ```
     public int setAutoPublish(boolean autoPub, boolean autoSub);
     ```
 
-    |参数|类型|描述|
+    |名称|类型|描述|
     |--|--|--|
-    |autoPub|boolean|true表示自动发布，false表示手动发布。|
-    |autoSub|boolean|true表示自动订阅，false表示手动订阅。|
+    |autoPub|boolean|true表示自动发布，false表示手动发布。默认自动发布。|
+    |autoSub|boolean|true表示自动订阅，false表示手动订阅。默认自动订阅。|
+
+    返回说明
+
+    0表示方法调用成功，其他表示方法调用失败。
+
+    **说明：** 该接口必须在加入频道之前设置。
 
 -   joinChannel：加入频道。
 
@@ -264,12 +278,16 @@ keyword: [AliRtcEngine, Android]
     public abstract void joinChannel(AliRtcAuthInfo authInfo, String userName)                    
     ```
 
-    |参数|类型|描述|
+    |名称|类型|描述|
     |--|--|--|
     |authInfo|[AliRtcAuthInfo](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)|鉴权信息。|
     |userName|String|用户的显示名称（非用户ID）。|
 
 -   leaveChannel：离开频道。
+
+    ```
+    public abstract void leaveChannel()                          
+    ```
 
     1.15及以上版本：调用leaveChannel不会销毁实例。
 
@@ -287,170 +305,230 @@ keyword: [AliRtcEngine, Android]
         public abstract void leaveChannel(long timeout)                          
         ```
 
--   isInCall：检查当前是否在频道中，返回true表示在频道中，false表示不在频道中。
+-   isInCall：检查当前是否在频道中。
 
     ```
     public abstract boolean isInCall()                  
     ```
 
--   setChannelProfile：设置频道模式。返回0为成功，非0为失败。
+    返回说明
 
-    **说明：** 该接口只可以在joinChannel之前调用，通信中不可以重新设置，在调用LeaveChannel后可以重新设置。
+    返回true表示在频道中，false表示不在频道中。
+
+-   setChannelProfile：设置频道模式。
 
     ```
     public abstract int setChannelProfile(AliRTCSDK_Channel_Profile profile);
     ```
 
-    |参数|类型|描述|
+    |名称|类型|描述|
     |--|--|--|
     |profile|[AliRTCSDK\_Channel\_Profile](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)|频道模式类型。默认通信模式。|
 
--   setAutoPublishSubscribe：设置是否自动发布或自动订阅。默认自动发布和订阅，并且必须在加入频道之前设置。
+    返回说明
+
+    0表示方法调用成功，其他表示方法调用失败。
+
+    **说明：** 该接口只可以在joinChannel之前调用，通信中不可以重新设置，在调用LeaveChannel后可以重新设置。
+
+-   setAutoPublishSubscribe：设置是否自动发布或自动订阅。
 
     ```
     public abstract int setAutoPublishSubscribe(boolean autoPub, boolean autoSub);
     ```
 
-    |参数|类型|描述|
+    |名称|类型|描述|
     |--|--|--|
-    |autoPub|boolean|是否自动推流，取值：true\|false。|
-    |autoSub|boolean|是否自动订阅，取值：true\|false。|
+    |autoPub|boolean|true表示自动发布，false表示手动发布。默认自动发布。|
+    |autoSub|boolean|true表示自动订阅，false表示手动订阅。默认自动订阅。|
 
--   isAutoPublish：查询当前是否为自动发布模式，返回true为自动发布，false为手动发布。
+    返回说明
+
+    0表示方法调用成功，其他表示方法调用失败。
+
+    **说明：** 该接口必须在加入频道之前设置。
+
+-   isAutoPublish：查询当前是否为自动发布模式。
 
     ```
     public abstract boolean isAutoPublish()                  
     ```
 
--   configLocalCameraPublish：设置是否允许发布相机流。默认为允许发布相机流，手动发布时，需要调用publish才能生效。
+    返回说明
+
+    true表示自动发布，false表示手动发布。
+
+-   configLocalCameraPublish：设置是否允许发布相机流。
 
     ```
     public abstract void configLocalCameraPublish(boolean enable)                
     ```
 
-    |参数|类型|描述|
+    |名称|类型|描述|
     |--|--|--|
-    |enable|boolean|true为允许发布相机流，false表示不允许。|
+    |enable|boolean|true为允许发布相机流，false表示不允许。默认为允许发布相机流。|
 
--   isLocalCameraPublishEnabled：查询当前是否允许发布相机流，返回true为允许，false为不允许。
+    **说明：** 手动发布时，需要调用publish才能生效。
+
+-   isLocalCameraPublishEnabled：查询当前是否允许发布相机流。
 
     ```
     public abstract boolean isLocalCameraPublishEnabled()                   
     ```
 
--   configLocalScreenPublish：设置是否允许发布屏幕流。默认为不允许发布屏幕流，手动发布时，需要调用publish才能生效。
+    返回说明
+
+    true表示允许，false表示不允许。
+
+-   configLocalScreenPublish：设置是否允许发布屏幕流。
 
     ```
     public abstract void configLocalScreenPublish(boolean enable)                  
     ```
 
-    |参数|类型|描述|
+    |名称|类型|描述|
     |--|--|--|
-    |enable|boolean|true表示允许发布屏幕流，false表示不允许。|
+    |enable|boolean|true表示允许发布屏幕流，false表示不允许。默认为不允许发布屏幕流|
 
--   isLocalScreenPublishEnabled：查询当前是否允许发布屏幕流，返回true为允许，false为不允许。
+    **说明：** 手动发布时，需要调用publish才能生效。
+
+-   isLocalScreenPublishEnabled：查询当前是否允许发布屏幕流。
 
     ```
     public abstract boolean isLocalScreenPublishEnabled()                   
     ```
 
--   configLocalAudioPublish：设置是否允许发布音频流。默认为允许发布音频流，手动发布时，需要调用publish才能生效。
+    返回说明
+
+    true表示允许发布屏幕流，false表示不允许发布屏幕流。
+
+-   configLocalAudioPublish：设置是否允许发布音频流。
 
     ```
     public abstract void configLocalAudioPublish(boolean enable)          
     ```
 
-    |参数|类型|描述|
+    |名称|类型|描述|
     |--|--|--|
-    |enable|boolean|true表示允许，false表示不允许。|
+    |enable|boolean|true表示允许，false表示不允许。默认为允许发布音频流。|
 
--   isLocalAudioPublishEnabled：查询当前是否允许发布音频流，返回true为允许，false为不允许。
+    **说明：** 手动发布时，需要调用publish才能生效。
+
+-   isLocalAudioPublishEnabled：查询当前是否允许发布音频流。
 
     ```
     public abstract boolean isLocalAudioPublishEnabled()                
     ```
 
--   configLocalSimulcast：设置是否允许发布次要视频流。默认为允许发布次要视频流，手动发布时，需要调用publish才能生效。
+    返回说明
+
+    true表示允许发布音频流，false表示不允许发布音频流。
+
+-   configLocalSimulcast：设置是否允许发布次要视频流。
 
     ```
     public abstract int configLocalSimulcast(boolean enable, AliRtcVideoTrack track)        
     ```
 
-    |参数|类型|描述|
+    |名称|类型|描述|
     |--|--|--|
-    |enable|boolean|true表示允许发布次要流，false表示不允许。|
+    |enable|boolean|true表示允许发布次要流，false表示不允许。默认为允许发布次要视频流。|
     |track|[AliRtcVideoTrack](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)|流类型。当前只支持AliVideoTrackCamera（相机流）。|
 
--   isLocalSimulcastEnabled：查询当前是否允许发布次要视频流，返回true为允许，false为不允许。
+    返回说明
+
+    0表示方法调用成功，其他表示方法调用失败。
+
+    **说明：** 手动发布时，需要调用publish才能生效。
+
+-   isLocalSimulcastEnabled：查询当前是否允许发布次要视频流。
 
     ```
     public abstract boolean isLocalSimulcastEnabled()                  
     ```
 
+    返回说明
+
+    true表示允许发布次要视频流，false表示不允许发布次要视频流。
+
 -   publish：手动发布视频和音频流。
+
+    ```
+    public abstract void publish()                  
+    ```
 
     -   调用publish的实际表现需要结合configLocalCameraPublish、configLocalScreenPublish、configLocalAudioPublish、configLocalSimulcast等接口才能确定。
     -   根据您的具体业务需求配置上述4个接口的参数，以发布相应的视频和音频流。
     -   发布和停止发布都是调用publish。
     -   如需停止发布，则需要上述4个配置接口的参数都置为false，再调用publish。
     -   需要在加入频道成功之后调用该接口。
-    ```
-    public abstract void publish()                  
-    ```
-
--   isAutoSubscribe：查询当前是否为自动订阅模式，返回true为自动订阅，false为手动订阅。
+-   isAutoSubscribe：查询当前是否为自动订阅模式。
 
     ```
     public abstract boolean isAutoSubscribe()                 
     ```
 
--   configRemoteCameraTrack：设置是否订阅远端相机流。默认为订阅大流。当对流进行操作时（如手动订阅，关闭订阅），必须调用subscribe才能生效。
+    返回说明
+
+    true表示自动订阅，false表示手动订阅。
+
+-   configRemoteCameraTrack：设置是否订阅远端相机流。
 
     ```
     public abstract void configRemoteCameraTrack(String uid, boolean master, boolean enable)                  
     ```
 
-    |参数|类型|描述|
+    |名称|类型|描述|
     |--|--|--|
     |uid|String|用户ID。|
-    |master|boolean|true为优先订阅大流，false为订阅次小流。|
+    |master|boolean|true为优先订阅大流，false为订阅次小流。默认为订阅大流。|
     |enable|boolean|true为订阅远端相机流，false为停止订阅远端相机流。|
 
--   configRemoteScreenTrack：设置是否订阅远端屏幕流。默认为不订阅远端屏幕流。当对流进行操作时（如手动订阅，关闭订阅），必须调用subscribe才能生效。
+    **说明：** 该接口需要对流进行操作时（如手动订阅，关闭订阅），必须调用subscribe才能生效。
+
+-   configRemoteScreenTrack：设置是否订阅远端屏幕流。
 
     ```
     public abstract void configRemoteScreenTrack(String uid, boolean enable)                  
     ```
 
-    |参数|类型|描述|
+    |名称|类型|描述|
     |--|--|--|
     |uid|String|用户ID。|
-    |enable|boolean|true为订阅远端屏幕流，false为停止订阅远端屏幕流。|
+    |enable|boolean|true为订阅远端屏幕流，false为停止订阅远端屏幕流。默认为不订阅远端屏幕流。|
 
--   configRemoteAudio：设置是否订阅远端音频流。默认为订阅远端音频流。当对流进行操作时（如手动订阅，关闭订阅），必须调用subscribe才能生效。
+    **说明：** 该接口需要对流进行操作时（如手动订阅，关闭订阅），必须调用subscribe才能生效。
+
+-   configRemoteAudio：设置是否订阅远端音频流。
 
     ```
     public abstract void configRemoteAudio(String uid, boolean enable)                  
     ```
 
-    |参数|类型|描述|
+    |名称|类型|描述|
     |--|--|--|
     |uid|String|用户ID。|
-    |enable|boolean|true为订阅远端音频流，false为停止订阅远端音频流。|
+    |enable|boolean|true为订阅远端音频流，false为停止订阅远端音频流。默认为订阅远端音频流。|
 
--   subscribe：手动订阅视频和音频流。返回为0时描述接口执行正常，是否订阅成功需要看订阅回调结果；返回为非0时，描述接口执行异常中断，订阅失败。
+    **说明：** 该接口需要对流进行操作时（如手动订阅，关闭订阅），必须调用subscribe才能生效。
+
+-   subscribe：手动订阅视频和音频流。
+
+    ```
+    public abstract int subscribe(String uid)                 
+    ```
 
     -   调用subscribe的实际表现需要结合configRemoteCameraTrack、configRemoteScreenTrack、configRemoteAudio等接口才能确定。
     -   根据您的具体业务需求配置上述3个接口的参数，以订阅相应的视频和音频流。
     -   订阅和停止订阅都是调用subscribe。
     -   如需停止订阅，则需要上述3个配置接口的参数都置为false，再调用subscribe。
-    ```
-    public abstract int subscribe(String uid)                 
-    ```
-
-    |参数|类型|描述|
+    |名称|类型|描述|
     |--|--|--|
     |uid|String|用户ID。|
+
+    返回说明
+
+    0表示接口执行正常，是否订阅成功需要看订阅回调结果。非0表示接口执行异常中断，订阅失败。
 
 -   setVideoProfile：设置视频流的参数。
 
@@ -458,7 +536,7 @@ keyword: [AliRtcEngine, Android]
     public abstract void setVideoProfile(AliRtcVideoProfile profile, AliRtcVideoTrack track)                   
     ```
 
-    |参数|类型|描述|
+    |名称|类型|描述|
     |--|--|--|
     |profile|[AliRtcVideoProfile](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)|视频流参数。默认分辨率480\*640，帧率15的相机流。|
     |track|[AliRtcVideoTrack](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)|需要设置的视频流类型。|
@@ -469,144 +547,198 @@ keyword: [AliRtcEngine, Android]
     public abstract AliRtcVideoProfile getVideoProfile(AliRtcVideoTrack track)                    
     ```
 
-    |参数|类型|描述|
+    |名称|类型|描述|
     |--|--|--|
     |track|[AliRtcVideoTrack](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)|需要查询的视频流类型。|
+
+    返回说明
 
     该接口返回[AliRtcVideoProfile](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)（视频流规格数据类型）。
 
 -   setLocalViewConfig：为本地预览设置渲染窗口以及绘制参数。
 
-    -   支持加入频道之前和之后切换窗口。如果viewConfig为NULL或者其成员渲染视图为NULL，则停止渲染。
-    -   如果在播放过程中需要重新设置渲染方式，请保持viewConfig中其他成员变量不变，仅修改renderMode。
-    -   viewConfig中渲染方式默认为AliRtcRenderModeAuto。
     ```
     public abstract int setLocalViewConfig(AliVideoCanvas viewConfig, AliRtcVideoTrack track)                   
     ```
 
-    |参数|类型|描述|
+    -   支持加入频道之前和之后切换窗口。如果viewConfig为NULL或者其成员渲染视图为NULL，则停止渲染。
+    -   如果在播放过程中需要重新设置渲染方式，请保持viewConfig中其他成员变量不变，仅修改renderMode。
+    -   viewConfig中渲染方式默认为AliRtcRenderModeAuto。
+    |名称|类型|描述|
     |--|--|--|
     |viewConfig|[AliVideoCanvas](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)|渲染参数，包含渲染窗口以及渲染方式。|
     |track|[AliRtcVideoTrack](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)|预览视频Track类型只允许AliVideoTrackCamera（相机流）。|
 
--   muteLocalCamera：设置是否停止发布本地视频流。不改变当前视频流的采集状态。
+-   muteLocalCamera：设置是否停止发布本地视频流。
 
     ```
     public abstract int muteLocalCamera(boolean mute, AliRtcVideoTrack track)                   
     ```
 
-    |参数|类型|描述|
+    |名称|类型|描述|
     |--|--|--|
     |mute|boolean|true表示停止发布视频流，false表示恢复发布。|
     |track|[AliRtcVideoTrack](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)|需要改变发布状态的视频Track类型。|
 
--   setRemoteViewConfig：为远端的视频设置渲染窗口以及绘制参数。
+    返回说明
+
+    0表示方法调用成功。其他表示方法调用失败。
+
+    **说明：** 该接口不改变当前视频流的采集状态。
+
+-   setRemoteViewConfig：远端的视频设置渲染窗口以及绘制参数。
+
+    ```
+    public abstract int setRemoteViewConfig(AliVideoCanvas canvas, String uid, AliRtcVideoTrack track)                    
+    ```
 
     -   支持加入频道之前和之后切换窗口。如果canvas为NULL或者其成员渲染视图为NULL，则停止渲染相应的流。
     -   如果在播放过程中需要重新设置渲染方式，请保持canvas中其他成员变量不变，仅修改renderMode。
     -   canvas中渲染方式默认为AliRtcRenderModeAuto。
     -   建议在订阅结果回调之后调用。
-    ```
-    public abstract int setRemoteViewConfig(AliVideoCanvas canvas, String uid, AliRtcVideoTrack track)                    
-    ```
-
-    |参数|类型|描述|
+    |名称|类型|描述|
     |--|--|--|
     |canvas|[AliVideoCanvas](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)|渲染参数，包含渲染窗口以及渲染方式。|
     |uid|String|用户ID。|
     |track|[AliRtcVideoTrack](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)|需要设置的视频Track类型。|
 
--   switchCamera：切换前后摄像头，返回0为切换成功，其他为切换失败。
+    返回说明
+
+    0表示方法调用成功。其他表示方法调用失败。
+
+-   switchCamera：切换前后摄像头。
 
     ```
     public abstract int switchCamera()                  
     ```
 
--   getCurrentCameraType：获取当前摄像头类型，返回摄像头类型[AliRTCCameraType](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)。
+    返回说明
+
+    0表示方法调用成功。其他表示方法调用失败。
+
+-   getCurrentCameraType：获取当前摄像头类型。
+
+    返回摄像头类型[AliRTCCameraType](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)。
 
     ```
     public abstract AliRTCCameraType getCurrentCameraType()                   
     ```
 
--   setPreCameraType：预设值摄像头方向。0表示后置，1表示前置（默认值为1）。
+-   setPreCameraType：预设值摄像头方向。
 
     ```
     public abstract void setPreCameraType(int faceTo)                    
     ```
 
-    |参数|类型|描述|
+    |名称|类型|描述|
     |--|--|--|
     |faceTo|int|0表示后置，1表示前置（默认值为1）。|
 
--   getPreCameraType：获取预设值摄像头方向。返回0为后置摄像头，1为前置摄像头。
+-   getPreCameraType：获取预设值摄像头方向。
 
     ```
     public abstract int getPreCameraType()                  
     ```
 
--   setCameraZoom：设置摄像头参数。返回0表示设置成功，其他表示设置失败。
+    返回说明
+
+    0表示后置摄像头，1表示前置摄像头。
+
+-   setCameraZoom：设置摄像头参数。
 
     ```
     public abstract int setCameraZoom(float zoom, boolean flash, boolean autoFocus)                  
     ```
 
-    |参数|类型|描述|
+    |名称|类型|描述|
     |--|--|--|
     |zoom|float|zoom变焦的级别（默认值：1.0）。|
-    |flash|boolean|是否打开闪光灯。取值：true\|false。|
-    |autoFocus|boolean|是否打开自动对焦。取值：true\|false。|
+    |flash|boolean|true表示打开闪光灯，false表示不打开闪光灯。|
+    |autoFocus|boolean|true表示打开自动对焦，false表示不打开自动对焦。|
 
--   isCameraOn：检查摄像头是否打开。返回true表示摄像头已打开，false表示摄像头未打开。
+    返回说明
+
+    0表示设置成功，其他表示设置失败。
+
+-   isCameraOn：检查摄像头是否打开。
 
     ```
     public abstract boolean isCameraOn()                   
     ```
 
--   isCameraSupportExposurePoint：相机是否支持手动曝光。返回true表示支持，否则返回false。
+    返回说明
+
+    true表示摄像头已打开，false表示摄像头未打开。
+
+-   isCameraSupportExposurePoint：相机是否支持手动曝光。
 
     ```
     public abstract boolean isCameraSupportExposurePoint();
     ```
 
--   isCameraSupportFocusPoint： 相机是否支持手动聚焦。返回true表示支持，否则返回false。
+    返回说明
+
+    true表示支持，false表示不支持。
+
+-   isCameraSupportFocusPoint：相机是否支持手动聚焦。
 
     ```
     public abstract boolean isCameraSupportFocusPoint();
     ```
 
--   setCameraExposurePoint： 设置手动曝光的坐标点。返回0表示设置成功，其他表示设置失败。
+    返回说明
+
+    true表示支持，false表示不支持。
+
+-   setCameraExposurePoint：设置手动曝光的坐标点。
 
     ```
     public abstract int setCameraExposurePoint(float x, float y);
     ```
 
-    |参数|类型|描述|
+    |名称|类型|描述|
     |--|--|--|
     |x|float|x坐标。|
     |y|float|y坐标。|
 
--   setCameraFocusPoint：设置手动聚焦的坐标点，返回0表示设置成功，非0表示设置失败。
+    返回说明
+
+    0表示设置成功，其他表示设置失败。
+
+-   setCameraFocusPoint：设置手动聚焦的坐标点。
 
     ```
     public abstract int setCameraFocusPoint(float x, float y);
     ```
 
-    |参数|类型|描述|
+    |名称|类型|描述|
     |--|--|--|
     |x|float|x坐标。|
     |y|float|y坐标。|
 
--   isCameraFlash\(\)：查看摄像头闪光灯是否开启，返回true表示开启，否则返回false。
+    返回说明
+
+    0表示设置成功，其他表示设置失败。
+
+-   isCameraFlash：查看摄像头闪光灯是否开启。
 
     ```
     public abstract boolean isCameraFlash();
     ```
 
--   getCameraZoom\(\)： 获取相机zoom（变焦）值，返回值范围：1~相机支持的最大值。
+    返回说明
+
+    true表示开启，false表示未开启。
+
+-   getCameraZoom： 获取相机zoom（变焦）值。
 
     ```
     public abstract float getCameraZoom();
     ```
+
+    返回说明
+
+    返回值范围：0.0~1.0。0表示相机支持的最小值，1表示相机支持的最大值。
 
 -   registerPreprocessVideoObserver：注册人脸识别预处理。
 
@@ -614,41 +746,53 @@ keyword: [AliRtcEngine, Android]
     public abstract void registerPreprocessVideoObserver(AliDetectObserver observer);
     ```
 
-    |参数|类型|描述|
+    |名称|类型|描述|
     |--|--|--|
     |observer|[AliDetectObserver](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)|人脸识别预处理。|
 
--   muteAllRemoteAudioPlaying：停止远端的所有音频流的播放。返回0为成功，其他返回错误码。
-
-    **说明：** 订阅和解码不受影响，支持加入频道之前或之后设置。
+-   muteAllRemoteAudioPlaying：停止远端的所有音频流的播放。
 
     ```
     public abstract int muteAllRemoteAudioPlaying(boolean mute);
     ```
 
-    |参数|类型|描述|
+    |名称|类型|描述|
     |--|--|--|
     |mute|boolean|true表示停止播放，false表示恢复播放。|
 
--   setAudioOnlyMode：设置为纯音频模式还是音视频模式。返回0代表设置成功，其他代表设置失败。
+    返回说明
 
-    **说明：** 默认为音视频模式（非纯音频）；必须在调用joinChannel之前设置。
+    0表示成功，其他返回错误码。
+
+    **说明：** 订阅和解码不受影响，支持加入频道之前或之后设置。
+
+-   setAudioOnlyMode：设置为纯音频模式还是音视频模式。
 
     ```
     public abstract int setAudioOnlyMode(boolean audioOnly)                  
     ```
 
-    |参数|类型|描述|
+    |名称|类型|描述|
     |--|--|--|
     |audioOnly|boolean|true表示只有音频发布和订阅，false表示音视频都支持。|
 
--   isAudioOnly：查询当前是否为纯音频模式，返回true为纯音频，false为音视频。
+    返回说明
+
+    0表示设置成功，其他表示设置失败。
+
+    **说明：** 该接口默认为音视频模式（非纯音频），必须在调用joinChannel之前设置。
+
+-   isAudioOnly：查询当前是否为纯音频模式。
 
     ```
     public abstract boolean isAudioOnly()                 
     ```
 
--   muteLocalMic：设置是否停止发布本地音频。返回0表示设置成功，-1表示设置失败。
+    返回说明
+
+    true表示纯音频，false表示音视频。
+
+-   muteLocalMic：设置是否停止发布本地音频。
 
     **说明：** 该接口不改变当前音频的采集状态。
 
@@ -656,313 +800,459 @@ keyword: [AliRtcEngine, Android]
     public abstract int muteLocalMic(boolean mute)                    
     ```
 
-    |参数|类型|描述|
+    |名称|类型|描述|
     |--|--|--|
     |mute|boolean|true表示停止发布本地音频，false表示恢复发布。|
 
--   muteRemoteAudioPlaying：设置是否停止播放远端音频流，返回0表示设置成功，-1表示设置失败。
+    返回说明
+
+    0表示设置成功，-1表示设置失败。
+
+-   muteRemoteAudioPlaying：设置是否停止播放远端音频流。
 
     ```
     public abstract int muteRemoteAudioPlaying(String uid, boolean mute)                   
     ```
 
-    |参数|类型|描述|
+    |名称|类型|描述|
     |--|--|--|
     |uid|String|用户ID。|
     |mute|boolean|true表示停止播放，false表示恢复播放。|
 
--   enableSpeakerphone：切换听筒、扬声器输出（只能在主线程调用）。
+    返回说明
+
+    0表示设置成功，-1表示设置失败。
+
+-   enableSpeakerphone：切换听筒、扬声器输出。
 
     ```
     public abstract int enableSpeakerphone(boolean enable)  
     ```
 
-    |参数|类型|描述|
+    |名称|类型|描述|
     |--|--|--|
     |enable|boolean|true为扬声器模式，false为听筒模式。默认扬声器模式。|
 
--   isSpeakerOn：查询是否开启扬声器。返回true表示已开启扬声器，false表示未开启扬声器。
+    返回说明
+
+    0表示方法调用成功，其他表示方法调用失败。
+
+    **说明：** 该接口只能在主线程调用。
+
+-   isSpeakerOn：查询是否开启扬声器。
 
     ```
     public abstract boolean isSpeakerOn()                  
     ```
 
--   startAudioCapture：开启音频采集。您可以控制提前打开音频采集，如果不设置，SDK会在开始推流的时候打开音频采集。
+    返回说明
+
+    true表示已开启扬声器，false表示未开启扬声器。
+
+-   startAudioCapture：开启音频采集。
+
+    您可以控制提前打开音频采集，如果不设置，SDK会在开始推流的时候打开音频采集。
 
     ```
     public int startAudioCapture();
     ```
 
--   stopAudioCapture：关闭音频采集。您可以控制关闭音频采集。
+    返回说明
+
+    0表示方法调用成功。其他表示方法调用失败。
+
+-   stopAudioCapture：关闭音频采集。
+
+    您可以控制关闭音频采集。
 
     ```
     public int stopAudioCapture();
     ```
 
--   startAudioPlayer：开启音频播放。您可以控制提前打开音频播放，如果不设置，SDK会在订阅成功的时候打开音频播放。
+-   startAudioPlayer：开启音频播放。
+
+    您可以控制提前打开音频播放，如果不设置，SDK会在订阅成功的时候打开音频播放。
 
     ```
     public int startAudioPlayer();
     ```
 
--   stopAudioPlayer：关闭音频播放。您可以控制关闭音频播放。
+    返回说明
+
+    0表示方法调用成功。其他表示方法调用失败。
+
+-   stopAudioPlayer：关闭音频播放。
 
     ```
     public int stopAudioPlayer();
     ```
 
+    返回说明
+
+    0表示方法调用成功。其他表示方法调用失败。
+
     **说明：** 该接口在入会前调用。
 
--   enableEarBack：启用耳返。返回0表示操作成功，非0表示操作失败。
+-   enableEarBack：启用耳返。
 
     ```
     public abstract int enableEarBack(boolean enable);
     ```
 
-    |参数|类型|描述|
+    |名称|类型|描述|
     |--|--|--|
     |enable|boolean|true表示开启耳返，false表示关闭耳返。默认关闭耳返。|
 
--   startAudioAccompany：开始播放伴奏，返回0表示操作成功，非0表示操作失败。
+    返回说明
+
+    0表示操作成功，非0表示操作失败。
+
+-   startAudioAccompany：开始播放伴奏。
 
     ```
     public abstract int startAudioAccompany(String fileName, boolean onlyLocalPlay, boolean replaceMic, int loopCycles);
     ```
 
-    |参数|类型|描述|
+    |名称|类型|描述|
     |--|--|--|
     |fileName|String|伴奏文件路径，支持本地文件和网络url。|
     |onlyLocalPlay|boolean|是否仅本地播放，true表示仅仅本地播放，false表示本地播放且推流到远端。|
     |replaceMic|boolean|是否替换mic的音频流，true表示伴奏音频流替换本地mic音频流，false表示伴奏音频流和mic音频流同时推。|
     |loopCycles|int|循环播放次数，-1表示一直循环。|
 
--   pauseAudioAccompany：暂停播放伴奏，返回0表示操作成功，非0表示操作失败。
+    返回说明
+
+    0表示操作成功，非0表示操作失败。
+
+-   pauseAudioAccompany：暂停播放伴奏。
 
     ```
     public abstract int pauseAudioAccompany();
     ```
 
--   resumeAudioAccompany：恢复播放伴奏，返回0表示操作成功，非0表示操作失败。
+    返回说明
+
+    0表示操作成功，非0表示操作失败。
+
+-   resumeAudioAccompany：恢复播放伴奏。
 
     ```
     public abstract int resumeAudioAccompany();
     ```
 
--   stopAudioAccompany：结束播放伴奏，返回0表示操作成功，非0表示操作失败。
+    返回说明
+
+    0表示操作成功，非0表示操作失败。
+
+-   stopAudioAccompany：结束播放伴奏。
 
     ```
     public abstract int stopAudioAccompany();
     ```
 
--   setAudioAccompanyPublishVolume：设置伴奏推流音量，返回0表示操作成功，非0表示操作失败。
+    返回说明
+
+    0表示操作成功，非0表示操作失败。
+
+-   setAudioAccompanyPublishVolume：设置伴奏推流音量。
 
     ```
     public abstract int setAudioAccompanyPublishVolume(int volume);
     ```
 
-    |参数|类型|描述|
+    |名称|类型|描述|
     |--|--|--|
     |volume|int|伴奏推流音量。|
 
--   setAudioAccompanyPlayoutVolume：设置伴奏本地音量，返回0表示操作成功，非0表示操作失败。
+    返回说明
+
+    0表示操作成功，非0表示操作失败。
+
+-   setAudioAccompanyPlayoutVolume：设置伴奏本地音量。
 
     ```
     public abstract int setAudioAccompanyPlayoutVolume(int volume);
     ```
 
-    |参数|类型|描述|
+    |名称|类型|描述|
     |volume|int|伴奏本地播放音量。|
 
--   getAudioAccompanyPublishVolume：获取伴奏推流音量。返回0~100的伴奏推流音量，返回-1表示获取失败。
+    返回说明
+
+    0表示操作成功，非0表示操作失败。
+
+-   getAudioAccompanyPublishVolume：获取伴奏推流音量。
+
+    返回0~100的伴奏推流音量，返回-1表示获取失败。
 
     ```
     public abstract int getAudioAccompanyPublishVolume();
     ```
 
--   getAudioAccompanyPlayoutVolume：获取伴奏本地音量。返回0~100的伴奏本地播放音量，返回-1表示获取失败。
+    返回说明
+
+    返回伴奏推流音量取值范围：0~100，返回-1表示获取失败。
+
+-   getAudioAccompanyPlayoutVolume：获取伴奏本地音量。
 
     ```
     public abstract int getAudioAccompanyPlayoutVolume();
     ```
 
--   setAudioAccompanyVolume：设置伴奏推流和本地音量，返回0表示操作成功， 非0表示操作失败。
+    返回说明
+
+    返回伴奏推流音量取值范围：0~100，返回-1表示获取失败。
+
+-   setAudioAccompanyVolume：设置伴奏推流和本地音量。
+
+    返回0表示操作成功， 非0表示操作失败。
 
     ```
     public abstract int setAudioAccompanyVolume(int volume);
     ```
 
--   preloadAudioEffect：预加载音效，返回0表示操作成功，非0表示操作失败。
+    返回说明
+
+    0表示操作成功， 非0表示操作失败。
+
+-   preloadAudioEffect：预加载音效。
 
     ```
     public abstract int preloadAudioEffect(int soundId, String filePath);
     ```
 
-    |参数|类型|描述|
+    |名称|类型|描述|
     |--|--|--|
     |soundId|int|音效ID（此ID由调用者生成）。|
     |filePath|String|音效文件路径。|
 
--   unloadAudioEffect：清除预加载音效，返回0表示操作成功，非0表示操作失败。
+    返回说明
+
+    0表示操作成功， 非0表示操作失败。
+
+-   unloadAudioEffect：清除预加载音效。
 
     ```
     public abstract int unloadAudioEffect(int soundId);
     ```
 
-    |参数|类型|描述|
+    |名称|类型|描述|
     |--|--|--|
     |soundId|int|音效ID（此ID应与预加载时传入的ID相同）。|
 
--   playAudioEffect：开始播放音效，返回0表示操作成功，非0表示操作失败。
+    返回说明
+
+    0表示操作成功， 非0表示操作失败。
+
+-   playAudioEffect：开始播放音效。
 
     ```
     public abstract int playAudioEffect(int soundId, String filePath, int cycles, boolean publish);
     ```
 
-    |参数|类型|描述|
+    |名称|类型|描述|
     |--|--|--|
     |soundId|int|音效ID。|
     |filePath|String|音效文件路径，支持本地文件和网络url。|
     |cycles|int|循环播放次数。-1表示一直循环。|
     |publish|boolean|是否将音效音频流推到远端。|
 
--   setAudioEffectPublishVolume：设置音效推流音量，返回0表示操作成功，非0表示操作失败。
+    返回说明
+
+    0表示操作成功， 非0表示操作失败。
+
+-   setAudioEffectPublishVolume：设置音效推流音量。
 
     ```
     public abstract int setAudioEffectPublishVolume(int soundId, int volume);
     ```
 
-    |参数|类型|描述|
+    |名称|类型|描述|
     |--|--|--|
     |soundId|int|音效ID。|
-    |volume|int|音效推流音量。取值：0～100。|
+    |volume|int|音效推流音量。取值范围：0～100。|
 
--   getAudioEffectPublishVolume：获取音效推流音量。返回0~100音效推流音量，返回-1表示获取失败。
+    返回说明
+
+    0表示操作成功， 非0表示操作失败。
+
+-   getAudioEffectPublishVolume：获取音效推流音量。
+
+    返回0~100音效推流音量，返回-1表示获取失败。
 
     ```
     public abstract int getAudioEffectPublishVolume(int soundId);
     ```
 
-    |参数|类型|描述|
+    |名称|类型|描述|
     |--|--|--|
     |soundId|int|音效ID。|
 
--   setAudioEffectPlayoutVolume：设置音效本地音量，返回0表示操作成功，非0表示操作失败。
+    返回说明
+
+    返回音效推流音量取值范围：0~100，返回-1表示获取失败。
+
+-   setAudioEffectPlayoutVolume：设置音效本地音量。
 
     ```
     public abstract int setAudioEffectPlayoutVolume(int soundId, int volume);
     ```
 
-    |参数|类型|描述|
+    |名称|类型|描述|
     |--|--|--|
     |soundId|int|音效ID。|
-    |volume|int|音效本地播放音量。取值：0～100。|
+    |volume|int|音效本地播放音量。取值范围：0～100。|
 
--   getAudioEffectPlayoutVolume：获取音效本地音量。返回0~100的音效本地播放音量，返回-1时表示获取失败。
+    返回说明
+
+    0表示操作成功， 非0表示操作失败。
+
+-   getAudioEffectPlayoutVolume：获取音效本地音量。
 
     ```
     public abstract int getAudioEffectPlayoutVolume(int soundId);
     ```
 
-    |参数|类型|描述|
+    |名称|类型|描述|
     |--|--|--|
     |soundId|int|音效ID。|
 
--   pauseAudioEffect：暂停播放音效，返回0表示操作成功，非0表示操作失败。
+    返回说明
+
+    返回音效本地播放音量取值范围：0~100，-1表示获取失败。
+
+-   pauseAudioEffect：暂停播放音效。
 
     ```
     public abstract int pauseAudioEffect(int soundId);
     ```
 
-    |参数|类型|描述|
+    |名称|类型|描述|
     |--|--|--|
     |soundId|int|音效ID。|
 
--   resumeAudioEffect：恢复播放音效，返回0表示操作成功，非0表示操作失败。
+    返回说明
+
+    0表示操作成功，非0表示操作失败。
+
+-   resumeAudioEffect：恢复播放音效。
 
     ```
     public abstract int resumeAudioEffect(int soundId);
     ```
 
-    |参数|类型|描述|
+    |名称|类型|描述|
     |--|--|--|
     |soundId|int|音效ID。|
 
--   stopAudioEffect：停止播放音效，返回0表示操作成功，非0表示操作失败。
+    返回说明
+
+    0表示操作成功，非0表示操作失败。
+
+-   stopAudioEffect：停止播放音效。
 
     ```
     public abstract int stopAudioEffect(int soundId);
     ```
 
-    |参数|类型|描述|
+    |名称|类型|描述|
     |--|--|--|
     |soundId|int|音效ID。|
 
--   setEarBackVolume：设置耳返音量，返回0表示操作成功，非0表示操作失败。
+    返回说明
+
+    0表示操作成功，非0表示操作失败。
+
+-   setEarBackVolume：设置耳返音量。
 
     ```
     public abstract int setEarBackVolume(int volume);
     ```
 
-    |参数|类型|描述|
+    |名称|类型|描述|
     |--|--|--|
     |volume|int|耳返音量。取值：0～100（只有耳返开启时才能设置音量，否则该方法返回错误）。|
 
--   setRecordingVolume：设置录音音量，返回0表示操作成功，非0表示操作失败。
+    返回说明
+
+    0表示操作成功，非0表示操作失败。
+
+-   setRecordingVolume：设置录音音量。
 
     ```
     public abstract int setRecordingVolume(int volume);
     ```
 
-    |参数|类型|描述|
+    |名称|类型|描述|
     |--|--|--|
-    |volume|int|音量。取值：0~400，0表示静音。     -   当设置\>100：放大音量。
-    -   当设置<100：减小音量。 |
+    |volume|int|音量。取值：0~400，0表示静音。     -   当设置大于100：放大音量。
+    -   当设置小于100：减小音量。 |
 
-    **说明：** 录音音量调节：当对端用户物理按键调大最大，且依然觉得播放声音小时可以调用该接口，推荐值100-200，超过200会有影响音质的风险。
+    返回说明
 
--   setPlayoutVolume：设置播放音量，返回0表示操作成功，非0表示操作失败。
+    0表示操作成功，非0表示操作失败。
+
+    **说明：** 录音音量调节：当对端用户物理按键调大最大，且依然觉得播放声音小时可以调用该接口，推荐值100~200，超过200会有影响音质的风险。
+
+-   setPlayoutVolume：设置播放音量。
 
     ```
     public abstract int setPlayoutVolume(int volume);
     ```
 
-    |参数|类型|描述|
+    |名称|类型|描述|
     |--|--|--|
-    |volume|int|音量。取值：0~400，0表示静音。     -   当设置\>100：放大音量。
-    -   当设置<100：减小音量。 |
+    |volume|int|音量。取值：0~400，0表示静音。     -   当设置大于100：放大音量。
+    -   当设置小于100：减小音量。 |
 
-    **说明：** 播放音量调节：当本地物理按键调大最大，且依然觉得播放声音小时可以调用该接口，推荐值100-200，超过200会有影响音质的风险。
+    返回说明
 
--   muteAllRemoteVideoRendering：mute或unmute远端的所有视频track的渲染。返回0为成功，其他返回错误码。
+    0表示操作成功，非0表示操作失败。
 
-    **说明：** 订阅和解码不受影响，支持加入频道之前或之后设置。
+    **说明：** 播放音量调节：当本地物理按键调大最大，且依然觉得播放声音小时可以调用该接口，推荐值100~200，超过200会有影响音质的风险。
+
+-   muteAllRemoteVideoRendering：mute或unmute远端的所有视频track的渲染。
 
     ```
     public abstract int muteAllRemoteVideoRendering(boolean mute);
     ```
 
-    |参数|类型|描述|
+    |名称|类型|描述|
     |--|--|--|
     |mute|boolean|true表示停止渲染，false表示恢复渲染。|
 
--   setBeautyEffect：设置基础美颜，目前只支持美白和磨皮。返回0表示操作成功，非0表示操作失败。
+    返回说明
+
+    0表示成功，其他返回错误码。
+
+    **说明：** 订阅和解码不受影响，支持加入频道之前或之后设置。
+
+-   setBeautyEffect：设置基础美颜。
 
     ```
     public abstract int setBeautyEffect(boolean enable, AliRtcEngine.AliRtcBeautyConfig config);
     ```
 
-    |参数|类型|描述|
+    |名称|类型|描述|
     |--|--|--|
     |enable|boolean|true表示开启，false表示关闭，默认为关闭。|
     |config|[AliRtcBeautyConfig](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)|基础美颜参数。|
 
--   registerVideoSampleObserver：注册视频数据回调。可参见[音视频输出](https://help.aliyun.com/document_detail/156997.html)进行开发。
+    返回说明
+
+    0表示操作成功，非0表示操作失败。
+
+    **说明：** 目前仅支持美白和磨皮。
+
+-   registerVideoSampleObserver：注册视频数据回调。
 
     ```
     public abstract void registerVideoSampleObserver(AliRtcEngine.AliVideoObserver aliVideoObserver);
     ```
 
-    |参数|类型|描述|
+    可参见[音视频输出](https://help.aliyun.com/document_detail/156997.html)进行开发。
+
+    |名称|类型|描述|
     |--|--|--|
     |aliVideoObserver|[AliVideoObserver](/cn.zh-CN/SDK参考/Android SDK/回调及监听.md)|视频数据回调接口|
 
@@ -978,92 +1268,120 @@ keyword: [AliRtcEngine, Android]
     public abstract void registerAudioVolumeObserver(AliRtcEngine.AliRtcAudioVolumeObserver observer);
     ```
 
-    |参数|类型|描述|
+    |名称|类型|描述|
     |--|--|--|
     |observer|[AliRtcAudioVolumeObserver](/cn.zh-CN/SDK参考/Android SDK/回调及监听.md)|音量接口。|
 
--   unRegisterAudioVolumeObserver: 取消注册音量回调。
+-   unRegisterAudioVolumeObserver：取消注册音量回调。
 
     ```
     public abstract void unRegisterAudioVolumeObserver();
     ```
 
--   startRecord：开始录制文件。录制音频包含外部输入PCM数据、本地采集音频和远端拉流音频数据。
+-   startRecord：开始录制文件。
 
     ```
     public abstract boolean startRecord(AliRtcEngine.AliRtcRecordType recordType, AliRtcEngine.AliRtcRecordFormat recordFormat, String path, AliRtcEngine.AliRtcRecordAudioConfig audioConfig, AliRtcEngine.AliRtcRecordVideoConfig videoConfig);
     ```
 
-    |参数|类型|描述|
+    录制音频包含外部输入PCM数据、本地采集音频和远端拉流音频数据。
+
+    |名称|类型|描述|
     |--|--|--|
     |recordType|[AliRtcRecordType](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)|录制文件类型。|
     |recordFormat|[AliRtcRecordFormat](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)|录制文件格式。|
     |path|String|录制文件存储路径。|
     |audioConfig|[AliRtcRecordAudioConfig](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)|录制音频属性配置。|
 
--   stopRecord：停止录制。与startRecord一起配合使用，在调用leaveChannel之后方法会自动停止录制。
+    返回说明
+
+    true表示方法调用成功，false表示方法调用失败。
+
+-   stopRecord：停止录制。
 
     ```
     public abstract void stopRecord();
     ```
 
--   setAudioEffectReverbMode：设置混响音效模式，返回0表示成功，非0表示失败。
+    与startRecord一起配合使用，在调用leaveChannel之后方法会自动停止录制。
+
+-   setAudioEffectReverbMode：设置混响音效模式。
 
     ```
     public abstract int setAudioEffectReverbMode(AliRtcEngine.AliRTCSDK_AudioEffect_Reverb_Mode mode);
     ```
 
-    |参数|类型|描述|
+    |名称|类型|描述|
     |--|--|--|
     |mode|[AliRTCSDK\_AudioEffect\_Reverb\_Mode](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)|混响模式类型。|
 
--   setAudioEffectReverbParamType：设置混响音效类型。返回0表示成功，非0表示失败。
+    返回说明
+
+    0表示成功，非0表示失败。
+
+-   setAudioEffectReverbParamType：设置混响音效类型。
 
     ```
      public abstract int setAudioEffectReverbParamType(AliRtcEngine.AliRTCSDK_AudioEffect_Reverb_Param_Type type, float value);
     ```
 
-    |参数|类型|描述|
+    |名称|类型|描述|
     |--|--|--|
     |type|[AliRTCSDK\_AudioEffect\_Reverb\_Param\_Type](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)|混响音效类型。|
     |value|float|对应混响音效类型的值。|
 
--   setVolumeCallbackIntervalMs：设置音量回调频率和平滑系数。返回0为成功，-1表示interval设置小于10，-2表示平滑系数超出范围。
+    返回说明
+
+    0表示成功，非0表示失败。
+
+-   setVolumeCallbackIntervalMs：设置音量回调频率和平滑系数。
 
     ```
     public abstract int setVolumeCallbackIntervalMs(int interval, int smooth, int reportVad);
     ```
 
-    |参数|类型|描述|
+    |名称|类型|描述|
     |--|--|--|
     |interval|int|时间间隔。单位：ms（毫秒），最小值不得小于10ms。|
     |smooth|int|平滑系数。数值越大平滑程度越高，反之越低，实时性越好。建议您设置为3，范围为0~9。|
     |reportVad|int|本地语音检测开关。取值：     -   1：开启，通过onAudioVolumeCallback接口回调。
     -   0：关闭。 |
 
--   setExternalAudioSource：设置是否将外部音频数据作为推流的输入源。返回0表示操作成功，非0表示操作失败。
+    返回说明
+
+    0表示成功，-1表示interval设置小于10，-2表示平滑系数超出范围。
+
+-   setExternalAudioSource：设置是否将外部音频数据作为推流的输入源。
 
     ```
     public abstract int setExternalAudioSource(boolean enable, int sampleRate, int channelsPerFrame);
     ```
 
-    |参数|类型|描述|
+    |名称|类型|描述|
     |--|--|--|
     |enable|boolean|true表示启用外部音频数据作为推流输入源，false表示停止。|
     |sampleRate|int|外部音频数据采样率。|
     |channelsPerFrame|int|外部音频数据声道数（目前支持单声道，双声道）。|
 
--   pushExternalAudioFrameRawData：输入音频数据。返回0表示操作成功，非0表示操作失败。
+    返回说明
+
+    0表示操作成功，非0表示操作失败。
+
+-   pushExternalAudioFrameRawData：输入音频数据。
 
     ```
     public abstract int pushExternalAudioFrameRawData(byte[] data, int samples, long timestamp);
     ```
 
-    |参数|类型|描述|
+    |名称|类型|描述|
     |--|--|--|
     |data|byte\[\]|音频数据，不建议超过40ms数据。|
     |samples|int|采样率。|
     |timestamp|long|时间戳，目前传0即可。|
+
+    返回说明
+
+    0表示操作成功，非0表示操作失败。
 
 -   setExternalAudioVolume：设置外部音频输入音量。
 
@@ -1071,9 +1389,13 @@ keyword: [AliRtcEngine, Android]
     public abstract int setExternalAudioVolume(int volume);
     ```
 
-    |参数|类型|描述|
+    |名称|类型|描述|
     |--|--|--|
-    |volume|int|音量，0-100。|
+    |volume|int|音量，0~100。|
+
+    返回说明
+
+    0表示方法调用成功。其他表示方法调用失败。
 
 -   getExternalAudioVolume：获取外部音频输入音量。
 
@@ -1081,35 +1403,47 @@ keyword: [AliRtcEngine, Android]
     public abstract int getExternalAudioVolume();
     ```
 
+    返回说明
+
+    0表示方法调用成功。其他表示方法调用失败。
+
 -   setMixedWithMic：设置外部音频输入是否与麦克风采集音频混合。
 
     ```
     public abstract int setMixedWithMic(boolean mixed);
     ```
 
-    |参数|类型|描述|
+    |名称|类型|描述|
     |--|--|--|
     |mixed|boolean|true表示混音，false表示完全替换麦克风采集数据。|
 
--   setExteranlAudioRender：设置是否启用外部输入音频播放。返回0表示操作成功，非0表示操作失败。
+    返回说明
+
+    0表示方法调用成功。其他表示方法调用失败。
+
+-   setExteranlAudioRender：设置是否启用外部输入音频播放。
 
     ```
     public abstract int setExteranlAudioRender(boolean enable, int sampleRate, int channelsPerFrame);
     ```
 
-    |参数|类型|描述|
+    |名称|类型|描述|
     |--|--|--|
     |enable|boolean|true表示开启外部音频作为本地播放输入源，false表示停止。|
     |sampleRate|int|外部音频数据采样率。|
     |channelsPerFrame|int|外部音频数据声道数（目前支持单声道，双声道）。|
 
--   pushExternalAudioRenderRawData：输入音频播放数据。返回0表示操作成功，非0表示操作失败。
+    返回说明
+
+    0表示操作成功，非0表示操作失败。
+
+-   pushExternalAudioRenderRawData：输入音频播放数据。
 
     ```
     public abstract int pushExternalAudioRenderRawData(byte[] audioSamples, int sampleLength, int sampleRate, int channelsPerFrame, long timestamp);
     ```
 
-    |参数|类型|描述|
+    |名称|类型|描述|
     |--|--|--|
     |audioSamples|byte\[\]|音频数据。|
     |sampleLength|int|音频数据长度。|
@@ -1117,11 +1451,19 @@ keyword: [AliRtcEngine, Android]
     |channelsPerFrame|int|音频声道数。|
     |timestamp|long|时间戳，目前传0即可。|
 
--   getCurrentClientRole：获取当前角色。返回当前的用户角色。
+    返回说明
+
+    0表示操作成功，非0表示操作失败。
+
+-   getCurrentClientRole：获取当前角色。
 
     ```
     public abstract AliRtcEngine.AliRTCSDK_Client_Role getCurrentClientRole();
     ```
+
+    返回说明
+
+    返回当前的用户角色。
 
 -   setSubscribeAudioNumChannel：设置回调音频声道数。
 
@@ -1129,7 +1471,7 @@ keyword: [AliRtcEngine, Android]
     public abstract void setSubscribeAudioNumChannel(AliRtcAudioNumChannel numChannel);
     ```
 
-    |参数|类型|说明|
+    |名称|类型|说明|
     |--|--|--|
     |numChannel|[AliRtcAudioNumChannel](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)|音频编号通道。默认单声道音频。|
 
@@ -1139,7 +1481,7 @@ keyword: [AliRtcEngine, Android]
     public abstract void setSubscribeAudioSampleRate(AliRtcAudioSampleRate sampleRate);
     ```
 
-    |参数|类型|说明|
+    |名称|类型|说明|
     |--|--|--|
     |sampleRate|[AliRtcAudioSampleRate](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)|音频采样率。默认16K。|
 
@@ -1149,30 +1491,44 @@ keyword: [AliRtcEngine, Android]
     public abstract int requestAudioFocus()
     ```
 
+    返回说明
+
+    0表示方法调用成功。其他表示方法调用失败。
+
 -   abandonAudioFocus：丢失音频焦点。
 
     ```
     public abstract int abandonAudioFocus()
     ```
 
--   registerAudioObserver：注册音频数据回调。指定需要输出的音频数据类型，如果需要输出多种类型数据，需要分别调用注册。注册完成后，音频数据将通过AliAudioObserver持续回调。可参见[音视频输出](https://help.aliyun.com/document_detail/156997.html?spm=a2c4g.11186623.6.655.187c5ff2Ccw9jb)。
+    返回说明
+
+    0表示方法调用成功。其他表示方法调用失败。
+
+-   registerAudioObserver：注册音频数据回调。
 
     ```
     public abstract void registerAudioObserver(AliRtcEngine.AliAudioType audioType, AliRtcEngine.AliAudioObserver audioObserver);
     ```
 
-    |参数|类型|描述|
+    指定需要输出的音频数据类型，如果需要输出多种类型数据，需要分别调用注册。注册完成后，音频数据将通过AliAudioObserver持续回调。可参见[音视频输出](https://help.aliyun.com/document_detail/156997.html?spm=a2c4g.11186623.6.655.187c5ff2Ccw9jb)。
+
+    |名称|类型|描述|
     |--|--|--|
     |audioType|[AliAudioType](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)|回调音频数据的类型|
     |audioObserver|[AliAudioObserver](/cn.zh-CN/SDK参考/Android SDK/回调及监听.md)|音频数据回调接口|
 
--   startPreview：开始本地预览，开始预览之前需要调用setLocalViewConfig。
+-   startPreview：开始本地预览。
 
     ```
     public abstract int startPreview()
     ```
 
-    **说明：** 您可以在加入频道之前开始本地预览。
+    返回说明
+
+    0表示方法调用成功。其他表示方法调用失败。
+
+    **说明：** 您可以在加入频道之前开始本地预览。开始预览之前需要调用setLocalViewConfig。
 
 -   stopPreview：停止本地预览。
 
@@ -1180,23 +1536,37 @@ keyword: [AliRtcEngine, Android]
     public abstract int stopPreview()                   
     ```
 
--   enableHighDefinitionPreview：开启高清预览 。返回0成功，返回-1表示操作失败。
+    返回说明
+
+    0表示方法调用成功。其他表示方法调用失败。
+
+-   enableHighDefinitionPreview：开启高清预览 。
+
+    返回0成功，返回-1表示操作失败。
 
     ```
     public abstract int enableHighDefinitionPreview(boolean enable);
     ```
 
-    |参数|类型|描述|
+    |名称|类型|描述|
     |--|--|--|
     |enable|boolean|true表示开启，false表示关闭。|
 
--   getOnlineRemoteUsers：获取远端在线用户列表，返回用户ID列表。
+    返回说明
 
-    该方法在加入频道时调用有延时，建议您通过onRemoteUserOnLineNotify回调维护一个远端用户列表。
+    0表示操作成功，-1表示操作失败。
+
+-   getOnlineRemoteUsers：获取远端在线用户列表。
 
     ```
     public abstract String[] getOnlineRemoteUsers()                
     ```
+
+    返回说明
+
+    返回用户ID列表。
+
+    **说明：** 该方法在加入频道时调用有延时，建议您通过onRemoteUserOnLineNotify回调维护一个远端用户列表。
 
 -   getUserInfo：查询远端用户信息。
 
@@ -1204,21 +1574,27 @@ keyword: [AliRtcEngine, Android]
     public abstract AliRtcRemoteUserInfo getUserInfo(String uid)                  
     ```
 
-    |参数|类型|描述|
+    |名称|类型|描述|
     |--|--|--|
     |uid|String|用户ID。|
 
-    该接口返回远程用户信息[AliRtcRemoteUserInfo](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)。
+    返回说明
 
--   isUserOnline：查询用户是否在线，返回true表示在线，false表示不在线。
+    返回远程用户信息[AliRtcRemoteUserInfo](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)。
+
+-   isUserOnline：查询用户是否在线。
 
     ```
     public abstract boolean isUserOnline(String uid)
     ```
 
-    |参数|类型|描述|
+    |名称|类型|描述|
     |--|--|--|
     |uid|String|用户ID。|
+
+    返回说明
+
+    true表示在线，false表示不在线。
 
 -   getMediaInfoWithUserId：获取媒体流信息。
 
@@ -1226,7 +1602,7 @@ keyword: [AliRtcEngine, Android]
     public String getMediaInfoWithUserId(String userId, AliRtcVideoTrack track, String[] keys);
     ```
 
-    |参数|类型|描述|
+    |名称|类型|描述|
     |--|--|--|
     |userId|String|获取媒体流信息的用户ID。|
     |track|[AliRtcVideoTrack](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)|需要查询的媒体流类型。|
@@ -1238,7 +1614,7 @@ keyword: [AliRtcEngine, Android]
     public abstract void setLogLevel(AliRtcLogLevel logLevel)         
     ```
 
-    |参数|类型|描述|
+    |名称|类型|描述|
     |--|--|--|
     |logLevel|[AliRtcLogLevel](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)|日志级别。|
 
@@ -1248,58 +1624,78 @@ keyword: [AliRtcEngine, Android]
     public abstract String getSdkVersion()                   
     ```
 
--   setClientRole：设置用户角色。返回0表示成功，非0表示失败。
-
-    **说明：** 您仅可以在频道模式为InteractiveLive下调用；入会前或会议中均可设置，设置成功会收到onUpdateRoleNotify；从Interactive转换为Live角色需要先停止推流，否则返回失败。
+-   setClientRole：设置用户角色。
 
     ```
     public abstract int setClientRole(AliRTCSDK_Client_Role role);
     ```
 
-    |参数|类型|描述|
+    |名称|类型|描述|
     |--|--|--|
     |role|[AliRTCSDK\_Client\_Role](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)|用户角色类型。默认为观看角色。|
 
--   setLogDirPath：设置SDK日志文件保存路径。返回0为成功，其他返回错误码。
+    返回说明
 
-    **说明：** 如需调用此接口，请在调用所有SDK接口前先进行设置，避免日志出现丢失，同时App必须保证指定的目录已存在且可写入。
+    0表示成功，非0表示失败。
+
+    **说明：** 您仅可以在频道模式为InteractiveLive下调用。入会前或会议中均可设置，设置成功会收到onUpdateRoleNotify。从Interactive转换为Live角色需要先停止推流，否则返回失败。
+
+-   setLogDirPath：设置SDK日志文件保存路径。
 
     ```
     public static int setLogDirPath(String logDirPath)
     ```
 
-    |参数|类型|描述|
+    |名称|类型|描述|
     |--|--|--|
     |logDirPath|String|日志文件保存绝对路径。|
 
--   setDeviceOrientationMode：设置设备横竖屏方向。返回0为成功，其他返回错误码。
+    返回说明
 
-    **说明：** 当前只支持固定横竖屏模式，仅允许在发布和预览之前进行设置。
+    0表示成功，其他返回错误码。
+
+    **说明：** 如需调用此接口，请在调用所有SDK接口前先进行设置，避免日志出现丢失，同时App必须保证指定的目录已存在且可写入。
+
+-   setDeviceOrientationMode：设置设备横竖屏方向。
 
     ```
     public abstract void setDeviceOrientationMode(AliRtcEngine.AliRtcOrientationMode mode);
     ```
 
-    |参数|类型|描述|
+    |名称|类型|描述|
     |--|--|--|
     |mode|[AliRtcOrientationMode](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)|设备方向。取值：     -   AliRtcOrientationModePortrait（默认值）：固定竖屏模式。
     -   AliRtcOrientationModeLandscapeLeft：固定左横屏模式。
     -   AliRtcOrientationModeLandscapeRight：固定右横屏模式。
     -   AliRtcOrientationModeAuto：自适应模式。 |
 
--   startNetworkQualityProbeTest：开始网络质量探测。返回0为成功，其他返回错误码。
+    返回说明
 
-    **说明：** 您需要在加入频道之前调用，并且入会后会自动停止，探测结果在[onNetworkQualityProbeTest](/cn.zh-CN/SDK参考/Android SDK/回调及监听.md)回调。
+    0表示成功，其他返回错误码。
+
+    **说明：** 当前只支持固定横竖屏模式，仅允许在发布和预览之前进行设置。
+
+-   startNetworkQualityProbeTest：开始网络质量探测。
 
     ```
     public abstract int startNetworkQualityProbeTest();
     ```
 
--   stopNetworkQualityProbeTest：停止网络质量探测。返回0为成功，其他返回错误码。
+    返回说明
+
+    0表示成功，其他返回错误码。
+
+    **说明：** 您需要在加入频道之前调用，并且入会后会自动停止，探测结果在[onNetworkQualityProbeTest](/cn.zh-CN/SDK参考/Android SDK/回调及监听.md)回调。
+
+-   stopNetworkQualityProbeTest：停止网络质量探测。
 
     ```
     public abstract int stopNetworkQualityProbeTest();
     ```
+
+    返回说明
+
+    0表示成功，其他返回错误码。
 
 -   postFeedback：SDK问题反馈。
 
@@ -1307,7 +1703,7 @@ keyword: [AliRtcEngine, Android]
 public abstract void postFeedback(String uid, String channelId, String description, AliRtcFeedbackType type, long timeStamp);
 ```
 
-    |参数|类型|说明|
+    |名称|类型|说明|
     |--|--|--|
     |uid|String|当前uid。|
     |channelId|String|当前channel id。|
@@ -1317,16 +1713,6 @@ public abstract void postFeedback(String uid, String channelId, String descripti
 
 -   sendMediaExtensionMsg：发送媒体扩展信息。
 
-    返回值定义，如下所示：
-
-    -   0：发送成功。
-    -   -1：当前未在推流状态，不能发送自定义消息。
-    -   -2：参数设置错误，自定义消息长度超过8Byte，或者repeatCount<=0。
-    -   -3：发送过于频繁，建议降低发送频率。
-    **说明：** 使用音视频数据通道，将自定义消息发送给房间内其他用户，需要满足两个前提：
-
-    -   己方正常入会，并且在推流中。
-    -   房间内的其他用户需要订阅己方音视频流，发送成功之后可在[onMediaExtensionMsgReceived](/cn.zh-CN/SDK参考/Android SDK/回调及监听.md)回调中接收结果。
     ```
     public abstract int sendMediaExtensionMsg(byte[]message, int repeatCount);
     ```
@@ -1336,4 +1722,14 @@ public abstract void postFeedback(String uid, String channelId, String descripti
     |message|String|自定义消息数据，目前长度限制为8Byte。|
     |repeatCount|int|消息发送次数。|
 
+    返回说明
+
+    -   0：发送成功。
+    -   -1：当前未在推流状态，不能发送自定义消息。
+    -   -2：参数设置错误，自定义消息长度超过8Byte，或者repeatCount<=0。
+    -   -3：发送过于频繁，建议降低发送频率。
+    **说明：** 使用音视频数据通道，将自定义消息发送给房间内其他用户，需要满足两个前提：
+
+    -   己方正常入会，并且在推流中。
+    -   房间内的其他用户需要订阅己方音视频流，发送成功之后可在[onMediaExtensionMsgReceived](/cn.zh-CN/SDK参考/Android SDK/回调及监听.md)回调中接收结果。
 
