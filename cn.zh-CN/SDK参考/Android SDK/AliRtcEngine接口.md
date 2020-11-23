@@ -57,6 +57,8 @@ keyword: [AliRtcEngine, Android]
 |[configRemoteScreenTrack](#li_yz3_qcc_wci)|设置是否订阅远端屏幕流|1.1|
 |[configRemoteAudio](#li_m90_crx_cyu)|设置是否订阅远端音频流|1.1|
 |[subscribe](#li_i69_su8_ng6)|手动订阅视频和音频流|1.1|
+| |订阅前处理纹理数据|1.15|
+| |取消订阅前处理阅纹理数据|1.15|
 
 视频相关接口
 
@@ -91,9 +93,8 @@ keyword: [AliRtcEngine, Android]
 |---|--|------|
 |[setAudioOnlyMode](#li_qpx_158_6w6)|设置为纯音频模式还是音视频模式|1.1|
 |[isAudioOnly](#li_cwx_qty_qbb)|查询当前是否为纯音频模式|1.1|
-|[muteLocalMic](#li_5vx_o8j_tlo)|设置是否停止发布本地音频|1.1|
 |[muteRemoteAudioPlaying](#li_wlu_fck_m75)|设置是否停止播放远端音频流|1.1|
-|[startAudioCapture](#li_xto_65v_jbg)|切换听筒、扬声器输出|1.1|
+|[enableSpeakerphone](#li_xto_65v_jbg)|切换听筒、扬声器输出|1.1|
 |[isSpeakerOn](#li_x8k_hqf_0tw)|查询是否开启扬声器|1.1|
 |[startAudioCapture](#li_g46_fsz_4kc)|开启音频采集|1.11|
 |[stopAudioCapture](#li_o2b_5d5_k55)|关闭音频采集|1.11|
@@ -143,6 +144,15 @@ keyword: [AliRtcEngine, Android]
 |[requestAudioFocus](#li_ntb_ozk_tio)|请求音频焦点|1.17.19|
 |[abandonAudioFocus](#li_731_6rm_u9l)|丢失音频焦点|1.17.19|
 |[registerAudioObserver](#li_zhd_6te_0so)|注册音频数据回调|1.17|
+|[muteLocalMic](#li_6xu_3v5_vcp)|本地音频采集|1.17.30|
+|[getAudioAccompanyDuration](#li_r2a_9w7_84d)|获取伴奏文件时长|1.17.30|
+|[getAudioAccompanyCurrentPosition](#li_k49_zya_wv8)|获取音乐文件播放进度|1.17.30|
+|[setAudioAccompanyPosition](#li_zsf_0oo_4yb)|设置音频文件的播放位置|1.17.30|
+|[stopAllAudioEffects](#li_pi1_nqc_dmc)|停止播放所有音效|1.17.30|
+|[setAllAudioEffectsPublishVolume](#li_u2f_r6q_moi)|设置所有音效推流音量|1.17.30|
+|[setAllAudioEffectsPlayoutVolume](#li_zjd_w2r_dzr)|设置所有音效本地播放音量|1.17.30|
+|[pauseAllAudioEffects](#li_oil_c5q_4kg)|暂停所有音效|1.17.30|
+|[resumeAllAudioEffects](#li_eav_nmv_siw)|重新开始播放所有音效|1.17.30|
 
 预览接口
 
@@ -530,6 +540,27 @@ keyword: [AliRtcEngine, Android]
 
     0表示接口执行正常，是否订阅成功需要看订阅回调结果。非0表示接口执行异常中断，订阅失败。
 
+-   registerTexturePreObserver：订阅前处理纹理数据。
+
+    ```
+    public abstract void registerTexturePreObserver(String userId, AliRtcEngine.AliTextureObserver observer);
+    ```
+
+    |名称|类型|描述|
+    |--|--|--|
+    |userId|String|订阅的用户ID，通常本地需要美颜，可填写空字符串（""）或者本地uid。|
+    |observer|[AliTextureObserver](/cn.zh-CN/SDK参考/Android SDK/回调及监听.md)|视频流回调接口。|
+
+-   unRegisterTexturePreObserver：取消订前处理阅纹理数据。
+
+    ```
+    public abstract void unRegisterTexturePreObserver(String userId);
+    ```
+
+    |名称|类型|描述|
+    |--|--|--|
+    |userId|String|订阅的用户ID，通常本地需要美颜，可填写空字符串（""）或者本地uid。|
+
 -   setVideoProfile：设置视频流的参数。
 
     ```
@@ -791,22 +822,6 @@ keyword: [AliRtcEngine, Android]
     返回说明
 
     true表示纯音频，false表示音视频。
-
--   muteLocalMic：设置是否停止发布本地音频。
-
-    **说明：** 该接口不改变当前音频的采集状态。
-
-    ```
-    public abstract int muteLocalMic(boolean mute)                    
-    ```
-
-    |名称|类型|描述|
-    |--|--|--|
-    |mute|boolean|true表示停止发布本地音频，false表示恢复发布。|
-
-    返回说明
-
-    0表示设置成功，-1表示设置失败。
 
 -   muteRemoteAudioPlaying：设置是否停止播放远端音频流。
 
@@ -1517,6 +1532,105 @@ keyword: [AliRtcEngine, Android]
     |--|--|--|
     |audioType|[AliAudioType](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)|回调音频数据的类型|
     |audioObserver|[AliAudioObserver](/cn.zh-CN/SDK参考/Android SDK/回调及监听.md)|音频数据回调接口|
+
+-   muteLocalMic：本地音频采集。
+
+    ```
+    public abstract int muteLocalMic(boolean mute, AliRtcEngine.AliRtcMuteLocalAudioMode var2);
+    ```
+
+    |名称|类型|描述|
+    |--|--|--|
+    |mute|boolean|YES表示本地音频采集空帧，NO表示本地音频不采集空帧。|
+    |mode|AliRtcMuteLocalAudioMode|本地静音模式|
+
+    返回说明
+
+    0表示方法调用成功。其他表示方法调用失败。
+
+-   getAudioAccompanyDuration：获取伴奏文件时长，单位为毫秒。
+
+    ```
+    public int getAudioAccompanyDuration();
+    ```
+
+-   getAudioAccompanyCurrentPosition：获取音乐文件播放进度，单位为毫秒。
+
+    ```
+    public int getAudioAccompanyCurrentPosition();
+    ```
+
+-   setAudioAccompanyPosition：设置音频文件的播放位置。
+
+    ```
+    public int setAudioAccompanyPosition(int posMs);
+    ```
+
+    |名称|类型|描述|
+    |--|--|--|
+    |posMs|AliRtcMuteLocalAudioMode|本地静音模式|
+
+    返回说明
+
+    0表示方法调用成功。其他表示方法调用失败。
+
+-   stopAllAudioEffects：停止播放所有音效。
+
+    ```
+    public abstract int stopAllAudioEffects();
+    ```
+
+    返回说明
+
+    0表示方法调用成功。其他表示方法调用失败。
+
+-   setAllAudioEffectsPublishVolume：设置所有音效推流音量。
+
+    ```
+    public abstract int setAllAudioEffectsPublishVolume(int volume);
+    ```
+
+    |名称|类型|描述|
+    |--|--|--|
+    |volume|int|混音音量，取值范围：0~100。|
+
+    返回说明
+
+    0表示方法调用成功。其他表示方法调用失败。
+
+-   setAllAudioEffectsPlayoutVolume：设置所有音效本地播放音量。
+
+    ```
+    public abstract int setAllAudioEffectsPlayoutVolume(int volume);
+    ```
+
+    |名称|类型|描述|
+    |--|--|--|
+    |volume|int|混音音量，取值范围：0~100。|
+
+    返回说明
+
+    0表示方法调用成功。其他表示方法调用失败。
+
+-   pauseAllAudioEffects：暂停所有音效。
+
+    ```
+    public abstract int pauseAllAudioEffects();
+    ```
+
+    返回说明
+
+    0表示方法调用成功。其他表示方法调用失败。
+
+-   resumeAllAudioEffects：重新开始播放所有音效。
+
+    ```
+    public abstract int resumeAllAudioEffects();
+    ```
+
+    返回说明
+
+    0表示方法调用成功。其他表示方法调用失败。
 
 -   startPreview：开始本地预览。
 
