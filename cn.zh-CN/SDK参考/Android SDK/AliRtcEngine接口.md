@@ -86,6 +86,7 @@ keyword: [AliRtcEngine, Android]
 |[setBeautyEffect](#li_aoy_4dz_gl4)|设置基础美颜|1.17.9|
 |[registerVideoSampleObserver](#li_wuz_ib9_pbb)|注册视频数据回调|1.17|
 |[unRegisterVideoSampleObserver](#li_y35_07t_0nt)|取消注册视频数据回调|1.17|
+|[setVideoEncoderConfiguration](#li_k0c_u92_2vq)|设置视频编码属性|1.17.31|
 
 音频相关接口
 
@@ -1276,6 +1277,16 @@ keyword: [AliRtcEngine, Android]
     ```
     public abstract void unRegisterVideoSampleObserver();
     ```
+
+-   setVideoEncoderConfiguration：设置视频编码属性。
+
+    ```
+    public abstract void setVideoEncoderConfiguration(AliRtcEngine.AliRtcVideoEncoderConfiguration config);
+    ```
+
+    |名称|类型|描述|
+    |--|--|--|
+    |config|[AliRtcVideoEncoderConfiguration](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)|预定义的视频编码属性|
 
 -   registerAudioVolumeObserver：注册音量回调。
 
