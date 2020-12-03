@@ -84,6 +84,7 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
 -   iOS：1.17.9 |
 |[setBeautyEffect](#li_lx4_vn7_0qc)|设置基础美颜|1.17.9|
 |[getCurrentCameraDirection](#li_y28_5g4_k5k)|获取当前摄像头方向（仅iOS）|1.17.20|
+|[setVideoEncoderConfiguration](#li_qu2_0l1_g2m)|设置视频编码属性|1.17.31|
 
 音频相关接口
 
@@ -159,6 +160,19 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
 |[setVolumeCallbackIntervalMs](#li_0gk_1wo_pb9)|设置音量回调频率和平滑系数|1.17|
 |[setAudioEffectReverbMode](#li_slu_1uw_9d7)|设置混响音效模式|1.17|
 |[setAudioEffectReverbParamType](#li_qfi_0vw_hco)|设置混响音效类型|1.17|
+
+音效相关接口
+
+|API|描述|以上版本支持|
+|---|--|------|
+|[getAudioAccompanyDuration](#li_d5h_fs2_mrc)|获取伴奏文件时长|1.17.30|
+|[getAudioAccompanyCurrentPosition](#li_73v_5qv_eaw)|获取音乐文件播放进度|1.17.30|
+|[setAudioAccompanyPosition](#li_e14_ldx_aq2)|设置音频文件的播放位置|1.17.30|
+|[stopAllAudioEffects](#li_424_je8_4c8)|停止播放所有音效|1.17.30|
+|[setAllAudioEffectsPublishVolume](#li_nxp_v5u_xfr)|设置所有音效推流音量|1.17.30|
+|[setAllAudioEffectsPlayoutVolume](#li_sbv_x0i_1ec)|设置所有音效本地播放音量|1.17.30|
+|[pauseAllAudioEffects](#li_0pn_5fo_hpw)|暂停所有音效|1.17.30|
+|[resumeAllAudioEffects](#li_p3n_q77_7de)|重新开始播放所有音效|1.17.30|
 
 预览接口
 
@@ -257,7 +271,7 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
 
     返回说明
 
-    0表示Success，非0表示Failure
+    0表示Success，非0表示Failure。
 
     **说明：** 必须在加入频道之前设置。
 
@@ -293,7 +307,7 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
 
     返回说明
 
-    YES表示在频道中，NO表示不在频道中
+    YES表示在频道中，NO表示不在频道中。
 
 -   setChannelProfile：设置频道模式。
 
@@ -307,7 +321,7 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
 
     返回说明
 
-    0表示成功，非0表示失败
+    0表示成功，非0表示失败。
 
     **说明：** 该接口只可以在加入频道之前调用，会议中不可以重新设置，离开频道后可以重新设置。
 
@@ -400,7 +414,7 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
 
     返回说明
 
-    0表示Success，非0表示Failure
+    0表示Success，非0表示Failure。
 
     **说明：** 手动发布时，需要调用publish才能生效。
 
@@ -519,7 +533,7 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
 
     返回说明
 
-    0表示Success，非0表示Failure
+    0表示Success，非0表示Failure。
 
 -   muteLocalCamera：设置是否停止发布本地视频流。
 
@@ -534,7 +548,7 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
 
     返回说明
 
-    0表示Success，非0表示Failure
+    0表示Success，非0表示Failure。
 
     **说明：** 该接口不改变当前视频流的采集状态。
 
@@ -552,7 +566,7 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
 
     返回说明
 
-    0表示Success，非0表示Failure
+    0表示Success，非0表示Failure。
 
 -   getCameraList（仅Mac可用）：获取摄像头列表。
 
@@ -602,7 +616,7 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
 
     返回说明
 
-    0表示设置成功，其他表示设置失败
+    0表示设置成功，其他表示设置失败。
 
 -   isCameraOn（仅iOS可用）：检查摄像头是否打开。
 
@@ -807,6 +821,16 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
 
     该接口默认前置摄像头。
 
+-   setVideoEncoderConfiguration：设置视频编码属性。
+
+    ```
+    - (void)setVideoEncoderConfiguration:(AliRtcVideoEncoderConfiguration* _Nonnull )config;
+    ```
+
+    |名称|类型|描述|
+    |--|--|--|
+    |config|[AliRtcVideoEncoderConfiguration](/cn.zh-CN/SDK参考/iOS和Mac SDK/数据类型.md)|预定义的视频编码属性。|
+
 -   registerVideoSampleObserver：订阅视频数据输出。
 
     ```
@@ -874,7 +898,7 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
 
     返回说明
 
-    0表示设置成功，-1表示设置失败
+    0表示设置成功，-1表示设置失败。
 
 -   enableSpeakerphone（仅iOS可用）：设置音频输出为听筒还是扬声器。
 
@@ -1291,7 +1315,7 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
 
     返回说明
 
-    0表示Success，非0表示Failure
+    0表示Success，非0表示Failure。
 
 -   setRecordingVolume（仅iOS可用）：设置录音音量。
 
@@ -1531,7 +1555,7 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
 
     返回说明
 
-    0表示Success，非0表示Failure
+    0表示Success，非0表示Failure。
 
 -   getExternalAudioVolume：获取外部音频输入音量。
 
@@ -1565,7 +1589,7 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
 
     返回说明
 
-    0表示Success，非0表示Failure
+    0表示Success，非0表示Failure。
 
 -   getExternalAudioRenderVolume（仅Mac可用）：获取音频播放音量。
 
@@ -1619,6 +1643,86 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
 
     0表示成功，失败返回错误码。
 
+-   getAudioAccompanyDuration：获取伴奏文件时长，单位为毫秒。
+
+    ```
+    - (int)getAudioAccompanyDuration;
+    ```
+
+-   getAudioAccompanyCurrentPosition：获取音乐文件播放进度，单位为毫秒。
+
+    ```
+    - (int)getAudioAccompanyCurrentPosition;
+    ```
+
+-   setAudioAccompanyPosition：设置音频文件的播放位置。
+
+    ```
+    - (int)setAudioAccompanyPosition:(int)pos;
+    ```
+
+    |名称|类型|描述|
+    |--|--|--|
+    |posMs|int|进度条位置，单位为毫秒。|
+
+    返回说明
+
+    0表示成功，失败返回错误码。
+
+-   stopAllAudioEffects：停止播放所有音效。
+
+    ```
+    - (int)stopAllAudioEffects;
+    ```
+
+    返回说明
+
+    0表示成功，失败返回错误码。
+
+-   setAllAudioEffectsPublishVolume：设置所有音效推流音量。
+
+    ```
+    public abstract int setAllAudioEffectsPublishVolume(int volume);
+    ```
+
+    |名称|类型|描述|
+    |--|--|--|
+    |volume|int|混音音量，取值范围：0~100。|
+
+-   setAllAudioEffectsPlayoutVolume：设置所有音效本地播放音量。
+
+    ```
+    - (int)setAllAudioEffectsPublishVolume:(NSInteger)volume;
+    ```
+
+    |名称|类型|描述|
+    |--|--|--|
+    |volume|int|混音音量，取值范围：0~100。|
+
+    返回说明
+
+    0表示成功，失败返回错误码。
+
+-   pauseAllAudioEffects：暂停所有音效。
+
+    ```
+    - (int)pauseAllAudioEffects;
+    ```
+
+    返回说明
+
+    0表示成功，失败返回错误码。
+
+-   resumeAllAudioEffects：重新开始播放所有音效。
+
+    ```
+    - (int)resumeAllAudioEffects;
+    ```
+
+    返回说明
+
+    0表示成功，失败返回错误码。
+
 -   startPreview：开始本地预览。
 
     ```
@@ -1627,7 +1731,7 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
 
     返回说明
 
-    0表示Success，非0表示Failure
+    0表示Success，非0表示Failure。
 
     **说明：** 您可以在加入频道之前开始本地预览。开始预览之前需要调用setLocalViewConfig。
 
@@ -1639,7 +1743,7 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
 
     返回说明
 
-    0表示Success，非0表示Failure
+    0表示Success，非0表示Failure。
 
 -   getOnlineRemoteUsers：获取远端在线用户列表。
 
