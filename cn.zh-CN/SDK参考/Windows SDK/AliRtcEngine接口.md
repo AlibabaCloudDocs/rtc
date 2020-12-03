@@ -81,6 +81,7 @@ keyword: [Windows SDK, AliRtcEngine]
 |[stopRecord](#li_hil_ejg_u05)|停止录制|1.17|
 |[startRecord](#li_ibs_7or_7f1)|开始录制|1.17|
 |[setBeatutyEffect](#li_6ry_ktc_rwr)|设置基础美颜|1.17.9|
+|[setVideoEncoderConfiguration](#li_id4_n96_0s8)|设置视频编码属性|1.17.31|
 
 音频相关接口
 
@@ -121,6 +122,10 @@ keyword: [Windows SDK, AliRtcEngine]
 |[setAudioEffectReverbMode](#li_oj3_h2z_bf0)|设置混响音效模式|1.17|
 |[setAudioEffectReverbParamType](#li_4de_b93_kur)|设置混响音效类型|1.17|
 |[setVolumeCallbackIntervalMs](#li_xnx_bpx_kaq)|设置音量回调频率和平滑系数|1.17.9|
+|[setRecordingDeviceVolume](#li_dmp_lyt_jvs)|设置音频采集设备音量|1.17.30|
+|[getRecordingDeviceVolume](#li_8us_jpf_f4z)|获取音频采集设备音量|1.17.30|
+|[setPlaybackDeviceVolume](#li_x38_l1w_yxl)|设置音频播放设备音量|1.17.30|
+|[getPlaybackDeviceVolume](#li_n3a_yap_ccy)|获取音频播放设备音量|1.17.30|
 
 预览接口
 
@@ -732,6 +737,16 @@ keyword: [Windows SDK, AliRtcEngine]
 
     **说明：** 该接口目前只支持美白和磨皮。
 
+-   setVideoEncoderConfiguration： 设置视频编码属性。
+
+    ```
+    virtual void setVideoEncoderConfiguration(AliRtcVideoEncoderConfiguration &config) = 0;
+    ```
+
+    |名称|类型|描述|
+    |--|--|--|
+    |config|[AliRtcVideoEncoderConfiguration](/cn.zh-CN/SDK参考/Windows SDK/数据类型.md)|预定义的视频编码属性。|
+
 -   stopRecord： 停止录制。
 
     ```
@@ -1203,6 +1218,50 @@ keyword: [Windows SDK, AliRtcEngine]
     -   0表示方法调用成功
     -   -1表示interval设置小于10
     -   -2表示平滑系数超出范围
+-   setRecordingDeviceVolume：设置音频采集设备音量。
+
+    ```
+    virtual int setRecordingDeviceVolume(int volume) = 0;
+    ```
+
+    |名称|类型|说明|
+    |--|--|--|
+    |volume|int|音量，取值范围：0 ~ 100。|
+
+-   getRecordingDeviceVolume： 获取音频采集设备音量。
+
+    ```
+    virtual int getRecordingDeviceVolume() = 0;
+    ```
+
+    返回说明
+
+    返回当前音频采集设备音量。
+
+-   setPlaybackDeviceVolume： 设置音频播放设备音量。
+
+    ```
+    virtual int setPlaybackDeviceVolume(int volume) = 0;
+    ```
+
+    |名称|类型|说明|
+    |--|--|--|
+    |volume|int|音量，取值范围：0 ~ 100。|
+
+    返回说明
+
+    0表示成功，非0表示失败。
+
+-   getPlaybackDeviceVolume： 获取音频播放设备音量。
+
+    ```
+    virtual int getPlaybackDeviceVolume() = 0;
+    ```
+
+    返回说明
+
+    返回当前音频播放设备音量。
+
 -   startPreview：开始本地预览（在主线程调用）。
 
     ```
