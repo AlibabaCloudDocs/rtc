@@ -10,6 +10,7 @@
 
 |名称|类型|是否必选|示例值|描述|
 |--|--|----|---|--|
+|Action|String|是|DescribeRecordTemplates|操作接口名，系统规定参数。取值：**DescribeRecordTemplates**。 |
 |AppId|String|是|yourAppId|应用ID。通过控制台创建和查询，仅支持传单个ID。 |
 |PageSize|Integer|否|10|每页显示个数。取值必须大于**0**，默认取值**10**。 |
 |PageNum|Integer|否|1|第几页。取值必须大于**0**，默认查询第**1**页。 |
@@ -19,7 +20,7 @@
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
-|RequestId|String|C292B80E-5175-4BA4-8C1E-2ABEC4D7\*\*\*\*|请求ID。 |
+|RequestId|String|C292B80E-5175-4BA4-8CC292B80E-5175-4BA4-8C1E-2ABEC4D7C2FE1E-2ABEC4D7\*\*\*\*|请求ID。 |
 |Templates|Array of Template| |录制配置模板。 |
 |BackgroundColor|Integer|0|背景色RGB。默认是**0**（黑色）。计算公式为R+G×256+B×65536，R（红）、G（绿）、B（蓝）的取值：**0~255**。 |
 |CreateTime|String|2020-09-04T06:22:15Z|创建时间。格式为：*yyyy-MM-dd*T*HH:mm:ss*Z（UTC时间）。 |
