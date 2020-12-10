@@ -23,7 +23,7 @@
 |BackgroundColor|Integer|否|0|背景色RGB。默认是0（黑色）。计算公式为R+G×256+B×65536，R（红）、G（绿）、B（蓝）的取值：**0~255**。 |
 |DelayStopTime|Integer|否|180|延时停止录制的时间。单位：秒。默认值为**180**秒。 |
 |MnsQueue|String|否|record-callback-queue|录制事件回调消息队列。 |
-|HttpCallbackUrl|String|否|0|叠放顺序，0为最底层，1层在0层之上，以此类推。 |
+|HttpCallbackUrl|String|否|http://demo.com/callback|录制事件Http回调地址。 |
 |Backgrounds.N.Url|String|否|https://www.test.com/image.jpg|图片的HTTP或HTTPS地址。 |
 |Backgrounds.N.Display|Integer|否|0|图片显示。取值：
 
