@@ -57,8 +57,8 @@ keyword: [AliRtcEngine, Android]
 |[configRemoteScreenTrack](#li_yz3_qcc_wci)|设置是否订阅远端屏幕流|1.1|
 |[configRemoteAudio](#li_m90_crx_cyu)|设置是否订阅远端音频流|1.1|
 |[subscribe](#li_i69_su8_ng6)|手动订阅视频和音频流|1.1|
-| |订阅前处理纹理数据|1.15|
-| |取消订阅前处理阅纹理数据|1.15|
+|[registerTexturePreObserver](#li_qz9_udo_80g)|订阅前处理纹理数据|1.15|
+|[unRegisterTexturePreObserver](#li_a2t_pl2_tmt)|取消订阅前处理阅纹理数据|1.15|
 
 视频相关接口
 
@@ -194,6 +194,8 @@ keyword: [AliRtcEngine, Android]
     AliRtcEngine.setH5CompatibleMode(int enable)           
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |enable|int|0表示不兼容H5，1表示兼容H5。默认不兼容H5。|
@@ -218,6 +220,8 @@ keyword: [AliRtcEngine, Android]
     public static AliRtcEngineImpl getInstance(Context context)          
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |context|Context|上下文。|
@@ -230,6 +234,8 @@ keyword: [AliRtcEngine, Android]
     public abstract void setRtcEngineEventListener(AliRtcEngineEventListener listener)                    
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |listener|[AliRtcEngineEventListener](/cn.zh-CN/SDK参考/Android SDK/回调及监听.md)|接收回调事件的监听器。|
@@ -239,6 +245,8 @@ keyword: [AliRtcEngine, Android]
     ```
     public abstract void setRtcEngineNotify(AliRtcEngineNotify engineNotify)               
     ```
+
+    参数说明
 
     |名称|类型|描述|
     |--|--|--|
@@ -270,6 +278,8 @@ keyword: [AliRtcEngine, Android]
     public int setAutoPublish(boolean autoPub, boolean autoSub);
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |autoPub|boolean|true表示自动发布，false表示手动发布。默认自动发布。|
@@ -288,6 +298,8 @@ keyword: [AliRtcEngine, Android]
     ```
     public abstract void joinChannel(AliRtcAuthInfo authInfo, String userName)                    
     ```
+
+    参数说明
 
     |名称|类型|描述|
     |--|--|--|
@@ -332,6 +344,8 @@ keyword: [AliRtcEngine, Android]
     public abstract int setChannelProfile(AliRTCSDK_Channel_Profile profile);
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |profile|[AliRTCSDK\_Channel\_Profile](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)|频道模式类型。默认通信模式。|
@@ -347,6 +361,8 @@ keyword: [AliRtcEngine, Android]
     ```
     public abstract int setAutoPublishSubscribe(boolean autoPub, boolean autoSub);
     ```
+
+    参数说明
 
     |名称|类型|描述|
     |--|--|--|
@@ -375,6 +391,8 @@ keyword: [AliRtcEngine, Android]
     public abstract void configLocalCameraPublish(boolean enable)                
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |enable|boolean|true为允许发布相机流，false表示不允许。默认为允许发布相机流。|
@@ -396,6 +414,8 @@ keyword: [AliRtcEngine, Android]
     ```
     public abstract void configLocalScreenPublish(boolean enable)                  
     ```
+
+    参数说明
 
     |名称|类型|描述|
     |--|--|--|
@@ -419,6 +439,8 @@ keyword: [AliRtcEngine, Android]
     public abstract void configLocalAudioPublish(boolean enable)          
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |enable|boolean|true表示允许，false表示不允许。默认为允许发布音频流。|
@@ -440,6 +462,8 @@ keyword: [AliRtcEngine, Android]
     ```
     public abstract int configLocalSimulcast(boolean enable, AliRtcVideoTrack track)        
     ```
+
+    参数说明
 
     |名称|类型|描述|
     |--|--|--|
@@ -489,11 +513,13 @@ keyword: [AliRtcEngine, Android]
     public abstract void configRemoteCameraTrack(String uid, boolean master, boolean enable)                  
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |uid|String|用户ID。|
     |master|boolean|true为优先订阅大流，false为订阅次小流。默认为订阅大流。|
-    |enable|boolean|true为订阅远端相机流，false为停止订阅远端相机流。|
+    |enable|boolean|默认不订阅。true为订阅远端相机流，false为停止订阅远端相机流。|
 
     **说明：** 该接口需要对流进行操作时（如手动订阅，关闭订阅），必须调用subscribe才能生效。
 
@@ -502,6 +528,8 @@ keyword: [AliRtcEngine, Android]
     ```
     public abstract void configRemoteScreenTrack(String uid, boolean enable)                  
     ```
+
+    参数说明
 
     |名称|类型|描述|
     |--|--|--|
@@ -515,6 +543,8 @@ keyword: [AliRtcEngine, Android]
     ```
     public abstract void configRemoteAudio(String uid, boolean enable)                  
     ```
+
+    参数说明
 
     |名称|类型|描述|
     |--|--|--|
@@ -533,6 +563,8 @@ keyword: [AliRtcEngine, Android]
     -   根据您的具体业务需求配置上述3个接口的参数，以订阅相应的视频和音频流。
     -   订阅和停止订阅都是调用subscribe。
     -   如需停止订阅，则需要上述3个配置接口的参数都置为false，再调用subscribe。
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |uid|String|用户ID。|
@@ -547,6 +579,8 @@ keyword: [AliRtcEngine, Android]
     public abstract void registerTexturePreObserver(String userId, AliRtcEngine.AliTextureObserver observer);
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |userId|String|订阅的用户ID，通常本地需要美颜，可填写空字符串（""）或者本地uid。|
@@ -558,6 +592,8 @@ keyword: [AliRtcEngine, Android]
     public abstract void unRegisterTexturePreObserver(String userId);
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |userId|String|订阅的用户ID，通常本地需要美颜，可填写空字符串（""）或者本地uid。|
@@ -568,16 +604,20 @@ keyword: [AliRtcEngine, Android]
     public abstract void setVideoProfile(AliRtcVideoProfile profile, AliRtcVideoTrack track)                   
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |profile|[AliRtcVideoProfile](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)|视频流参数。默认分辨率480\*640，帧率15的相机流。|
-    |track|[AliRtcVideoTrack](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)|需要设置的视频流类型。|
+    |track|[AliRtcVideoTrack](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)|需要设置的视频流类型，默认相机流。|
 
 -   getVideoProfile：查询当前视频流参数。
 
     ```
     public abstract AliRtcVideoProfile getVideoProfile(AliRtcVideoTrack track)                    
     ```
+
+    参数说明
 
     |名称|类型|描述|
     |--|--|--|
@@ -596,6 +636,8 @@ keyword: [AliRtcEngine, Android]
     -   支持加入频道之前和之后切换窗口。如果viewConfig为NULL或者其成员渲染视图为NULL，则停止渲染。
     -   如果在播放过程中需要重新设置渲染方式，请保持viewConfig中其他成员变量不变，仅修改renderMode。
     -   viewConfig中渲染方式默认为AliRtcRenderModeAuto。
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |viewConfig|[AliVideoCanvas](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)|渲染参数，包含渲染窗口以及渲染方式。|
@@ -607,10 +649,12 @@ keyword: [AliRtcEngine, Android]
     public abstract int muteLocalCamera(boolean mute, AliRtcVideoTrack track)                   
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
-    |mute|boolean|true表示停止发布视频流，false表示恢复发布。|
-    |track|[AliRtcVideoTrack](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)|需要改变发布状态的视频Track类型。|
+    |mute|boolean|true表示停止发布视频流，false表示恢复发布。默认恢复发布。|
+    |track|[AliRtcVideoTrack](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)|需要改变发布状态的视频Track类型。默认相机流。|
 
     返回说明
 
@@ -628,6 +672,8 @@ keyword: [AliRtcEngine, Android]
     -   如果在播放过程中需要重新设置渲染方式，请保持canvas中其他成员变量不变，仅修改renderMode。
     -   canvas中渲染方式默认为AliRtcRenderModeAuto。
     -   建议在订阅结果回调之后调用。
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |canvas|[AliVideoCanvas](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)|渲染参数，包含渲染窗口以及渲染方式。|
@@ -662,6 +708,8 @@ keyword: [AliRtcEngine, Android]
     public abstract void setPreCameraType(int faceTo)                    
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |faceTo|int|0表示后置，1表示前置（默认值为1）。|
@@ -682,11 +730,13 @@ keyword: [AliRtcEngine, Android]
     public abstract int setCameraZoom(float zoom, boolean flash, boolean autoFocus)                  
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |zoom|float|zoom变焦的级别（默认值：1.0）。|
-    |flash|boolean|true表示打开闪光灯，false表示不打开闪光灯。|
-    |autoFocus|boolean|true表示打开自动对焦，false表示不打开自动对焦。|
+    |flash|boolean|true表示打开闪光灯，false表示不打开闪光灯。默认不打开闪光灯。|
+    |autoFocus|boolean|true表示打开自动对焦，false表示不打开自动对焦。默认不打开自动对焦。|
 
     返回说明
 
@@ -728,6 +778,8 @@ keyword: [AliRtcEngine, Android]
     public abstract int setCameraExposurePoint(float x, float y);
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |x|float|x坐标。|
@@ -742,6 +794,8 @@ keyword: [AliRtcEngine, Android]
     ```
     public abstract int setCameraFocusPoint(float x, float y);
     ```
+
+    参数说明
 
     |名称|类型|描述|
     |--|--|--|
@@ -778,6 +832,8 @@ keyword: [AliRtcEngine, Android]
     public abstract void registerPreprocessVideoObserver(AliDetectObserver observer);
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |observer|[AliDetectObserver](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)|人脸识别预处理。|
@@ -788,9 +844,11 @@ keyword: [AliRtcEngine, Android]
     public abstract int muteAllRemoteAudioPlaying(boolean mute);
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
-    |mute|boolean|true表示停止播放，false表示恢复播放。|
+    |mute|boolean|true表示停止播放，false表示恢复播放。默认恢复播放。|
 
     返回说明
 
@@ -804,9 +862,11 @@ keyword: [AliRtcEngine, Android]
     public abstract int setAudioOnlyMode(boolean audioOnly)                  
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
-    |audioOnly|boolean|true表示只有音频发布和订阅，false表示音视频都支持。|
+    |audioOnly|boolean|true表示只有音频发布和订阅，false表示音视频都支持。默认为音视频模式。|
 
     返回说明
 
@@ -830,10 +890,12 @@ keyword: [AliRtcEngine, Android]
     public abstract int muteRemoteAudioPlaying(String uid, boolean mute)                   
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |uid|String|用户ID。|
-    |mute|boolean|true表示停止播放，false表示恢复播放。|
+    |mute|boolean|true表示停止播放，false表示恢复播放。默认恢复播放。|
 
     返回说明
 
@@ -844,6 +906,8 @@ keyword: [AliRtcEngine, Android]
     ```
     public abstract int enableSpeakerphone(boolean enable)  
     ```
+
+    参数说明
 
     |名称|类型|描述|
     |--|--|--|
@@ -915,6 +979,8 @@ keyword: [AliRtcEngine, Android]
     public abstract int enableEarBack(boolean enable);
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |enable|boolean|true表示开启耳返，false表示关闭耳返。默认关闭耳返。|
@@ -928,6 +994,8 @@ keyword: [AliRtcEngine, Android]
     ```
     public abstract int startAudioAccompany(String fileName, boolean onlyLocalPlay, boolean replaceMic, int loopCycles);
     ```
+
+    参数说明
 
     |名称|类型|描述|
     |--|--|--|
@@ -976,9 +1044,11 @@ keyword: [AliRtcEngine, Android]
     public abstract int setAudioAccompanyPublishVolume(int volume);
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
-    |volume|int|伴奏推流音量。|
+    |volume|int|伴奏推流音量。默认取值50。|
 
     返回说明
 
@@ -990,16 +1060,16 @@ keyword: [AliRtcEngine, Android]
     public abstract int setAudioAccompanyPlayoutVolume(int volume);
     ```
 
+    参数说明
+
     |名称|类型|描述|
-    |volume|int|伴奏本地播放音量。|
+    |volume|int|伴奏本地播放音量。默认取值50。|
 
     返回说明
 
     0表示操作成功，非0表示操作失败。
 
 -   getAudioAccompanyPublishVolume：获取伴奏推流音量。
-
-    返回0~100的伴奏推流音量，返回-1表示获取失败。
 
     ```
     public abstract int getAudioAccompanyPublishVolume();
@@ -1021,11 +1091,14 @@ keyword: [AliRtcEngine, Android]
 
 -   setAudioAccompanyVolume：设置伴奏推流和本地音量。
 
-    返回0表示操作成功， 非0表示操作失败。
-
     ```
     public abstract int setAudioAccompanyVolume(int volume);
     ```
+
+    参数说明
+
+    |名称|类型|描述|
+    |volume|int|伴奏本地播放音量。默认取值50。|
 
     返回说明
 
@@ -1036,6 +1109,8 @@ keyword: [AliRtcEngine, Android]
     ```
     public abstract int preloadAudioEffect(int soundId, String filePath);
     ```
+
+    参数说明
 
     |名称|类型|描述|
     |--|--|--|
@@ -1052,6 +1127,8 @@ keyword: [AliRtcEngine, Android]
     public abstract int unloadAudioEffect(int soundId);
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |soundId|int|音效ID（此ID应与预加载时传入的ID相同）。|
@@ -1065,6 +1142,8 @@ keyword: [AliRtcEngine, Android]
     ```
     public abstract int playAudioEffect(int soundId, String filePath, int cycles, boolean publish);
     ```
+
+    参数说明
 
     |名称|类型|描述|
     |--|--|--|
@@ -1083,6 +1162,8 @@ keyword: [AliRtcEngine, Android]
     public abstract int setAudioEffectPublishVolume(int soundId, int volume);
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |soundId|int|音效ID。|
@@ -1100,6 +1181,8 @@ keyword: [AliRtcEngine, Android]
     public abstract int getAudioEffectPublishVolume(int soundId);
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |soundId|int|音效ID。|
@@ -1114,10 +1197,12 @@ keyword: [AliRtcEngine, Android]
     public abstract int setAudioEffectPlayoutVolume(int soundId, int volume);
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |soundId|int|音效ID。|
-    |volume|int|音效本地播放音量。取值范围：0～100。|
+    |volume|int|音效本地播放音量。取值范围：0～100。默认取值50。|
 
     返回说明
 
@@ -1128,6 +1213,8 @@ keyword: [AliRtcEngine, Android]
     ```
     public abstract int getAudioEffectPlayoutVolume(int soundId);
     ```
+
+    参数说明
 
     |名称|类型|描述|
     |--|--|--|
@@ -1143,6 +1230,8 @@ keyword: [AliRtcEngine, Android]
     public abstract int pauseAudioEffect(int soundId);
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |soundId|int|音效ID。|
@@ -1156,6 +1245,8 @@ keyword: [AliRtcEngine, Android]
     ```
     public abstract int resumeAudioEffect(int soundId);
     ```
+
+    参数说明
 
     |名称|类型|描述|
     |--|--|--|
@@ -1171,6 +1262,8 @@ keyword: [AliRtcEngine, Android]
     public abstract int stopAudioEffect(int soundId);
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |soundId|int|音效ID。|
@@ -1185,9 +1278,11 @@ keyword: [AliRtcEngine, Android]
     public abstract int setEarBackVolume(int volume);
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
-    |volume|int|耳返音量。取值：0～100（只有耳返开启时才能设置音量，否则该方法返回错误）。|
+    |volume|int|耳返音量。取值：0～100（只有耳返开启时才能设置音量，否则该方法返回错误）。默认取值100。|
 
     返回说明
 
@@ -1199,9 +1294,11 @@ keyword: [AliRtcEngine, Android]
     public abstract int setRecordingVolume(int volume);
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
-    |volume|int|音量。取值：0~400，0表示静音。     -   当设置大于100：放大音量。
+    |volume|int|音量。取值：0~400，0表示静音，默认取值100。    -   当设置大于100：放大音量。
     -   当设置小于100：减小音量。 |
 
     返回说明
@@ -1216,9 +1313,11 @@ keyword: [AliRtcEngine, Android]
     public abstract int setPlayoutVolume(int volume);
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
-    |volume|int|音量。取值：0~400，0表示静音。     -   当设置大于100：放大音量。
+    |volume|int|音量。取值：0~400，0表示静音，默认取值100。    -   当设置大于100：放大音量。
     -   当设置小于100：减小音量。 |
 
     返回说明
@@ -1233,9 +1332,11 @@ keyword: [AliRtcEngine, Android]
     public abstract int muteAllRemoteVideoRendering(boolean mute);
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
-    |mute|boolean|true表示停止渲染，false表示恢复渲染。|
+    |mute|boolean|true表示停止渲染，false表示恢复渲染。默认恢复渲染。|
 
     返回说明
 
@@ -1248,6 +1349,8 @@ keyword: [AliRtcEngine, Android]
     ```
     public abstract int setBeautyEffect(boolean enable, AliRtcEngine.AliRtcBeautyConfig config);
     ```
+
+    参数说明
 
     |名称|类型|描述|
     |--|--|--|
@@ -1268,6 +1371,8 @@ keyword: [AliRtcEngine, Android]
 
     可参见[音视频输出](https://help.aliyun.com/document_detail/156997.html)进行开发。
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |aliVideoObserver|[AliVideoObserver](/cn.zh-CN/SDK参考/Android SDK/回调及监听.md)|视频数据回调接口|
@@ -1284,6 +1389,8 @@ keyword: [AliRtcEngine, Android]
     public abstract void setVideoEncoderConfiguration(AliRtcEngine.AliRtcVideoEncoderConfiguration config);
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |config|[AliRtcVideoEncoderConfiguration](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)|预定义的视频编码属性|
@@ -1293,6 +1400,8 @@ keyword: [AliRtcEngine, Android]
     ```
     public abstract void registerAudioVolumeObserver(AliRtcEngine.AliRtcAudioVolumeObserver observer);
     ```
+
+    参数说明
 
     |名称|类型|描述|
     |--|--|--|
@@ -1311,6 +1420,8 @@ keyword: [AliRtcEngine, Android]
     ```
 
     录制音频包含外部输入PCM数据、本地采集音频和远端拉流音频数据。
+
+    参数说明
 
     |名称|类型|描述|
     |--|--|--|
@@ -1337,9 +1448,11 @@ keyword: [AliRtcEngine, Android]
     public abstract int setAudioEffectReverbMode(AliRtcEngine.AliRTCSDK_AudioEffect_Reverb_Mode mode);
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
-    |mode|[AliRTCSDK\_AudioEffect\_Reverb\_Mode](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)|混响模式类型。|
+    |mode|[AliRTCSDK\_AudioEffect\_Reverb\_Mode](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)|混响模式类型。默认关闭。|
 
     返回说明
 
@@ -1350,6 +1463,8 @@ keyword: [AliRtcEngine, Android]
     ```
      public abstract int setAudioEffectReverbParamType(AliRtcEngine.AliRTCSDK_AudioEffect_Reverb_Param_Type type, float value);
     ```
+
+    参数说明
 
     |名称|类型|描述|
     |--|--|--|
@@ -1366,12 +1481,15 @@ keyword: [AliRtcEngine, Android]
     public abstract int setVolumeCallbackIntervalMs(int interval, int smooth, int reportVad);
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
-    |interval|int|时间间隔。单位：ms（毫秒），最小值不得小于10ms。|
-    |smooth|int|平滑系数。数值越大平滑程度越高，反之越低，实时性越好。建议您设置为3，范围为0~9。|
+    |interval|int|时间间隔。单位：毫秒，最小值不得小于10毫秒。默认150毫秒。|
+    |smooth|int|平滑系数。数值越大平滑程度越高，反之越低，实时性越好。取值范围：0~9。默认为3。|
     |reportVad|int|本地语音检测开关。取值：     -   1：开启，通过onAudioVolumeCallback接口回调。
-    -   0：关闭。 |
+    -   0：关闭。
+默认为1。|
 
     返回说明
 
@@ -1382,6 +1500,8 @@ keyword: [AliRtcEngine, Android]
     ```
     public abstract int setExternalAudioSource(boolean enable, int sampleRate, int channelsPerFrame);
     ```
+
+    参数说明
 
     |名称|类型|描述|
     |--|--|--|
@@ -1399,6 +1519,8 @@ keyword: [AliRtcEngine, Android]
     public abstract int pushExternalAudioFrameRawData(byte[] data, int samples, long timestamp);
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |data|byte\[\]|音频数据，不建议超过40ms数据。|
@@ -1415,9 +1537,11 @@ keyword: [AliRtcEngine, Android]
     public abstract int setExternalAudioVolume(int volume);
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
-    |volume|int|音量，0~100。|
+    |volume|int|音量，取值范围：0~100。默认取值50。|
 
     返回说明
 
@@ -1439,9 +1563,11 @@ keyword: [AliRtcEngine, Android]
     public abstract int setMixedWithMic(boolean mixed);
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
-    |mixed|boolean|true表示混音，false表示完全替换麦克风采集数据。|
+    |mixed|boolean|true表示混音，false表示完全替换麦克风采集数据。默认为混音。|
 
     返回说明
 
@@ -1452,6 +1578,8 @@ keyword: [AliRtcEngine, Android]
     ```
     public abstract int setExteranlAudioRender(boolean enable, int sampleRate, int channelsPerFrame);
     ```
+
+    参数说明
 
     |名称|类型|描述|
     |--|--|--|
@@ -1468,6 +1596,8 @@ keyword: [AliRtcEngine, Android]
     ```
     public abstract int pushExternalAudioRenderRawData(byte[] audioSamples, int sampleLength, int sampleRate, int channelsPerFrame, long timestamp);
     ```
+
+    参数说明
 
     |名称|类型|描述|
     |--|--|--|
@@ -1497,6 +1627,8 @@ keyword: [AliRtcEngine, Android]
     public abstract void setSubscribeAudioNumChannel(AliRtcAudioNumChannel numChannel);
     ```
 
+    参数说明
+
     |名称|类型|说明|
     |--|--|--|
     |numChannel|[AliRtcAudioNumChannel](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)|音频编号通道。默认单声道音频。|
@@ -1506,6 +1638,8 @@ keyword: [AliRtcEngine, Android]
     ```
     public abstract void setSubscribeAudioSampleRate(AliRtcAudioSampleRate sampleRate);
     ```
+
+    参数说明
 
     |名称|类型|说明|
     |--|--|--|
@@ -1539,6 +1673,8 @@ keyword: [AliRtcEngine, Android]
 
     指定需要输出的音频数据类型，如果需要输出多种类型数据，需要分别调用注册。注册完成后，音频数据将通过AliAudioObserver持续回调。可参见[音视频输出](https://help.aliyun.com/document_detail/156997.html?spm=a2c4g.11186623.6.655.187c5ff2Ccw9jb)。
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |audioType|[AliAudioType](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)|回调音频数据的类型|
@@ -1549,6 +1685,8 @@ keyword: [AliRtcEngine, Android]
     ```
     public abstract int muteLocalMic(boolean mute, AliRtcEngine.AliRtcMuteLocalAudioMode var2);
     ```
+
+    参数说明
 
     |名称|类型|描述|
     |--|--|--|
@@ -1577,6 +1715,8 @@ keyword: [AliRtcEngine, Android]
     public int setAudioAccompanyPosition(int posMs);
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |posMs|AliRtcMuteLocalAudioMode|本地静音模式|
@@ -1601,9 +1741,11 @@ keyword: [AliRtcEngine, Android]
     public abstract int setAllAudioEffectsPublishVolume(int volume);
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
-    |volume|int|混音音量，取值范围：0~100。|
+    |volume|int|混音音量，取值范围：0~100。默认取值50。|
 
     返回说明
 
@@ -1615,9 +1757,11 @@ keyword: [AliRtcEngine, Android]
     public abstract int setAllAudioEffectsPlayoutVolume(int volume);
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
-    |volume|int|混音音量，取值范围：0~100。|
+    |volume|int|混音音量，取值范围：0~100。默认取值50。|
 
     返回说明
 
@@ -1673,9 +1817,11 @@ keyword: [AliRtcEngine, Android]
     public abstract int enableHighDefinitionPreview(boolean enable);
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
-    |enable|boolean|true表示开启，false表示关闭。|
+    |enable|boolean|true表示开启，false表示关闭。默认开启高清预览。|
 
     返回说明
 
@@ -1699,6 +1845,8 @@ keyword: [AliRtcEngine, Android]
     public abstract AliRtcRemoteUserInfo getUserInfo(String uid)                  
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |uid|String|用户ID。|
@@ -1712,6 +1860,8 @@ keyword: [AliRtcEngine, Android]
     ```
     public abstract boolean isUserOnline(String uid)
     ```
+
+    参数说明
 
     |名称|类型|描述|
     |--|--|--|
@@ -1727,6 +1877,8 @@ keyword: [AliRtcEngine, Android]
     public String getMediaInfoWithUserId(String userId, AliRtcVideoTrack track, String[] keys);
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |userId|String|获取媒体流信息的用户ID。|
@@ -1739,9 +1891,11 @@ keyword: [AliRtcEngine, Android]
     public abstract void setLogLevel(AliRtcLogLevel logLevel)         
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
-    |logLevel|[AliRtcLogLevel](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)|日志级别。|
+    |logLevel|[AliRtcLogLevel](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)|日志级别。默认取值AliRtcLogLevelInfo。|
 
 -   getSdkVersion：获取SDK版本号。
 
@@ -1754,6 +1908,8 @@ keyword: [AliRtcEngine, Android]
     ```
     public abstract int setClientRole(AliRTCSDK_Client_Role role);
     ```
+
+    参数说明
 
     |名称|类型|描述|
     |--|--|--|
@@ -1771,6 +1927,8 @@ keyword: [AliRtcEngine, Android]
     public static int setLogDirPath(String logDirPath)
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |logDirPath|String|日志文件保存绝对路径。|
@@ -1786,6 +1944,8 @@ keyword: [AliRtcEngine, Android]
     ```
     public abstract void setDeviceOrientationMode(AliRtcEngine.AliRtcOrientationMode mode);
     ```
+
+    参数说明
 
     |名称|类型|描述|
     |--|--|--|
@@ -1828,6 +1988,8 @@ keyword: [AliRtcEngine, Android]
 public abstract void postFeedback(String uid, String channelId, String description, AliRtcFeedbackType type, long timeStamp);
 ```
 
+    参数说明
+
     |名称|类型|说明|
     |--|--|--|
     |uid|String|当前uid。|
@@ -1841,6 +2003,8 @@ public abstract void postFeedback(String uid, String channelId, String descripti
     ```
     public abstract int sendMediaExtensionMsg(byte[]message, int repeatCount);
     ```
+
+    参数说明
 
     |参数|类型|描述|
     |--|--|--|
