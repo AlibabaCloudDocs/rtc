@@ -219,6 +219,8 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
     + (void)setH5CompatibleMode:(BOOL)comp;
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |comp|BOOL|YES为兼容H5模式，NO为不兼容H5。默认不兼容H5。|
@@ -243,6 +245,8 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
     + (instancetype)sharedInstance:(id<AliRtcEngineDelegate>)delegate extras:(NSString *)extras;
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |delegate|[AliRtcEngineDelegate](/cn.zh-CN/SDK参考/iOS和Mac SDK/回调及监听.md)类型的代理|监听回调的代理。|
@@ -264,6 +268,8 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
     - (int)setAutoPublish:(BOOL)autoPub withAutoSubscribe:(BOOL)autoSub;
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |autoPub|BOOL|YES表示自动发布，NO表示手动发布。默认自动发布。|
@@ -280,6 +286,8 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
     ```
     - (void)joinChannel:(AliRtcAuthInfo *)authInfo name:(NSString *)userName onResult:(void(^)(NSInteger errCode))onResult;
     ```
+
+    参数说明
 
     |名称|类型|描述|
     |--|--|--|
@@ -315,6 +323,8 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
     - (int)setChannelProfile:(AliRtcChannelProfile)profile;
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |profile|[AliRtcChannelProfile](/cn.zh-CN/SDK参考/iOS和Mac SDK/数据类型.md)|频道模式类型。默认为AliRtcCommunication通信模式。|
@@ -341,6 +351,8 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
     - (void)configLocalCameraPublish:(BOOL)enable;
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |enable|BOOL|YES为允许发布相机流，NO为不允许。默认为允许发布相机流。|
@@ -362,6 +374,8 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
     ```
     - (void)configLocalScreenPublish:(BOOL)enable;
     ```
+
+    参数说明
 
     |名称|类型|描述|
     |--|--|--|
@@ -385,6 +399,8 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
     - (void)configLocalAudioPublish:(BOOL)enable;
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |enable|BOOL|YES为允许发布音频流，NO为不允许发布音频流。默认为允许发布音频流。|
@@ -406,6 +422,8 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
     ```
     - (int)configLocalSimulcast:(BOOL)enabled forTrack:(AliRtcVideoTrack)track;
     ```
+
+    参数说明
 
     |名称|类型|描述|
     |--|--|--|
@@ -437,6 +455,8 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
     -   调用publish的实际表现需要结合configLocalCameraPublish、configLocalAudioPublish、configLocalSimulcast等接口才能确定。
     -   根据您的具体业务需求配置上述3个接口的参数，以发布相应的视频和音频流。
     -   如需停止发布，则需要上述3个配置接口的参数都置为NO，再调用publish。
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |onResult|void \(^\)\(int errCode\)|当调用publish执行结束后回调。|
@@ -457,11 +477,13 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
     - (void)configRemoteCameraTrack:(NSString *)uid preferMaster:(BOOL)master enable:(BOOL)enable;
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |uid|NSString \*|用户ID。|
     |master|BOOL|YES为订阅大流，NO为订阅次小流。默认为订阅大流。|
-    |enable|BOOL|YES为订阅远端相机流，NO为停止订阅远端相机流。|
+    |enable|BOOL|YES为订阅远端相机流，NO为停止订阅远端相机流。默认为不订阅。|
 
     **说明：** 该接口需要对流进行操作时（如手动订阅，关闭订阅），必须调用subscribe才能生效。
 
@@ -470,6 +492,8 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
     ```
     - (void)configRemoteScreenTrack:(NSString *)uid enable:(BOOL)enable;
     ```
+
+    参数说明
 
     |名称|类型|描述|
     |--|--|--|
@@ -483,6 +507,8 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
     ```
     - (void)configRemoteAudio:(NSString *)uid enable:(BOOL)enable;
     ```
+
+    参数说明
 
     |名称|类型|描述|
     |--|--|--|
@@ -501,6 +527,8 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
     -   根据您的具体业务需求配置上述3个接口的参数，以订阅相应的视频和音频流。
     -   订阅和停止订阅都是调用subscribe。
     -   如需停止订阅，则需要上述3个配置接口的参数都置为false，再调用subscribe。
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |uid|NSString \*|用户ID。|
@@ -512,10 +540,12 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
     - (void)setVideoProfile:(AliRtcVideoProfile)profile forTrack:(AliRtcVideoTrack)track;
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
-    |profile|[AliRtcVideoProfile](/cn.zh-CN/SDK参考/iOS和Mac SDK/数据类型.md)|视频流参数。|
-    |track|[AliRtcVideoTrack](/cn.zh-CN/SDK参考/iOS和Mac SDK/数据类型.md)|需要设置的视频Track类型。|
+    |profile|[AliRtcVideoProfile](/cn.zh-CN/SDK参考/iOS和Mac SDK/数据类型.md)|视频流参数。默认为分辨率480\*640，帧率15的相机流。|
+    |track|[AliRtcVideoTrack](/cn.zh-CN/SDK参考/iOS和Mac SDK/数据类型.md)|需要设置的视频Track类型。默认相机流。|
 
 -   setLocalViewConfig：为本地预览设置渲染窗口以及绘制参数。
 
@@ -526,6 +556,8 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
     -   支持joinChannel之前和之后切换窗口。如果viewConfig为NULL或者其成员渲染视图为NULL，则停止渲染。
     -   如果在播放过程中需要重新设置渲染方式，请保持viewConfig中其他成员变量不变，仅修改renderMode。
     -   viewConfig中渲染方式默认为AliRtcRenderModeAuto。
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |viewConfig|[AliVideoCanvas \*](/cn.zh-CN/SDK参考/iOS和Mac SDK/数据类型.md)|渲染参数，包含渲染窗口以及渲染方式。|
@@ -540,6 +572,8 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
     ```
     - (int)muteLocalCamera:(BOOL)mute forTrack:(AliRtcVideoTrack)track;
     ```
+
+    参数说明
 
     |名称|类型|描述|
     |--|--|--|
@@ -557,6 +591,8 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
     ```
     - (int)setRemoteViewConfig:(AliVideoCanvas *)canvas uid:(NSString *)uid forTrack:(AliRtcVideoTrack)track;
     ```
+
+    参数说明
 
     |名称|类型|描述|
     |--|--|--|
@@ -586,6 +622,8 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
     - (void)setCurrentCamera:(NSString *)camera;
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |camera|NSString \*|摄像头名称。|
@@ -608,9 +646,11 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
      - (int)setCameraZoom:(float)zoom flash:(BOOL)flash autoFocus:(BOOL)autoFocus;
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
-    |zoom|float|变焦的级别。取值：-3~3，默认为1.0。|
+    |zoom|float|变焦的级别。取值范围：-3.0~3.0，默认取值1.0。|
     |flash|BOOL|是否打开闪光灯。YES为打开闪光灯，NO为不打开闪光灯。默认不打开闪光灯。|
     |autoFocus|BOOL|是否打开自动对焦。YES为打开自动对焦，NO为不打开自动对焦。默认不打开自动对焦。|
 
@@ -654,6 +694,8 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
     - (int)setCameraFocusPoint:(CGPoint)point;
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |point|CGPoint|聚焦点坐标。|
@@ -667,6 +709,8 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
     ```
     - (int)setCameraExposurePoint:(CGPoint)point;
     ```
+
+    参数说明
 
     |名称|类型|描述|
     |--|--|--|
@@ -682,6 +726,8 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
     - (void)subscribeVideoPreprocessData:(AliRtcVideoSource)videoSource;
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |videoSource|[AliRtcVideoSource](/cn.zh-CN/SDK参考/iOS和Mac SDK/数据类型.md)|视频流类型。|
@@ -692,6 +738,8 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
     - (void)unSubscribeVideoPreprocessData:(AliRtcVideoSource)videoSource;
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |videoSource|[AliRtcVideoSource](/cn.zh-CN/SDK参考/iOS和Mac SDK/数据类型.md)|视频流类型。|
@@ -701,6 +749,8 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
     ```
     - (BOOL)enableHighDefinitionPreview:(BOOL)enable;
     ```
+
+    参数说明
 
     |名称|类型|描述|
     |--|--|--|
@@ -718,6 +768,8 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
     - (void)setVideoSwapWidthAndHeight:(BOOL)swapWidthAndHeight forTrack:(AliRtcVideoTrack)track;
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |swapWidthAndHeight|BOOL|YES表示需要交换宽高，NO表示不需要。默认NO。|
@@ -728,6 +780,8 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
     ```
     - (int)muteAllRemoteVideoRendering:(BOOL)mute;
     ```
+
+    参数说明
 
     |名称|类型|描述|
     |--|--|--|
@@ -749,6 +803,8 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
     - (void)setCurrentCameraWithID:(NSString *)cameraID;
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |cameraID|NSString \*|摄像头ID。|
@@ -758,6 +814,8 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
     ```
     - (int)setExternalVideoSource:(BOOL)enable useTexture:(BOOL)useTexture sourceType:(AliRtcVideoSource)type renderMode:(AliRtcRenderMode)renderMode
     ```
+
+    参数说明
 
     |名称|类型|描述|
     |--|--|--|
@@ -776,6 +834,8 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
     - (int)pushExternalVideoFrame:(AliRtcVideoDataSample *)frame sourceType:(AliRtcVideoSource)type;
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |frame|[AliRtcVideoDataSample](/cn.zh-CN/SDK参考/iOS和Mac SDK/数据类型.md) \*|帧数据。|
@@ -793,6 +853,8 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
         - (int)setBeautyEffect:(BOOL)enable config:(AliRtcBeautyConfig)config;
         ```
 
+        参数说明
+
         |名称|类型|描述|
         |--|--|--|
         |enable|BOOL|YES表示开启基础美颜，NO表示关闭，默认为关闭。|
@@ -803,6 +865,8 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
         ```
         - (int)setBeatutyEffect:(bool)enable config:(AliRtcBeautyConfig)confg;
         ```
+
+        参数说明
 
         |名称|类型|描述|
         |--|--|--|
@@ -827,6 +891,8 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
     - (void)setVideoEncoderConfiguration:(AliRtcVideoEncoderConfiguration* _Nonnull )config;
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |config|[AliRtcVideoEncoderConfiguration](/cn.zh-CN/SDK参考/iOS和Mac SDK/数据类型.md)|预定义的视频编码属性。|
@@ -849,9 +915,11 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
     - (int)setAudioOnlyMode:(BOOL)audioOnly;
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
-    |audioOnly|BOOL|YES表示只有音频发布和订阅，NO表示音视频都支持。|
+    |audioOnly|BOOL|YES表示只有音频发布和订阅，NO表示音视频都支持。默认为音视频模式。|
 
     返回说明
 
@@ -875,6 +943,8 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
     - (int)muteLocalMic:(BOOL)mute;
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |mute|BOOL|YES表示停止发布本地音频，NO表示恢复发布。默认恢复发布。|
@@ -891,6 +961,8 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
     - (int)muteRemoteAudioPlaying:(NSString *)uid mute:(BOOL)mute;
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |uid|NSString \*|用户ID。|
@@ -905,6 +977,8 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
     ```
      - (int)enableSpeakerphone:(BOOL)enable;
     ```
+
+    参数说明
 
     |名称|类型|描述|
     |--|--|--|
@@ -932,6 +1006,8 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
     - (void)setCurrentAudioCapture:(NSString *)capture;
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |capture|NSString \*|音频采集设备名称。|
@@ -955,6 +1031,8 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
     ```
     - (void)setCurrentAudioRenderer:(NSString *)renderer;
     ```
+
+    参数说明
 
     |名称|类型|描述|
     |--|--|--|
@@ -998,6 +1076,8 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
     - (int)startAudioAccompanyWithFile:(NSString *)filePath onlyLocalPlay:(BOOL)onlyLocalPlay replaceMic:(BOOL)replaceMic loopCycles:(NSInteger)loopCycles;
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |filePath|NSString \*|文件路径。|
@@ -1027,9 +1107,11 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
     - (int)setAudioAccompanyVolume:(NSInteger)volume;
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
-    |volume|NSInteger|混音音量。取值：0~100。默认50。|
+    |volume|NSInteger|混音音量。取值范围：0~100。默认取值50。|
 
     返回说明
 
@@ -1043,9 +1125,11 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
     - (int)setAudioAccompanyPublishVolume:(NSInteger)volume;
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
-    |volume|NSInteger|混音音量。取值：0~100。默认50。|
+    |volume|NSInteger|混音音量。取值范围：0~100。默认取值50。|
 
     返回说明
 
@@ -1069,9 +1153,11 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
     - (int)setAudioAccompanyPlayoutVolume:(NSInteger)volume;
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
-    |volume|NSInteger|混音音量。取值：0~100。默认50。|
+    |volume|NSInteger|混音音量。取值范围：0~100。默认取值50。|
 
     返回说明
 
@@ -1115,6 +1201,8 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
     - (int)preloadAudioEffectWithSoundId:(NSInteger)soundId filePath:(NSString *)filePath;
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |soundId|NSInteger|用户给该音效文件分配的ID。|
@@ -1130,6 +1218,8 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
     - (int)unloadAudioEffectWithSoundId:(NSInteger)soundId;
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |soundId|NSInteger|用户给该音效文件分配的ID。|
@@ -1143,6 +1233,8 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
     ```
     - (int)playAudioEffectWithSoundId:(NSInteger)soundId filePath:(NSString *)filePath cycles:(NSInteger)cycles publish:(BOOL)publish;
     ```
+
+    参数说明
 
     |名称|类型|描述|
     |--|--|--|
@@ -1161,6 +1253,8 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
     - (int)stopAudioEffectWithSoundId:(NSInteger)soundId;
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |soundId|NSInteger|用户给该音效文件分配的ID。|
@@ -1175,10 +1269,12 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
     - (int)setAudioEffectPublishVolumeWithSoundId:(NSInteger)soundId volume:(NSInteger)volume;
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |soundId|NSInteger|用户给该音效文件分配的ID。|
-    |volume|NSInteger|混音音量。取值：0~100。默认50。|
+    |volume|NSInteger|混音音量。取值范围：0~100。默认取值50。|
 
     返回说明
 
@@ -1189,6 +1285,8 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
     ```
     - (int)getAudioEffectPublishVolumeWithSoundId:(NSInteger)soundId;
     ```
+
+    参数说明
 
     |名称|类型|描述|
     |--|--|--|
@@ -1204,10 +1302,12 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
     - (int)setAudioEffectPlayoutVolumeWithSoundId:(NSInteger)soundId volume:(NSInteger)volume;
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |soundId|NSInteger|用户给该音效文件分配的ID。|
-    |volume|NSInteger|混音音量。取值：0~100。默认50。|
+    |volume|NSInteger|混音音量。取值范围：0~100。默认取值50。|
 
     返回说明
 
@@ -1218,6 +1318,8 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
     ```
     - (int)getAudioEffectPlayoutVolumeWithSoundId:(NSInteger)soundId;
     ```
+
+    参数说明
 
     |名称|类型|描述|
     |--|--|--|
@@ -1233,6 +1335,8 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
     - (int)pauseAudioEffectWithSoundId:(NSInteger)soundId;
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |soundId|NSInteger|用户给该音效文件分配的ID。|
@@ -1246,6 +1350,8 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
     ```
     - (int)resumeAudioEffectWithSoundId:(NSInteger)soundId;
     ```
+
+    参数说明
 
     |名称|类型|描述|
     |--|--|--|
@@ -1261,6 +1367,8 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
     - (int)enableEarBack:(BOOL)enable;
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |enable|BOOL|是否启用耳返。YES为启用耳返，NO表示不启用耳返。默认不启用。|
@@ -1275,9 +1383,11 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
     - (int)setEarBackVolume:(NSInteger)volume;
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
-    |volume|NSInteger|音量。取值：0~100，默认100。|
+    |volume|NSInteger|音量。取值范围：0~100，默认取值100。|
 
     返回说明
 
@@ -1289,6 +1399,8 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
     - (void)setSubscribeAudioNumChannel:(AliRtcAudioNumChannel)audioNumChannel;
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |audioNumChannel|[AliRtcAudioNumChannel](/cn.zh-CN/SDK参考/iOS和Mac SDK/数据类型.md)|音频编号通道。默认单声道。|
@@ -1298,6 +1410,8 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
     ```
     - (void)setSubscribeAudioSampleRate:(AliRtcAudioSampleRate)audioSampleRate;
     ```
+
+    参数说明
 
     |名称|类型|描述|
     |--|--|--|
@@ -1309,9 +1423,11 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
     - (int)setAudioSessionOperationRestriction:(AliRtcAudioSessionOperationRestriction)restriction;
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
-    |restriction|[AliRtcAudioSessionOperationRestriction](/cn.zh-CN/SDK参考/iOS和Mac SDK/数据类型.md)|设置权限类型。|
+    |restriction|[AliRtcAudioSessionOperationRestriction](/cn.zh-CN/SDK参考/iOS和Mac SDK/数据类型.md)|设置权限类型。默认值为AliRtcAudioSessionOperationRestrictionNone。|
 
     返回说明
 
@@ -1323,9 +1439,11 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
     - (int)setRecordingVolume:(NSInteger)volume;
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
-    |volume|NSInteger|音量。取值：0~400，0表示静音 。默认100。    -   当设置大于100时，表示增大音量。
+    |volume|NSInteger|音量。取值：0~400，0表示静音 。默认取值100。    -   当设置大于100时，表示增大音量。
     -   当设置小于100时，表示减小音量。 |
 
     返回说明
@@ -1340,9 +1458,11 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
     - (int)setPlayoutVolume:(NSInteger)volume;
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
-    |volume|NSInteger|音量。取值：0~400，0表示静音。默认100。     -   当设置大于100时，表示增大音量。
+    |volume|NSInteger|音量。取值范围：0~400，0表示静音。默认取值100。     -   当设置大于100时，表示增大音量。
     -   当设置小于100时，表示减小音量。 |
 
     返回说明
@@ -1369,9 +1489,11 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
     - (int)muteAllRemoteAudioPlaying:(BOOL)mute;
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
-    |mute|BOOL|YES表示停止播放，NO表示恢复播放。|
+    |mute|BOOL|YES表示停止播放，NO表示恢复播放。默认为播放状态。|
 
     返回说明
 
@@ -1382,6 +1504,8 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
     ```
     - (int)setExteranlAudioRender:(BOOL)enable sampleRate:(NSUInteger)sampleRate channelsPerFrame:(NSUInteger)channelsPerFrame;
     ```
+
+    参数说明
 
     |名称|类型|描述|
     |--|--|--|
@@ -1398,6 +1522,8 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
     ```
     - (int)pushExternalAudioRenderRawData:(const void* _Nullable)audioSamples sampleLength:(NSUInteger)sampleLength sampleRate:(NSUInteger)sampleRate channelsPerFrame:(NSUInteger)channelsPerFrame timestamp:(long long)timestamp;
     ```
+
+    参数说明
 
     |名称|类型|描述|
     |--|--|--|
@@ -1433,6 +1559,8 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
     - (void)setCurrentAudioCaptureWithID:(NSString *)captureID;
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |captureID|NSString \*|设备录音ID。|
@@ -1449,6 +1577,8 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
     - (void)setCurrentAudioRendererWithID:(NSString *)rendererID;
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |rendererID|NSString \*|扬声器ID。|
@@ -1458,6 +1588,8 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
     ```
     - (int)startTestAudioRecordWithName:(NSString *)deviceName;
     ```
+
+    参数说明
 
     |名称|类型|描述|
     |--|--|--|
@@ -1486,6 +1618,8 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
     ```
     - (int)startTestAudioPlayoutWithName:(NSString *)deviceName filePath:(NSString *)filePath loopCycles:(NSInteger)loopCycles;
     ```
+
+    参数说明
 
     |名称|类型|描述|
     |--|--|--|
@@ -1517,6 +1651,8 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
     - (int)setExternalAudioSource:(BOOL)enable withSampleRate:(NSUInteger)sampleRate channelsPerFrame:(NSUInteger)channelsPerFrame;
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |enable|BOOL|YES表示启用外部音频数据作为推流输入源，NO表示停止。|
@@ -1533,6 +1669,8 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
     - (int)pushExternalAudioFrameRawData:(void *_Nonnull)data samples:(NSUInteger)samples timestamp:(NSTimeInterval)timestamp;
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |data|void \*\_Nonnull|音频数据，不建议超过40ms数据。|
@@ -1548,6 +1686,8 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
     ```
     - (int)setExternalAudioVolume:(int)vol;
     ```
+
+    参数说明
 
     |名称|类型|描述|
     |--|--|--|
@@ -1569,6 +1709,8 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
     - (int)setMixedWithMic:(BOOL)mixed;
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |mixed|BOOL|YES表示混音，NO表示完全替换麦克风采集数据。默认YES。|
@@ -1582,6 +1724,8 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
     ```
     - (int)setExternalAudioRenderVolume:(int)vol;
     ```
+
+    参数说明
 
     |名称|类型|描述|
     |--|--|--|
@@ -1603,10 +1747,12 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
     - (int)setVolumeCallbackIntervalMs:(NSInteger)interval smooth:(NSInteger)smooth reportVad:(NSInteger)reportVad;
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |interval|NSInteger|时间间隔。单位：毫秒，最小值不得小于10ms。|
-    |smooth|NSInteger|平滑系数。数值越大平滑程度越高，反之越低，实时性越好。，建议您设置3，范围为0~9。|
+    |smooth|NSInteger|平滑系数。数值越大平滑程度越高，反之越低，实时性越好。取值范围：0~9，默认取值3。|
     |reportVad|NSInteger|本地语音检测开关。     -   1：开启，通过onAudioVolumeCallback接口回调。
     -   0：关闭。 |
 
@@ -1620,9 +1766,11 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
     - (int)setAudioEffectReverbMode:(AliRtcAudioEffectReverbMode)mode;
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
-    |mode|[AliRtcAudioEffectReverbMode](/cn.zh-CN/SDK参考/iOS和Mac SDK/数据类型.md)|混响模式类型。|
+    |mode|[AliRtcAudioEffectReverbMode](/cn.zh-CN/SDK参考/iOS和Mac SDK/数据类型.md)|混响模式类型。默认关闭。|
 
     返回说明
 
@@ -1633,6 +1781,8 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
     ```
     - (int)setAudioEffectReverbParamType:(AliRtcAudioEffectReverbParamType)type value:(float)value;
     ```
+
+    参数说明
 
     |名称|类型|描述|
     |--|--|--|
@@ -1661,6 +1811,8 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
     - (int)setAudioAccompanyPosition:(int)pos;
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |posMs|int|进度条位置，单位为毫秒。|
@@ -1685,19 +1837,23 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
     public abstract int setAllAudioEffectsPublishVolume(int volume);
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
-    |volume|int|混音音量，取值范围：0~100。|
+    |volume|int|混音音量，取值范围：0~100。默认取值50。|
 
 -   setAllAudioEffectsPlayoutVolume：设置所有音效本地播放音量。
 
     ```
-    - (int)setAllAudioEffectsPublishVolume:(NSInteger)volume;
+    - (int)setAllAudioEffectsPlayoutVolume:(NSInteger)volume;
     ```
+
+    参数说明
 
     |名称|类型|描述|
     |--|--|--|
-    |volume|int|混音音量，取值范围：0~100。|
+    |volume|int|混音音量，取值范围：0~100。默认取值50。|
 
     返回说明
 
@@ -1761,6 +1917,8 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
     - (NSDictionary *)getUserInfo:(NSString *)uid;
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |uid|NSString \*|用户ID。|
@@ -1770,6 +1928,8 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
     ```
     - (BOOL)isUserOnline:(NSString *)uid;
     ```
+
+    参数说明
 
     |名称|类型|描述|
     |--|--|--|
@@ -1784,6 +1944,8 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
     ```
     - (NSString *)getMediaInfoWithUserId:(NSString *)userId videoTrack:(AliRtcVideoTrack)videoTrack keys:(NSArray<NSString *> *)keys;
     ```
+
+    参数说明
 
     |名称|类型|描述|
     |--|--|--|
@@ -1801,6 +1963,8 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
     - (void)setLogLevel:(AliRtcLogLevel)logLevel;
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |logLevel|[AliRtcLogLevel](/cn.zh-CN/SDK参考/iOS和Mac SDK/数据类型.md)|日志级别。默认AliRtcLogLevelInfo。|
@@ -1817,7 +1981,7 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
     + (void)uploadLog;
     ```
 
--   startIntelligentDenoise（仅Mac可用）：开启智能降噪。
+-   startIntelligentDenoise（仅Mac可用）：开启智能降噪。默认关闭。
 
     ```
     - (void)startIntelligentDenoise;
@@ -1825,7 +1989,7 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
 
     该接口可以在通话过程中打开智能降噪功能。
 
--   stopIntelligentDenoise（仅Mac可用）：关闭智能降噪。
+-   stopIntelligentDenoise（仅Mac可用）：关闭智能降噪。默认关闭。
 
     ```
     - (void)stopIntelligentDenoise;
@@ -1838,6 +2002,8 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
     ```
     - (int)setClientRole:(AliRtcClientRole)role;
     ```
+
+    参数说明
 
     |名称|类型|描述|
     |--|--|--|
@@ -1853,6 +2019,8 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
     + (int)setLogDirPath:(NSString *)logDirPath;
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |logDirPath|NSString \*|日志文件保存绝对路径。    -   iOS Log日志默认存储路径Library/Caches/Ali\_RTC\_Log。
@@ -1867,6 +2035,8 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
     ```
     - (int)setDeviceOrientationMode:(AliRtcOrientationMode)mode;
     ```
+
+    参数说明
 
     |名称|类型|描述|
     |--|--|--|
@@ -1909,6 +2079,8 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
     - (BOOL)startRecord:(AliRtcRecordType)recordType recordFormat:(AliRtcRecordFormat)recordFormat filePath:(NSString*)filePath audioConfig:(AliRtcRecordAudioConfig*)audioConfig videoConfig:(AliRtcRecordVideoConfig*)videoConfig isFragment:(BOOL)isFragment
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |recordType|[AliRtcRecordType](/cn.zh-CN/SDK参考/iOS和Mac SDK/数据类型.md)|录制类型。|
@@ -1944,6 +2116,8 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
     - (void)postFeedbackWithUid:(NSString *_Nullable)uid channleId:(NSString *_Nullable)channelId description:(NSString *_Nonnull)description type:(AliRtcFeedbackType)type timeStamp:(NSTimeInterval)timeStamp
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |uid|NSString \*|当前uid（允许为nil）。|
@@ -1957,6 +2131,8 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
     ```
     - (int)sendMediaExtensionMsg:(NSData *)data repeatCount:(int)repeatCount;
     ```
+
+    参数说明
 
     |名称|类型|描述|
     |--|--|--|
