@@ -113,6 +113,8 @@ AliRtcSDK Web端接口信息如下：
     })
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |option|isReceiveOnly|Boolean|是否为纯订阅模式。取值：true\|false（默认值）。|
@@ -175,6 +177,8 @@ AliRtcSDK Web端接口信息如下：
     });
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |deviceId|String|摄像头ID。|
@@ -203,10 +207,13 @@ AliRtcSDK Web端接口信息如下：
     aliWebrtc.setChannelProfile(channelProfile);
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |channelProfile|Number|频道模式。取值：     -   0：普通模式。
-    -   1：互动模式。 |
+    -   1：互动模式。
+默认取值0。|
 
 -   setClientRole：设置角色。
 
@@ -220,10 +227,13 @@ AliRtcSDK Web端接口信息如下：
     aliWebrtc.setClientRole(role);
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |role|Number|角色类型。取值：     -   0：互动身份。
-    -   1：观众身份。 |
+    -   1：观众身份。
+默认取值0。|
 
 -   setAudioOnlyMode：设置是否为纯音频模式。
 
@@ -236,6 +246,8 @@ AliRtcSDK Web端接口信息如下：
     ```
     aliWebrtc.setAudioOnlyMode (audioOnly);
     ```
+
+    参数说明
 
     |名称|类型|描述|
     |--|--|--|
@@ -267,6 +279,8 @@ AliRtcSDK Web端接口信息如下：
         console.log(error.message);
     });
     ```
+
+    参数说明
 
     |名称|类型|描述|
     |--|--|--|
@@ -306,6 +320,8 @@ AliRtcSDK Web端接口信息如下：
     aliWebrtc.configLocalAudioPublish=enable;
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |enable|Boolean|是否允许发布音频流。true表示允许发布音频流，false表示不允许发布音频流。默认为允许发布音频流。|
@@ -324,6 +340,8 @@ AliRtcSDK Web端接口信息如下：
     aliWebrtc.configLocalCameraPublish=enable;
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |enable|Boolean|是否允许发布相机流。true表示允许发布相机流，false表示不允许发布相机流。默认为允许发布相机流。|
@@ -341,6 +359,8 @@ AliRtcSDK Web端接口信息如下：
     ```
     aliWebrtc.configLocalScreenPublish=enable;
     ```
+
+    参数说明
 
     |名称|类型|描述|
     |--|--|--|
@@ -394,6 +414,8 @@ AliRtcSDK Web端接口信息如下：
     aliWebrtc.configRemoteAudio(userId,enable);
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |userId|String|用户ID。|
@@ -414,11 +436,13 @@ AliRtcSDK Web端接口信息如下：
     aliWebrtc.configRemoteCameraTrack(userId,preferMaster,enable);
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |userId|String|用户ID。|
-    |preferMaster|Boolean|true（默认值）为优先订阅大流，false为优先订阅次小流。|
-    |enable|Boolean|是否订阅远端相机流，true表示订阅远端相机流，false表示不订阅远端相机流。|
+    |preferMaster|Boolean|true表示优先订阅大流，false表示优先订阅次小流。默认为订阅大流。|
+    |enable|Boolean|是否订阅远端相机流，true表示订阅远端相机流，false表示不订阅远端相机流。默认不订阅。|
 
     相机流包含大流和小流，大流分辨率更高，小流分辨率较低··
 
@@ -435,6 +459,8 @@ AliRtcSDK Web端接口信息如下：
     ```
     aliWebrtc.configRemoteScreenTrack(userId,enable);
     ```
+
+    参数说明
 
     |名称|类型|描述|
     |--|--|--|
@@ -458,6 +484,8 @@ AliRtcSDK Web端接口信息如下：
     });
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |userId|String|用户ID。|
@@ -478,6 +506,8 @@ AliRtcSDK Web端接口信息如下：
         console.log(error.message);
     });
     ```
+
+    参数说明
 
     |名称|类型|描述|
     |--|--|--|
@@ -504,6 +534,8 @@ AliRtcSDK Web端接口信息如下：
     };
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |deviceId|String|摄像头ID。|
@@ -526,11 +558,13 @@ AliRtcSDK Web端接口信息如下：
     };
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
-    |frameRate|int|帧率，取值：5~30。|
-    |width|int|视频宽度。|
-    |height|int|设备高度。|
+    |frameRate|int|帧率，取值范围：5~30。默认取值15。|
+    |width|int|视频宽度。默认取值640。|
+    |height|int|设备高度。默认取值480。|
 
     设置的分辨率需要调用getAvailableResolutions返回，然后调用publish才能生效。如果设置的分辨率不合适，系统会自动进行调整。
 
@@ -548,9 +582,11 @@ AliRtcSDK Web端接口信息如下：
     aliWebrtc.muteLocalCamera(true);
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
-    |mute|Boolean|是否停止本地视频采集。true表示停止本地视频采集，false表示不停止本地视频采集。|
+    |mute|Boolean|是否停止本地视频采集。true表示停止本地视频采集，false表示不停止本地视频采集。默认不采集本地视频。|
 
     返回说明
 
@@ -592,6 +628,8 @@ AliRtcSDK Web端接口信息如下：
         },type);
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |config|width|Number|宽度。取值：     -   摄像头：640（默认值）。
@@ -621,6 +659,8 @@ AliRtcSDK Web端接口信息如下：
     aliWebrtc.enableCamera = enable;
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |enable|Boolean|设置是否允许使用摄像头。true表示允许使用摄像头，false表示不允许使用摄像头。默认为允许使用摄像头。|
@@ -641,6 +681,8 @@ AliRtcSDK Web端接口信息如下：
     };
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |deviceId|String|麦克风ID。|
@@ -659,9 +701,11 @@ AliRtcSDK Web端接口信息如下：
     aliWebrtc.muteLocalMic(true);
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
-    |mute|Boolean|是否停止本地音频采集。true表示停止本地音频采集，false表示不停止本地音频采集。|
+    |mute|Boolean|是否停止本地音频采集。true表示停止本地音频采集，false表示不停止本地音频采集。默认不采集本地音频。|
 
     返回说明
 
@@ -681,10 +725,12 @@ AliRtcSDK Web端接口信息如下：
     aliWebrtc.muteRemoteAudioPlaying(userId, muted);
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |userId|String|用户ID|
-    |muted|Boolean|是否开启静音，true表示开启静音，false表示不开启静音。|
+    |muted|Boolean|是否开启静音，true表示开启静音，false表示不开启静音。默认不开启静音。|
 
 -   muteAllRemoteAudioPlaying：设置是否停止远端的所有音频流的播放
 
@@ -698,9 +744,11 @@ AliRtcSDK Web端接口信息如下：
     aliWebrtc.muteAllRemoteAudioPlaying(muted);
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
-    |muted|Boolean|是否开启全员静音，true开启全员静音，false不开启全员静音。|
+    |muted|Boolean|是否开启全员静音，true开启全员静音，false不开启全员静音。默认为不静音。|
 
 -   setAudioVolume：设置订阅用户音量。
 
@@ -713,6 +761,8 @@ AliRtcSDK Web端接口信息如下：
     ```
     aliWebrtc.setAudioVolume (userId, volume);
     ```
+
+    参数说明
 
     |名称|类型|描述|
     |--|--|--|
@@ -735,6 +785,8 @@ AliRtcSDK Web端接口信息如下：
     aliWebrtc.getAudioVolume(userId);
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |userId|String|用户ID|
@@ -756,6 +808,8 @@ AliRtcSDK Web端接口信息如下：
     ```
     aliWebrtc.enableAudioVolumeIndicator = enable;
     ```
+
+    参数说明
 
     |名称|类型|描述|
     |--|--|--|
@@ -807,6 +861,8 @@ AliRtcSDK Web端接口信息如下：
     aliWebrtc.enableHighDefinitionPreview(enable);
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |enable|Boolean|是否开启高清预览，true表示开启高清预览，false表示不开启高清预览。默认为开启高清预览。|
@@ -823,7 +879,7 @@ AliRtcSDK Web端接口信息如下：
     aliWebrtc.getUserList();
     ```
 
-    单个用户列表返回参数：
+    参数说明
 
     |名称|类型|描述|
     |--|--|--|
@@ -848,7 +904,7 @@ AliRtcSDK Web端接口信息如下：
     aliWebrtc.getUserInfo(userId);
     ```
 
-    返回参数：
+    参数说明
 
     |名称|类型|描述|
     |--|--|--|
@@ -867,6 +923,8 @@ AliRtcSDK Web端接口信息如下：
     on(name, handler)
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |name|String|事件名字。|
@@ -877,6 +935,8 @@ AliRtcSDK Web端接口信息如下：
     ```
     off(name, handler)
     ```
+
+    参数说明
 
     |名称|类型|描述|
     |--|--|--|
@@ -894,6 +954,8 @@ AliRtcSDK Web端接口信息如下：
     ```
     aliWebrtc.setExternalMediaTrack(track, type);
     ```
+
+    参数说明
 
     |名称|类型|描述|
     |--|--|--|
