@@ -166,6 +166,8 @@ keyword: [Windows SDK, AliRtcEngine]
     static void setH5CompatibleMode(bool comp)         
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |comp|bool|true表示兼容H5，false表示不兼容H5。默认不兼容H5。|
@@ -188,6 +190,8 @@ keyword: [Windows SDK, AliRtcEngine]
     static AliRtcEngine* sharedInstance(AliRtcEventListener* listener, const AliRtc::String &extras)         
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |listener|[AliRtcEventListener\*](/cn.zh-CN/SDK参考/Windows SDK/回调及监听.md)|AliRtcEngine回调的监听器。|
@@ -203,7 +207,7 @@ keyword: [Windows SDK, AliRtcEngine]
 
     **说明：** 在所有操作结束之后调用。
 
--   uploadLog：上传日志。
+-   uploadLog：上传日志。默认离会自动上传。
 
     ```
     static void uploadLog();
@@ -214,6 +218,8 @@ keyword: [Windows SDK, AliRtcEngine]
     ```
     static int setLogDirPath(const AliRtc::String &logDirPath)
     ```
+
+    参数说明
 
     |名称|类型|描述|
     |--|--|--|
@@ -230,6 +236,8 @@ keyword: [Windows SDK, AliRtcEngine]
     ```
     int setAutoPublishSubscribe(bool autoPub, bool autoSub)
     ```
+
+    参数说明
 
     |名称|类型|描述|
     |--|--|--|
@@ -249,6 +257,8 @@ keyword: [Windows SDK, AliRtcEngine]
     ```
 
     加入频道成功后，如果中途需要加入其他频道，必须先调用leaveChannel离开当前频道，如果加入频道失败，需要重试时，无需先调用leaveChannel。
+
+    参数说明
 
     |名称|类型|描述|
     |--|--|--|
@@ -298,6 +308,8 @@ keyword: [Windows SDK, AliRtcEngine]
     int setChannelProfile(const AliRtcChannelProfile channelProfile)
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |channelProfile|[AliRtcChannelProfile](/cn.zh-CN/SDK参考/Windows SDK/数据类型.md)|频道类型。默认为AliRtcCommunication。|
@@ -324,6 +336,8 @@ keyword: [Windows SDK, AliRtcEngine]
     void configLocalCameraPublish(bool enable)               
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |enable|bool|true表示允许发布相机流，false表示不允许发布相机流。默认为true。|
@@ -345,6 +359,8 @@ keyword: [Windows SDK, AliRtcEngine]
     ```
     void configLocalScreenPublish(bool enable)                
     ```
+
+    参数说明
 
     |名称|类型|描述|
     |--|--|--|
@@ -368,6 +384,8 @@ keyword: [Windows SDK, AliRtcEngine]
     void configLocalAudioPublish(bool enable)        
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |enable|bool|true表示允许发布音频流，false表示不允许发布音频流。默认为true。|
@@ -389,6 +407,8 @@ keyword: [Windows SDK, AliRtcEngine]
     ```
     int AliRtcEngine::configLocalSimulcast(bool enabled, AliRtcVideoTrack track)     
     ```
+
+    参数说明
 
     |名称|类型|描述|
     |--|--|--|
@@ -415,6 +435,8 @@ keyword: [Windows SDK, AliRtcEngine]
 
     -   调用publish的实际表现需要结合configLocalCameraPublish、configLocalScreenPublish、configLocalAudioPublish、configLocalSimulcast等接口才能确定。
     -   根据您的具体业务需求配置上述4个接口的参数，以发布相应的视频和音频流。
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |onResult|void\(\)\(void opaquePtr, int errCode\)|调用publish执行结束后回调。|
@@ -447,11 +469,13 @@ keyword: [Windows SDK, AliRtcEngine]
     void configRemoteCameraTrack(const AliRtc::String& uid, bool preferMaster, bool enable)               
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |uid|String|用户ID。|
     |preferMaster|bool|true表示订阅大流，false表示订阅次小流。默认为true。|
-    |enable|bool|true表示订阅远端相机流，false表示停止订阅远端相机流。|
+    |enable|bool|true表示订阅远端相机流，false表示停止订阅远端相机流。默认不订阅。|
 
     **说明：** 该接口在调用对流进行操作时，例如：手动订阅，关闭订阅。必须调用subscribe才能生效。
 
@@ -460,6 +484,8 @@ keyword: [Windows SDK, AliRtcEngine]
     ```
     void configRemoteScreenTrack(const AliRtc::String& uid, bool enable)
     ```
+
+    参数说明
 
     |名称|类型|描述|
     |--|--|--|
@@ -473,6 +499,8 @@ keyword: [Windows SDK, AliRtcEngine]
     ```
     void configRemoteAudio(const AliRtc::String& uid, bool enable)
     ```
+
+    参数说明
 
     |名称|类型|描述|
     |--|--|--|
@@ -491,6 +519,8 @@ keyword: [Windows SDK, AliRtcEngine]
     -   根据您的具体业务需求配置上述3个接口的参数，以订阅相应的视频流和音频流。
     -   订阅和停止订阅都是调用subscribe。
     -   如果需停止订阅，则需要上述3个配置接口的参数都置为false，然后调用subscribe。
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |uid|const AliRtc::String&|用户ID。|
@@ -513,11 +543,13 @@ keyword: [Windows SDK, AliRtcEngine]
     publish(foo, this);
     ```
 
--   subscribeAudioData：订阅音频数据。
+-   subscribeAudioData：订阅音频数据。默认不订阅音频数据。
 
     ```
     virtual void subscribeAudioData(AliRtcAudioSource audioSource)
     ```
+
+    参数说明
 
     |名称|类型|描述|
     |--|--|--|
@@ -531,6 +563,8 @@ keyword: [Windows SDK, AliRtcEngine]
     virtual void subscribeAudioData(AliRtcAudioSource audioSource)
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |audioSource|[AliRtcAudioSource](/cn.zh-CN/SDK参考/Windows SDK/数据类型.md)|音频数据源。|
@@ -541,9 +575,11 @@ keyword: [Windows SDK, AliRtcEngine]
     void setVideoProfile(AliRtcVideoProfile profile, AliRtcVideoTrack track)                 
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
-    |profile|[AliRtcVideoProfile](/cn.zh-CN/SDK参考/Windows SDK/数据类型.md)|视频流参数。|
+    |profile|[AliRtcVideoProfile](/cn.zh-CN/SDK参考/Windows SDK/数据类型.md)|视频流参数。默认为AliRtcVideoProfile\_Default。|
     |track|[AliRtcVideoTrack](/cn.zh-CN/SDK参考/Windows SDK/数据类型.md)|需要设置的视频流类型。|
 
 -   setLocalViewConfig：为本地预览设置渲染窗口以及绘制参数。
@@ -555,6 +591,8 @@ keyword: [Windows SDK, AliRtcEngine]
     -   支持加入频道之前和之后切换窗口。如果canvas中的hWnd为NULL，则停止渲染。
     -   如果在播放过程中需要重新设置渲染方式，请保持canvas中其他成员变量不变，仅修改renderMode。
     -   canvas中渲染方式默认为AliRtcRenderModeFill。
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |canvas|const [AliVideoCanvas](/cn.zh-CN/SDK参考/Windows SDK/数据类型.md)&|渲染参数，包含渲染窗口以及渲染方式。|
@@ -566,9 +604,11 @@ keyword: [Windows SDK, AliRtcEngine]
     int muteLocalCamera(bool mute, AliRtcVideoTrack track)              
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
-    |mute|bool|true表示停止发布视频流，false表示恢复发布视频流。|
+    |mute|bool|true表示停止发布视频流，false表示恢复发布视频流。默认恢复发布。|
     |track|[AliRtcVideoTrack](/cn.zh-CN/SDK参考/Windows SDK/数据类型.md)|需要改变发布状态的视频Track类型。|
 
     返回说明
@@ -583,6 +623,8 @@ keyword: [Windows SDK, AliRtcEngine]
     public abstract int setRemoteViewConfig(AliVideoCanvas canvas, String uid, AliRtcVideoTrack track) int setRemoteViewConfig(AliVideoCanvas* canvas, const AliRtc::String& uid, AliRtcVideoTrack track)                   
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |canvas|[AliVideoCanvas](/cn.zh-CN/SDK参考/Windows SDK/数据类型.md)|渲染参数，包含渲染窗口以及渲染方式。|
@@ -594,6 +636,8 @@ keyword: [Windows SDK, AliRtcEngine]
     ```
     void getCameraList(AliRtc::StringArray& array)                 
     ```
+
+    参数说明
 
     |名称|类型|描述|
     |--|--|--|
@@ -610,6 +654,8 @@ keyword: [Windows SDK, AliRtcEngine]
     ```
     void setCurrentCamera(const AliRtc::String& camera)                    
     ```
+
+    参数说明
 
     |名称|类型|描述|
     |--|--|--|
@@ -633,6 +679,8 @@ keyword: [Windows SDK, AliRtcEngine]
     int getScreenShareSourceInfo(AliRtcScreenShareType source_type, AliRtcScreenSourceList &source_list)
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |source\_type|[AliRtcScreenShareType](/cn.zh-CN/SDK参考/Windows SDK/数据类型.md)|桌面分享类型。|
@@ -654,6 +702,8 @@ keyword: [Windows SDK, AliRtcEngine]
     virtual void setCurrentCameraById(const AliRtc::String &cameraId)
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |cameraId|const AliRtc::String &|摄像头ID。|
@@ -664,9 +714,11 @@ keyword: [Windows SDK, AliRtcEngine]
     virtual int setExternalVideoSource(bool enable, bool useTexture, AliRtcVideoSource sourceType)
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
-    |enable|bool|true表示启用外部视频输入源，false表示关闭外部视频输入源。|
+    |enable|bool|true表示启用外部视频输入源，false表示关闭外部视频输入源。默认关闭外部视频输入源。|
     |useTexture|bool|true表示使用texture模式，false表示不使用texture模式。|
     |type|[AliRtcVideoSource](/cn.zh-CN/SDK参考/Windows SDK/数据类型.md)|流类型。|
 
@@ -682,12 +734,14 @@ keyword: [Windows SDK, AliRtcEngine]
     virtual int pushExternalVideoFrame(AliRtcVideoDataSample *frame, AliRtcVideoSource sourceType)
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |frame|[AliRtcVideoDataSample \*](/cn.zh-CN/SDK参考/Windows SDK/数据类型.md)|帧数据。|
     |type|[AliRtcVideoSource](/cn.zh-CN/SDK参考/Windows SDK/数据类型.md)|流类型。|
 
--   registerVideoSampleObserver：订阅视频数据输出。
+-   registerVideoSampleObserver：订阅视频数据输出。默认不订阅视频数据输出。
 
     ```
     virtual void registerVideoSampleObserver()
@@ -706,6 +760,8 @@ keyword: [Windows SDK, AliRtcEngine]
     ```
     virtual bool startRecord(AliRtcRecordType recordType, AliRtcRecordFormat recordFormat, const AliRtc::String& filePath, AliRtcRecordAudioConfig& audioConfig, AliRtcRecordVideoConfig& videoConfig, bool isFragment) = 0;
     ```
+
+    参数说明
 
     |名称|类型|说明|
     |--|--|--|
@@ -726,6 +782,8 @@ keyword: [Windows SDK, AliRtcEngine]
     virtual int setBeatutyEffect(bool enable, AliRtcBeautyConfig config) = 0;
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |enable|bool|true：开启，false：关闭，默认为关闭。|
@@ -737,11 +795,13 @@ keyword: [Windows SDK, AliRtcEngine]
 
     **说明：** 该接口目前只支持美白和磨皮。
 
--   setVideoEncoderConfiguration： 设置视频编码属性。
+-   setVideoEncoderConfiguration： 设置视频编码属性。
 
     ```
     virtual void setVideoEncoderConfiguration(AliRtcVideoEncoderConfiguration &config) = 0;
     ```
+
+    参数说明
 
     |名称|类型|描述|
     |--|--|--|
@@ -759,6 +819,8 @@ keyword: [Windows SDK, AliRtcEngine]
     int getDesktopResolution(const AliRtc::String& source_id, const AliRtc::String& source_title, int& width, int& height)
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |source\_id|AliRtc::String|屏幕分享数据源ID。|
@@ -775,6 +837,8 @@ keyword: [Windows SDK, AliRtcEngine]
     ```
     int setScreenShareSource(const AliRtcScreenSource& source)
     ```
+
+    参数说明
 
     |名称|类型|描述|
     |--|--|--|
@@ -799,6 +863,8 @@ keyword: [Windows SDK, AliRtcEngine]
     ```
     int setAudioOnlyMode(bool audioOnly)              
     ```
+
+    参数说明
 
     |名称|类型|描述|
     |--|--|--|
@@ -826,9 +892,11 @@ keyword: [Windows SDK, AliRtcEngine]
     int muteLocalMic(bool mute)                   
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
-    |mute|bool|true表示停止发布本地音频，false表示恢复发布。|
+    |mute|bool|true表示停止发布本地音频，false表示恢复发布本地音频。 默认恢复发布本地音频。|
 
     返回说明
 
@@ -841,6 +909,8 @@ keyword: [Windows SDK, AliRtcEngine]
     ```
     int muteRemoteAudioPlaying(const AliRtc::String& uid, bool mute)                 
     ```
+
+    参数说明
 
     |名称|类型|描述|
     |--|--|--|
@@ -856,6 +926,8 @@ keyword: [Windows SDK, AliRtcEngine]
     ```
     void getAudioCaptures(AliRtc::StringArray& array)
     ```
+
+    参数说明
 
     |名称|类型|描述|
     |--|--|--|
@@ -873,6 +945,8 @@ keyword: [Windows SDK, AliRtcEngine]
     void setCurrentAudioCapture(const AliRtc::String& capture)
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |capture|String|音频采集设备名称。|
@@ -884,6 +958,8 @@ keyword: [Windows SDK, AliRtcEngine]
     ```
     void getAudioRenderers(AliRtc::StringArray& array)
     ```
+
+    参数说明
 
     |名称|类型|描述|
     |--|--|--|
@@ -900,6 +976,8 @@ keyword: [Windows SDK, AliRtcEngine]
     ```
     void setCurrentAudioRenderer(const AliRtc::String &renderer)
     ```
+
+    参数说明
 
     |名称|类型|描述|
     |--|--|--|
@@ -947,9 +1025,11 @@ keyword: [Windows SDK, AliRtcEngine]
     virtual int muteAllRemoteAudioPlaying(bool mute)
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
-    |mute|bool|true表示停止音频流播放，false表示不停止音频流播放。|
+    |mute|bool|true表示停止音频流播放，false表示不停止音频流播放。默认不停止音频流播放。|
 
     **说明：** 该接口调用后，订阅和解码不受影响。
 
@@ -964,6 +1044,8 @@ keyword: [Windows SDK, AliRtcEngine]
     ```
     virtual void setCurrentAudioCaptureById(const AliRtc::String &captureId)
     ```
+
+    参数说明
 
     |名称|类型|描述|
     |--|--|--|
@@ -981,6 +1063,8 @@ keyword: [Windows SDK, AliRtcEngine]
     virtual void setCurrentAudioRendererById(const AliRtc::String &rendererId)
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |rendererId|const AliRtc::String &|扬声器ID。从getAudioRenderers接口获取。|
@@ -991,11 +1075,13 @@ keyword: [Windows SDK, AliRtcEngine]
     virtual int setRecordingVolume(int volume)
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
-    |volume|int|音量。取值：0~400。     -   0：静音。
-    -   \>100：放大音量。
-    -   <100：减小音量。 |
+    |volume|int|音量。取值范围：0~400。默认取值100。     -   0：静音。
+    -   大于100：放大音量。
+    -   小于100：减小音量。 |
 
     返回说明
 
@@ -1009,11 +1095,13 @@ keyword: [Windows SDK, AliRtcEngine]
     virtual int setPlayoutVolume(int volume)
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
-    |volume|int|音量。取值：0~400。     -   0：静音。
-    -   \>100：放大音量。
-    -   <100：减小音量。 |
+    |volume|int|音量。取值范围：0~400。默认取值100。     -   0：静音。
+    -   大于100：放大音量。
+    -   小于100：减小音量。 |
 
     返回说明
 
@@ -1027,6 +1115,8 @@ keyword: [Windows SDK, AliRtcEngine]
     virtual void setSubscribeAudioNumChannel(AliRtcAudioNumChannelType audioNumChannel)
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |audioNumChannel|[AliRtcAudioNumChannelType](/cn.zh-CN/SDK参考/Windows SDK/数据类型.md)|音频声道类型。默认为单声道。|
@@ -1036,6 +1126,8 @@ keyword: [Windows SDK, AliRtcEngine]
     ```
     virtual void setSubscribeAudioSampleRate(AliRtcAudioSampleRate audioSampleRate)
     ```
+
+    参数说明
 
     |名称|类型|描述|
     |--|--|--|
@@ -1047,11 +1139,13 @@ keyword: [Windows SDK, AliRtcEngine]
     virtual int setExternalAudioSource(bool enable, unsigned int sampleRate, unsigned int channelsPerFrame)
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
-    |enable|bool|是否启用外部音频输入源。取值：true\|false。|
+    |enable|bool|true表示启用外部音频输入源。false表示不启用外部音频输入源。默认不启用外部视频输入源。|
     |sampleRate|unsigned int|采样率。|
-    |channelsPerFrame|unsigned int|声道数。取值：\>=1。|
+    |channelsPerFrame|unsigned int|声道数。取值范围：大于等于1。|
 
     返回说明
 
@@ -1062,6 +1156,8 @@ keyword: [Windows SDK, AliRtcEngine]
     ```
     virtual int pushExternalAudioFrameRawData(const void* audioSamples, unsigned int sampleLength, long long timestamp)
     ```
+
+    参数说明
 
     |名称|类型|描述|
     |--|--|--|
@@ -1080,9 +1176,11 @@ keyword: [Windows SDK, AliRtcEngine]
     virtual int setMixedWithMic(bool mixed)
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
-    |mixed|bool|true表示外部音频输入与麦克风采集音频混合，false表示外部音频输入完全替换麦克风采集音频。|
+    |mixed|bool|true表示外部音频输入与麦克风采集音频混合，false表示外部音频输入完全替换麦克风采集音频。默认为完全替代。|
 
     返回说明
 
@@ -1094,9 +1192,11 @@ keyword: [Windows SDK, AliRtcEngine]
     virtual int setExternalAudioPublishVolume(int volume)
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
-    |volume|int|音量。取值：0~100。|
+    |volume|int|音量。取值范围：0~100。默认取值100。|
 
     返回说明
 
@@ -1122,9 +1222,11 @@ keyword: [Windows SDK, AliRtcEngine]
     virtual int setExteranlAudioRender(bool enable, unsigned int sampleRate, unsigned int channelsPerFrame)
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
-    |enable|bool|true表示启用外部输入音频播放，false表示关闭外部输入音频播放。|
+    |enable|bool|true表示启用外部输入音频播放，false表示关闭外部输入音频播放。默认关闭外部输入音频播放。|
     |sampleRate|unsigned int|采样率。|
     |channelsPerFrame|unsigned int|采样率。|
 
@@ -1138,6 +1240,8 @@ keyword: [Windows SDK, AliRtcEngine]
     virtual int pushExternalAudioRenderRawData(const void* audioSamples, unsigned int sampleLength, 
     unsigned int sampleRate, unsigned int channelsPerFrame, long long timestamp)
     ```
+
+    参数说明
 
     |名称|类型|描述|
     |--|--|--|
@@ -1157,9 +1261,11 @@ keyword: [Windows SDK, AliRtcEngine]
     virtual int setExternalAudioRenderVolume(int volume)
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
-    |volume|int|音量。取值：0~100。|
+    |volume|int|音量。取值范围：0~100。默认取值100。|
 
     返回说明
 
@@ -1177,9 +1283,11 @@ keyword: [Windows SDK, AliRtcEngine]
     virtual int setAudioEffectReverbMode(const AliRtcAudioEffectReverbMode mode) = 0;
     ```
 
+    参数说明
+
     |名称|类型|说明|
     |--|--|--|
-    |mode|const [AliRtcAudioEffectReverbMode](/cn.zh-CN/SDK参考/Windows SDK/数据类型.md)|对应混响音效类型。|
+    |mode|const [AliRtcAudioEffectReverbMode](/cn.zh-CN/SDK参考/Windows SDK/数据类型.md)|对应混响音效类型。默认无混响模式。|
 
     返回说明
 
@@ -1190,6 +1298,8 @@ keyword: [Windows SDK, AliRtcEngine]
     ```
     virtual int setAudioEffectReverbParamType(const AliRtcAudioEffectReverbParamType type, float value) = 0;
     ```
+
+    参数说明
 
     |名称|类型|说明|
     |--|--|--|
@@ -1205,6 +1315,8 @@ keyword: [Windows SDK, AliRtcEngine]
     ```
     virtual int setVolumeCallbackIntervalMs(int interval, int smooth, int reportVad) = 0;
     ```
+
+    参数说明
 
     |名称|类型|说明|
     |--|--|--|
@@ -1224,9 +1336,11 @@ keyword: [Windows SDK, AliRtcEngine]
     virtual int setRecordingDeviceVolume(int volume) = 0;
     ```
 
+    参数说明
+
     |名称|类型|说明|
     |--|--|--|
-    |volume|int|音量，取值范围：0 ~ 100。|
+    |volume|int|音量，取值范围：0 ~ 100。默认取值100。|
 
 -   getRecordingDeviceVolume： 获取音频采集设备音量。
 
@@ -1244,9 +1358,11 @@ keyword: [Windows SDK, AliRtcEngine]
     virtual int setPlaybackDeviceVolume(int volume) = 0;
     ```
 
+    参数说明
+
     |名称|类型|说明|
     |--|--|--|
-    |volume|int|音量，取值范围：0 ~ 100。|
+    |volume|int|音量，取值范围：0 ~ 100。默认取值100。|
 
     返回说明
 
@@ -1290,6 +1406,8 @@ keyword: [Windows SDK, AliRtcEngine]
     void getOnlineRemoteUsers(AliRtc::StringArray& array)
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |array|AliRtc::StringArray&|用户列表（用户ID列表）。|
@@ -1299,6 +1417,8 @@ keyword: [Windows SDK, AliRtcEngine]
     ```
     int getUserInfo(const AliRtc::String& uid, AliRtc::Dictionary& dict)
     ```
+
+    参数说明
 
     |名称|类型|描述|
     |--|--|--|
@@ -1317,6 +1437,8 @@ keyword: [Windows SDK, AliRtcEngine]
     bool isUserOnline(const AliRtc::String& uid)
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |uid|const AliRtc::String&|用户ID。|
@@ -1330,6 +1452,8 @@ keyword: [Windows SDK, AliRtcEngine]
     ```
     AliRtc::String getMediaInfoWithKeys(const AliRtc::String& call_id, AliRtcVideoTrack track,const AliRtc::String key_list[],int length) = 0;
     ```
+
+    参数说明
 
     |名称|类型|描述|
     |--|--|--|
@@ -1348,6 +1472,8 @@ keyword: [Windows SDK, AliRtcEngine]
     AliMediaDeviceTestInterface * createMediaDeviceTestInterface(AliMediaDeviceTestEventListener * pMediaDeviceEventListener)
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |pMediaDeviceEventListener|[AliMediaDeviceTestEventListener \*](/cn.zh-CN/SDK参考/Windows SDK/回调及监听.md)|音频设备测试事件监听器。|
@@ -1358,9 +1484,11 @@ keyword: [Windows SDK, AliRtcEngine]
     void setLogLevel(AliRtcLogLevel logLevel)        
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
-    |logLevel|[AliRtcLogLevel](/cn.zh-CN/SDK参考/Windows SDK/数据类型.md)|日志级别。|
+    |logLevel|[AliRtcLogLevel](/cn.zh-CN/SDK参考/Windows SDK/数据类型.md)|日志级别。默认取值AliRtcLogLevelInfo。|
 
 -   getSdkVersion：获取SDK版本号。
 
@@ -1373,6 +1501,8 @@ keyword: [Windows SDK, AliRtcEngine]
     ```
     int setClientRole(const AliRtcClientRole clientRole) = 0;
     ```
+
+    参数说明
 
     |名称|类型|描述|
     |--|--|--|
@@ -1407,6 +1537,8 @@ keyword: [Windows SDK, AliRtcEngine]
           const AliRtc::String& description, AliRtcFeedbackType type, long long timeStamp) = 0;
     ```
 
+    参数说明
+
     |名称|类型|说明|
     |--|--|--|
     |uid|AliRtc::String|问题用户User ID。|
@@ -1429,6 +1561,8 @@ keyword: [Windows SDK, AliRtcEngine]
     virtual int sendMediaExtensionMsg(unsigned char *message, int size, int repeatCount) = 0;
     ```
 
+    参数说明
+
     |名称|类型|描述|
     |--|--|--|
     |message|unsigned char \*|自定义消息数据。|
@@ -1441,7 +1575,7 @@ keyword: [Windows SDK, AliRtcEngine]
      virtual AliRtcClientRole getClientRole() = 0;
     ```
 
--   startIntelligentDenoise：开启智能降噪。
+-   startIntelligentDenoise：开启智能降噪。默认为关闭状态。
 
     ```
     virtual void startIntelligentDenoise() = 0;
