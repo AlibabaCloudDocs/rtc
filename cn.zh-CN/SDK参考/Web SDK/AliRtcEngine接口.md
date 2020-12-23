@@ -12,7 +12,7 @@ keyword: [rtc, AliRtcSDK]
 
 |API|描述|以上版本支持|
 |---|--|------|
-|[isSupport](#li_tug_pff_d6o)|检测浏览器是否支持RTC SDK|1.7|
+|[isSupport](#li_tug_pff_d6o)|检测浏览器是否支持RTC SDK|1.14|
 |[getDevices](#li_oue_oog_rv0)|获取设备信息|1.2|
 |[getAvailableResolutions](#li_od6_3v6_cff)|获取可支持的分辨率|1.2|
 |[isSupportScreenShare](#li_jsg_21y_eqb)|是否支持屏幕共享|1.12|
@@ -54,7 +54,7 @@ keyword: [rtc, AliRtcSDK]
 |[currentCamera](#li_7kr_1ot_5vf)|指定摄像头设备|1.9|
 |[videoProfile](#li_eph_agq_kbu)|设置视频流参数|1.9|
 |[muteLocalCamera](#li_22i_jy6_nt0)|是否停止本地视频采集|1.2|
-|[setDisplayRemoteVideo](#li_1ju_ght_n22)|为远端的视频设置渲染窗口以及绘制参数|1.5|
+|[setDisplayRemoteVideo](#li_1ju_ght_n22)|为远端的视频设置渲染窗口以及绘制参数|1.14|
 |[setVideoProfile](#li_pr2_8f3_iim)|设置视频流或共享流参数|1.11|
 |[enableCamera](#li_80k_y5g_m06)|设置是否使用摄像头|1.13.0|
 
@@ -145,6 +145,7 @@ AliRtcSDK Web端接口信息如下：
     |message|String|错误信息。|
     |supportH264|Boolean|是否支持H264。取值：true\|false。|
     |supportScreenShare|Boolean|是否支持屏幕分享。取值：true\|false。|
+    |supportMixBackgroundAudio|Boolean|是否支持屏幕声音分享。取值：true\|false。|
     |videoDevice|Boolean|摄像头是否可用。取值：true\|false。|
 
 -   getDevices：获取设备信息，返回摄像头和音频输入设备。如果外接设备重新插拔后获取不到设备信息，请尝试重新启动电脑。
@@ -610,8 +611,15 @@ AliRtcSDK Web端接口信息如下：
     )
     ```
 
-    **说明：** 1.10及以上版本，该接口修改参数。音频流无需设置视图，订阅后可以自动播放。
+    **说明：**
 
+    -   1.10.0到1.14.0版本以下音频流无需设置视图，订阅后可以自动播放。
+    -   1.14.0版本及以上音频流必须有一个播放视频的video才能播放，具体策略如下。
+        -   订阅音频流的同时仅设置摄像头的视图，音频可以播放，音频流跟随摄像头的视图播放。
+        -   订阅音频流的同时仅设置屏幕共享流的视图，音频可以播放，音频流跟随屏幕共享的视图播放。
+        -   订阅音频流的同时设置摄像头及屏幕共享流的视图，音频可以播放，音频流跟随摄像头的视图播放。
+        -   订阅音频流的同时没有设置视图，音频无法播放。
+    -   safari浏览器音频订阅后就在后台默认播放。
 -   setVideoProfile：设置摄像头或屏幕共享参数。
 
     ```
