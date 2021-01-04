@@ -13,7 +13,9 @@
 |Action|String|是|AddRecordTemplate|操作接口名，系统规定参数。取值：AddRecordTemplate。 |
 |AppId|String|是|yourAppId|应用ID。通过控制台创建和查询，仅支持传单个ID。 |
 |FileSplitInterval|Integer|是|1800|录制文件切割时长（大于等于1800）。单位：秒。 |
-|Formats.N|RepeatList|是|MP4|录制文件格式。当前仅支持：**M3U8、MP4、FLV**。 |
+|Formats.N|RepeatList|是|mp4|录制文件格式。当前文件格式仅支持：**m3u8、mp4、flv**。
+
+ **说明：** 文件格式仅支持小写。 |
 |LayoutIds.N|RepeatList|是|2|布局ID组。 |
 |MediaEncode|Integer|是|20|编码选项。 |
 |Name|String|是|录制模板|录制配置模板名称。 |
@@ -45,6 +47,25 @@
 |Watermarks.N.Width|Float|否|0.2456|窗格宽，归一化百分比。 |
 |Watermarks.N.Height|Float|否|0.2456|窗格高，归一化百分比。 |
 |Watermarks.N.ZOrder|Integer|否|0|叠放顺序，0为最底层，1层在0层之上，以此类推。 |
+|ClockWidgets.N.X|Float|否|0.7576|坐标X，归一化百分比。 |
+|ClockWidgets.N.Y|Float|否|0.7576|坐标Y，归一化百分比。 |
+|ClockWidgets.N.FontType|Integer|否|0|字体类型，取值：
+
+ -   **0**：NOTO\_SERIF\_CJKSC\_REGULAR
+-   **1**：ALIBABA\_PUHUITI\_REGULAR
+-   **2**：ALIBABA\_PUHUITI\_BOLD
+-   **3**：ALIBABA\_PUHUITI\_Heavy
+-   **4**：ALIBABA\_PUHUITI\_LIGHT
+-   **5**：ALIBABA\_PUHUITI\_MEDIUM
+
+ 默认取值为**0**。 |
+|ClockWidgets.N.FontSize|Integer|否|1|字体大小，字体合理范围
+
+\(\*\*0\*\*, \*\*72\*\*\] \)|
+|ClockWidgets.N.FontColor|Integer|否|0|文字颜色（RGB）。
+
+ 计算公式为`R + G × 256 + B × 65536`，R（红）、G（绿）、B（蓝）的取值：**0**~**255**。 |
+|ClockWidgets.N.ZOrder|Integer|否|0|叠放顺序，0为最底层，1层在0层之上，以此类推。 |
 
 ## 返回数据
 
