@@ -1,8 +1,12 @@
-# Mac {#task_1846597 .task}
+---
+keyword: [Mac, rtc]
+---
+
+# Mac
 
 本文为您介绍了Mac端集成SDK操作，帮助您快速集成SDK并能使用音视频通信基本功能。
 
-开发前的环境要求如下表所示，详情请参见[使用限制](../../../../cn.zh-CN/产品简介/使用限制.md#)。
+开发前的环境要求如下表所示，详情请参见[使用限制](/cn.zh-CN/产品简介/使用限制.md)。
 
 |类别|说明|
 |--|--|
@@ -14,20 +18,23 @@
 
 **说明：** 您需要持有Apple开发证书或个人账号。
 
-1.  下载[SDK](../../../../cn.zh-CN/快速入门/SDK下载.md#)。
-2.  使用XCode工具创建一个新的iOS工程，并把SDK包拷贝到您的工程中。 
+1.  下载[SDK](/cn.zh-CN/SDK参考/SDK下载.md)。
 
-    ![创建工程](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1463386/156698232857333_zh-CN.png)
+2.  使用XCode工具创建一个新的iOS工程，并把SDK包拷贝到您的工程中。
 
-3.  添加文件。 
+    ![iOS](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/5395348951/p112435.png)
+
+3.  添加文件。
+
     1.  选择**Build Phases** \> **Link Binary With Libraries**，将AliRTCSdk.framework和UTDID.framework加入到**Link Binary With Libraries**。
-    2.  在**General**页面，添加UTDID.framework到**Embedded Binaries**中。 
+
+    2.  在**General**页面，添加UTDID.framework到**Embedded Binaries**中。
 
         **说明：** Mac SDK1.1版本增加了UTDID.framework，该库为动态库，需要加载到**Embedded Binaries**中。
 
-        ![Embedded Binaries](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1463395/156698232858415_zh-CN.png)
+        ![添加动态库](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/6395348951/p128304.png)
 
-4.  在Build Phases页面，添加系统依赖。 
+4.  在**Build Phases**页面，添加系统依赖。
 
     相关系统库如下所示。
 
@@ -37,22 +44,22 @@
     -   libz.tbd
     -   CoreMedia.framework
     -   CoreAudio.framework
-    -   CoreAudio.framework
     -   AudioToolbox.framework
     -   AVFoundation.framework
-5.  选择**Build Settings** \> **Framework Search Path**，将AliRTCSDK.framework文件夹拖入弹出框内。 
+5.  选择**Build Settings** \> **Framework Search Path**，将AliRTCSDK.framework文件夹拖入弹出框内。
 
-    ![Framework Search Path](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1463395/156698232857381_zh-CN.png)
+    ![Framework Search Path](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/6395348951/p57381.png)
 
-6.  编辑info.plist文件，添加权限。 
+6.  编辑info.plist文件，添加权限。
 
-    ![添加权限](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1463386/156698232957346_zh-CN.png)
+    ![添加权限](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/6395348951/p128305.png)
 
-7.  在Capabilities页面，设置权限。 
+7.  在Capabilities页面，设置权限。
 
-    ![设置权限](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1463395/156698232957363_zh-CN.png)
+    ![设置权限](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/6395348951/p57363.png)
 
-8.  执行编译Commond+B，提示Build Success，表示SDK集成成功。
+8.  执行编译Commond+B，界面提示Build Success，表示SDK集成成功。
 
-完成集成SDK操作，您可以实现音视频通信的基本功能，详情请参见[Mac端基本功能实现](cn.zh-CN/快速入门/实现基本功能/Mac.md#)。
+
+完成集成SDK操作，您可以实现音视频通信的基本功能，详情请参见[Mac端基本功能实现](/cn.zh-CN/快速入门/实现基本功能/Mac.md)。
 
