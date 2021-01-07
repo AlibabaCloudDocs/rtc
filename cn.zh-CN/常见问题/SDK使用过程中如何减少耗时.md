@@ -2,14 +2,14 @@
 
 本文为您介绍在使用SDK过程中减少耗时的方法。
 
-## 配置合理的自动订阅/自动推流
+## 配置合理的自动订阅和自动推流
 
 以下建议可以为您减少耗时：
 
 -   如果您的场景中，入会后会默认推流，建议您采用自动推流模式。
 -   如果您的场景中，入会后默认会订阅频道中的人，建议您采用自动订阅的模式。自动订阅模式在接收到远端用户回调之后，不需要再手动订阅，能更加节省时间。
 
-通过以下接口设置自动订阅/自动推流：
+通过以下接口设置自动订阅和自动推流：
 
 setAutoPublish：设置是否自动发布，是否自动订阅。默认是自动发布和订阅，必须在加入频道之前设置。
 
@@ -17,17 +17,17 @@ setAutoPublish：设置是否自动发布，是否自动订阅。默认是自动
 - (int)setAutoPublish:(BOOL)autoPub withAutoSubscribe:(BOOL)autoSub;
 ```
 
-## 合理的使用publish/subscribe接口
+## 合理的使用publish和subscribe接口
 
 以下建议可以为您减少耗时：
 
--   publish/subscribe接口用于手动推流、手动订阅、以及会议中推流和订阅配置的变更。
+-   publish和subscribe接口用于手动推流、手动订阅、以及会议中推流和订阅配置的变更。
 -   publish接口需要配合configLocalCameraPublish、configLocalScreenPublish、configLocalAudioPublish接口使用。
 -   subscribe接口需要配合configRemoteCameraTrack、configRemoteScreenTrack、configRemoteAudio接口使用。
 -   根据自身的需要，合理使用大小流。目前默认推小流，如果无需小流，建议关闭。
 -   需要注意：每次config完之后调用一次publish接口或者subscribe接口就可以，无需重复调用。
 
-    如：当前相机流\(大流\)和音频流需要调用publish接口，而屏幕共享流不需要调用。
+    如：当前相机流（大流）和音频流需要调用publish接口，而屏幕共享流不需要调用。
 
     -   正确的调用方式如下：
 
