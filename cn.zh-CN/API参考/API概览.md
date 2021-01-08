@@ -16,10 +16,10 @@
 |[DeleteChannel](/cn.zh-CN/API参考/频道管理/DeleteChannel.md)|调用DeleteChannel删除频道。|
 |[DescribeUserInfoInChannel](/cn.zh-CN/API参考/频道管理/DescribeUserInfoInChannel.md)|调用DescribeUserInfoInChannel查询User（用户）在某个Channel（频道）中实时信息。|
 |[DescribeChannelUsers](/cn.zh-CN/API参考/频道管理/DescribeChannelUsers.md)|调用DescribeChannelUsers查询Channel（频道）实时在线用户列表。|
-|[DescribeRtcChannelList](/cn.zh-CN/API参考/频道管理/DescribeRtcChannelList.md)|调用DescribeRtcChannelList获取频道通信记录列表。|
+|[DescribeRtcChannels](/cn.zh-CN/API参考/频道管理/DescribeRtcChannels.md)|调用DescribeRtcChannelList获取频道通信记录列表。|
 |[DescribeChannelParticipants](/cn.zh-CN/API参考/频道管理/DescribeChannelParticipants.md)|调用DescribeChannelParticipants查询频道在线用户列表。|
-|[DescribeRtcChannelMetric](/cn.zh-CN/API参考/频道管理/DescribeRtcChannelMetric.md)|调用DescribeRtcChannelMetric获取频道通信记录详情，支持查询近180天内的数据。|
-|[DescribeRtcChannelUserList](/cn.zh-CN/API参考/频道管理/DescribeRtcChannelUserList.md)|调用DescribeRtcChannelUserList获取频道通信用户列表。|
+|[DescribeRtcChannelMetrics](/cn.zh-CN/API参考/数据服务/DescribeRtcChannelMetrics.md)|调用DescribeRtcChannelMetrics获取频道通信记录详情，支持查询近180天内的数据。|
+|[DescribeRtcChannelUserList](/cn.zh-CN/API参考/数据服务/DescribeRtcChannelUserList.md)|调用DescribeRtcChannelUserList获取频道通信用户列表。|
 |[RemoveTerminals](/cn.zh-CN/API参考/频道管理/RemoveTerminals.md)|调用RemoveTerminals将指定终端用户从频道踢出。|
 |[UpdateChannel](/cn.zh-CN/API参考/频道管理/UpdateChannel.md)|调用UpdateChannel刷新频道信息。|
 
