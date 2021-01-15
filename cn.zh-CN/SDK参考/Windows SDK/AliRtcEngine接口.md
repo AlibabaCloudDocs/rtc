@@ -72,7 +72,7 @@ keyword: [Windows SDK, AliRtcEngine]
 |[getDesktopResolution](#p_zc1_t1e_xk0)|获取屏幕分享桌面分辨率|1.15|
 |[setScreenShareSource](#p_lpt_u8n_0ul)|设置屏幕分享源|1.15|
 |[getScreenShareSource](#p_l7r_n6o_duv)|获取屏幕分享源|1.15|
-|[getCurrentCamerId](#li_0mg_p84_wld)|获取当前使用的摄像头ID|1.16.2|
+|[getCurrentCameraId](#li_0mg_p84_wld)|获取当前使用的摄像头ID|1.16.2|
 |[setCurrentCameraById](#li_0m5_zo9_fx4)|通过设备ID选择摄像头|1.16.2|
 |[setExternalVideoSource](#li_0xy_z70_q7p)|启用外部视频输入源|1.16.2|
 |[pushExternalVideoFrame](#li_a8a_p29_jz6)|输入外部视频|1.16.2|
@@ -117,8 +117,8 @@ keyword: [Windows SDK, AliRtcEngine]
 |[getExternalAudioPublishVolume](#li_hn9_iwe_78n)|获取外部音频输入音量|1.17|
 |[setExteranlAudioRender](#li_8f0_6i2_eao)|设置是否启用外部输入音频播放|1.16.2|
 |[pushExternalAudioRenderRawData](#li_33d_3yn_36j)|输入音频播放数据|1.16.2|
-|[setExternalAudioRenderVolume](#li_i7a_nbu_gst)|设置外部音频播放音量|1.16.2|
-|[getExternalAudioRenderVolume](#li_2l3_lox_gpi)|获取音频播放音量|1.16.2|
+|[setExternalAudioPlayoutVolume](#li_i7a_nbu_gst)|设置外部音频播放音量|1.16.2|
+|[getExternalAudioPlayoutVolume](#li_2l3_lox_gpi)|获取音频播放音量|1.16.2|
 |[setAudioEffectReverbMode](#li_oj3_h2z_bf0)|设置混响音效模式|1.17|
 |[setAudioEffectReverbParamType](#li_4de_b93_kur)|设置混响音效类型|1.17|
 |[setVolumeCallbackIntervalMs](#li_xnx_bpx_kaq)|设置音量回调频率和平滑系数|1.17.9|
@@ -141,7 +141,6 @@ keyword: [Windows SDK, AliRtcEngine]
 |[getOnlineRemoteUsers](#li_wn6_uv1_kz5)|获取远端在线用户列表|1.1|
 |[getUserInfo](#li_onp_yfn_0l9)|查询远端用户信息|1.1|
 |[isUserOnline](#li_a74_vi7_djz)|查询用户是否在线|1.1|
-|[getMediaInfoWithKeys](#li_4hb_49i_wak)|获取媒体流信息|1.9|
 
 其他接口
 
@@ -560,7 +559,7 @@ keyword: [Windows SDK, AliRtcEngine]
 -   unsubscribeAudioData：取消订阅音频数据。
 
     ```
-    virtual void subscribeAudioData(AliRtcAudioSource audioSource)
+    virtual void unsubscribeAudioData(AliRtcAudioSource audioSource)
     ```
 
     参数说明
@@ -690,10 +689,10 @@ keyword: [Windows SDK, AliRtcEngine]
 
     0表示方法调用成功，其它表示方法调用失败。
 
--   getCurrentCamerId：获取当前使用的摄像头ID。
+-   getCurrentCameraId：获取当前使用的摄像头ID。
 
     ```
-    virtual AliRtc::String getCurrentCamerId()
+    virtual AliRtc::String getCurrentCameraId()
     ```
 
 -   setCurrentCameraById：通过设备ID选择摄像头。
@@ -711,7 +710,7 @@ keyword: [Windows SDK, AliRtcEngine]
 -   setExternalVideoSource：启用外部视频输入源。
 
     ```
-    virtual int setExternalVideoSource(bool enable, bool useTexture, AliRtcVideoSource sourceType)
+    virtual int setExternalVideoSource(bool enable, bool useTexture, AliRtcVideoSource sourceType, AliRtcRenderMode renderMode)
     ```
 
     参数说明
@@ -720,7 +719,8 @@ keyword: [Windows SDK, AliRtcEngine]
     |--|--|--|
     |enable|bool|true表示启用外部视频输入源，false表示关闭外部视频输入源。默认关闭外部视频输入源。|
     |useTexture|bool|true表示使用texture模式，false表示不使用texture模式。|
-    |type|[AliRtcVideoSource](/cn.zh-CN/SDK参考/Windows SDK/数据类型.md)|流类型。|
+    |sourceType|[AliRtcVideoSource](/cn.zh-CN/SDK参考/Windows SDK/数据类型.md)|流类型。|
+    |renderMode|[AliRtcRenderMode](/cn.zh-CN/SDK参考/Windows SDK/数据类型.md)|渲染模式。|
 
     返回说明
 
@@ -1255,10 +1255,10 @@ keyword: [Windows SDK, AliRtcEngine]
 
     返回值大于等于0，表示方法调用成功，其它表示方法调用失败。
 
--   setExternalAudioRenderVolume：设置外部音频播放音量。
+-   setExternalAudioPlayoutVolume：设置外部音频播放音量。
 
     ```
-    virtual int setExternalAudioRenderVolume(int volume)
+    virtual int setExternalAudioPlayoutVolume(int volume)
     ```
 
     参数说明
@@ -1271,10 +1271,10 @@ keyword: [Windows SDK, AliRtcEngine]
 
     0表示设置成功，其他表示设置失败。
 
--   getExternalAudioRenderVolume ：获取音频播放音量。
+-   getExternalAudioPlayoutVolume ：获取音频播放音量。
 
     ```
-    virtual int getExternalAudioRenderVolume()
+    virtual int getExternalAudioPlayoutVolume()
     ```
 
 -   setAudioEffectReverbMode： 设置混响音效模式。
@@ -1446,25 +1446,6 @@ keyword: [Windows SDK, AliRtcEngine]
     返回说明
 
     true表示用户在线，false表示用户不在线。
-
--   getMediaInfoWithKeys：获取媒体流信息。
-
-    ```
-    AliRtc::String getMediaInfoWithKeys(const AliRtc::String& call_id, AliRtcVideoTrack track,const AliRtc::String key_list[],int length) = 0;
-    ```
-
-    参数说明
-
-    |名称|类型|描述|
-    |--|--|--|
-    |call\_id|AliRtc::String|需要查询的用户ID。|
-    |track|[AliRtcVideoTrack](/cn.zh-CN/SDK参考/Windows SDK/数据类型.md)|需要查询的媒体流类型。|
-    |length|int|数组长度。|
-    |key\_list|AliRtc::String|查询key值数组。|
-
-    返回说明
-
-    key-value格式的json字符串。
 
 -   createMediaDeviceTestInterface：创建音视频设备测试实例。
 
