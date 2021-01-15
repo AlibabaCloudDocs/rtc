@@ -17,6 +17,7 @@ keyword: [AliRtcEngine, Android]
 |[setH5CompatibleMode](#li_kk1_04r_6ux)|设置H5兼容模式|1.1|
 |[getH5CompatibleMode](#li_wq1_9ja_om7)|检查当前是否兼容H5|1.1|
 |[getInstance](#li_pdy_xo7_9in)|创建AliRTCEngine实例（同一时间只会存在一个实例），只能在主线程调用|1.1|
+|[getInstance](#li_qsk_f35_xoz)|创建AliRTCEngine实例，支持通过传入参数配置SDK特别功能（同一时间只会存在一个实例），只能在主线程调用|1.1|
 |[setRtcEngineEventListener](#li_icu_cv1_fdn)|设置本地用户行为的回调事件的监听|1.1|
 |[setRtcEngineNotify](#li_vu7_l6n_4rz)|设置远端用户行为的通知事件的监听|1.1|
 |[destroy](#li_59b_i3u_fbj)|销毁SDK|1.1|
@@ -224,7 +225,22 @@ keyword: [AliRtcEngine, Android]
 
     |名称|类型|描述|
     |--|--|--|
-    |context|Context|上下文。|
+    |context|Context|安卓（Android Activity）的上下文。|
+
+    **说明：** 同一时间只会存在一个实例，并且只能在主线程调用。
+
+-   getInstance：创建AliRTCEngine实例。支持通过传入参数配置SDK特别功能。
+
+    ```
+    public static AliRtcEngineImpl getInstance(Context context, String extras)
+    ```
+
+    参数说明
+
+    |名称|类型|描述|
+    |--|--|--|
+    |context|Context|安卓（Android Activity）的上下文。|
+    |extras|String|通过JSON配置SDK的特别功能，详情请参见[extras功能说明]()。|
 
     **说明：** 同一时间只会存在一个实例，并且只能在主线程调用。
 
