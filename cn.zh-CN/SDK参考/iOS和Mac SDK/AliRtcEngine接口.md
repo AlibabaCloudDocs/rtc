@@ -250,7 +250,7 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
     |名称|类型|描述|
     |--|--|--|
     |delegate|[AliRtcEngineDelegate](/cn.zh-CN/SDK参考/iOS和Mac SDK/回调及监听.md)类型的代理|监听回调的代理。|
-    |extras|NSString \*|SDK初始化配置，目前请使用`@””`。|
+    |extras|NSString \*|通过JSON配置SDK的特别功能，详情请参见[extras功能说明](/cn.zh-CN/常用功能/extras参数配置说明.md)。无需特别功能，可填空字符：@""。|
 
     **说明：** 该接口同一时间只会存在一个实例。
 
