@@ -195,7 +195,7 @@ keyword: [Windows SDK, AliRtcEngine]
     |名称|类型|描述|
     |--|--|--|
     |listener|[AliRtcEventListener\*](/cn.zh-CN/SDK参考/Windows SDK/回调及监听.md)|AliRtcEngine回调的监听器。|
-    |extras|const AliRtc::String &|SDK初始化配置，目前请使用空字符串。|
+    |extras|const AliRtc::String &|通过JSON配置SDK的特别功能，详情请参见[extras功能说明](/cn.zh-CN/常用功能/extras参数配置说明.md)。|
 
     **说明：** 同一时间只会存在一个实例。
 
