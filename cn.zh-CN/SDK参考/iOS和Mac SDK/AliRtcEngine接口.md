@@ -51,6 +51,10 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
 |[configRemoteScreenTrack](#li_1hw_2s1_jv2)|设置是否订阅远端屏幕流|1.1|
 |[configRemoteAudio](#li_k2j_q1m_zde)|设置是否订阅远端音频流|1.1|
 |[subscribe](#li_6g2_cou_e7q)|手动订阅视频和音频流|1.1|
+|[subscribeVideoRGBData](#li_hx3_sl3_pbr)|订阅视频RGB数据|1.17|
+|[unSubscribeVideoRGBData](#li_5uh_g7a_5zz)|取消订阅视频RGB数据|1.17|
+|[subscribeVideoTexture](#li_85i_hm3_7xv)|订阅视频纹理数据|1.17|
+|[unSubscribeVideoTexture](#li_uz9_3gx_x8h)|取消订阅视频纹理数据|1.17|
 
 视频相关接口
 
@@ -533,6 +537,60 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
     |--|--|--|
     |uid|NSString \*|用户ID。|
     |onResult|void \(^\)\(NSString \*uid, [AliRtcVideoTrack](/cn.zh-CN/SDK参考/iOS和Mac SDK/数据类型.md) vt, [AliRtcAudioTrack](/cn.zh-CN/SDK参考/iOS和Mac SDK/数据类型.md) at\)|当调用subscribe执行结束后回调。|
+
+-   subscribeVideoRGBData：订阅视频RGB数据。
+
+    ```
+    - (void)subscribeVideoRGBData:(NSString *)uid videoSource:(AliRtcVideoSource)videoSource;
+    ```
+
+    参数说明
+
+    |名称|类型|描述|
+    |--|--|--|
+    |uid|NSString \*|用户的UID。|
+    |videoSource|[AliRtcVideoSource](/cn.zh-CN/SDK参考/iOS和Mac SDK/数据类型.md)|视频裸数据源类型。|
+
+-   unSubscribeVideoRGBData：取消订阅视频RGB数据。
+
+    ```
+    - (void)unSubscribeVideoRGBData:(NSString *)uid videoSource:(AliRtcVideoSource)videoSource;
+    ```
+
+    参数说明
+
+    |名称|类型|描述|
+    |--|--|--|
+    |uid|NSString \*|用户的UID。|
+    |videoSource|[AliRtcVideoSource](/cn.zh-CN/SDK参考/iOS和Mac SDK/数据类型.md)|视频裸数据源类型。|
+
+-   subscribeVideoTexture：订阅视频纹理数据。
+
+    ```
+    - (void)subscribeVideoTexture:(NSString *)uid videoSource:(AliRtcVideoSource)videoSource videoTextureType:(AliRtcVideoTextureType)videoTextureType;
+    ```
+
+    参数说明
+
+    |名称|类型|描述|
+    |--|--|--|
+    |uid|NSString \*|用户的UID。|
+    |videoSource|[AliRtcVideoSource](/cn.zh-CN/SDK参考/iOS和Mac SDK/数据类型.md)|视频裸数据源类型。|
+    |videoTextureType|[AliRtcVideoTextureType](/cn.zh-CN/SDK参考/iOS和Mac SDK/数据类型.md)|纹理类型|
+
+-   unSubscribeVideoTexture：取消订阅视频纹理数据。
+
+    ```
+    - (void)unSubscribeVideoTexture:(NSString *)uid videoSource:(AliRtcVideoSource)videoSource videoTextureType:(AliRtcVideoTextureType)videoTextureType;
+    ```
+
+    参数说明
+
+    |名称|类型|描述|
+    |--|--|--|
+    |uid|NSString \*|用户的UID。|
+    |videoSource|[AliRtcVideoSource](/cn.zh-CN/SDK参考/iOS和Mac SDK/数据类型.md)|视频裸数据源类型。|
+    |videoTextureType|[AliRtcVideoTextureType](/cn.zh-CN/SDK参考/iOS和Mac SDK/数据类型.md)|纹理类型|
 
 -   setVideoProfile：设置视频流的参数。
 
