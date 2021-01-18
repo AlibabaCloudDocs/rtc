@@ -88,6 +88,9 @@ keyword: [AliRtcEngine, Android]
 |[registerVideoSampleObserver](#li_wuz_ib9_pbb)|注册视频数据回调|1.17|
 |[unRegisterVideoSampleObserver](#li_y35_07t_0nt)|取消注册视频数据回调|1.17|
 |[setVideoEncoderConfiguration](#li_k0c_u92_2vq)|设置视频编码属性|1.17.31|
+|[isCameraAutoFocus](#li_hwq_92c_3oc)|是否开启自动对焦|1.17|
+|[registerVideoRawDataInterface](#li_jny_vca_q1f)|注册外部视频数据回调接口|1.17|
+|[unRegisterVideoRawDataInterface](#li_g99_o9b_q68)|取消注册外部视频数据回调接口|1.17|
 
 音频相关接口
 
@@ -155,6 +158,7 @@ keyword: [AliRtcEngine, Android]
 |[setAllAudioEffectsPlayoutVolume](#li_zjd_w2r_dzr)|设置所有音效本地播放音量|1.17.30|
 |[pauseAllAudioEffects](#li_oil_c5q_4kg)|暂停所有音效|1.17.30|
 |[resumeAllAudioEffects](#li_eav_nmv_siw)|重新开始播放所有音效|1.17.30|
+|[unRegisterAudioObserver](#li_cte_hj4_9pv)|取消注册音频数据回调|1.17|
 
 预览接口
 
@@ -186,6 +190,7 @@ keyword: [AliRtcEngine, Android]
 |[stopNetworkQualityProbeTest](#li_dpb_pxp_lco)|停止网络质量探测|1.16.2|
 |[postFeedback](#li_vi0_45j_mms)|SDK问题反馈|1.17.13|
 |[sendMediaExtensionMsg](#li_q9r_vcy_x1t)|发送媒体扩展信息|1.17.1|
+|[respondMessageNotification](#li_fo6_wec_1jl)|发送消息通知|1.17|
 
 ## 接口详情
 
@@ -240,7 +245,7 @@ keyword: [AliRtcEngine, Android]
     |名称|类型|描述|
     |--|--|--|
     |context|Context|安卓（Android Activity）的上下文。|
-    |extras|String|通过JSON配置SDK的特别功能，详情请参见[extras功能说明]()。|
+    |extras|String|通过JSON配置SDK的特别功能，详情请参见[extras功能说明](/cn.zh-CN/常用功能/extras参数配置说明.md)。|
 
     **说明：** 同一时间只会存在一个实例，并且只能在主线程调用。
 
@@ -1391,7 +1396,7 @@ keyword: [AliRtcEngine, Android]
 
     |名称|类型|描述|
     |--|--|--|
-    |aliVideoObserver|[AliVideoObserver](/cn.zh-CN/SDK参考/Android SDK/回调及监听.md)|视频数据回调接口|
+    |aliVideoObserver|[AliVideoObserver](/cn.zh-CN/SDK参考/Android SDK/回调及监听.md)|视频数据回调接口。|
 
 -   unRegisterVideoSampleObserver：取消注册视频数据回调。
 
@@ -1409,7 +1414,46 @@ keyword: [AliRtcEngine, Android]
 
     |名称|类型|描述|
     |--|--|--|
-    |config|[AliRtcVideoEncoderConfiguration](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)|预定义的视频编码属性|
+    |config|[AliRtcVideoEncoderConfiguration](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)|预定义的视频编码属性。|
+
+-   isCameraAutoFocus：是否开启自动对焦。
+
+    ```
+    public abstract boolean isCameraAutoFocus();
+    ```
+
+    返回说明
+
+    true表示开启自动对焦，false表示未开启自动对焦。
+
+-   registerVideoRawDataInterface：注册外部视频数据回调接口。具体操作，请参见[输入外部视频流](/cn.zh-CN/常用功能/外部音视频输入/Android.md)。
+
+    ```
+    public abstract VideoRawDataInterface registerVideoRawDataInterface(AliRawDataStreamType streamType, AliRtcRenderMode renderMode);
+    ```
+
+    参数说明
+
+    |名称|类型|描述|
+    |--|--|--|
+    |streamType|[AliRawDataStreamType](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)|视频流类型。|
+    |renderMode|[AliRtcRenderMode](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)|渲染模式。|
+
+    返回说明
+
+    返回VideoRawDataInterface流处理对象。
+
+-   unRegisterVideoRawDataInterface：取消注册外部视频接口回调。具体操作，请参见[输入外部视频流](/cn.zh-CN/常用功能/外部音视频输入/Android.md)。
+
+    ```
+    public abstract void unRegisterVideoRawDataInterface(AliRawDataStreamType streamType);
+    ```
+
+    参数说明
+
+    |名称|类型|描述|
+    |--|--|--|
+    |streamType|[AliRawDataStreamType](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)|视频流类型。|
 
 -   registerAudioVolumeObserver：注册音量回调。
 
@@ -1803,6 +1847,18 @@ keyword: [AliRtcEngine, Android]
 
     0表示方法调用成功。其他表示方法调用失败。
 
+-   unRegisterAudioObserver：取消注册音频数据回调。
+
+    ```
+    public abstract void unRegisterAudioObserver(AliAudioType type);
+    ```
+
+    参数说明
+
+    |名称|类型|描述|
+    |--|--|--|
+    |type|[AliAudioType](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)|回调音频数据的类型。|
+
 -   startPreview：开始本地预览。
 
     ```
@@ -2037,4 +2093,22 @@ public abstract void postFeedback(String uid, String channelId, String descripti
 
     -   己方正常入会，并且在推流中。
     -   房间内的其他用户需要订阅己方音视频流，发送成功之后可在[onMediaExtensionMsgReceived](/cn.zh-CN/SDK参考/Android SDK/回调及监听.md)回调中接收结果。
+-   respondMessageNotification：发送消息通知。
+
+    ```
+    public abstract int respondMessageNotification(String tid, String contentType, String content);
+    ```
+
+    参数说明
+
+    |参数|类型|描述|
+    |--|--|--|
+    |tid|String|消息ID。|
+    |contentType|String|消息内容类型。|
+    |content|String|消息内容。|
+
+    返回说明
+
+    0表示调用成功，其他表示调用失败。
+
 
