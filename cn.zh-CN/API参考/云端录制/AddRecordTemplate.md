@@ -19,7 +19,9 @@
 |LayoutIds.N|RepeatList|是|2|布局ID组。 |
 |MediaEncode|Integer|是|20|编码选项。 |
 |Name|String|是|录制模板|录制配置模板名称。 |
-|OssBucket|String|是|rtc-record-oss|录制文件存储的OSS bucket。 |
+|OssBucket|String|是|rtc-record-oss|录制文件存储的OSS bucket。
+
+ **说明：** 目前仅支持上海区域OSS bucket。 |
 |OssFilePrefix|String|是|record/\{AppId\}/\{ChannelId\_TaskId\}/\{EscapedStartTime\}\_\{EscapedEndTime\}|录制文件命名规则。 |
 |TaskProfile|String|是|4IN\_1080P|任务计费配置。 |
 |BackgroundColor|Integer|否|0|背景色RGB。默认是0（黑色）。计算公式为R+G×256+B×65536，R（红）、G（绿）、B（蓝）的取值：**0~255**。 |
@@ -59,9 +61,7 @@
 -   **5**：ALIBABA\_PUHUITI\_MEDIUM
 
  默认取值为**0**。 |
-|ClockWidgets.N.FontSize|Integer|否|1|字体大小，字体合理范围
-
-\(\*\*0\*\*, \*\*72\*\*\] \)|
+|ClockWidgets.N.FontSize|Integer|否|1|字体大小。字体合理范围**\(0, 72\]**。 |
 |ClockWidgets.N.FontColor|Integer|否|0|文字颜色（RGB）。
 
  计算公式为`R + G × 256 + B × 65536`，R（红）、G（绿）、B（蓝）的取值：**0**~**255**。 |
@@ -79,7 +79,7 @@
 请求示例
 
 ```
-https://rtc.aliyuncs.com/?Action=AddRecordTemplate
+https://rtc.aliyuncs.com?Action=AddRecordTemplate
 &AppId=yourAppId
 &FileSplitInterval=1800
 &Formats.1=MP4
@@ -94,7 +94,7 @@ https://rtc.aliyuncs.com/?Action=AddRecordTemplate
 
 正常返回示例
 
-`XML` 格式
+`XML`格式
 
 ```
 <AddRecordTemplateResponse>
@@ -103,7 +103,7 @@ https://rtc.aliyuncs.com/?Action=AddRecordTemplate
 </AddRecordTemplateResponse>
 ```
 
-`JSON` 格式
+`JSON`格式
 
 ```
 {
