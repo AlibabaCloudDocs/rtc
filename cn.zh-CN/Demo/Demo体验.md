@@ -29,9 +29,9 @@
 |互动大班课|-   学生端：iOS、Android
 -   教师端：Web
 
-|[互动大班课简介](/cn.zh-CN/解决方案/互动直播课/概述.md)|[源码下载](https://github.com/aliyun/alibabacloud-RTCInteractiveClass-demo)|无|
+|[互动大班课简介](/cn.zh-CN/解决方案/互动大班课/简介.md)|[源码下载](https://github.com/aliyun/alibabacloud-RTCInteractiveClass-demo)|无|
 |语音聊天室|iOS、Android|[语音聊天室简介](/cn.zh-CN/解决方案/语音聊天室/简介.md)|[源码下载](https://github.com/aliyun/alibabacloud-AliRtcAudioLiveRoom-Demo)|无|
-|视频互动直播|iOS、Android|敬请期待|敬请期待|无|
+|视频互动直播|iOS、Android|[视频互动直播简介](/cn.zh-CN/解决方案/视频互动直播/简介.md)|[源码下载](https://github.com/aliyun/alibabacloud-AliRtcVideoLiveRoom-demo)|无|
 |超级小班课|-   学生端：iOS、Android
 -   教师端：Web
 
