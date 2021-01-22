@@ -17,7 +17,8 @@
 |![Android码](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/6860749951/p135182.png)
 
 |敬请期待|敬请期待|[音视频通话](https://alivc-demo-cms.alicdn.com/versionProduct/other/htmlSource/beaconTower/index.html?spm=a2c4g.11186623.2.14.204969c9ZydpLX)|
-|[互动直播课](https://alivc-demo-cms.alicdn.com/html-demo/test/play-class/index.html#/)|
+|[互动大班课](https://alivc-demo-cms.alicdn.com/html-demo/release/new-interactive-live-class/index.html)|
+|[超级小班课](https://alivc-demo-cms.alicdn.com/html-demo/release/newsuperclass/index.html#/)|
 
 ## Demo源码下载
 
@@ -28,9 +29,13 @@
 |互动大班课|-   学生端：iOS、Android
 -   教师端：Web
 
-|[互动直播课简介](/cn.zh-CN/解决方案/互动直播课/概述.md)|[源码下载](https://github.com/aliyun/alibabacloud-AliRtcInteractiveClass-demo/)|无|
+|[互动大班课简介](/cn.zh-CN/解决方案/互动直播课/概述.md)|[源码下载](https://github.com/aliyun/alibabacloud-RTCInteractiveClass-demo)|无|
 |语音聊天室|iOS、Android|[语音聊天室简介](/cn.zh-CN/解决方案/语音聊天室/简介.md)|[源码下载](https://github.com/aliyun/alibabacloud-AliRtcAudioLiveRoom-Demo)|无|
 |视频互动直播|iOS、Android|敬请期待|敬请期待|无|
+|超级小班课|-   学生端：iOS、Android
+-   教师端：Web
+
+|[超级小班课简介](/cn.zh-CN/解决方案/超级小班课/简介.md)|[源码下载](https://github.com/aliyun/alibabacloud-AliRtcSuperClass-demo)|无|
 
 ## 界面效果展示
 
