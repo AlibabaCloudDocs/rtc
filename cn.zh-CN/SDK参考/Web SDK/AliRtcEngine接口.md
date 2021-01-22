@@ -100,7 +100,7 @@ AliRtcSDK Web端接口信息如下：
 -   isSupport：检测浏览器是否支持RTC SDK。
 
     ```
-    isSupport()
+    isSupport(option)
     ```
 
     示例代码
@@ -199,7 +199,7 @@ AliRtcSDK Web端接口信息如下：
 -   setChannelProfile：设置频道模式。
 
     ```
-    setChannelProfile()
+    setChannelProfile(channelProfile)
     ```
 
     示例代码
@@ -219,7 +219,7 @@ AliRtcSDK Web端接口信息如下：
 -   setClientRole：设置角色。
 
     ```
-    setClientRole()
+    setClientRole(role)
     ```
 
     示例代码
@@ -239,13 +239,13 @@ AliRtcSDK Web端接口信息如下：
 -   setAudioOnlyMode：设置是否为纯音频模式。
 
     ```
-    setAudioOnlyMode()
+    setAudioOnlyMode(audioOnly)
     ```
 
     示例代码
 
     ```
-    aliWebrtc.setAudioOnlyMode (audioOnly);
+    aliWebrtc.setAudioOnlyMode(audioOnly);
     ```
 
     参数说明
@@ -311,10 +311,6 @@ AliRtcSDK Web端接口信息如下：
 
 -   configLocalAudioPublish：设置是否允许发布音频流。
 
-    ```
-    configLocalAudioPublish()
-    ```
-
     示例代码
 
     ```
@@ -331,10 +327,6 @@ AliRtcSDK Web端接口信息如下：
 
 -   configLocalCameraPublish：设置是否允许发布相机流。
 
-    ```
-    configLocalCameraPublish()
-    ```
-
     示例代码
 
     ```
@@ -350,10 +342,6 @@ AliRtcSDK Web端接口信息如下：
     **说明：** 需要调用publish进行推流后，设置才能生效。
 
 -   configLocalScreenPublish：设置是否允许发布屏幕共享流。
-
-    ```
-    configLocalScreenPublish()
-    ```
 
     示例代码
 
@@ -406,7 +394,7 @@ AliRtcSDK Web端接口信息如下：
 -   configRemoteAudio：设置是否订阅远端音频流。
 
     ```
-    configRemoteAudio()
+    configRemoteAudio(userId,enable)
     ```
 
     示例代码
@@ -427,7 +415,7 @@ AliRtcSDK Web端接口信息如下：
 -   configRemoteCameraTrack：设置是否订阅远端相机流。
 
     ```
-    configRemoteCameraTrack()
+    configRemoteCameraTrack(userId,preferMaster,enable)
     ```
 
     示例代码
@@ -452,7 +440,7 @@ AliRtcSDK Web端接口信息如下：
 -   configRemoteScreenTrack：设置是否订阅远端屏幕流。
 
     ```
-    configRemoteScreenTrack()
+    configRemoteScreenTrack(userId,enable)
     ```
 
     示例代码
@@ -518,10 +506,6 @@ AliRtcSDK Web端接口信息如下：
 
 -   currentCamera：指定摄像头设备。
 
-    ```
-    currentCamera()
-    ```
-
     示例代码
 
     ```
@@ -544,10 +528,6 @@ AliRtcSDK Web端接口信息如下：
     **说明：** 暂不支持热切换，需要在预览和推流之前设置。
 
 -   videoProfile：设置视频流参数。
-
-    ```
-    videoProfile()
-    ```
 
     示例代码
 
@@ -598,7 +578,7 @@ AliRtcSDK Web端接口信息如下：
 -   setDisplayRemoteVideo：为远端的视频设置渲染窗口以及绘制参数。
 
     ```
-    setDisplayRemoteVideo()
+    setDisplayRemoteVideo(userId,video,type)
     ```
 
     示例代码
@@ -623,7 +603,7 @@ AliRtcSDK Web端接口信息如下：
 -   setVideoProfile：设置摄像头或屏幕共享参数。
 
     ```
-    setVideoProfile()
+    setVideoProfile(config,type)
     ```
 
     示例代码
@@ -657,10 +637,6 @@ AliRtcSDK Web端接口信息如下：
 
 -   enableCamera：设置是否使用摄像头。
 
-    ```
-    enableCamera()
-    ```
-
     示例代码
 
     ```
@@ -676,10 +652,6 @@ AliRtcSDK Web端接口信息如下：
     **说明：** 该接口需要在isSupport之前调用，设置后isSupport将不再检测摄像头。
 
 -   currentAudioCapture：指定麦克风设备。
-
-    ```
-    currentAudioCapture()
-    ```
 
     示例代码
 
@@ -724,7 +696,7 @@ AliRtcSDK Web端接口信息如下：
 -   muteRemoteAudioPlaying：设置是否停止播放远端音频流。
 
     ```
-    muteRemoteAudioPlaying()
+    muteRemoteAudioPlaying(userId, muted)
     ```
 
     示例代码
@@ -743,7 +715,7 @@ AliRtcSDK Web端接口信息如下：
 -   muteAllRemoteAudioPlaying：设置是否停止远端的所有音频流的播放
 
     ```
-    muteAllRemoteAudioPlaying()
+    muteAllRemoteAudioPlaying(muted)
     ```
 
     示例代码
@@ -761,7 +733,7 @@ AliRtcSDK Web端接口信息如下：
 -   setAudioVolume：设置订阅用户音量。
 
     ```
-    setAudioVolume()
+    setAudioVolume(userId, volume)
     ```
 
     示例代码
@@ -784,7 +756,7 @@ AliRtcSDK Web端接口信息如下：
 -   getAudioVolume：获取订阅用户音量。
 
     ```
-    getAudioVolume()
+    getAudioVolume(userId)
     ```
 
     示例代码
@@ -806,10 +778,6 @@ AliRtcSDK Web端接口信息如下：
     |volume|Number|音量值，取值\[0,1\]|
 
 -   enableAudioVolumeIndicator：设置接收音频音量值回调。
-
-    ```
-    enableAudioVolumeIndicator()
-    ```
 
     示例代码
 
@@ -860,7 +828,7 @@ AliRtcSDK Web端接口信息如下：
 -   enableHighDefinitionPreview：设置高清预览接口。
 
     ```
-    enableHighDefinitionPreview()
+    enableHighDefinitionPreview(enable)
     ```
 
     示例代码
@@ -954,7 +922,7 @@ AliRtcSDK Web端接口信息如下：
 -   setExternalMediaTrack：设置外部输入。
 
     ```
-    setExternalMediaTrack()
+    setExternalMediaTrack(track, type)
     ```
 
     示例代码
