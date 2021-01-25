@@ -1809,7 +1809,7 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
 
     |名称|类型|描述|
     |--|--|--|
-    |interval|NSInteger|时间间隔。单位：毫秒，最小值不得小于10ms。|
+    |interval|NSInteger|时间间隔，单位：ms。最小值不得小于10ms。默认值为160ms。|
     |smooth|NSInteger|平滑系数。数值越大平滑程度越高，反之越低，实时性越好。取值范围：0~9，默认取值3。|
     |reportVad|NSInteger|本地语音检测开关。     -   1：开启，通过onAudioVolumeCallback接口回调。
     -   0：关闭。 |
