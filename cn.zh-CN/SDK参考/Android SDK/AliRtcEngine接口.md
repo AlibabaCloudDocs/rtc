@@ -1909,7 +1909,7 @@ keyword: [AliRtcEngine, Android]
 
     返回用户ID列表。
 
-    **说明：** 该方法在加入频道时调用有延时，建议您通过onRemoteUserOnLineNotify回调维护一个远端用户列表。
+    **说明：** 该方法在加入频道时调用有延时，建议在调用[onRemoteUserOnLineNotify](/cn.zh-CN/SDK参考/Android SDK/回调及监听.md)后再调用此接口或自己维护一个远端用户列表。
 
 -   getUserInfo：查询远端用户信息。
 
