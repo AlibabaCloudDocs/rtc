@@ -1320,7 +1320,7 @@ keyword: [Windows SDK, AliRtcEngine]
 
     |名称|类型|说明|
     |--|--|--|
-    |interval|int|时间间隔。单位毫秒，最小值不得小于10ms。|
+    |interval|int|时间间隔，单位：ms。最小值不得小于10ms。默认值为160ms。|
     |smooth|int|平滑系数。数值越大平滑程度越高，反之越低，实时性越好。建议您设置3，范围为0~9。|
     |reportVad|int|本地语音检测开关。取值：     -   1：开启，通过onAudioVolumeCallback接口回调。
     -   0：关闭。 |
