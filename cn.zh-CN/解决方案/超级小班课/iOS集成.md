@@ -350,7 +350,7 @@
 
     -   SDK报错
 
-        回调名称: onOccurError。
+        回调名称：onOccurError。
 
         ```
         /// 错误码
