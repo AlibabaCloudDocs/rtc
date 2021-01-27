@@ -1,8 +1,14 @@
-# Android {#task_1096283 .task}
+---
+keyword: [Android, SDK]
+---
+
+# Android
 
 本文为您介绍了Android端集成SDK操作，帮助您快速集成SDK并能使用音视频通信基本功能。
 
-开发前的环境要求如下表所示，详情请参见[使用限制](../../../../cn.zh-CN/产品简介/使用限制.md#)。
+## 前提条件
+
+开发前的环境要求如下表所示，详情请参见[使用限制](/cn.zh-CN/产品简介/使用限制.md)。
 
 |类别|说明|
 |--|--|
@@ -10,71 +16,69 @@
 |API版本|不低于16|
 |CPU架构|支持真机架构armeabi、armeabi-v7a、arm64-v8a|
 
-您需要下载[SDK](../../../../cn.zh-CN/快速入门/SDK下载.md#khd_sdk_1)。解压后的文件需导入到Android Studio工程libs文件下，文件类型如下表所示。
+## 集成SDK
 
-|文件或文件夹名称|文件类型|
-|--------|----|
-|AliRTCSdk|jar|
-|utdid4all-1.5.0-proguard|jar|
-|Sophonsdk|aar|
-|alivc-core-rtc|aar|
-|webrtclib|aar|
+方法一：maven 自动集成（推荐）。
 
-1.  使用Android Studio软件创建一个新的Empty Acitivity，并根据下图所示进行配置。 
+1.  在根目录的build.gradle中添加maven仓库地址：
 
-    **说明：** 本文档的Android Studio版本为3.4.1。
-
-    ![创建Project](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/763460/156689432850610_zh-CN.png)
-
-2.  把解压的SDK文件导入到app/libs目录下。 
-
-    ![引jar包](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/763460/156689432850658_zh-CN.png)
-
-3.  在app/src/build.gradle文件中添加如下配置。 
-
-    ``` {#codeblock_ch2_k58_64e .language-json}
-    android {
-       ...
-       defaultConfig{
-            ...
-            ndk {
-              abiFilters  "armeabi", "armeabi-v7a", "arm64-v8a"
-           }
-            ...
-        } 
-       ...
-       repositories {
-          flatDir {
-            dirs 'libs'
-          }
-       }
+    ```
+    allprojects {
+        repositories {
+            google()
+            jcenter()
+            //添加RTC需要的maven地址
+            maven {
+                url "http://maven.aliyun.com/nexus/content/groups/public/"
+            }
+        }
     }
-    dependencies {  
-    implementation fileTree(dir: 'libs', include: ['*.jar','*.aar'])
-    ...
     ```
 
-4.  在app/src/main/AndroidManifest.xml文件中添加摄像头、麦克风、网络，访问存储权限。在代码里面需要添加动态权限申请。 
+2.  在项目的/app/build.gradle文件中，添加如下行：
 
-    ``` {#codeblock_ler_the_4km .language-java}
-    <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.RECORD_AUDIO" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>        
+    ```
+    dependencies {   
+            ...   
+        //依赖的RTC SDK  
+        implementation 'com.aliyun.rtc:AliRTC-Full:1.17.9.2005112'
+    }
     ```
 
-5.  （可选）混淆配置。 如果您的应用设置了混淆配置，需要进行以下配置。在proguard-rules.pro文件中，添加`-keep`类的配置，这样可以防止混淆AliRtcSDK公共类名称。 
 
-    ``` {#codeblock_y71_uhf_ojj .language-java}
-    -keep class com.serenegiant.**{*;}
-    -keep class org.webrtc.**{*;}
-    -keep class com.alivc.**{*;}           
-    ```
+方法二：手动集成。
 
-6.  单击**Sync Project With Gradle Files**，同步项目文件，直到同步完成。
+您需要下载SDK，下载链接请参见[SDK下载](/cn.zh-CN/SDK参考/SDK下载.md)。解压后的文件需导入到Android Studio工程libs文件下，文件类型和路径如下表所示。
 
-完成集成SDK操作，您可以实现音视频通信的基本功能，详情请参见[Android端实现基本功能](cn.zh-CN/快速入门/实现基本功能/Android.md#)。
+|文件或文件夹名称|文件路径|
+|--------|----|
+|AliRTCSdk.arr|/app/libs/|
+
+## 添加项目权限
+
+根据场景需要，在 /app/src/main/AndroidManifest.xml文件中添加如下行，获取相应的设备权限：
+
+```
+<uses-permission android:name="android.permission.CAMERA"/>
+<uses-permission android:name="android.permission.RECORD_AUDIO"/>
+<uses-permission android:name="android.permission.INTERNET"/>
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+<uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+<uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/> 
+```
+
+## （可选）防止代码混淆
+
+如果您的应用设置了混淆配置，需要进行以下配置。在proguard-rules.pro文件中，添加`-keep`类的配置，这样可以防止混淆AliRtcSDK公共类名称。
+
+```
+-keep class com.serenegiant.**{*;}
+-keep class org.webrtc.**{*;}
+-keep class com.alivc.**{*;}    
+```
+
+## 后续步骤
+
+完成集成SDK操作，您可以实现音视频通信的基本功能，详情请参见[Android端实现基本功能](https://help.aliyun.com/document_detail/125524.html#task-1180891)。
 
