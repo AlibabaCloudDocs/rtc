@@ -1,34 +1,43 @@
-# Web {#concept_2245121 .concept}
+---
+keyword: [web, rtc]
+---
 
-本文档为您介绍了音视频通信设置视频属性的功能简介和实现方法。您可以根据您的业务需求设置视频属性，获得更好的体验。
+# Web
 
-## 功能简介 {#section_8rh_8ou_c20 .section}
+本章节为您介绍了音视频通信视频属性的实现方法。您可以根据业务需求设置视频属性，获得更好的体验。
 
-在阿里云音视频通信中，根据您的喜好和实际情况设置视频属性，调整视频画面的清晰度和流畅度。视频属性包含分辨率、帧率。
+## 功能简介
 
-设置视频属性之前，您需要调用getAvailableResolutions\(\)返回支持的分辨率和帧率。
+在音视频通信中，根据您的喜好和实际情况设置视频属性，调整视频画面的清晰度和流畅度。如果是一对一视频通信，您可以将分辨率和帧率调高，如果频道内有多个用户进行视频通信，您可以将分辨率和码率适当调低，以减少编解码的资源消耗和缓解下行带宽压力。视频属性包含视频流规格、视频流类型。
 
-## 实现方法 {#section_45q_zhl_ogm .section}
+## 实现方法
 
-在实现该功能之前，需要您已经搭建App Server、实现基本功能等操作。详情请参见[入门概述](../cn.zh-CN/快速入门/入门概述.md#)。
+在实现该功能之前，需要您已经搭建AppServer、实现基本功能等操作。详情请参见[入门概述](/cn.zh-CN/快速入门/入门概述.md)。
 
-阿里云RTC SDK通过videoProfile方法设置视频属性，然后调用publish\(\)才能生效。
+设置视频属性之前，您需要先调用getAvailableResolutions传入摄像头参数返回支持的分辨率和帧率，然后通过setVideoProfile方法设置视频属性，调用publish才能生效。
 
-**说明：** 如果您设置的分辨率不合适，系统会自动进行调整。
+**说明：**
 
-``` {#codeblock_fet_ejs_h45}
-aliWebrtc.videoProfile = { 
-  frameRate:20,
-  width: 640,
-  height: 480
-};
+-   屏幕共享清晰度与网络质量、设备性能有关，而不是设置的分辨率越高显示的越清晰。
+-   1.13.2版本已删除参数maxBitrate，SDK会根据设置的分辨率和帧率自动设置最大码率。1.13.2以下版本如果调用setVideoProfile，还需要配置该参数。
+
 ```
-
-参数：
+aliWebrtc.setVideoProfile({ 
+      width,
+      height,
+      frameRate
+    },type);
+```
 
 |参数|类型|描述|
 |--|--|--|
-|frameRate|int|帧率（5~30）。|
-|width|int|视频宽度。|
-|height|int|设备高度。|
+|config|width|Number|宽度 -   摄像头：640（默认值）
+-   屏幕共享：960（默认值） |
+|height|Number|高度 -   摄像头：480（默认值）
+-   屏幕共享：540（默认值） |
+|frameRate|Number|帧率 -   摄像头：15（默认值）
+-   屏幕共享：10（默认值） |
+|type|Number|1表示摄像头，2表示屏幕共享|
+
+获得更多功能实现方法，请参见[AliRtcEngine接口](/cn.zh-CN/SDK参考/Web SDK/AliRtcEngine接口.md)。
 
