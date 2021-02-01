@@ -1,22 +1,22 @@
 ---
-keyword: [Web, 集成SDK, Rtc]
+keyword: [Web, 集成SDK, RTC]
 ---
 
 # Web
 
 本文为您介绍了Web端集成SDK操作，帮助您快速集成SDK并能使用音视频通信基本功能。
 
-开发前的环境要求如下表所示：
+集成Web客户端SDK必须使用HTTPS协议。
 
-**说明：** 集成Web客户端SDK必须使用HTTPS协议。
+## 环境要求
 
 |操作系统|浏览器类型|浏览器最低版本要求|推流|拉流|屏幕分享|
 |----|-----|---------|--|--|----|
-|Mac OS|桌面版Safari浏览器|11+|支持|支持|支持（需要Safari 13及以上版本）|
-|Mac OS|桌面版Chrome浏览器|60+|支持|支持|支持（需要 Chrome 72及以上版本）|
-|Mac OS|桌面版Edge浏览器|80+|支持|支持|支持|
-|Windows|桌面版Chrome浏览器|60+|支持|支持|支持（需要 Chrome 72及以上版本）|
-|Windows|桌面版Edge浏览器|80+|支持|支持|支持|
+|Mac OS|桌面版Safari浏览器|11+|支持|支持|不支持|
+|Mac OS|桌面版Chrome浏览器|60+|支持|支持|支持（需要Chrome 72及以上版本）|
+|Mac OS|桌面版Edge浏览器|80+|支持|支持|支持（需要Edge 80及以上版本）|
+|Windows|桌面版Chrome浏览器|60+|支持|支持|支持（需要Chrome 72及以上版本）|
+|Windows|桌面版Edge浏览器|80+|支持|支持|支持（需要Edge 80及以上版本）|
 |iOS 11.1.2及以上|移动版Safari浏览器|11+|支持|支持|不支持|
 |Android|移动版Chrome浏览器|63+|支持|支持|不支持|
 
@@ -26,6 +26,8 @@ keyword: [Web, 集成SDK, Rtc]
 -   [setAudioVolume](/cn.zh-CN/SDK参考/Web SDK/AliRtcEngine接口.md)、[muteLocalCamera](/cn.zh-CN/SDK参考/Web SDK/AliRtcEngine接口.md)、[muteLocalMic](/cn.zh-CN/SDK参考/Web SDK/AliRtcEngine接口.md)接口在iOS系统目前存在兼容问题，暂不支持使用。
 -   建议不要在移动端使用Web进行SDK推流，最好使用native。
 -   纯订阅模式媒体文件播放失败，请参见[H5纯订阅模式媒体文件播放失败问题](/cn.zh-CN/常见问题/H5纯订阅模式媒体文件播放失败问题.md)。
+
+## 操作步骤
 
 1.  下载[SDK](/cn.zh-CN/SDK参考/SDK下载.md)。
 
