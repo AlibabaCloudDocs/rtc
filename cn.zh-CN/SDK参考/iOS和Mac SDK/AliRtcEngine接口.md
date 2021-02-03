@@ -89,6 +89,7 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
 |[setBeautyEffect](#li_lx4_vn7_0qc)|设置基础美颜|1.17.9|
 |[getCurrentCameraDirection](#li_y28_5g4_k5k)|获取当前摄像头方向（仅iOS）|1.17.20|
 |[setVideoEncoderConfiguration](#li_qu2_0l1_g2m)|设置视频编码属性|1.17.31|
+|[enableLocalVideo](#li_ppt_ik1_zvz)|禁用或重新启用本地视频采集|1.17.39|
 
 音频相关接口
 
@@ -164,6 +165,7 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
 |[setVolumeCallbackIntervalMs](#li_0gk_1wo_pb9)|设置音量回调频率和平滑系数|1.17|
 |[setAudioEffectReverbMode](#li_slu_1uw_9d7)|设置混响音效模式|1.17|
 |[setAudioEffectReverbParamType](#li_qfi_0vw_hco)|设置混响音效类型|1.17|
+|[setDeviceVolumeType](#li_h0v_xkq_sog)|设置SDK设备音量类型（仅iOS）|1.17.39|
 
 音效相关接口
 
@@ -954,6 +956,23 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
     |名称|类型|描述|
     |--|--|--|
     |config|[AliRtcVideoEncoderConfiguration](/cn.zh-CN/SDK参考/iOS和Mac SDK/数据类型.md)|预定义的视频编码属性。|
+
+-   enableLocalVideo：禁用或重新启用本地视频采集。
+
+    ```
+    - (int)enableLocalVideo:(BOOL)enable;
+    ```
+
+    参数说明
+
+    |名称|类型|描述|
+    |--|--|--|
+    |enable|BOOL|禁用或重新启用本地视频采集。取值：    -   YES（默认值）：启用本地视频采集。
+    -   NO：禁用本地视频采集。 |
+
+    返回说明
+
+    0表示设置成功，其他表示设置失败。
 
 -   registerVideoSampleObserver：订阅视频数据输出。
 
@@ -1850,6 +1869,22 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
     返回说明
 
     0表示成功，失败返回错误码。
+
+-   setDeviceVolumeType：设置SDK设备音量类型（仅iOS）。
+
+    ```
+    - (int)setDeviceVolumeType:(AliRtcDeviceVolumeType)type;
+    ```
+
+    参数说明
+
+    |名称|类型|描述|
+    |--|--|--|
+    |type|[AliRtcDeviceVolumeType](/cn.zh-CN/SDK参考/iOS和Mac SDK/数据类型.md)|设备音量类型。|
+
+    返回说明
+
+    0表示设置成功，失败返回错误码。
 
 -   getAudioAccompanyDuration：获取伴奏文件时长，单位为毫秒。
 
