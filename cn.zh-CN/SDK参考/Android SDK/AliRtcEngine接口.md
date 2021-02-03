@@ -91,6 +91,9 @@ keyword: [AliRtcEngine, Android]
 |[isCameraAutoFocus](#li_hwq_92c_3oc)|是否开启自动对焦|1.17|
 |[registerVideoRawDataInterface](#li_jny_vca_q1f)|注册外部视频数据回调接口|1.17|
 |[unRegisterVideoRawDataInterface](#li_g99_o9b_q68)|取消注册外部视频数据回调接口|1.17|
+|[createRenderSurfaceView](#li_a2h_ufk_5z9)|创建SurfaceView渲染视图|1.17.39|
+|[createRenderTextureView](#li_1f0_ouv_bwr)|创建TextureView渲染视图|1.17.39|
+|[enableLocalVideo](#li_ue1_70a_5wc)|禁用或重新启用本地视频采集|1.17.39|
 
 音频相关接口
 
@@ -1454,6 +1457,47 @@ keyword: [AliRtcEngine, Android]
     |名称|类型|描述|
     |--|--|--|
     |streamType|[AliRawDataStreamType](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)|视频流类型。|
+
+-   createRenderSurfaceView：创建SurfaceView渲染视图。
+
+    ```
+    public abstract SophonSurfaceView createRenderSurfaceView(Context context);
+    ```
+
+    参数说明
+
+    |名称|类型|描述|
+    |--|--|--|
+    |context|Context|安卓（Android Activity）的上下文。|
+
+-   createRenderTextureView：创建TextureView渲染视图。
+
+    ```
+    public abstract SophonTextureView createRenderTextureView(Context context);
+    ```
+
+    参数说明
+
+    |名称|类型|描述|
+    |--|--|--|
+    |context|Context|安卓（Android Activity）的上下文。|
+
+-   enableLocalVideo：禁用或重新启用本地视频采集。
+
+    ```
+    public abstract int enableLocalVideo(boolean enabled);
+    ```
+
+    参数说明
+
+    |名称|类型|描述|
+    |--|--|--|
+    |enabled|boolean|禁用或重新启用本地视频采集。取值：    -   YES：启用。
+    -   NO：禁用。 |
+
+    返回说明
+
+    0表示方法调用成功，其他表示调用失败。
 
 -   registerAudioVolumeObserver：注册音量回调。
 
