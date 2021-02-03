@@ -82,6 +82,7 @@ keyword: [Windows SDK, AliRtcEngine]
 |[startRecord](#li_ibs_7or_7f1)|开始录制|1.17|
 |[setBeatutyEffect](#li_6ry_ktc_rwr)|设置基础美颜|1.17.9|
 |[setVideoEncoderConfiguration](#li_id4_n96_0s8)|设置视频编码属性|1.17.31|
+|[setScreenShareSourceByRegion](#li_43m_dpj_ium)|通过指定区域设置屏幕分享源|1.17.38|
 
 音频相关接口
 
@@ -806,6 +807,25 @@ keyword: [Windows SDK, AliRtcEngine]
     |名称|类型|描述|
     |--|--|--|
     |config|[AliRtcVideoEncoderConfiguration](/cn.zh-CN/SDK参考/Windows SDK/数据类型.md)|预定义的视频编码属性。|
+
+-   setScreenShareSourceByRegion：通过指定区域设置屏幕分享源。
+
+    **说明：** 此方法仅适用于桌面共享，设置窗口共享请使用[setScreenShareSource](#li_f8l_0uk_xza)接口。
+
+    ```
+    virtual int setScreenShareSourceByRegion(const AliRtcScreenShareRegion& screenRect, bool isShareByRegion, const AliRtcScreenShareRegion& regionRect) = 0;
+    ```
+
+    参数说明
+
+    |名称|类型|描述|
+    |--|--|--|
+    |screenRect|[AliRtcScreenShareRegion](/cn.zh-CN/SDK参考/Windows SDK/数据类型.md)|指定要共享的屏幕相对于虚拟屏幕的位置。虚拟屏幕位置请参见[The Virtual Screen](https://docs.microsoft.com/en-us/windows/win32/gdi/the-virtual-screen)。|
+    |isShareByRegion|bool|是否只分享指定屏幕内特定区域。|
+    |regionRect|[AliRtcScreenShareRegion](/cn.zh-CN/SDK参考/Windows SDK/数据类型.md)|指定共享屏幕内要分享的区域（isShareByRegion为true时才需赋值）。**说明：**
+
+    -   分享区域最小分辨率为16 x 16，当设置区域小于最小分辨率时重置为最小分辨率。
+    -   分享区域超过实际桌面分辨率时，将分享整个桌面。 |
 
 -   stopRecord： 停止录制。
 
