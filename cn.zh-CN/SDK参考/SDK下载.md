@@ -12,8 +12,8 @@ keyword: [音视频通信时长包 sdk, 免认证实时音视频sdk, openapi sdk
 
 |客户端|集成SDK|API参考|SDK下载地址|示例代码|安装包增量|
 |---|-----|-----|-------|----|-----|
-|iOS|[iOS](/cn.zh-CN/快速入门/集成客户端SDK/iOS.md)|[iOS接口说明](/cn.zh-CN/SDK参考/iOS和Mac SDK/AliRtcEngine接口.md)|[V1.17.39](https://alivc-demo-cms.alicdn.com/versionProduct/sourceCode/rtc/1.17.39/AliRTCSdk_1.17.39(iOS).zip)|[iOS示例代码](https://github.com/aliyunvideo/AliRtcAppSample_iOS)|15.1M|
-|Android|[Android](/cn.zh-CN/快速入门/集成客户端SDK/Android.md)|[Android接口说明](/cn.zh-CN/SDK参考/Android SDK/AliRtcEngine接口.md)|[V1.17.39](https://alivc-demo-cms.alicdn.com/versionProduct/sourceCode/rtc/1.17.39/AliRTCSdk_1.17.39(Android).zip)|[Android示例代码](https://github.com/aliyunvideo/AliRtcAppSample_Android)|jar：782k so（armv7）：4.6M
+|iOS|[iOS](/cn.zh-CN/快速入门/集成客户端SDK/iOS.md)|[iOS接口说明](/cn.zh-CN/SDK参考/iOS和Mac SDK/AliRtcEngine接口.md)|[V1.17.40](https://alivc-demo-cms.alicdn.com/versionProduct/sourceCode/rtc/1.17.40/AliRTCSdk_1.17.40(iOS).zip)|[iOS示例代码](https://github.com/aliyunvideo/AliRtcAppSample_iOS)|15.1M|
+|Android|[Android](/cn.zh-CN/快速入门/集成客户端SDK/Android.md)|[Android接口说明](/cn.zh-CN/SDK参考/Android SDK/AliRtcEngine接口.md)|[V1.17.40](https://alivc-demo-cms.alicdn.com/versionProduct/sourceCode/rtc/1.17.40/AliRTCSdk_1.17.40(Android).zip)|[Android示例代码](https://github.com/aliyunvideo/AliRtcAppSample_Android)|jar：782k so（armv7）：4.6M
 
 so（arm64）：5.1M
 
