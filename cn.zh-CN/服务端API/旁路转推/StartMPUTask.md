@@ -21,7 +21,7 @@
 
  您可以在控制台创建和查询。 |
 |ChannelId|String|是|yourChannelId|频道ID，仅支持传单个ID。 |
-|StreamURL|String|是|rtmp://live-demo.com/live/stream|直播推流地址，仅支持传单个地址。生成规则请参见[推流地址与播流地址（原画）](~~87396~~)。
+|StreamURL|String|是|rtmp://live-demo.com/live/stream|直播推流地址，仅支持传单个地址。生成规则请参见[推流地址和播放地址](~~199339~~)。
 
  **说明：**
 
