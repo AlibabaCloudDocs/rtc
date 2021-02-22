@@ -39,14 +39,22 @@
 
 ## 界面效果展示
 
-RTC产品体验Demo App的效果图如下所示：
+RTC产品体验Demo的效果图如下所示：
 
--   移动端
+-   iOS端——语音聊天室
 
-    ![移动端界面](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/2914988061/p206196.png)
+    ![001](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/0777793161/p242453.png)
+
+-   Android端——视频互动直播
+
+    ![002](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/0777793161/p242454.png)
 
 -   Web端
 
-    ![Web端界面](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/3914988061/p206197.png)
+    ![003](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/0777793161/p242457.png)
+
+    ![004](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/1777793161/p242458.png)
+
+    ![005](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/1777793161/p242459.png)
 
 
