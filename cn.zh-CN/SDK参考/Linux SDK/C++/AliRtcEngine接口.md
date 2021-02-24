@@ -48,6 +48,8 @@
 |---|--|------|
 |[SetExternalVideoSource](#li_gfj_kml_mjj)|设置是否启用外部视频输入源|1.18.1|
 |[PushExternalVideoFrame](#li_y8p_drt_qih)|输入外部视频数据|1.18.1|
+|[AddVideoWatermark](#li_1qe_qv2_hhe)|添加水印|1.18.11|
+|[ClearVideoWatermark](#li_8br_ugg_9we)|清除对应数据流水印信息|1.18.11|
 
 音频相关接口
 
@@ -97,8 +99,8 @@ AliRTCEngineInterface * CreateAliRTCEngine(EngineEventHandlerInterface * eventHa
 |参数名|类型|描述|
 |---|--|--|
 |eventHandler|EngineEventHandlerInterface \*|录制SDK所触发的事件通过EngineEventHandlerInterface类回调通知。|
-|lowPort|int|最小的可用端口。 **说明：** 创建一个SDK实例需要占用一个系统端口进行音视频数据传输，建议端口范围设置为42000～45000，并保证其他服务不会占用此范围的端口。 |
-|highPort|int|最大的可用端口。 **说明：** 创建一个SDK实例需要占用一个系统端口进行音视频数据传输，建议端口范围设置为42000～45000，并保证其他服务不会占用此范围的端口。 |
+|lowPort|int|最小的可用端口。**说明：** 创建一个SDK实例需要占用一个系统端口进行音视频数据传输，建议端口范围设置为42000～45000，并保证其他服务不会占用此范围的端口。 |
+|highPort|int|最大的可用端口。**说明：** 创建一个SDK实例需要占用一个系统端口进行音视频数据传输，建议端口范围设置为42000～45000，并保证其他服务不会占用此范围的端口。 |
 |logPath|const char \*|保存日志的路径。|
 |coreServicePath|const char \*|AliRtcCoreService可执行程序存放的绝对路径。|
 
@@ -277,6 +279,50 @@ AliRTCEngineInterface * CreateAliRTCEngine(EngineEventHandlerInterface * eventHa
     |---|--|--|
     |frame|AliRTCSdk::Linux::[VideoDataSample](/cn.zh-CN/SDK参考/Linux SDK/C++/数据类型.md) \*|帧数据。|
     |sourceType|AliRTCSdk::Linux::[VideoSource](/cn.zh-CN/SDK参考/Linux SDK/C++/数据类型.md)|流类型。|
+
+-   AddVideoWatermark：添加水印。
+
+    ```
+    /**
+     * @brief 通过本地文件路径添加水印
+     * @param sourceType 添加水印的视频流类型
+     * @param image_url 水印图片路径，只支持本地路径
+     * @param options 水印配置
+     * @return 0:接口调用成功，-1:接口调用失败
+     * @note 该接口返回值只表示接口调用是否成功，真正的水印是否添加成功通过回调函数返回
+     */
+    virtual int AddVideoWatermark(AliRTCSdk::Linux::VideoSource sourceType,
+                                  const char* image_url,
+                                  const AliRTCSdk::Linux::WaterMarkConfig & options) = 0;
+    ```
+
+    ```
+    /**
+     * @brief 通过图片内存地址添加水印
+     * @param sourceType 添加水印的视频流类型
+     * @param imageData 水印图片内存地址
+     * @param imageLength 水印图片长度
+     * @param options 水印配置
+     * @return 0:接口调用成功，-1:接口调用失败
+     * @note 该接口返回值只表示接口调用是否成功，真正的水印是否添加成功通过回调函数返回
+     */
+    virtual int AddVideoWatermark(AliRTCSdk::Linux::VideoSource sourceType,
+                                  const uint8_t* imageData,
+                                  const int32_t imageLength,
+                                const AliRTCSdk::Linux::WaterMarkConfig & options) = 0;
+    ```
+
+-   ClearVideoWatermark：清除对应数据流水印信息。
+
+    ```
+    /**
+     * @brief 清除对应数据流水印信息
+     * @param sourceType 清除水印的视频流类型
+     * @return 0:接口调用成功，-1:接口调用失败
+     * @note 该接口返回值只表示接口调用是否成功，真正的水印是否清除成功通过回调函数返回
+     */
+    virtual int ClearVideoWatermark(AliRTCSdk::Linux::VideoSource sourceType) = 0;
+    ```
 
 -   SetExternalAudioSource：设置是否启用外部音频输入推流。返回值，大于等于0表示成功，小于0表示失败。
 
