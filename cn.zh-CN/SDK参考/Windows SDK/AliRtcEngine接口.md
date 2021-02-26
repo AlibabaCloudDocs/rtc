@@ -157,6 +157,7 @@ keyword: [Windows SDK, AliRtcEngine]
 |[getClientRole](#li_x8l_wro_d8z)|获取用户角色|1.17.19|
 |[startIntelligentDenoise](#li_hpd_dpw_lv8)|开启智能降噪|1.17.19|
 |[stopIntelligentDenoise](#li_gcp_tcl_p5w)|关闭智能降噪|1.17.19|
+|[RefreshAuthInfo](#li_nle_9pj_7t0)|刷新令牌|1.17.41|
 
 ## 接口详情
 
@@ -1591,5 +1592,21 @@ keyword: [Windows SDK, AliRtcEngine]
     ```
 
     **说明：** 该接口可以在通话过程中控制关闭智能降噪功能。
+
+-   RefreshAuthInfo：刷新令牌。
+
+    ```
+     virtual int RefreshAuthInfo(const AliRtcAuthInfo& authInfo) = 0;
+    ```
+
+    参数说明
+
+    |名称|类型|描述|
+    |--|--|--|
+    |authInfo|[AliRtcAuthInfo](/cn.zh-CN/SDK参考/Windows SDK/数据类型.md)|新的鉴权信息。|
+
+    返回说明
+
+    0表示刷新令牌成功，其它表示刷新令牌失败。
 
 
