@@ -25,7 +25,7 @@
 |场景|平台|场景简介|示例代码|版本更新|
 |--|--|----|----|----|
 |1对1语音聊天|iOS、Android|[1对1语音聊天简介](/cn.zh-CN/解决方案/1对1语音聊天/简介.md)|[源码下载](https://github.com/aliyun/AliRTC-UserCase-VoiceCallSolution_1To1/tree/master)|无|
-|音视频通话|iOS、Android、Web|敬请期待|敬请期待|无|
+|音视频通话|iOS、Android、Web|[音视频通话简介]()|[源码下载](https://github.com/aliyun/alibabacloud-RTCBeaconTower-demo)|无|
 |互动大班课|-   学生端：iOS、Android
 -   教师端：Web
 
