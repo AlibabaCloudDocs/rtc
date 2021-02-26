@@ -194,6 +194,7 @@ keyword: [AliRtcEngine, Android]
 |[postFeedback](#li_vi0_45j_mms)|SDK问题反馈|1.17.13|
 |[sendMediaExtensionMsg](#li_q9r_vcy_x1t)|发送媒体扩展信息|1.17.1|
 |[respondMessageNotification](#li_fo6_wec_1jl)|发送消息通知|1.17|
+|[refreshAuthInfo](#li_av8_2ll_vat)|刷新令牌|1.17.41|
 
 ## 接口详情
 
@@ -2153,5 +2154,21 @@ public abstract void postFeedback(String uid, String channelId, String descripti
     返回说明
 
     0表示调用成功，其他表示调用失败。
+
+-   refreshAuthInfo：刷新令牌。
+
+    ```
+    public abstract int refreshAuthInfo(AliRtcAuthInfo auth_info);
+    ```
+
+    参数说明
+
+    |参数|类型|描述|
+    |--|--|--|
+    |auth\_info|[AliRtcAuthInfo](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)|用户鉴权信息。|
+
+    返回说明
+
+    0表示刷新令牌成功，其他表示刷新令牌失败。
 
 
