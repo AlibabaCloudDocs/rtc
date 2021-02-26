@@ -216,6 +216,7 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
 -   iOS：1.17.13 |
 |[sendMediaExtensionMsg](#li_ynk_vxv_g9u)|发送媒体扩展信息|1.17.1|
 |[getClientRole](#li_srk_c0i_j20)|获取当前用户角色（仅Mac）|1.17.19|
+|[refreshAuthInfo](#li_2oy_2bm_e72)|刷新令牌|1.17.41|
 
 ## 接口详情
 
@@ -2251,5 +2252,21 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
     返回说明
 
     返回当前用户角色。
+
+-   refreshAuthInfo刷新令牌。
+
+    ```
+    - (int)refreshAuthInfo:(AliRtcAuthInfo *)info;
+    ```
+
+    参数说明
+
+    |名称|类型|描述|
+    |--|--|--|
+    |info|[AliRtcAuthInfo](/cn.zh-CN/SDK参考/iOS和Mac SDK/数据类型.md) \*|新的鉴权信息。|
+
+    返回说明
+
+    0表示刷新令牌成功，其它表示刷新令牌失败。
 
 
