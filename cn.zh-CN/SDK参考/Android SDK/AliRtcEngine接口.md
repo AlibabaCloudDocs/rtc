@@ -4,197 +4,197 @@ keyword: [AliRtcEngine, Android]
 
 # AliRtcEngine接口
 
-本文为您介绍了Android SDK的AliRtcEngine接口详情。
+通过阅读本文，您可以了解到Android SDK的AliRtcEngine接口详情。
 
 ## 目录
 
-**说明：** 1.17及以上版本不再提供ALI\_RTC\_INTERFACE类，1.17以下版本的ALI\_RTC\_INTERFACE参数和枚举类统一迁移到AliRtcEngine类里面。推荐您使用setAutoPublishSubscribe接口设置是否自动发布、是否自动订阅。
+**说明：** 1.17及以上版本不再提供ALI\_RTC\_INTERFACE类，1.17以下版本的ALI\_RTC\_INTERFACE参数和枚举类统一迁移到AliRtcEngine类里面。
 
 基础接口
 
 |API|描述|以上版本支持|
 |---|--|------|
-|[setH5CompatibleMode](#li_kk1_04r_6ux)|设置H5兼容模式|1.1|
-|[getH5CompatibleMode](#li_wq1_9ja_om7)|检查当前是否兼容H5|1.1|
-|[getInstance](#li_pdy_xo7_9in)|创建AliRTCEngine实例（同一时间只会存在一个实例），只能在主线程调用|1.1|
-|[getInstance](#li_qsk_f35_xoz)|创建AliRTCEngine实例，支持通过传入参数配置SDK特别功能（同一时间只会存在一个实例），只能在主线程调用|1.1|
-|[setRtcEngineEventListener](#li_icu_cv1_fdn)|设置本地用户行为的回调事件的监听|1.1|
-|[setRtcEngineNotify](#li_vu7_l6n_4rz)|设置远端用户行为的通知事件的监听|1.1|
-|[destroy](#li_59b_i3u_fbj)|销毁SDK|1.1|
-|[uploadLog](#li_968_ml9_2my)|上传日志|1.15|
+|[setH5CompatibleMode](#li_kk1_04r_6ux)|设置H5兼容模式。|1.1|
+|[getH5CompatibleMode](#li_wq1_9ja_om7)|检查当前是否兼容H5。|1.1|
+|[getInstance](#li_pdy_xo7_9in)|创建AliRTCEngine实例（同一时间只会存在一个实例），只能在主线程调用。|1.1|
+|[getInstance](#li_qsk_f35_xoz)|创建AliRTCEngine实例，支持通过传入参数配置SDK特别功能（同一时间只会存在一个实例），只能在主线程调用。|1.1|
+|[setRtcEngineEventListener](#li_icu_cv1_fdn)|设置本地用户行为的回调事件的监听。|1.1|
+|[setRtcEngineNotify](#li_vu7_l6n_4rz)|设置远端用户行为的通知事件的监听。|1.1|
+|[destroy](#li_59b_i3u_fbj)|销毁SDK。|1.1|
+|[uploadLog](#li_968_ml9_2my)|上传日志。|1.15|
 
 频道相关接口
 
 |API|描述|以上版本支持|
 |---|--|------|
-|[setAutoPublish](#li_n0w_col_w8x)|设置是否自动发布，是否自动订阅|1.1|
-|[joinChannel](#li_sa3_855_y55)|加入频道|1.1|
-|[leaveChannel](#li_85b_o3m_nin)|离开频道|1.1|
-|[isInCall](#li_f5f_haq_bcx)|检查当前是否在频道中|1.1|
-|[setChannelProfile](#li_gws_rtd_yjc)|设置频道模式|1.15|
-|[setAutoPublishSubscribe](#li_k0i_cs3_gu5)|设置是否自动发布或自动订阅|1.17|
+|[setAutoPublish](#li_n0w_col_w8x)|设置是否自动发布，是否自动订阅。推荐您使用[setAutoPublishSubscribe](#li_k0i_cs3_gu5)接口代替实现此功能。|1.1|
+|[joinChannel](#li_sa3_855_y55)|加入频道。|1.1|
+|[leaveChannel](#li_85b_o3m_nin)|离开频道。|1.1|
+|[isInCall](#li_f5f_haq_bcx)|检查当前是否在频道中。|1.1|
+|[setChannelProfile](#li_gws_rtd_yjc)|设置频道模式。|1.15|
+|[setAutoPublishSubscribe](#li_k0i_cs3_gu5)|设置是否自动发布或自动订阅。|1.17|
 
 发布相关接口
 
 |API|描述|以上版本支持|
 |---|--|------|
-|[isAutoPublish](#li_ojl_tan_suf)|查询当前是否为自动发布模式|1.1|
-|[configLocalCameraPublish](#li_f95_zwd_2b6)|设置是否允许发布相机流|1.1|
-|[isLocalCameraPublishEnabled](#li_985_026_dic)|查询当前是否允许发布相机流|1.1|
-|[configLocalScreenPublish](#li_ntd_ygm_kdr)|设置是否允许发布屏幕流|1.1|
-|[isLocalScreenPublishEnabled](#li_w2n_fvq_gd8)|查询当前是否允许发布屏幕流|1.1|
-|[configLocalAudioPublish](#li_7cz_k4k_7a1)|设置是否允许发布音频流|1.1|
-|[isLocalAudioPublishEnabled](#li_qqs_i72_9n6)|查询当前是否允许发布音频流|1.1|
-|[configLocalSimulcast](#li_wlf_1jl_o7q)|设置是否允许发布次要视频流|1.1|
-|[isLocalSimulcastEnabled](#li_kft_qow_6oi)|查询当前是否允许发布次要视频流|1.1|
-|[publish](#li_x0v_woq_nnc)|手动发布视频和音频流|1.1|
+|[isAutoPublish](#li_ojl_tan_suf)|查询当前是否为自动发布模式。|1.1|
+|[configLocalCameraPublish](#li_f95_zwd_2b6)|设置是否允许发布相机流。|1.1|
+|[isLocalCameraPublishEnabled](#li_985_026_dic)|查询当前是否允许发布相机流。|1.1|
+|[configLocalScreenPublish](#li_ntd_ygm_kdr)|设置是否允许发布屏幕流。|1.1|
+|[isLocalScreenPublishEnabled](#li_w2n_fvq_gd8)|查询当前是否允许发布屏幕流。|1.1|
+|[configLocalAudioPublish](#li_7cz_k4k_7a1)|设置是否允许发布音频流。|1.1|
+|[isLocalAudioPublishEnabled](#li_qqs_i72_9n6)|查询当前是否允许发布音频流。|1.1|
+|[configLocalSimulcast](#li_wlf_1jl_o7q)|设置是否允许发布次要视频流。|1.1|
+|[isLocalSimulcastEnabled](#li_kft_qow_6oi)|查询当前是否允许发布次要视频流。|1.1|
+|[publish](#li_x0v_woq_nnc)|手动发布视频和音频流。|1.1|
 
 订阅相关接口
 
 |API|描述|以上版本支持|
 |---|--|------|
-|[isAutoSubscribe](#li_mhw_cxn_947)|查询当前是否为自动订阅模式|1.1|
-|[configRemoteCameraTrack](#li_gv4_qr3_yxd)|设置是否订阅远端相机流|1.1|
-|[configRemoteScreenTrack](#li_yz3_qcc_wci)|设置是否订阅远端屏幕流|1.1|
-|[configRemoteAudio](#li_m90_crx_cyu)|设置是否订阅远端音频流|1.1|
-|[subscribe](#li_i69_su8_ng6)|手动订阅视频和音频流|1.1|
-|[registerTexturePreObserver](#li_qz9_udo_80g)|订阅前处理纹理数据|1.15|
-|[unRegisterTexturePreObserver](#li_a2t_pl2_tmt)|取消订阅前处理阅纹理数据|1.15|
+|[isAutoSubscribe](#li_mhw_cxn_947)|查询当前是否为自动订阅模式。|1.1|
+|[configRemoteCameraTrack](#li_gv4_qr3_yxd)|设置是否订阅远端相机流。|1.1|
+|[configRemoteScreenTrack](#li_yz3_qcc_wci)|设置是否订阅远端屏幕流。|1.1|
+|[configRemoteAudio](#li_m90_crx_cyu)|设置是否订阅远端音频流。|1.1|
+|[subscribe](#li_i69_su8_ng6)|手动订阅视频和音频流。|1.1|
+|[registerTexturePreObserver](#li_qz9_udo_80g)|订阅前处理纹理数据。|1.15|
+|[unRegisterTexturePreObserver](#li_a2t_pl2_tmt)|取消订阅前处理阅纹理数据。|1.15|
 
 视频相关接口
 
 |API|描述|以上版本支持|
 |---|--|------|
-|[setVideoProfile](#li_mfy_law_p9u)|设置视频流的参数|1.1|
-|[getVideoProfile](#li_hd4_2kp_bth)|查询当前视频流参数|1.1|
-|[setLocalViewConfig](#li_a11_wvh_suy)|为本地预览设置渲染窗口以及绘制参数|1.1|
-|[muteLocalCamera](#li_tv8_5wp_myj)|设置是否停止发布本地视频流|1.1|
-|[setRemoteViewConfig](#li_o9j_h6u_sct)|为远端的视频设置渲染窗口以及绘制参数|1.1|
-|[switchCamera](#li_ysn_omu_f5w)|切换前后摄像头|1.1|
-|[getCurrentCameraType](#li_76i_grc_ger)|获取当前摄像头类型|1.1|
-|[setPreCameraType](#li_xnp_jbr_q7j)|预设值摄像头方向|1.1|
-|[getPreCameraType](#li_wz9_cts_8ed)|获取预设值摄像头方向|1.1|
-|[setCameraZoom](#li_rbn_p4j_i6s)|设置摄像头参数|1.1|
-|[isCameraOn](#li_rbs_tbh_1hr)|检查摄像头是否打开|1.1|
-|[isCameraSupportExposurePoint](#p_y4o_k7e_qef)|相机是否支持手动曝光|1.14|
-|[isCameraSupportFocusPoint](#p_6r0_9oi_mnp)|相机是否支持手动聚焦|1.14|
-|[setCameraExposurePoint](#p_yc7_zte_670)|设置手动曝光的坐标点|1.14|
-|[setCameraFocusPoint](#p_3t6_1n0_aqp)|设置手动聚焦的坐标点|1.14|
-|[isCameraFlash](#p_0x6_qmk_buf)|是否开启了闪光灯|1.14|
-|[getCameraZoom](#p_wqr_v9v_667)|获取相机的zoom（变焦）值|1.14|
-|[registerPreprocessVideoObserver](#p_n1m_7h0_3nd)|注册人脸识别预处理|1.14|
-|[muteAllRemoteVideoRendering](#li_g7l_yl8_eyj)|mute或unmute远端的所有视频track的渲染|1.16.2|
-|[setBeautyEffect](#li_aoy_4dz_gl4)|设置基础美颜|1.17.9|
-|[registerVideoSampleObserver](#li_wuz_ib9_pbb)|注册视频数据回调|1.17|
-|[unRegisterVideoSampleObserver](#li_y35_07t_0nt)|取消注册视频数据回调|1.17|
-|[setVideoEncoderConfiguration](#li_k0c_u92_2vq)|设置视频编码属性|1.17.31|
-|[isCameraAutoFocus](#li_hwq_92c_3oc)|是否开启自动对焦|1.17|
-|[registerVideoRawDataInterface](#li_jny_vca_q1f)|注册外部视频数据回调接口|1.17|
-|[unRegisterVideoRawDataInterface](#li_g99_o9b_q68)|取消注册外部视频数据回调接口|1.17|
-|[createRenderSurfaceView](#li_a2h_ufk_5z9)|创建SurfaceView渲染视图|1.17.39|
-|[createRenderTextureView](#li_1f0_ouv_bwr)|创建TextureView渲染视图|1.17.39|
-|[enableLocalVideo](#li_ue1_70a_5wc)|禁用或重新启用本地视频采集|1.17.39|
+|[setVideoProfile](#li_mfy_law_p9u)|设置视频流的参数。|1.1|
+|[getVideoProfile](#li_hd4_2kp_bth)|查询当前视频流参数。|1.1|
+|[setLocalViewConfig](#li_a11_wvh_suy)|为本地预览设置渲染窗口以及绘制参数。|1.1|
+|[muteLocalCamera](#li_tv8_5wp_myj)|设置是否停止发布本地视频流。|1.1|
+|[setRemoteViewConfig](#li_o9j_h6u_sct)|为远端的视频设置渲染窗口以及绘制参数。|1.1|
+|[switchCamera](#li_ysn_omu_f5w)|切换前后摄像头。|1.1|
+|[getCurrentCameraType](#li_76i_grc_ger)|获取当前摄像头类型。|1.1|
+|[setPreCameraType](#li_xnp_jbr_q7j)|预设值摄像头方向。|1.1|
+|[getPreCameraType](#li_wz9_cts_8ed)|获取预设值摄像头方向。|1.1|
+|[setCameraZoom](#li_rbn_p4j_i6s)|设置摄像头参数。|1.1|
+|[isCameraOn](#li_rbs_tbh_1hr)|检查摄像头是否打开。|1.1|
+|[isCameraSupportExposurePoint](#p_y4o_k7e_qef)|相机是否支持手动曝光。|1.14|
+|[isCameraSupportFocusPoint](#p_6r0_9oi_mnp)|相机是否支持手动聚焦。|1.14|
+|[setCameraExposurePoint](#p_yc7_zte_670)|设置手动曝光的坐标点。|1.14|
+|[setCameraFocusPoint](#p_3t6_1n0_aqp)|设置手动聚焦的坐标点。|1.14|
+|[isCameraFlash](#p_0x6_qmk_buf)|是否开启了闪光灯。|1.14|
+|[getCameraZoom](#p_wqr_v9v_667)|获取相机的zoom（变焦）值。|1.14|
+|[registerPreprocessVideoObserver](#p_n1m_7h0_3nd)|注册人脸识别预处理。|1.14|
+|[muteAllRemoteVideoRendering](#li_g7l_yl8_eyj)|mute或unmute远端的所有视频track的渲染。|1.16.2|
+|[setBeautyEffect](#li_aoy_4dz_gl4)|设置基础美颜。|1.17.9|
+|[registerVideoSampleObserver](#li_wuz_ib9_pbb)|注册视频数据回调。|1.17|
+|[unRegisterVideoSampleObserver](#li_y35_07t_0nt)|取消注册视频数据回调。|1.17|
+|[setVideoEncoderConfiguration](#li_k0c_u92_2vq)|设置视频编码属性。|1.17.31|
+|[isCameraAutoFocus](#li_hwq_92c_3oc)|是否开启自动对焦。|1.17|
+|[registerVideoRawDataInterface](#li_jny_vca_q1f)|注册外部视频数据回调接口。|1.17|
+|[unRegisterVideoRawDataInterface](#li_g99_o9b_q68)|取消注册外部视频数据回调接口。|1.17|
+|[createRenderSurfaceView](#li_a2h_ufk_5z9)|创建SurfaceView渲染视图。|1.17.39|
+|[createRenderTextureView](#li_1f0_ouv_bwr)|创建TextureView渲染视图。|1.17.39|
+|[enableLocalVideo](#li_ue1_70a_5wc)|禁用或重新启用本地视频采集。|1.17.39|
 
 音频相关接口
 
 |API|描述|以上版本支持|
 |---|--|------|
-|[setAudioOnlyMode](#li_qpx_158_6w6)|设置为纯音频模式还是音视频模式|1.1|
-|[isAudioOnly](#li_cwx_qty_qbb)|查询当前是否为纯音频模式|1.1|
-|[muteRemoteAudioPlaying](#li_wlu_fck_m75)|设置是否停止播放远端音频流|1.1|
-|[enableSpeakerphone](#li_xto_65v_jbg)|切换听筒、扬声器输出|1.1|
-|[isSpeakerOn](#li_x8k_hqf_0tw)|查询是否开启扬声器|1.1|
-|[startAudioCapture](#li_g46_fsz_4kc)|开启音频采集|1.11|
-|[stopAudioCapture](#li_o2b_5d5_k55)|关闭音频采集|1.11|
-|[startAudioPlayer](#li_77n_4my_cr4)|开启音频播放|1.11|
-|[stopAudioPlayer](#li_ujt_2yy_ii5)|关闭音频播放|1.11|
-|[enableEarBack](#li_8ju_0go_yy1)|启用耳返|1.15|
-|[startAudioAccompany](#li_0u9_6os_ak6)|开始播放伴奏|1.15|
-|[pauseAudioAccompany](#li_2v6_188_ah0)|暂停播放伴奏|1.15|
-|[resumeAudioAccompany](#li_tc9_d0h_qf9)|恢复播放伴奏|1.15|
-|[stopAudioAccompany](#li_jek_esa_4yu)|结束播放伴奏|1.15|
-|[setAudioAccompanyPublishVolume](#li_nn8_9ze_8on)|设置伴奏推流音量|1.15|
-|[setAudioAccompanyPlayoutVolume](#li_llk_b64_fnw)|设置伴奏本地音量|1.15|
-|[getAudioAccompanyPublishVolume](#li_2e0_voz_te4)|获取伴奏推流音量|1.15|
-|[getAudioAccompanyPlayoutVolume](#li_3wj_1mh_c1r)|获取伴奏本地音量|1.15|
-|[setAudioAccompanyVolume](#li_6mp_gxe_ca2)|设置伴奏推流和本地音量|1.15|
-|[preloadAudioEffect](#li_ir1_p0g_d9a)|预加载音效|1.15|
-|[unloadAudioEffect](#li_m5e_353_26b)|清除预加载音效|1.15|
-|[playAudioEffect](#li_try_bjm_0sh)|开始播放音效|1.15|
-|[setAudioEffectPublishVolume](#li_gvv_px1_alm)|设置音效推流音量|1.15|
-|[getAudioEffectPublishVolume](#li_5kj_dgf_cva)|获取音效推流音量|1.15|
-|[setAudioEffectPlayoutVolume](#li_4sm_sns_e9q)|设置音效本地音量|1.15|
-|[getAudioEffectPlayoutVolume](#li_r7q_lif_dla)|获取音效本地音量|1.15|
-|[pauseAudioEffect](#li_uof_c81_x9l)|暂停播放音效|1.15|
-|[resumeAudioEffect](#li_odh_3fo_aip)|恢复播放音效|1.15|
-|[stopAudioEffect](#li_1hp_b74_9cd)|停止播放音效|1.15|
-|[setEarBackVolume](#li_zn0_q9c_g36)|设置耳返音量|1.15|
-|[setRecordingVolume](#li_naz_gly_cns)|设置录音音量|1.16|
-|[setPlayoutVolume](#li_wfa_f83_lmw)|设置播放音量|1.16|
-|[muteAllRemoteAudioPlaying](#li_jhb_sgi_ab4)|停止远端的所有音频流的播放|1.16.2|
-|[registerAudioVolumeObserver](#li_qib_6lx_z5k)|注册音量回调|1.16.2|
-|[unRegisterAudioVolumeObserver](#li_u2o_2ad_d5m)|取消注册音量回调|1.16.2|
-|[startRecord](#li_3av_jke_wo4)|开始录制文件|1.17|
-|[stopRecord](#li_gpx_6oi_9a3)|停止录制文件|1.17|
-|[setAudioEffectReverbMode](#li_yfc_42y_55e)|设置混响音效模式|1.17|
-|[setAudioEffectReverbParamType](#li_fxm_avd_i0c)|设置混响音效类型|1.17|
-|[setVolumeCallbackIntervalMs](#li_icv_m3o_c7a)|设置音量回调频率和平滑系数|1.17|
-|[setExternalAudioSource](#li_6xs_t4c_lmv)|设置是否将外部音频数据作为推流的输入源|1.17.9|
-|[pushExternalAudioFrameRawData](#li_mjo_nu2_gka)|输入音频数据|1.17.9|
-|[setExternalAudioVolume](#li_qc7_5yk_cd9)|设置外部音频输入音量|1.17.9|
-|[getExternalAudioVolume](#li_hcj_ni7_01q)|获取外部音频输入音量|1.17.9|
-|[setMixedWithMic](#li_51g_9cp_n0h)|设置外部音频输入是否与麦克风采集音频混合|1.17.9|
-|[setExteranlAudioRender](#li_wsf_k31_72b)|设置是否启用外部输入音频播放|1.17.9|
-|[pushExternalAudioRenderRawData](#li_doq_352_mwd)|输入音频播放数据|1.17.9|
-|[getCurrentClientRole](#li_scn_0s2_cyp)|获取当前角色|1.17.9|
-|[setSubscribeAudioNumChannel](#li_29x_gdk_ae3)|设置回调音频声道数|1.17.13|
-|[setSubscribeAudioSampleRate](#li_e5s_07m_i1v)|设置回调音频采样率|1.17.13|
-|[requestAudioFocus](#li_ntb_ozk_tio)|请求音频焦点|1.17.19|
-|[abandonAudioFocus](#li_731_6rm_u9l)|丢失音频焦点|1.17.19|
-|[registerAudioObserver](#li_zhd_6te_0so)|注册音频数据回调|1.17|
-|[muteLocalMic](#li_6xu_3v5_vcp)|本地音频采集|1.17.30|
-|[getAudioAccompanyDuration](#li_r2a_9w7_84d)|获取伴奏文件时长|1.17.30|
-|[getAudioAccompanyCurrentPosition](#li_k49_zya_wv8)|获取音乐文件播放进度|1.17.30|
-|[setAudioAccompanyPosition](#li_zsf_0oo_4yb)|设置音频文件的播放位置|1.17.30|
-|[stopAllAudioEffects](#li_pi1_nqc_dmc)|停止播放所有音效|1.17.30|
-|[setAllAudioEffectsPublishVolume](#li_u2f_r6q_moi)|设置所有音效推流音量|1.17.30|
-|[setAllAudioEffectsPlayoutVolume](#li_zjd_w2r_dzr)|设置所有音效本地播放音量|1.17.30|
-|[pauseAllAudioEffects](#li_oil_c5q_4kg)|暂停所有音效|1.17.30|
-|[resumeAllAudioEffects](#li_eav_nmv_siw)|重新开始播放所有音效|1.17.30|
-|[unRegisterAudioObserver](#li_cte_hj4_9pv)|取消注册音频数据回调|1.17|
+|[setAudioOnlyMode](#li_qpx_158_6w6)|设置为纯音频模式还是音视频模式。|1.1|
+|[isAudioOnly](#li_cwx_qty_qbb)|查询当前是否为纯音频模式。|1.1|
+|[muteRemoteAudioPlaying](#li_wlu_fck_m75)|设置是否停止播放远端音频流。|1.1|
+|[enableSpeakerphone](#li_xto_65v_jbg)|切换听筒、扬声器输出。|1.1|
+|[isSpeakerOn](#li_x8k_hqf_0tw)|查询是否开启扬声器。|1.1|
+|[startAudioCapture](#li_g46_fsz_4kc)|开启音频采集。|1.11|
+|[stopAudioCapture](#li_o2b_5d5_k55)|关闭音频采集。|1.11|
+|[startAudioPlayer](#li_77n_4my_cr4)|开启音频播放。|1.11|
+|[stopAudioPlayer](#li_ujt_2yy_ii5)|关闭音频播放。|1.11|
+|[enableEarBack](#li_8ju_0go_yy1)|启用耳返。|1.15|
+|[startAudioAccompany](#li_0u9_6os_ak6)|开始播放伴奏。|1.15|
+|[pauseAudioAccompany](#li_2v6_188_ah0)|暂停播放伴奏。|1.15|
+|[resumeAudioAccompany](#li_tc9_d0h_qf9)|恢复播放伴奏。|1.15|
+|[stopAudioAccompany](#li_jek_esa_4yu)|结束播放伴奏。|1.15|
+|[setAudioAccompanyPublishVolume](#li_nn8_9ze_8on)|设置伴奏推流音量。|1.15|
+|[setAudioAccompanyPlayoutVolume](#li_llk_b64_fnw)|设置伴奏本地音量。|1.15|
+|[getAudioAccompanyPublishVolume](#li_2e0_voz_te4)|获取伴奏推流音量。|1.15|
+|[getAudioAccompanyPlayoutVolume](#li_3wj_1mh_c1r)|获取伴奏本地音量。|1.15|
+|[setAudioAccompanyVolume](#li_6mp_gxe_ca2)|设置伴奏推流和本地音量。|1.15|
+|[preloadAudioEffect](#li_ir1_p0g_d9a)|预加载音效。|1.15|
+|[unloadAudioEffect](#li_m5e_353_26b)|清除预加载音效。|1.15|
+|[playAudioEffect](#li_try_bjm_0sh)|开始播放音效。|1.15|
+|[setAudioEffectPublishVolume](#li_gvv_px1_alm)|设置音效推流音量。|1.15|
+|[getAudioEffectPublishVolume](#li_5kj_dgf_cva)|获取音效推流音量。|1.15|
+|[setAudioEffectPlayoutVolume](#li_4sm_sns_e9q)|设置音效本地音量。|1.15|
+|[getAudioEffectPlayoutVolume](#li_r7q_lif_dla)|获取音效本地音量。|1.15|
+|[pauseAudioEffect](#li_uof_c81_x9l)|暂停播放音效。|1.15|
+|[resumeAudioEffect](#li_odh_3fo_aip)|恢复播放音效。|1.15|
+|[stopAudioEffect](#li_1hp_b74_9cd)|停止播放音效。|1.15|
+|[setEarBackVolume](#li_zn0_q9c_g36)|设置耳返音量。|1.15|
+|[setRecordingVolume](#li_naz_gly_cns)|设置录音音量。|1.16|
+|[setPlayoutVolume](#li_wfa_f83_lmw)|设置播放音量。|1.16|
+|[muteAllRemoteAudioPlaying](#li_jhb_sgi_ab4)|停止远端的所有音频流的播放。|1.16.2|
+|[registerAudioVolumeObserver](#li_qib_6lx_z5k)|注册音量回调。|1.16.2|
+|[unRegisterAudioVolumeObserver](#li_u2o_2ad_d5m)|取消注册音量回调。|1.16.2|
+|[startRecord](#li_3av_jke_wo4)|开始录制文件。|1.17|
+|[stopRecord](#li_gpx_6oi_9a3)|停止录制文件。|1.17|
+|[setAudioEffectReverbMode](#li_yfc_42y_55e)|设置混响音效模式。|1.17|
+|[setAudioEffectReverbParamType](#li_fxm_avd_i0c)|设置混响音效类型。|1.17|
+|[setVolumeCallbackIntervalMs](#li_icv_m3o_c7a)|设置音量回调频率和平滑系数。|1.17|
+|[setExternalAudioSource](#li_6xs_t4c_lmv)|设置是否将外部音频数据作为推流的输入源。|1.17.9|
+|[pushExternalAudioFrameRawData](#li_mjo_nu2_gka)|输入音频数据。|1.17.9|
+|[setExternalAudioVolume](#li_qc7_5yk_cd9)|设置外部音频输入音量。|1.17.9|
+|[getExternalAudioVolume](#li_hcj_ni7_01q)|获取外部音频输入音量。|1.17.9|
+|[setMixedWithMic](#li_51g_9cp_n0h)|设置外部音频输入是否与麦克风采集音频混合。|1.17.9|
+|[setExteranlAudioRender](#li_wsf_k31_72b)|设置是否启用外部输入音频播放。|1.17.9|
+|[pushExternalAudioRenderRawData](#li_doq_352_mwd)|输入音频播放数据。|1.17.9|
+|[getCurrentClientRole](#li_scn_0s2_cyp)|获取当前角色。|1.17.9|
+|[setSubscribeAudioNumChannel](#li_29x_gdk_ae3)|设置回调音频声道数。|1.17.13|
+|[setSubscribeAudioSampleRate](#li_e5s_07m_i1v)|设置回调音频采样率。|1.17.13|
+|[requestAudioFocus](#li_ntb_ozk_tio)|请求音频焦点。|1.17.19|
+|[abandonAudioFocus](#li_731_6rm_u9l)|丢失音频焦点。|1.17.19|
+|[registerAudioObserver](#li_zhd_6te_0so)|注册音频数据回调。|1.17|
+|[muteLocalMic](#li_6xu_3v5_vcp)|本地音频采集。|1.17.30|
+|[getAudioAccompanyDuration](#li_r2a_9w7_84d)|获取伴奏文件时长。|1.17.30|
+|[getAudioAccompanyCurrentPosition](#li_k49_zya_wv8)|获取音乐文件播放进度。|1.17.30|
+|[setAudioAccompanyPosition](#li_zsf_0oo_4yb)|设置音频文件的播放位置。|1.17.30|
+|[stopAllAudioEffects](#li_pi1_nqc_dmc)|停止播放所有音效。|1.17.30|
+|[setAllAudioEffectsPublishVolume](#li_u2f_r6q_moi)|设置所有音效推流音量。|1.17.30|
+|[setAllAudioEffectsPlayoutVolume](#li_zjd_w2r_dzr)|设置所有音效本地播放音量。|1.17.30|
+|[pauseAllAudioEffects](#li_oil_c5q_4kg)|暂停所有音效。|1.17.30|
+|[resumeAllAudioEffects](#li_eav_nmv_siw)|重新开始播放所有音效。|1.17.30|
+|[unRegisterAudioObserver](#li_cte_hj4_9pv)|取消注册音频数据回调。|1.17|
 
 预览接口
 
 |API|描述|以上版本支持|
 |---|--|------|
-|[startPreview](#li_6nq_nbt_fnj)|开始本地预览|1.1|
-|[stopPreview](#li_9f6_e1s_bco)|停止本地预览|1.1|
-|[enableHighDefinitionPreview](#li_81c_3x0_ntd)|是否开启高清预览|1.16|
+|[startPreview](#li_6nq_nbt_fnj)|开始本地预览。|1.1|
+|[stopPreview](#li_9f6_e1s_bco)|停止本地预览。|1.1|
+|[enableHighDefinitionPreview](#li_81c_3x0_ntd)|是否开启高清预览。|1.16|
 
 远端用户查询接口
 
 |API|描述|以上版本支持|
 |---|--|------|
-|[getOnlineRemoteUsers](#li_m40_6lw_lzj)|获取远端在线用户列表|1.1|
-|[getUserInfo](#li_tpg_8dp_rqf)|查询远端用户信息|1.1|
-|[isUserOnline](#li_irn_g7z_gbv)|查询用户是否在线|1.1|
-|[getMediaInfoWithUserId](#li_c3d_clo_1ly)|获取媒体流信息|1.9|
+|[getOnlineRemoteUsers](#li_m40_6lw_lzj)|获取远端在线用户列表。|1.1|
+|[getUserInfo](#li_tpg_8dp_rqf)|查询远端用户信息。|1.1|
+|[isUserOnline](#li_irn_g7z_gbv)|查询用户是否在线。|1.1|
+|[getMediaInfoWithUserId](#li_c3d_clo_1ly)|获取媒体流信息。|1.9|
 
 其他接口
 
 |API|描述|以上版本支持|
 |---|--|------|
-|[setLogLevel](#li_ayc_d69_im9)|设置日志级别|1.1|
-|[getSdkVersion](#li_97g_hks_qnu)|获取SDK版本号|1.1|
-|[setClientRole](#li_5um_nfc_p65)|设置用户角色|1.16|
-|[setLogDirPath](#li_z39_we0_bcn)|设置SDK日志文件保存路径|1.16.2|
-|[setDeviceOrientationMode](#li_5vd_oz0_ja4)|设置设备横竖屏方向|1.16.2|
-|[startNetworkQualityProbeTest](#li_uat_bok_sb0)|开始网络质量探测|1.16.2|
-|[stopNetworkQualityProbeTest](#li_dpb_pxp_lco)|停止网络质量探测|1.16.2|
-|[postFeedback](#li_vi0_45j_mms)|SDK问题反馈|1.17.13|
-|[sendMediaExtensionMsg](#li_q9r_vcy_x1t)|发送媒体扩展信息|1.17.1|
-|[respondMessageNotification](#li_fo6_wec_1jl)|发送消息通知|1.17|
-|[refreshAuthInfo](#li_av8_2ll_vat)|刷新令牌|1.17.41|
+|[setLogLevel](#li_ayc_d69_im9)|设置日志级别。|1.1|
+|[getSdkVersion](#li_97g_hks_qnu)|获取SDK版本号。|1.1|
+|[setClientRole](#li_5um_nfc_p65)|设置用户角色。|1.16|
+|[setLogDirPath](#li_z39_we0_bcn)|设置SDK日志文件保存路径。|1.16.2|
+|[setDeviceOrientationMode](#li_5vd_oz0_ja4)|设置设备横竖屏方向。|1.16.2|
+|[startNetworkQualityProbeTest](#li_uat_bok_sb0)|开始网络质量探测。|1.16.2|
+|[stopNetworkQualityProbeTest](#li_dpb_pxp_lco)|停止网络质量探测。|1.16.2|
+|[postFeedback](#li_vi0_45j_mms)|SDK问题反馈。|1.17.13|
+|[sendMediaExtensionMsg](#li_q9r_vcy_x1t)|发送媒体扩展信息。|1.17.1|
+|[respondMessageNotification](#li_fo6_wec_1jl)|发送消息通知。|1.17|
+|[refreshAuthInfo](#li_av8_2ll_vat)|刷新令牌。|1.17.41|
 
 ## 接口详情
 
@@ -444,7 +444,7 @@ keyword: [AliRtcEngine, Android]
 
     |名称|类型|描述|
     |--|--|--|
-    |enable|boolean|true表示允许发布屏幕流，false表示不允许。默认为不允许发布屏幕流|
+    |enable|boolean|true表示允许发布屏幕流，false表示不允许。默认为不允许发布屏幕流。|
 
     **说明：** 手动发布时，需要调用publish才能生效。
 
@@ -1323,7 +1323,7 @@ keyword: [AliRtcEngine, Android]
 
     |名称|类型|描述|
     |--|--|--|
-    |volume|int|音量。取值：0~400，0表示静音，默认取值100。    -   当设置大于100：放大音量。
+    |volume|int|音量。取值：0~400，0表示静音，默认取值100。     -   当设置大于100：放大音量。
     -   当设置小于100：减小音量。 |
 
     返回说明
@@ -1342,7 +1342,7 @@ keyword: [AliRtcEngine, Android]
 
     |名称|类型|描述|
     |--|--|--|
-    |volume|int|音量。取值：0~400，0表示静音，默认取值100。    -   当设置大于100：放大音量。
+    |volume|int|音量。取值：0~400，0表示静音，默认取值100。     -   当设置大于100：放大音量。
     -   当设置小于100：减小音量。 |
 
     返回说明
@@ -1493,7 +1493,7 @@ keyword: [AliRtcEngine, Android]
 
     |名称|类型|描述|
     |--|--|--|
-    |enabled|boolean|禁用或重新启用本地视频采集。取值：    -   YES：启用。
+    |enabled|boolean|禁用或重新启用本地视频采集。取值：     -   YES：启用。
     -   NO：禁用。 |
 
     返回说明
@@ -1781,8 +1781,8 @@ keyword: [AliRtcEngine, Android]
 
     |名称|类型|描述|
     |--|--|--|
-    |audioType|[AliAudioType](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)|回调音频数据的类型|
-    |audioObserver|[AliAudioObserver](/cn.zh-CN/SDK参考/Android SDK/回调及监听.md)|音频数据回调接口|
+    |audioType|[AliAudioType](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)|回调音频数据的类型。|
+    |audioObserver|[AliAudioObserver](/cn.zh-CN/SDK参考/Android SDK/回调及监听.md)|音频数据回调接口。|
 
 -   muteLocalMic：本地音频采集。
 
@@ -1795,7 +1795,7 @@ keyword: [AliRtcEngine, Android]
     |名称|类型|描述|
     |--|--|--|
     |mute|boolean|YES表示本地音频采集空帧，NO表示本地音频不采集空帧。|
-    |mode|AliRtcMuteLocalAudioMode|本地静音模式|
+    |mode|AliRtcMuteLocalAudioMode|本地静音模式。|
 
     返回说明
 
@@ -1823,7 +1823,7 @@ keyword: [AliRtcEngine, Android]
 
     |名称|类型|描述|
     |--|--|--|
-    |posMs|AliRtcMuteLocalAudioMode|本地静音模式|
+    |posMs|AliRtcMuteLocalAudioMode|本地静音模式。|
 
     返回说明
 
