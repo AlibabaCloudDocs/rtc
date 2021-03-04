@@ -1,10 +1,10 @@
 ---
-keyword: [iOS SDK, AliRtcEngine, Mac]
+keyword: [iOS SDK, Mac SDK, AliRtcEngine]
 ---
 
 # AliRtcEngine接口
 
-本文为您介绍了iOS SDK和Mac SDK的AliRtcEngine接口详情。
+通过阅读本文，您可以了解到iOS SDK和Mac SDK的AliRtcEngine接口详情。
 
 ## 目录
 
@@ -12,211 +12,211 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
 
 |API|描述|以上版本支持|
 |---|--|------|
-|[setH5CompatibleMode](#li_zvd_xcd_bxn)|设置H5兼容模式|1.1|
-|[getH5CompatibleMode](#li_71g_5p7_32q)|检查当前是否兼容H5|1.1|
-|[sharedInstance](#li_fmb_gdb_ge2)|创建AliRtcEngine实例（同一时间只会存在一个实例）|1.1|
-|[destroy](#p_5hl_yyf_r60)|销毁SDK|1.1|
+|[setH5CompatibleMode](#li_zvd_xcd_bxn)|设置H5兼容模式。|1.1|
+|[getH5CompatibleMode](#li_71g_5p7_32q)|检查当前是否兼容H5。|1.1|
+|[sharedInstance](#li_fmb_gdb_ge2)|创建AliRtcEngine实例（同一时间只会存在一个实例）。|1.1|
+|[destroy](#p_5hl_yyf_r60)|SDK资源释放。|1.1|
 
 频道相关接口
 
 |API|描述|以上版本支持|
 |---|--|------|
-|[setAutoPublish](#li_lft_8h9_jqi)|设置是否自动发布，是否自动订阅|1.1|
-|[joinChannel](#li_z31_yrd_vbt)|加入频道|1.1|
-|[leaveChannel](#li_l7y_g8o_fgg)|离开频道|1.1|
-|[isInCall](#li_0ca_603_a3d)|检查当前是否在频道中|1.1|
-|[setChannelProfile](#li_5kv_g49_ikw)|设置频道模式|1.15|
+|[setAutoPublish](#li_lft_8h9_jqi)|设置是否自动发布，是否自动订阅。|1.1|
+|[joinChannel](#li_z31_yrd_vbt)|加入频道。|1.1|
+|[leaveChannel](#li_l7y_g8o_fgg)|离开频道。|1.1|
+|[isInCall](#li_0ca_603_a3d)|检查当前是否在频道中。|1.1|
+|[setChannelProfile](#li_5kv_g49_ikw)|设置频道模式。|1.15|
 
 发布相关接口
 
 |API|描述|以上版本支持|
 |---|--|------|
-|[isAutoPublish](#li_qqg_vyl_bt3)|查询当前是否为自动发布模式|1.1|
-|[configLocalCameraPublish](#li_kwv_2i8_sd4)|设置是否允许发布相机流|1.1|
-|[isLocalCameraPublishEnabled](#li_hcs_1dd_bln)|查询当前是否允许发布相机流|1.1|
-|[configLocalScreenPublish](#p_n1k_21p_irq)|设置是否允许发布屏幕流（仅Mac）|1.1|
-|[isLocalScreenPublishEnabled](#p_1eo_h2v_dn3)|查询当前是否允许发布屏幕流（仅Mac）|1.1|
-|[configLocalAudioPublish](#li_525_rs6_oj8)|设置是否允许发布音频流|1.1|
-|[isLocalAudioPublishEnabled](#li_2ru_aqb_gcm)|查询当前是否允许发布音频流|1.1|
-|[configLocalSimulcast](#li_ibe_2it_cyz)|设置是否允许发布次要视频流|1.1|
-|[isLocalSimulcastEnabled](#li_hz3_udy_dgl)|查询当前是否允许发布次要视频流|1.1|
-|[publish](#li_92h_h5u_2ag)|手动发布视频和音频流|1.1|
+|[isAutoPublish](#li_qqg_vyl_bt3)|查询当前是否为自动发布模式。|1.1|
+|[configLocalCameraPublish](#li_kwv_2i8_sd4)|设置是否允许发布相机流。|1.1|
+|[isLocalCameraPublishEnabled](#li_hcs_1dd_bln)|查询当前是否允许发布相机流。|1.1|
+|[configLocalScreenPublish](#p_n1k_21p_irq)|设置是否允许发布屏幕流（仅Mac）。|1.1|
+|[isLocalScreenPublishEnabled](#p_1eo_h2v_dn3)|查询当前是否允许发布屏幕流（仅Mac）。|1.1|
+|[configLocalAudioPublish](#li_525_rs6_oj8)|设置是否允许发布音频流。|1.1|
+|[isLocalAudioPublishEnabled](#li_2ru_aqb_gcm)|查询当前是否允许发布音频流。|1.1|
+|[configLocalSimulcast](#li_ibe_2it_cyz)|设置是否允许发布次要视频流。|1.1|
+|[isLocalSimulcastEnabled](#li_hz3_udy_dgl)|查询当前是否允许发布次要视频流。|1.1|
+|[publish](#li_92h_h5u_2ag)|手动发布视频和音频流。|1.1|
 
 订阅相关接口
 
 |API|描述|以上版本支持|
 |---|--|------|
-|[isAutoSubscribe](#li_uuk_rj3_lte)|查询当前是否为自动订阅模式|1.1|
-|[configRemoteCameraTrack](#li_l4g_r3v_7r3)|设置是否订阅远端相机流|1.1|
-|[configRemoteScreenTrack](#li_1hw_2s1_jv2)|设置是否订阅远端屏幕流|1.1|
-|[configRemoteAudio](#li_k2j_q1m_zde)|设置是否订阅远端音频流|1.1|
-|[subscribe](#li_6g2_cou_e7q)|手动订阅视频和音频流|1.1|
-|[subscribeVideoRGBData](#li_hx3_sl3_pbr)|订阅视频RGB数据|1.17|
-|[unSubscribeVideoRGBData](#li_5uh_g7a_5zz)|取消订阅视频RGB数据|1.17|
-|[subscribeVideoTexture](#li_85i_hm3_7xv)|订阅视频纹理数据|1.17|
-|[unSubscribeVideoTexture](#li_uz9_3gx_x8h)|取消订阅视频纹理数据|1.17|
+|[isAutoSubscribe](#li_uuk_rj3_lte)|查询当前是否为自动订阅模式。|1.1|
+|[configRemoteCameraTrack](#li_l4g_r3v_7r3)|设置是否订阅远端相机流。|1.1|
+|[configRemoteScreenTrack](#li_1hw_2s1_jv2)|设置是否订阅远端屏幕流。|1.1|
+|[configRemoteAudio](#li_k2j_q1m_zde)|设置是否订阅远端音频流。|1.1|
+|[subscribe](#li_6g2_cou_e7q)|手动订阅视频和音频流。|1.1|
+|[subscribeVideoRGBData](#li_hx3_sl3_pbr)|订阅视频RGB数据。|1.17|
+|[unSubscribeVideoRGBData](#li_5uh_g7a_5zz)|取消订阅视频RGB数据。|1.17|
+|[subscribeVideoTexture](#li_85i_hm3_7xv)|订阅视频纹理数据。|1.17|
+|[unSubscribeVideoTexture](#li_uz9_3gx_x8h)|取消订阅视频纹理数据。|1.17|
 
 视频相关接口
 
 |API|描述|以上版本支持|
 |---|--|------|
-|[setVideoProfile](#li_t9j_e1u_hs9)|设置视频流的参数|1.1|
-|[setLocalViewConfig](#li_8vs_laf_z52)|为本地预览设置渲染窗口以及绘制参数|1.1|
-|[muteLocalCamera](#li_uh1_f0x_xj8)|设置是否停止发布本地视频流|1.1|
-|[setRemoteViewConfig](#li_qyi_2t2_y74)|为远端的视频设置渲染窗口以及绘制参数|1.1|
-|[getCameraList](#p_l4e_608_tmk)|获取摄像头列表（仅Mac）|1.1|
-|[getCurrentCamera](#p_lem_5zy_vpe)|获取当前使用的摄像头名称（仅Mac）|1.1|
-|[setCurrentCamera](#p_76j_262_w5e)|选择摄像头（仅Mac）|1.1|
-|[switchCamera](#li_h2e_aoe_xf3)|切换前后摄像头（仅iOS）|1.1|
-|[setCameraZoom](#li_9vd_uc5_y2a)|设置摄像头参数（仅iOS）|1.1|
-|[isCameraOn](#li_vld_1lu_21t)|检查摄像头是否打开（仅iOS）|1.1|
-|[isCameraFocusPointSupported](#p_3a1_06a_v3q)|相机是否支持手动聚焦（仅iOS）|1.14|
-|[isCameraExposurePointSupported](#p_6i5_olk_1qe)|相机是否支持手动曝光（仅iOS）|1.14|
-|[setCameraFocusPoint](#p_gtd_y01_ktx)|设置手动聚焦的坐标点（仅iOS）|1.14|
-|[setCameraExposurePoint](#p_j3w_dim_okj)|设置手动曝光的坐标点（仅iOS）|1.14|
-|[subscribeVideoPreprocessData](#p_cpm_jsb_n60)|订阅采集视频前处理裸数据（仅iOS）|1.14|
-|[unSubscribeVideoPreprocessData](#p_7vb_6t5_oin)|取消采集订阅前处理裸数据（仅iOS）|1.14|
-|[enableHighDefinitionPreview](#p_6av_1ta_r7c)|是否允许高清预览，默认打开（仅iOS）|1.14|
-|[registerVideoSampleObserver](#li_xvn_1ji_k2g)|订阅视频数据输出|1.16.2|
-|[unregisterVideoSampleObserver](#li_vdc_xs1_qtj)|取消订阅视频数据输出|1.16.2|
-|[setVideoSwapWidthAndHeight](#li_ug1_79s_6l6)|设置视频track是否需要交换宽高|1.16.2|
-|[muteAllRemoteVideoRendering](#li_th1_i1s_nif)|mute或unmute远端的所有视频track的渲染|1.16.2|
-|[getCurrentCameraID](#li_sqt_0h7_tfq)|获取当前使用的摄像头ID（仅Mac）|1.16.2|
-|[setCurrentCameraWithID](#li_1sw_qzu_eg4)|通过设备ID选择摄像头（仅Mac）|1.16.2|
-|[setExternalVideoSource](#li_a5l_pum_fl4)|启用外部视频输入源|1.17.9|
-|[pushExternalVideoFrame](#li_2bt_fyg_e1k)|输入外部视频|-   Mac：1.16.2
+|[setVideoProfile](#li_t9j_e1u_hs9)|设置视频流的参数。|1.1|
+|[setLocalViewConfig](#li_8vs_laf_z52)|为本地预览设置渲染窗口以及绘制参数。|1.1|
+|[muteLocalCamera](#li_uh1_f0x_xj8)|设置是否停止发布本地视频流。|1.1|
+|[setRemoteViewConfig](#li_qyi_2t2_y74)|为远端的视频设置渲染窗口以及绘制参数。|1.1|
+|[getCameraList](#p_l4e_608_tmk)|获取摄像头列表（仅Mac）。|1.1|
+|[getCurrentCamera](#p_lem_5zy_vpe)|获取当前使用的摄像头名称（仅Mac）。|1.1|
+|[setCurrentCamera](#p_76j_262_w5e)|选择摄像头（仅Mac）。|1.1|
+|[switchCamera](#li_h2e_aoe_xf3)|切换前后摄像头（仅iOS）。|1.1|
+|[setCameraZoom](#li_9vd_uc5_y2a)|设置摄像头参数（仅iOS）。|1.1|
+|[isCameraOn](#li_vld_1lu_21t)|检查摄像头是否打开（仅iOS）。|1.1|
+|[isCameraFocusPointSupported](#p_3a1_06a_v3q)|相机是否支持手动聚焦（仅iOS）。|1.14|
+|[isCameraExposurePointSupported](#p_6i5_olk_1qe)|相机是否支持手动曝光（仅iOS）。|1.14|
+|[setCameraFocusPoint](#p_gtd_y01_ktx)|设置手动聚焦的坐标点（仅iOS）。|1.14|
+|[setCameraExposurePoint](#p_j3w_dim_okj)|设置手动曝光的坐标点（仅iOS）。|1.14|
+|[subscribeVideoPreprocessData](#p_cpm_jsb_n60)|订阅采集视频前处理裸数据（仅iOS）。|1.14|
+|[unSubscribeVideoPreprocessData](#p_7vb_6t5_oin)|取消采集订阅前处理裸数据（仅iOS）。|1.14|
+|[enableHighDefinitionPreview](#p_6av_1ta_r7c)|是否允许高清预览，默认打开（仅iOS）。|1.14|
+|[registerVideoSampleObserver](#li_xvn_1ji_k2g)|订阅视频数据输出。|1.16.2|
+|[unregisterVideoSampleObserver](#li_vdc_xs1_qtj)|取消订阅视频数据输出。|1.16.2|
+|[setVideoSwapWidthAndHeight](#li_ug1_79s_6l6)|设置视频track是否需要交换宽高。|1.16.2|
+|[muteAllRemoteVideoRendering](#li_th1_i1s_nif)|mute或unmute远端的所有视频track的渲染。|1.16.2|
+|[getCurrentCameraID](#li_sqt_0h7_tfq)|获取当前使用的摄像头ID（仅Mac）。|1.16.2|
+|[setCurrentCameraWithID](#li_1sw_qzu_eg4)|通过设备ID选择摄像头（仅Mac）。|1.16.2|
+|[setExternalVideoSource](#li_a5l_pum_fl4)|启用外部视频输入源。|1.17.9|
+|[pushExternalVideoFrame](#li_2bt_fyg_e1k)|输入外部视频。|-   Mac：1.16.2
 -   iOS：1.17.9 |
-|[setBeautyEffect](#li_lx4_vn7_0qc)|设置基础美颜|1.17.9|
-|[getCurrentCameraDirection](#li_y28_5g4_k5k)|获取当前摄像头方向（仅iOS）|1.17.20|
-|[setVideoEncoderConfiguration](#li_qu2_0l1_g2m)|设置视频编码属性|1.17.31|
-|[enableLocalVideo](#li_ppt_ik1_zvz)|禁用或重新启用本地视频采集|1.17.39|
+|[setBeautyEffect](#li_lx4_vn7_0qc)|设置基础美颜。|1.17.9|
+|[getCurrentCameraDirection](#li_y28_5g4_k5k)|获取当前摄像头方向（仅iOS）。|1.17.20|
+|[setVideoEncoderConfiguration](#li_qu2_0l1_g2m)|设置视频编码属性。|1.17.31|
+|[enableLocalVideo](#li_ppt_ik1_zvz)|禁用或重新启用本地视频采集。|1.17.39|
 
 音频相关接口
 
 |API|描述|以上版本支持|
 |---|--|------|
-|[setAudioOnlyMode](#li_lzf_npx_uem)|设置为纯音频模式还是音视频模式|1.1|
-|[isAudioOnly](#li_25q_wmj_o3s)|查询当前是否为纯音频模式|1.1|
-|[muteLocalMic](#li_0zq_pe4_6t8)|设置是否停止发布本地音频|1.1|
-|[muteRemoteAudioPlaying](#li_3cc_r53_5no)|设置是否停止播放远端音频流|1.1|
-|[enableSpeakerphone](#li_l5p_922_m67)|切换听筒、扬声器输出（仅iOS）|1.1|
-|[getAudioCaptures](#p_wc1_6po_2b5)|获取系统中的录音设备列表（仅Mac）|1.1|
-|[getCurrentAudioCapture](#p_mid_xth_r5y)|获取当前使用的音频采集设备名称（仅Mac）|1.1|
-|[setCurrentAudioCapture](#p_8aq_ksp_81h)|选择音频采集设备（仅Mac）|1.1|
-|[getAudioRenderers](#p_rqs_i7a_nea)|获取系统中的扬声器列表（仅Mac）|1.1|
-|[getCurrentAudioRenderer](#p_1gq_qwj_qug)|获取当前使用的音频播放设备（仅Mac）|1.1|
-|[setCurrentAudioRenderer](#p_bxi_yg5_oqv)|选择音频播放设备（仅Mac）|1.1|
-|[startAudioCapture](#li_0vf_8eq_so2)|开启音频采集|1.11|
-|[stopAudioCapture](#li_b1e_hol_fbs)|关闭音频采集|1.11|
-|[startAudioPlayer](#li_d2k_tlz_si0)|开启音频播放|1.11|
-|[stopAudioPlayer](#li_bgy_g1o_buu)|关闭音频播放|1.11|
-|[startAudioAccompanyWithFile](#li_uwn_629_c4w)|开始播放伴奏（仅iOS）|1.15|
-|[stopAudioAccompany](#li_218_p1z_1uo)|停止伴奏（仅iOS）|1.15|
-|[setAudioAccompanyVolume](#li_wb3_729_udm)|设置伴奏音量（仅iOS）|1.15|
-|[setAudioAccompanyPublishVolume](#li_gs9_h6o_c6s)|设置伴奏之后推流出去的音量（仅iOS）|1.15|
-|[getAudioAccompanyPublishVolume](#li_bmr_h33_aqw)|获取伴奏推流音量（仅iOS）|1.15|
-|[setAudioAccompanyPlayoutVolume](#li_sr5_sh5_u2x)|设置伴奏本地音量（仅iOS）|1.15|
-|[getAudioAccompanyPlayoutVolume](#li_fxq_irq_lav)|获取伴奏本地音量（仅iOS）|1.15|
-|[pauseAudioAccompany](#li_ri8_t4a_o59)|暂停播放伴奏（仅iOS）|1.15|
-|[resumeAudioAccompany](#li_drs_dy0_pk4)|恢复播放伴奏（仅iOS）|1.15|
-|[preloadAudioEffectWithSoundId](#li_hl4_fu8_0qn)|预加载音效（仅iOS）|1.15|
-|[unloadAudioEffectWithSoundId](#li_i59_bwx_4a1)|清除预加载音效（仅iOS）|1.15|
-|[playAudioEffectWithSoundId](#li_h2x_eg3_jhl)|开始播放音效（仅iOS）|1.15|
-|[stopAudioEffectWithSoundId](#li_01f_5po_4qb)|停止播放音效（仅iOS）|1.15|
-|[setAudioEffectPublishVolumeWithSoundId](#li_el9_56g_5wj)|设置音效推流音量（仅iOS）|1.15|
-|[getAudioEffectPublishVolumeWithSoundId](#li_79i_m6o_t72)|获取音效推流音量（仅iOS）|1.15|
-|[setAudioEffectPlayoutVolumeWithSoundId](#li_pt8_85u_g7f)|设置音效本地音量（仅iOS）|1.15|
-|[getAudioEffectPlayoutVolumeWithSoundId](#li_oxn_hjv_pi7)|获取音效本地音量（仅iOS）|1.15|
-|[pauseAudioEffectWithSoundId](#li_8px_y9z_6bz)|暂停播放音效（仅iOS）|1.15|
-|[resumeAudioEffectWithSoundId](#li_5xu_2op_ji7)|恢复播放音效（仅iOS）|1.15|
-|[enableEarBack](#li_cs9_bc7_svx)|启用耳返（仅iOS）|1.15|
-|[setEarBackVolume](#li_371_mdg_jqy)|设置耳返音量（仅iOS）|1.15|
-|[setSubscribeAudioNumChannel](#li_c2k_eer_yox)|设置回调音频声道数|1.15|
-|[setSubscribeAudioSampleRate](#li_lr2_1gv_s6m)|设置回调音频采样率|1.15|
-|[setAudioSessionOperationRestriction](#li_nmd_9ei_3dy)|设置SDK对AVAudioSession的控制权限（仅iOS）|1.15|
-|[setRecordingVolume](#li_0nn_8x8_xdw)|设置录音音量（仅iOS）|1.16|
-|[setPlayoutVolume](#li_hwq_dnw_twq)|设置播放音量（仅iOS）|1.16|
-|[subscribeAudioData](#li_aj2_sst_2u7)|订阅音频数据|1.16|
-|[unSubscribeAudioData](#li_3ku_zve_t4r)|取消订阅音频数据|1.16|
-|[muteAllRemoteAudioPlaying](#li_rr9_wyq_rdw)|停止远端的所有音频流的播放|1.16.2|
-|[setExteranlAudioRender](#li_zjw_x7t_a71)|设置是否启用外部输入音频播放|1.16.2|
-|[pushExternalAudioRenderRawData](#li_b25_kva_xz4)|输入音频播放数据|1.16.2|
-|[isEnableSpeakerphone](#li_z35_6bu_wbl)|获取当前音频输出为听筒还是扬声器（仅iOS）|1.16.2|
-|[getCurrentAudioCaptureID](#li_wcd_z9d_avc)|获取使用的录音设备ID（仅Mac）|1.16.2|
-|[setCurrentAudioCaptureWithID](#li_c7x_3s7_400)|通过设备ID选择录音设备（仅Mac）|1.16.2|
-|[getCurrentAudioRendererID](#li_jl1_ozt_0mf)|获取当前使用的扬声器ID（仅Mac）|1.16.2|
-|[setCurrentAudioRendererWithID](#li_nxl_51j_w2s)|通过设备ID选择扬声器（仅Mac）|1.16.2|
-|[startTestAudioRecordWithName](#li_v86_swh_3o5)|开始测试音频采集设备（仅Mac）|1.16.2|
-|[stopTestAudioRecord](#li_ubb_ze3_j1a)|停止测试音频采集设备（仅Mac）|1.16.2|
-|[startTestAudioPlayoutWithName](#li_nb8_shn_1d3)|开始测试音频播放设备（仅Mac）|1.16.2|
-|[stopTestAudioPlayout](#li_4gm_adq_wst)|停止测试音频播放设备（仅Mac）|1.16.2|
-|[setExternalAudioSource](#li_qk5_zk7_kek)|设置是否将外部音频数据作为推流的输入源|-   Mac：1.16.2
+|[setAudioOnlyMode](#li_lzf_npx_uem)|设置为纯音频模式还是音视频模式。|1.1|
+|[isAudioOnly](#li_25q_wmj_o3s)|查询当前是否为纯音频模式。|1.1|
+|[muteLocalMic](#li_0zq_pe4_6t8)|设置是否停止发布本地音频。|1.1|
+|[muteRemoteAudioPlaying](#li_3cc_r53_5no)|设置是否停止播放远端音频流。|1.1|
+|[enableSpeakerphone](#li_l5p_922_m67)|切换听筒、扬声器输出（仅iOS）。|1.1|
+|[getAudioCaptures](#p_wc1_6po_2b5)|获取系统中的录音设备列表（仅Mac）。|1.1|
+|[getCurrentAudioCapture](#p_mid_xth_r5y)|获取当前使用的音频采集设备名称（仅Mac）。|1.1|
+|[setCurrentAudioCapture](#p_8aq_ksp_81h)|选择音频采集设备（仅Mac）。|1.1|
+|[getAudioRenderers](#p_rqs_i7a_nea)|获取系统中的扬声器列表（仅Mac）。|1.1|
+|[getCurrentAudioRenderer](#p_1gq_qwj_qug)|获取当前使用的音频播放设备（仅Mac）。|1.1|
+|[setCurrentAudioRenderer](#p_bxi_yg5_oqv)|选择音频播放设备（仅Mac）。|1.1|
+|[startAudioCapture](#li_0vf_8eq_so2)|开启音频采集。|1.11|
+|[stopAudioCapture](#li_b1e_hol_fbs)|关闭音频采集。|1.11|
+|[startAudioPlayer](#li_d2k_tlz_si0)|开启音频播放。|1.11|
+|[stopAudioPlayer](#li_bgy_g1o_buu)|关闭音频播放。|1.11|
+|[startAudioAccompanyWithFile](#li_uwn_629_c4w)|开始播放伴奏（仅iOS）。|1.15|
+|[stopAudioAccompany](#li_218_p1z_1uo)|停止伴奏（仅iOS）。|1.15|
+|[setAudioAccompanyVolume](#li_wb3_729_udm)|设置伴奏音量（仅iOS）。|1.15|
+|[setAudioAccompanyPublishVolume](#li_gs9_h6o_c6s)|设置伴奏之后推流出去的音量（仅iOS）。|1.15|
+|[getAudioAccompanyPublishVolume](#li_bmr_h33_aqw)|获取伴奏推流音量（仅iOS）。|1.15|
+|[setAudioAccompanyPlayoutVolume](#li_sr5_sh5_u2x)|设置伴奏本地音量（仅iOS）。|1.15|
+|[getAudioAccompanyPlayoutVolume](#li_fxq_irq_lav)|获取伴奏本地音量（仅iOS）。|1.15|
+|[pauseAudioAccompany](#li_ri8_t4a_o59)|暂停播放伴奏（仅iOS）。|1.15|
+|[resumeAudioAccompany](#li_drs_dy0_pk4)|恢复播放伴奏（仅iOS）。|1.15|
+|[preloadAudioEffectWithSoundId](#li_hl4_fu8_0qn)|预加载音效（仅iOS）。|1.15|
+|[unloadAudioEffectWithSoundId](#li_i59_bwx_4a1)|清除预加载音效（仅iOS）。|1.15|
+|[playAudioEffectWithSoundId](#li_h2x_eg3_jhl)|开始播放音效（仅iOS）。|1.15|
+|[stopAudioEffectWithSoundId](#li_01f_5po_4qb)|停止播放音效（仅iOS）。|1.15|
+|[setAudioEffectPublishVolumeWithSoundId](#li_el9_56g_5wj)|设置音效推流音量（仅iOS）。|1.15|
+|[getAudioEffectPublishVolumeWithSoundId](#li_79i_m6o_t72)|获取音效推流音量（仅iOS）。|1.15|
+|[setAudioEffectPlayoutVolumeWithSoundId](#li_pt8_85u_g7f)|设置音效本地音量（仅iOS）。|1.15|
+|[getAudioEffectPlayoutVolumeWithSoundId](#li_oxn_hjv_pi7)|获取音效本地音量（仅iOS）。|1.15|
+|[pauseAudioEffectWithSoundId](#li_8px_y9z_6bz)|暂停播放音效（仅iOS）。|1.15|
+|[resumeAudioEffectWithSoundId](#li_5xu_2op_ji7)|恢复播放音效（仅iOS）。|1.15|
+|[enableEarBack](#li_cs9_bc7_svx)|启用耳返（仅iOS）。|1.15|
+|[setEarBackVolume](#li_371_mdg_jqy)|设置耳返音量（仅iOS）。|1.15|
+|[setSubscribeAudioNumChannel](#li_c2k_eer_yox)|设置回调音频声道数。|1.15|
+|[setSubscribeAudioSampleRate](#li_lr2_1gv_s6m)|设置回调音频采样率。|1.15|
+|[setAudioSessionOperationRestriction](#li_nmd_9ei_3dy)|设置SDK对AVAudioSession的控制权限（仅iOS）。|1.15|
+|[setRecordingVolume](#li_0nn_8x8_xdw)|设置录音音量（仅iOS）。|1.16|
+|[setPlayoutVolume](#li_hwq_dnw_twq)|设置播放音量（仅iOS）。|1.16|
+|[subscribeAudioData](#li_aj2_sst_2u7)|订阅音频数据。|1.16|
+|[unSubscribeAudioData](#li_3ku_zve_t4r)|取消订阅音频数据。|1.16|
+|[muteAllRemoteAudioPlaying](#li_rr9_wyq_rdw)|停止远端的所有音频流的播放。|1.16.2|
+|[setExteranlAudioRender](#li_zjw_x7t_a71)|设置是否启用外部输入音频播放。|1.16.2|
+|[pushExternalAudioRenderRawData](#li_b25_kva_xz4)|输入音频播放数据。|1.16.2|
+|[isEnableSpeakerphone](#li_z35_6bu_wbl)|获取当前音频输出为听筒还是扬声器（仅iOS）。|1.16.2|
+|[getCurrentAudioCaptureID](#li_wcd_z9d_avc)|获取使用的录音设备ID（仅Mac）。|1.16.2|
+|[setCurrentAudioCaptureWithID](#li_c7x_3s7_400)|通过设备ID选择录音设备（仅Mac）。|1.16.2|
+|[getCurrentAudioRendererID](#li_jl1_ozt_0mf)|获取当前使用的扬声器ID（仅Mac）。|1.16.2|
+|[setCurrentAudioRendererWithID](#li_nxl_51j_w2s)|通过设备ID选择扬声器（仅Mac）。|1.16.2|
+|[startTestAudioRecordWithName](#li_v86_swh_3o5)|开始测试音频采集设备（仅Mac）。|1.16.2|
+|[stopTestAudioRecord](#li_ubb_ze3_j1a)|停止测试音频采集设备（仅Mac）。|1.16.2|
+|[startTestAudioPlayoutWithName](#li_nb8_shn_1d3)|开始测试音频播放设备（仅Mac）。|1.16.2|
+|[stopTestAudioPlayout](#li_4gm_adq_wst)|停止测试音频播放设备（仅Mac）。|1.16.2|
+|[setExternalAudioSource](#li_qk5_zk7_kek)|设置是否将外部音频数据作为推流的输入源。|-   Mac：1.16.2
 -   iOS：1.17.9 |
-|[pushExternalAudioFrameRawData](#li_w6f_6ml_v01)|输入音频数据|-   Mac：1.16.2
+|[pushExternalAudioFrameRawData](#li_w6f_6ml_v01)|输入音频数据。|-   Mac：1.16.2
 -   iOS：1.17.9 |
-|[setExternalAudioVolume](#li_7aq_b0v_fni)|设置外部音频输入音量|-   Mac：1.16.2
+|[setExternalAudioVolume](#li_7aq_b0v_fni)|设置外部音频输入音量。|-   Mac：1.16.2
 -   iOS：1.17.9 |
-|[getExternalAudioVolume](#li_lgw_hg9_6kx)|获取外部音频输入音量|-   Mac：1.16.2
+|[getExternalAudioVolume](#li_lgw_hg9_6kx)|获取外部音频输入音量。|-   Mac：1.16.2
 -   iOS：1.17.9 |
-|[setMixedWithMic](#li_irz_td7_o60)|设置外部音频输入是否与麦克风采集音频混合|-   Mac：1.16.2
+|[setMixedWithMic](#li_irz_td7_o60)|设置外部音频输入是否与麦克风采集音频混合。|-   Mac：1.16.2
 -   iOS：1.17.9 |
-|[setExternalAudioRenderVolume](#li_hhu_x0j_c4n)|设置外部音频播放音量（仅Mac）|1.16.2|
-|[getExternalAudioRenderVolume](#li_it0_eim_jv8)|获取音频播放音量（仅Mac）|1.16.2|
-|[setVolumeCallbackIntervalMs](#li_0gk_1wo_pb9)|设置音量回调频率和平滑系数|1.17|
-|[setAudioEffectReverbMode](#li_slu_1uw_9d7)|设置混响音效模式|1.17|
-|[setAudioEffectReverbParamType](#li_qfi_0vw_hco)|设置混响音效类型|1.17|
-|[setDeviceVolumeType](#li_h0v_xkq_sog)|设置SDK设备音量类型（仅iOS）|1.17.39|
+|[setExternalAudioRenderVolume](#li_hhu_x0j_c4n)|设置外部音频播放音量（仅Mac）。|1.16.2|
+|[getExternalAudioRenderVolume](#li_it0_eim_jv8)|获取音频播放音量（仅Mac）。|1.16.2|
+|[setVolumeCallbackIntervalMs](#li_0gk_1wo_pb9)|设置音量回调频率和平滑系数。|1.17|
+|[setAudioEffectReverbMode](#li_slu_1uw_9d7)|设置混响音效模式。|1.17|
+|[setAudioEffectReverbParamType](#li_qfi_0vw_hco)|设置混响音效类型。|1.17|
+|[setDeviceVolumeType](#li_h0v_xkq_sog)|设置SDK设备音量类型（仅iOS）。|1.17.39|
 
 音效相关接口
 
 |API|描述|以上版本支持|
 |---|--|------|
-|[getAudioAccompanyDuration](#li_d5h_fs2_mrc)|获取伴奏文件时长|1.17.30|
-|[getAudioAccompanyCurrentPosition](#li_73v_5qv_eaw)|获取音乐文件播放进度|1.17.30|
-|[setAudioAccompanyPosition](#li_e14_ldx_aq2)|设置音频文件的播放位置|1.17.30|
-|[stopAllAudioEffects](#li_424_je8_4c8)|停止播放所有音效|1.17.30|
-|[setAllAudioEffectsPublishVolume](#li_nxp_v5u_xfr)|设置所有音效推流音量|1.17.30|
-|[setAllAudioEffectsPlayoutVolume](#li_sbv_x0i_1ec)|设置所有音效本地播放音量|1.17.30|
-|[pauseAllAudioEffects](#li_0pn_5fo_hpw)|暂停所有音效|1.17.30|
-|[resumeAllAudioEffects](#li_p3n_q77_7de)|重新开始播放所有音效|1.17.30|
+|[getAudioAccompanyDuration](#li_d5h_fs2_mrc)|获取伴奏文件时长。|1.17.30|
+|[getAudioAccompanyCurrentPosition](#li_73v_5qv_eaw)|获取音乐文件播放进度。|1.17.30|
+|[setAudioAccompanyPosition](#li_e14_ldx_aq2)|设置音频文件的播放位置。|1.17.30|
+|[stopAllAudioEffects](#li_424_je8_4c8)|停止播放所有音效。|1.17.30|
+|[setAllAudioEffectsPublishVolume](#li_nxp_v5u_xfr)|设置所有音效推流音量。|1.17.30|
+|[setAllAudioEffectsPlayoutVolume](#li_sbv_x0i_1ec)|设置所有音效本地播放音量。|1.17.30|
+|[pauseAllAudioEffects](#li_0pn_5fo_hpw)|暂停所有音效。|1.17.30|
+|[resumeAllAudioEffects](#li_p3n_q77_7de)|重新开始播放所有音效。|1.17.30|
 
 预览接口
 
 |API|描述|以上版本支持|
 |---|--|------|
-|[startPreview](#li_pp8_zof_82j)|开始本地预览|1.1|
-|[stopPreview](#li_js8_nsv_91v)|停止本地预览|1.1|
+|[startPreview](#li_pp8_zof_82j)|开始本地预览。|1.1|
+|[stopPreview](#li_js8_nsv_91v)|停止本地预览。|1.1|
 
 远端用户查询接口
 
 |API|描述|以上版本支持|
 |---|--|------|
-|[getOnlineRemoteUsers](#li_h5x_502_n29)|获取远端在线用户列表|1.1|
-|[getUserInfo](#li_tvs_dq0_orq)|查询远端用户信息|1.1|
-|[isUserOnline](#li_gpg_5h3_n48)|查询用户是否在线|1.1|
+|[getOnlineRemoteUsers](#li_h5x_502_n29)|获取远端在线用户列表。|1.1|
+|[getUserInfo](#li_tvs_dq0_orq)|查询远端用户信息。|1.1|
+|[isUserOnline](#li_gpg_5h3_n48)|查询用户是否在线。|1.1|
 
 其他接口
 
 |API|描述|以上版本支持|
 |---|--|------|
-|[setLogLevel](#li_qs2_3ga_k7w)|设置日志级别|1.1|
-|[getSdkVersion](#li_rec_gk3_tpc)|获取SDK版本号|1.1|
-|[uploadLog](#li_plb_zzq_zjs)|上传日志|1.15|
-|[startIntelligentDenoise](#li_3rx_l2i_zuk)|开启智能降噪（仅Mac）|1.15|
-|[stopIntelligentDenoise](#li_a9r_uwd_l3b)|关闭智能降噪（仅Mac）|1.15|
-|[setClientRole](#li_a9r_uwd_l3b)|设置用户角色|1.16|
-|[setLogDirPath](#li_bsb_0fx_wqb)|设置SDK日志文件保存路径|1.16.2|
-|[setDeviceOrientationMode](#li_55e_csm_nzc)|设置设备横竖屏方向|1.16.2|
-|[startLastmileDetect](#li_hdf_f4z_oce)|开始网络质量探测|1.16.2|
-|[stopLastmileDetect](#li_28f_ppz_519)|停止网络质量探测|1.16.2|
-|[startRecord](#li_gwj_7xq_3hq)|开始录制|1.17.1|
-|[stopRecord](#li_xx9_l0p_1ua)|停止录制|1.17|
-|[getCurrentClientRole](#li_9en_124_dws)|获取当前用户角色（仅iOS）|1.17.9|
-|[postFeedbackWithUid](#li_yrm_t6e_vur)|SDK问题反馈|-   Mac：1.17.10
+|[setLogLevel](#li_qs2_3ga_k7w)|设置日志级别。|1.1|
+|[getSdkVersion](#li_rec_gk3_tpc)|获取SDK版本号。|1.1|
+|[uploadLog](#li_plb_zzq_zjs)|上传日志。|1.15|
+|[startIntelligentDenoise](#li_3rx_l2i_zuk)|开启智能降噪（仅Mac）。|1.15|
+|[stopIntelligentDenoise](#li_a9r_uwd_l3b)|关闭智能降噪（仅Mac）。|1.15|
+|[setClientRole](#li_a9r_uwd_l3b)|设置用户角色。|1.16|
+|[setLogDirPath](#li_bsb_0fx_wqb)|设置SDK日志文件保存路径。|1.16.2|
+|[setDeviceOrientationMode](#li_55e_csm_nzc)|设置设备横竖屏方向。|1.16.2|
+|[startLastmileDetect](#li_hdf_f4z_oce)|开始网络质量探测。|1.16.2|
+|[stopLastmileDetect](#li_28f_ppz_519)|停止网络质量探测。|1.16.2|
+|[startRecord](#li_gwj_7xq_3hq)|开始录制。|1.17.1|
+|[stopRecord](#li_xx9_l0p_1ua)|停止录制。|1.17|
+|[getCurrentClientRole](#li_9en_124_dws)|获取当前用户角色（仅iOS）。|1.17.9|
+|[postFeedbackWithUid](#li_yrm_t6e_vur)|SDK问题反馈。|-   Mac：1.17.10
 -   iOS：1.17.13 |
-|[sendMediaExtensionMsg](#li_ynk_vxv_g9u)|发送媒体扩展信息|1.17.1|
-|[getClientRole](#li_srk_c0i_j20)|获取当前用户角色（仅Mac）|1.17.19|
-|[refreshAuthInfo](#li_2oy_2bm_e72)|刷新令牌|1.17.41|
+|[sendMediaExtensionMsg](#li_ynk_vxv_g9u)|发送媒体扩展信息。|1.17.1|
+|[getClientRole](#li_srk_c0i_j20)|获取当前用户角色（仅Mac）。|1.17.19|
+|[refreshAuthInfo](#li_2oy_2bm_e72)|刷新令牌。|1.17.41|
 
 ## 接口详情
 
@@ -579,7 +579,7 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
     |--|--|--|
     |uid|NSString \*|用户的UID。|
     |videoSource|[AliRtcVideoSource](/cn.zh-CN/SDK参考/iOS和Mac SDK/数据类型.md)|视频裸数据源类型。|
-    |videoTextureType|[AliRtcVideoTextureType](/cn.zh-CN/SDK参考/iOS和Mac SDK/数据类型.md)|纹理类型|
+    |videoTextureType|[AliRtcVideoTextureType](/cn.zh-CN/SDK参考/iOS和Mac SDK/数据类型.md)|纹理类型。|
 
 -   unSubscribeVideoTexture：取消订阅视频纹理数据。
 
@@ -593,7 +593,7 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
     |--|--|--|
     |uid|NSString \*|用户的UID。|
     |videoSource|[AliRtcVideoSource](/cn.zh-CN/SDK参考/iOS和Mac SDK/数据类型.md)|视频裸数据源类型。|
-    |videoTextureType|[AliRtcVideoTextureType](/cn.zh-CN/SDK参考/iOS和Mac SDK/数据类型.md)|纹理类型|
+    |videoTextureType|[AliRtcVideoTextureType](/cn.zh-CN/SDK参考/iOS和Mac SDK/数据类型.md)|纹理类型。|
 
 -   setVideoProfile：设置视频流的参数。
 
@@ -968,7 +968,7 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
 
     |名称|类型|描述|
     |--|--|--|
-    |enable|BOOL|禁用或重新启用本地视频采集。取值：    -   YES（默认值）：启用本地视频采集。
+    |enable|BOOL|禁用或重新启用本地视频采集。取值：     -   YES（默认值）：启用本地视频采集。
     -   NO：禁用本地视频采集。 |
 
     返回说明
@@ -1521,7 +1521,7 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
 
     |名称|类型|描述|
     |--|--|--|
-    |volume|NSInteger|音量。取值：0~400，0表示静音 。默认取值100。    -   当设置大于100时，表示增大音量。
+    |volume|NSInteger|音量。取值：0~400，0表示静音 。默认取值100。     -   当设置大于100时，表示增大音量。
     -   当设置小于100时，表示减小音量。 |
 
     返回说明
@@ -1631,7 +1631,7 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
     - (NSString *)getCurrentAudioCaptureID;
     ```
 
--   setCurrentAudioCaptureWithIDsetCurrentAudioCaptureWithID（仅Mac可用）：通过设备ID选择录音设备。
+-   setCurrentAudioCaptureWithID（仅Mac可用）：通过设备ID选择录音设备。
 
     ```
     - (void)setCurrentAudioCaptureWithID:(NSString *)captureID;
@@ -2117,7 +2117,7 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
 
     |名称|类型|描述|
     |--|--|--|
-    |logDirPath|NSString \*|日志文件保存绝对路径。    -   iOS Log日志默认存储路径Library/Caches/Ali\_RTC\_Log。
+    |logDirPath|NSString \*|日志文件保存绝对路径。     -   iOS Log日志默认存储路径Library/Caches/Ali\_RTC\_Log。
     -   mac Log日志默认存储路径/Users/xxx/Documents（文稿）/Ali\_RTC\_Log。 |
 
     返回说明
@@ -2253,7 +2253,7 @@ keyword: [iOS SDK, AliRtcEngine, Mac]
 
     返回当前用户角色。
 
--   refreshAuthInfo刷新令牌。
+-   refreshAuthInfo：刷新令牌。
 
     ```
     - (int)refreshAuthInfo:(AliRtcAuthInfo *)info;
