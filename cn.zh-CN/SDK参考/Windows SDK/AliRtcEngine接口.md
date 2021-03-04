@@ -4,7 +4,7 @@ keyword: [Windows SDK, AliRtcEngine]
 
 # AliRtcEngine接口
 
-本文为您介绍了Windows SDK的AliRtcEngine接口详情。
+通过阅读本文，您可以了解到Windows SDK的AliRtcEngine接口详情
 
 ## 目录
 
@@ -12,152 +12,152 @@ keyword: [Windows SDK, AliRtcEngine]
 
 |API|描述|以上版本支持|
 |---|--|------|
-|[setH5CompatibleMode](#li_eik_68q_ra3)|设置H5兼容模式|1.1|
-|[getH5CompatibleMode](#li_ivi_bi0_nsr)|检查当前是否兼容H5|1.1|
-|[sharedInstance](#li_ewc_69e_z4v)|创建AliRtcEngine实例（同一时间只会存在一个实例）|1.1|
-|[destroy](#p_atk_la4_6xb)|销毁SDK|1.1|
-|[uploadLog](#p_g6j_jaw_lvz)|上传日志|1.15|
-|[setLogDirPath](#li_x23_2sw_0dj)|设置SDK日志文件保存路径|1.16.2|
+|[setH5CompatibleMode](#li_eik_68q_ra3)|设置H5兼容模式。|1.1|
+|[getH5CompatibleMode](#li_ivi_bi0_nsr)|检查当前是否兼容H5。|1.1|
+|[sharedInstance](#li_ewc_69e_z4v)|创建AliRtcEngine实例（同一时间只会存在一个实例）。|1.1|
+|[destroy](#p_atk_la4_6xb)|SDK资源释放。|1.1|
+|[uploadLog](#p_g6j_jaw_lvz)|上传日志。|1.15|
+|[setLogDirPath](#li_x23_2sw_0dj)|设置SDK日志文件保存路径。|1.16.2|
 
 频道相关接口
 
 |API|描述|以上版本支持|
 |---|--|------|
-|[setAutoPublishSubscribe](#li_20l_a4j_amg)|设置是否自动发布，是否自动订阅|1.1|
-|[joinChannel](#li_njy_0qb_ly6)|加入频道|1.1|
-|[leaveChannel](#li_26r_sr5_m42)|离开频道|1.1|
-|[isInCall](#li_o22_ahk_u9h)|检查当前是否在频道中|1.1|
-|[setChannelProfile](#p_lui_m89_8x0)|设置频道模式|1.15|
+|[setAutoPublishSubscribe](#li_20l_a4j_amg)|设置是否自动发布，是否自动订阅。|1.1|
+|[joinChannel](#li_njy_0qb_ly6)|加入频道。|1.1|
+|[leaveChannel](#li_26r_sr5_m42)|离开频道。|1.1|
+|[isInCall](#li_o22_ahk_u9h)|检查当前是否在频道中。|1.1|
+|[setChannelProfile](#p_lui_m89_8x0)|设置频道模式。|1.15|
 
 发布相关接口
 
 |API|描述|以上版本支持|
 |---|--|------|
-|[isAutoPublish](#li_y24_thz_rke)|查询当前是否为自动发布模式|1.1|
-|[configLocalCameraPublish](#li_mzv_wbb_7b4)|设置是否允许发布相机流|1.1|
-|[isLocalCameraPublishEnabled](#li_ccc_wma_el0)|查询当前是否允许发布相机流|1.1|
-|[configLocalScreenPublish](#ul_12h_ml2_gn3)|设置是否允许发布屏幕流|1.1|
-|[isLocalScreenPublishEnabled](#li_0yf_fds_qf7)|查询当前是否允许发布屏幕流|1.1|
-|[configLocalAudioPublish](#li_snp_x6o_6ke)|设置是否允许发布音频流|1.1|
-|[isLocalAudioPublishEnabled](#li_ple_3e4_knv)|查询当前是否允许推音频流|1.1|
-|[configLocalSimulcast](#li_4ed_zzo_ws7)|设置是否允许发布次要视频流|1.1|
-|[isLocalSimulcastEnabled](#li_zib_k44_u5n)|查询当前是否允许发布次要视频流|1.1|
-|[publish](#li_j0c_8ha_mkf)|手动发布视频和音频流|1.1|
+|[isAutoPublish](#li_y24_thz_rke)|查询当前是否为自动发布模式。|1.1|
+|[configLocalCameraPublish](#li_mzv_wbb_7b4)|设置是否允许发布相机流。|1.1|
+|[isLocalCameraPublishEnabled](#li_ccc_wma_el0)|查询当前是否允许发布相机流。|1.1|
+|[configLocalScreenPublish](#ul_12h_ml2_gn3)|设置是否允许发布屏幕流。|1.1|
+|[isLocalScreenPublishEnabled](#li_0yf_fds_qf7)|查询当前是否允许发布屏幕流。|1.1|
+|[configLocalAudioPublish](#li_snp_x6o_6ke)|设置是否允许发布音频流。|1.1|
+|[isLocalAudioPublishEnabled](#li_ple_3e4_knv)|查询当前是否允许推音频流。|1.1|
+|[configLocalSimulcast](#li_4ed_zzo_ws7)|设置是否允许发布次要视频流。|1.1|
+|[isLocalSimulcastEnabled](#li_zib_k44_u5n)|查询当前是否允许发布次要视频流。|1.1|
+|[publish](#li_j0c_8ha_mkf)|手动发布视频和音频流。|1.1|
 
 订阅相关接口
 
 |API|描述|以上版本支持|
 |---|--|------|
-|[isAutoSubscribe](#li_y06_1v7_4yp)|查询当前是否为自动订阅模式|1.1|
-|[configRemoteCameraTrack](#li_hzh_mxa_dwd)|设置是否订阅远端相机流|1.1|
-|[configRemoteScreenTrack](#li_6bo_w1e_11x)|设置是否订阅远端屏幕流|1.1|
-|[configRemoteAudio](#li_ygq_c9o_8yv)|设置是否订阅远端音频流|1.1|
-|[subscribe](#li_tt0_qjx_7jd)|手动订阅视频和音频流|1.1|
-|[subscribeAudioData](#li_cdw_ssl_h9u)|订阅音频数据|1.16.2|
-|[unsubscribeAudioData](#li_wb3_ata_6pv)|取消订阅音频数据|1.16.2|
+|[isAutoSubscribe](#li_y06_1v7_4yp)|查询当前是否为自动订阅模式。|1.1|
+|[configRemoteCameraTrack](#li_hzh_mxa_dwd)|设置是否订阅远端相机流。|1.1|
+|[configRemoteScreenTrack](#li_6bo_w1e_11x)|设置是否订阅远端屏幕流。|1.1|
+|[configRemoteAudio](#li_ygq_c9o_8yv)|设置是否订阅远端音频流。|1.1|
+|[subscribe](#li_tt0_qjx_7jd)|手动订阅视频和音频流。|1.1|
+|[subscribeAudioData](#li_cdw_ssl_h9u)|订阅音频数据。|1.16.2|
+|[unsubscribeAudioData](#li_wb3_ata_6pv)|取消订阅音频数据。|1.16.2|
 
 视频相关接口
 
 |API|描述|以上版本支持|
 |---|--|------|
-|[setVideoProfile](#li_2yq_6hy_ly4)|设置视频流的参数|1.1|
-|[setLocalViewConfig](#li_boe_ta9_56c)|为本地预览设置渲染窗口以及绘制参数|1.1|
-|[muteLocalCamera](#li_zmn_zvo_xb3)|设置是否停止发布本地视频流|1.1|
-|[setRemoteViewConfig](#li_d82_b2q_rwp)|为远端的视频设置渲染窗口以及绘制参数|1.1|
-|[getCameraList](#li_4s5_8op_9zp)|获取摄像头列表|1.1|
-|[getCurrentCamera](#li_699_y8a_roe)|获取当前使用的摄像头名称|1.1|
-|[setCurrentCamera](#li_dif_60c_bj0)|选择摄像头|1.1|
-|[isCameraOn](#li_blw_lj4_7ud)|检查摄像头是否打开|1.1|
-|[getScreenShareSourceInfo](#p_317_0qt_xk7)|获取屏幕分享源信息|1.15|
-|[getDesktopResolution](#p_zc1_t1e_xk0)|获取屏幕分享桌面分辨率|1.15|
-|[setScreenShareSource](#p_lpt_u8n_0ul)|设置屏幕分享源|1.15|
-|[getScreenShareSource](#p_l7r_n6o_duv)|获取屏幕分享源|1.15|
-|[getCurrentCameraId](#li_0mg_p84_wld)|获取当前使用的摄像头ID|1.16.2|
-|[setCurrentCameraById](#li_0m5_zo9_fx4)|通过设备ID选择摄像头|1.16.2|
-|[setExternalVideoSource](#li_0xy_z70_q7p)|启用外部视频输入源|1.16.2|
-|[pushExternalVideoFrame](#li_a8a_p29_jz6)|输入外部视频|1.16.2|
-|[registerVideoSampleObserver](#li_oiw_qeo_f47)|订阅视频数据输出|1.16.2|
-|[unRegisterVideoSampleObserver](#li_udw_myc_w1u)|取消订阅视频数据输出|1.16.2|
-|[stopRecord](#li_hil_ejg_u05)|停止录制|1.17|
-|[startRecord](#li_ibs_7or_7f1)|开始录制|1.17|
-|[setBeatutyEffect](#li_6ry_ktc_rwr)|设置基础美颜|1.17.9|
-|[setVideoEncoderConfiguration](#li_id4_n96_0s8)|设置视频编码属性|1.17.31|
-|[setScreenShareSourceByRegion](#li_43m_dpj_ium)|通过指定区域设置屏幕分享源|1.17.38|
+|[setVideoProfile](#li_2yq_6hy_ly4)|设置视频流的参数。|1.1|
+|[setLocalViewConfig](#li_boe_ta9_56c)|为本地预览设置渲染窗口以及绘制参数。|1.1|
+|[muteLocalCamera](#li_zmn_zvo_xb3)|设置是否停止发布本地视频流。|1.1|
+|[setRemoteViewConfig](#li_d82_b2q_rwp)|为远端的视频设置渲染窗口以及绘制参数。|1.1|
+|[getCameraList](#li_4s5_8op_9zp)|获取摄像头列表。|1.1|
+|[getCurrentCamera](#li_699_y8a_roe)|获取当前使用的摄像头名称。|1.1|
+|[setCurrentCamera](#li_dif_60c_bj0)|选择摄像头。|1.1|
+|[isCameraOn](#li_blw_lj4_7ud)|检查摄像头是否打开。|1.1|
+|[getScreenShareSourceInfo](#p_317_0qt_xk7)|获取屏幕分享源信息。|1.15|
+|[getDesktopResolution](#p_zc1_t1e_xk0)|获取屏幕分享桌面分辨率。|1.15|
+|[setScreenShareSource](#p_lpt_u8n_0ul)|设置屏幕分享源。|1.15|
+|[getScreenShareSource](#p_l7r_n6o_duv)|获取屏幕分享源。|1.15|
+|[getCurrentCameraId](#li_0mg_p84_wld)|获取当前使用的摄像头ID。|1.16.2|
+|[setCurrentCameraById](#li_0m5_zo9_fx4)|通过设备ID选择摄像头。|1.16.2|
+|[setExternalVideoSource](#li_0xy_z70_q7p)|启用外部视频输入源。|1.16.2|
+|[pushExternalVideoFrame](#li_a8a_p29_jz6)|输入外部视频。|1.16.2|
+|[registerVideoSampleObserver](#li_oiw_qeo_f47)|订阅视频数据输出。|1.16.2|
+|[unRegisterVideoSampleObserver](#li_udw_myc_w1u)|取消订阅视频数据输出。|1.16.2|
+|[stopRecord](#li_hil_ejg_u05)|停止录制。|1.17|
+|[startRecord](#li_ibs_7or_7f1)|开始录制。|1.17|
+|[setBeatutyEffect](#li_6ry_ktc_rwr)|设置基础美颜。|1.17.9|
+|[setVideoEncoderConfiguration](#li_id4_n96_0s8)|设置视频编码属性。|1.17.31|
+|[setScreenShareSourceByRegion](#li_43m_dpj_ium)|通过指定区域设置屏幕分享源。|1.17.38|
 
 音频相关接口
 
 |API|描述|以上版本支持|
 |---|--|------|
-|[setAudioOnlyMode](#li_b6f_8c6_gbf)|设置为纯音频模式还是音视频模式|1.1|
-|[isAudioOnly](#li_v3p_fn5_77l)|查询当前是否为纯音频模式|1.1|
-|[muteLocalMic](#li_2jh_h21_msx)|设置是否停止发布本地音频|1.1|
-|[muteRemoteAudioPlaying](#li_egc_9yv_5u1)|设置是否停止播放远端音频流|1.1|
-|[getAudioCaptures](#li_d9x_owo_4lz)|获取系统中的录音设备列表|1.1|
-|[getCurrentAudioCapture](#li_lab_wrn_ec1)|获取当前使用的音频采集设备名称|1.1|
-|[setCurrentAudioCapture](#li_yw8_27w_0ys)|选择音频采集设备|1.1|
-|[getAudioRenderers](#li_0nk_kuf_tsb)|获取系统中的扬声器列表|1.1|
-|[getCurrentAudioRenderer](#li_jb7_tgf_3za)|获取当前使用的音频播放设备|1.1|
-|[setCurrentAudioRenderer](#li_98c_3b6_tle)|选择音频播放设备|1.1|
-|[startAudioCapture](#li_fq9_umm_iw2)|开启音频采集|1.11|
-|[stopAudioCapture](#li_eid_iu8_qla)|关闭音频采集|1.11|
-|[startAudioPlayer](#li_03a_xze_kht)|开启音频播放设备|1.11|
-|[stopAudioPlayer](#li_1b2_wqw_476)|关闭音频播放|1.11|
-|[muteAllRemoteAudioPlaying](#li_zaz_6nd_45r)|停止远端的所有音频流的播放|1.16.2|
-|[getCurrentAudioCaptureId](#li_3u4_m7y_pds)|获取使用的录音设备ID|1.16.2|
-|[setCurrentAudioCaptureById](#li_qop_99b_tkd)|通过设备ID选择录音设备|1.16.2|
-|[getCurrentAudioRendererId](#li_vf6_e4h_s93)|获取当前使用的扬声器ID|1.16.2|
-|[setCurrentAudioRendererById](#li_bdg_sy1_eua)|通过设备ID选择扬声器|1.16.2|
-|[setRecordingVolume](#li_yfg_7nj_yng)|设置录音音量|1.16.2|
-|[setPlayoutVolume](#li_bkk_ap5_hz2)|设置播放音量|1.16.2|
-|[setSubscribeAudioNumChannel](#li_8gd_ys2_tza)|设置输出音频声道数|1.16.2|
-|[setSubscribeAudioSampleRate](#li_4u6_1ma_05h)|设置输出音频采样率|1.16.2|
-|[setExternalAudioSource](#li_ssg_4dq_tk0)|设置是否将外部音频数据作为推流的输入源|1.16.2|
-|[pushExternalAudioFrameRawData](#li_v45_qx6_mu1)|输入音频数据|1.16.2|
-|[setMixedWithMic](#li_gyr_ek2_3fr)|设置外部音频输入是否与麦克风采集音频混合|1.16.2|
-|[setExternalAudioPublishVolume](#li_xu2_obb_2s5)|设置外部音频输入音量|1.16.2|
-|[getExternalAudioPublishVolume](#li_hn9_iwe_78n)|获取外部音频输入音量|1.17|
-|[setExteranlAudioRender](#li_8f0_6i2_eao)|设置是否启用外部输入音频播放|1.16.2|
-|[pushExternalAudioRenderRawData](#li_33d_3yn_36j)|输入音频播放数据|1.16.2|
-|[setExternalAudioPlayoutVolume](#li_i7a_nbu_gst)|设置外部音频播放音量|1.16.2|
-|[getExternalAudioPlayoutVolume](#li_2l3_lox_gpi)|获取音频播放音量|1.16.2|
-|[setAudioEffectReverbMode](#li_oj3_h2z_bf0)|设置混响音效模式|1.17|
-|[setAudioEffectReverbParamType](#li_4de_b93_kur)|设置混响音效类型|1.17|
-|[setVolumeCallbackIntervalMs](#li_xnx_bpx_kaq)|设置音量回调频率和平滑系数|1.17.9|
-|[setRecordingDeviceVolume](#li_dmp_lyt_jvs)|设置音频采集设备音量|1.17.30|
-|[getRecordingDeviceVolume](#li_8us_jpf_f4z)|获取音频采集设备音量|1.17.30|
-|[setPlaybackDeviceVolume](#li_x38_l1w_yxl)|设置音频播放设备音量|1.17.30|
-|[getPlaybackDeviceVolume](#li_n3a_yap_ccy)|获取音频播放设备音量|1.17.30|
+|[setAudioOnlyMode](#li_b6f_8c6_gbf)|设置为纯音频模式还是音视频模式。|1.1|
+|[isAudioOnly](#li_v3p_fn5_77l)|查询当前是否为纯音频模式。|1.1|
+|[muteLocalMic](#li_2jh_h21_msx)|设置是否停止发布本地音频。|1.1|
+|[muteRemoteAudioPlaying](#li_egc_9yv_5u1)|设置是否停止播放远端音频流。|1.1|
+|[getAudioCaptures](#li_d9x_owo_4lz)|获取系统中的录音设备列表。|1.1|
+|[getCurrentAudioCapture](#li_lab_wrn_ec1)|获取当前使用的音频采集设备名称。|1.1|
+|[setCurrentAudioCapture](#li_yw8_27w_0ys)|选择音频采集设备。|1.1|
+|[getAudioRenderers](#li_0nk_kuf_tsb)|获取系统中的扬声器列表。|1.1|
+|[getCurrentAudioRenderer](#li_jb7_tgf_3za)|获取当前使用的音频播放设备。|1.1|
+|[setCurrentAudioRenderer](#li_98c_3b6_tle)|选择音频播放设备。|1.1|
+|[startAudioCapture](#li_fq9_umm_iw2)|开启音频采集。|1.11|
+|[stopAudioCapture](#li_eid_iu8_qla)|关闭音频采集。|1.11|
+|[startAudioPlayer](#li_03a_xze_kht)|开启音频播放设备。|1.11|
+|[stopAudioPlayer](#li_1b2_wqw_476)|关闭音频播放。|1.11|
+|[muteAllRemoteAudioPlaying](#li_zaz_6nd_45r)|停止远端的所有音频流的播放。|1.16.2|
+|[getCurrentAudioCaptureId](#li_3u4_m7y_pds)|获取使用的录音设备ID。|1.16.2|
+|[setCurrentAudioCaptureById](#li_qop_99b_tkd)|通过设备ID选择录音设备。|1.16.2|
+|[getCurrentAudioRendererId](#li_vf6_e4h_s93)|获取当前使用的扬声器ID。|1.16.2|
+|[setCurrentAudioRendererById](#li_bdg_sy1_eua)|通过设备ID选择扬声器。|1.16.2|
+|[setRecordingVolume](#li_yfg_7nj_yng)|设置录音音量。|1.16.2|
+|[setPlayoutVolume](#li_bkk_ap5_hz2)|设置播放音量。|1.16.2|
+|[setSubscribeAudioNumChannel](#li_8gd_ys2_tza)|设置输出音频声道数。|1.16.2|
+|[setSubscribeAudioSampleRate](#li_4u6_1ma_05h)|设置输出音频采样率。|1.16.2|
+|[setExternalAudioSource](#li_ssg_4dq_tk0)|设置是否将外部音频数据作为推流的输入源。|1.16.2|
+|[pushExternalAudioFrameRawData](#li_v45_qx6_mu1)|输入音频数据。|1.16.2|
+|[setMixedWithMic](#li_gyr_ek2_3fr)|设置外部音频输入是否与麦克风采集音频混合。|1.16.2|
+|[setExternalAudioPublishVolume](#li_xu2_obb_2s5)|设置外部音频输入音量。|1.16.2|
+|[getExternalAudioPublishVolume](#li_hn9_iwe_78n)|获取外部音频输入音量。|1.17|
+|[setExteranlAudioRender](#li_8f0_6i2_eao)|设置是否启用外部输入音频播放。|1.16.2|
+|[pushExternalAudioRenderRawData](#li_33d_3yn_36j)|输入音频播放数据。|1.16.2|
+|[setExternalAudioPlayoutVolume](#li_i7a_nbu_gst)|设置外部音频播放音量。|1.16.2|
+|[getExternalAudioPlayoutVolume](#li_2l3_lox_gpi)|获取音频播放音量。|1.16.2|
+|[setAudioEffectReverbMode](#li_oj3_h2z_bf0)|设置混响音效模式。|1.17|
+|[setAudioEffectReverbParamType](#li_4de_b93_kur)|设置混响音效类型。|1.17|
+|[setVolumeCallbackIntervalMs](#li_xnx_bpx_kaq)|设置音量回调频率和平滑系数。|1.17.9|
+|[setRecordingDeviceVolume](#li_dmp_lyt_jvs)|设置音频采集设备音量。|1.17.30|
+|[getRecordingDeviceVolume](#li_8us_jpf_f4z)|获取音频采集设备音量。|1.17.30|
+|[setPlaybackDeviceVolume](#li_x38_l1w_yxl)|设置音频播放设备音量。|1.17.30|
+|[getPlaybackDeviceVolume](#li_n3a_yap_ccy)|获取音频播放设备音量。|1.17.30|
 
 预览接口
 
 |API|描述|以上版本支持|
 |---|--|------|
-|[startPreview](#li_ekr_w7u_a2i)|开始本地预览|1.1|
-|[stopPreview](#li_oj2_j9e_a5l)|停止本地预览|1.1|
+|[startPreview](#li_ekr_w7u_a2i)|开始本地预览。|1.1|
+|[stopPreview](#li_oj2_j9e_a5l)|停止本地预览。|1.1|
 
 远端用户查询接口
 
 |API|描述|以上版本支持|
 |---|--|------|
-|[getOnlineRemoteUsers](#li_wn6_uv1_kz5)|获取远端在线用户列表|1.1|
-|[getUserInfo](#li_onp_yfn_0l9)|查询远端用户信息|1.1|
-|[isUserOnline](#li_a74_vi7_djz)|查询用户是否在线|1.1|
+|[getOnlineRemoteUsers](#li_wn6_uv1_kz5)|获取远端在线用户列表。|1.1|
+|[getUserInfo](#li_onp_yfn_0l9)|查询远端用户信息。|1.1|
+|[isUserOnline](#li_a74_vi7_djz)|查询用户是否在线。|1.1|
 
 其他接口
 
 |API|描述|以上版本支持|
 |---|--|------|
-|[setLogLevel](#li_pq3_mnx_xoj)|设置日志级别|1.1|
-|[getSdkVersion](#li_eif_r1z_cp6)|获取SDK版本号|1.1|
-|[setClientRole](#li_f8v_rmb_nt5)|设置用户角色|1.16|
-|[startLastmileDetect](#li_86e_5vv_k9i)|开始网络质量探测|1.16.2|
-|[stopLastmileDetect](#li_lz0_f1w_8nd)|停止网络质量探测|1.16.2|
-|[postFeedback](#li_ycg_cei_k34)|SDK问题反馈|1.17.12|
-|[sendMediaExtensionMsg](#li_nsq_ydf_7w2)|发送媒体扩展信息|1.17.1|
-|[getClientRole](#li_x8l_wro_d8z)|获取用户角色|1.17.19|
-|[startIntelligentDenoise](#li_hpd_dpw_lv8)|开启智能降噪|1.17.19|
-|[stopIntelligentDenoise](#li_gcp_tcl_p5w)|关闭智能降噪|1.17.19|
-|[RefreshAuthInfo](#li_nle_9pj_7t0)|刷新令牌|1.17.41|
+|[setLogLevel](#li_pq3_mnx_xoj)|设置日志级别。|1.1|
+|[getSdkVersion](#li_eif_r1z_cp6)|获取SDK版本号。|1.1|
+|[setClientRole](#li_f8v_rmb_nt5)|设置用户角色。|1.16|
+|[startLastmileDetect](#li_86e_5vv_k9i)|开始网络质量探测。|1.16.2|
+|[stopLastmileDetect](#li_lz0_f1w_8nd)|停止网络质量探测。|1.16.2|
+|[postFeedback](#li_ycg_cei_k34)|SDK问题反馈。|1.17.12|
+|[sendMediaExtensionMsg](#li_nsq_ydf_7w2)|发送媒体扩展信息。|1.17.1|
+|[getClientRole](#li_x8l_wro_d8z)|获取用户角色。|1.17.19|
+|[startIntelligentDenoise](#li_hpd_dpw_lv8)|开启智能降噪。|1.17.19|
+|[stopIntelligentDenoise](#li_gcp_tcl_p5w)|关闭智能降噪。|1.17.19|
+|[RefreshAuthInfo](#li_nle_9pj_7t0)|刷新令牌。|1.17.41|
 
 ## 接口详情
 
@@ -200,7 +200,7 @@ keyword: [Windows SDK, AliRtcEngine]
 
     **说明：** 同一时间只会存在一个实例。
 
--   destroy：销毁SDK。
+-   destroy：SDK资源释放。
 
     ```
     static AliRtcEngine::destroy();
@@ -778,7 +778,7 @@ keyword: [Windows SDK, AliRtcEngine]
 
     0表示方法调用成功，其它表示方法调用失败。
 
--   setBeatutyEffect： 设置是否启用基础美颜。
+-   setBeatutyEffect：设置是否启用基础美颜。
 
     ```
     virtual int setBeatutyEffect(bool enable, AliRtcBeautyConfig config) = 0;
@@ -823,12 +823,12 @@ keyword: [Windows SDK, AliRtcEngine]
     |--|--|--|
     |screenRect|[AliRtcScreenShareRegion](/cn.zh-CN/SDK参考/Windows SDK/数据类型.md)|指定要共享的屏幕相对于虚拟屏幕的位置。虚拟屏幕位置请参见[The Virtual Screen](https://docs.microsoft.com/en-us/windows/win32/gdi/the-virtual-screen)。|
     |isShareByRegion|bool|是否只分享指定屏幕内特定区域。|
-    |regionRect|[AliRtcScreenShareRegion](/cn.zh-CN/SDK参考/Windows SDK/数据类型.md)|指定共享屏幕内要分享的区域（isShareByRegion为true时才需赋值）。**说明：**
+    |regionRect|[AliRtcScreenShareRegion](/cn.zh-CN/SDK参考/Windows SDK/数据类型.md)|指定共享屏幕内要分享的区域（isShareByRegion为true时才需赋值）。 **说明：**
 
     -   分享区域最小分辨率为16 x 16，当设置区域小于最小分辨率时重置为最小分辨率。
     -   分享区域超过实际桌面分辨率时，将分享整个桌面。 |
 
--   stopRecord： 停止录制。
+-   stopRecord：停止录制。
 
     ```
     virtual void stopRecord() = 0;                   
@@ -1172,7 +1172,7 @@ keyword: [Windows SDK, AliRtcEngine]
 
     返回值大于等于0，表示方法调用成功，其它表示方法调用失败。
 
--   pushExternalAudioFrameRawData ：输入音频数据。
+-   pushExternalAudioFrameRawData：输入音频数据。
 
     ```
     virtual int pushExternalAudioFrameRawData(const void* audioSamples, unsigned int sampleLength, long long timestamp)
@@ -1292,13 +1292,13 @@ keyword: [Windows SDK, AliRtcEngine]
 
     0表示设置成功，其他表示设置失败。
 
--   getExternalAudioPlayoutVolume ：获取音频播放音量。
+-   getExternalAudioPlayoutVolume：获取音频播放音量。
 
     ```
     virtual int getExternalAudioPlayoutVolume()
     ```
 
--   setAudioEffectReverbMode： 设置混响音效模式。
+-   setAudioEffectReverbMode：设置混响音效模式。
 
     ```
     virtual int setAudioEffectReverbMode(const AliRtcAudioEffectReverbMode mode) = 0;
@@ -1373,7 +1373,7 @@ keyword: [Windows SDK, AliRtcEngine]
 
     返回当前音频采集设备音量。
 
--   setPlaybackDeviceVolume： 设置音频播放设备音量。
+-   setPlaybackDeviceVolume：设置音频播放设备音量。
 
     ```
     virtual int setPlaybackDeviceVolume(int volume) = 0;
@@ -1389,7 +1389,7 @@ keyword: [Windows SDK, AliRtcEngine]
 
     0表示成功，非0表示失败。
 
--   getPlaybackDeviceVolume： 获取音频播放设备音量。
+-   getPlaybackDeviceVolume：获取音频播放设备音量。
 
     ```
     virtual int getPlaybackDeviceVolume() = 0;
@@ -1532,7 +1532,7 @@ keyword: [Windows SDK, AliRtcEngine]
     virtual int stopLastmileDetect()
     ```
 
--   postFeedback： SDK问题反馈。
+-   postFeedback：SDK问题反馈。
 
     ```
         virtual void postFeedback(const AliRtc::String& uid, const AliRtc::String& channelId,
