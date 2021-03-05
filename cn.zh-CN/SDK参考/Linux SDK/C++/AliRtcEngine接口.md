@@ -1,6 +1,6 @@
 # AliRtcEngine接口
 
-本文为您介绍了Linux SDK（C++）的AliRtcEngine接口详情。
+通过阅读本文，您可以了解到Linux SDK（C++）的AliRtcEngine接口详情。
 
 ## 目录
 
@@ -8,80 +8,80 @@
 
 |API|描述|以上版本支持|
 |---|--|------|
-|[CreateAliRTCEngine](#li_wpl_vhy_k45)|创建AliRTCEngine实例|1.18.1|
-|[Release](#li_2cr_csc_hgv)|销毁AliRTCEngine实例|1.18.1|
-|[GetEventHandler](#li_pm8_mct_3l0)|获取事件回调句柄|1.18.1|
+|[CreateAliRTCEngine](#li_wpl_vhy_k45)|创建AliRTCEngine实例。|1.18.1|
+|[Release](#li_2cr_csc_hgv)|释放AliRTCEngine实例。|1.18.1|
+|[GetEventHandler](#li_pm8_mct_3l0)|获取事件回调句柄。|1.18.1|
 
 频道相关接口
 
 |API|描述|以上版本支持|
 |---|--|------|
-|[JoinChannel](#li_lp7_1fk_i0r)|加入频道|1.18.1|
-|[LeaveChannel](#li_vk8_dmy_5qx)|离开频道|1.18.1|
+|[JoinChannel](#li_lp7_1fk_i0r)|加入频道。|1.18.1|
+|[LeaveChannel](#li_vk8_dmy_5qx)|离开频道。|1.18.1|
 
 发布相关接口
 
 |API|描述|以上版本支持|
 |---|--|------|
-|[SetVideoProfile](#li_nbc_k0o_jkl)|设置视频流推流参数|1.18.1|
-|[GetVideoProfile](#li_a5i_rk5_7ha)|获取视频流推流参数|1.18.1|
-|[ConfigLocalCameraPublish](#li_gbb_iev_fo5)|设置是否允许推送相机流|1.18.1|
-|[IsLocalCameraPublishEnabled](#li_sq5_96z_f8v)|查询是否允许推送相机流|1.18.1|
-|[ConfigLocalScreenPublish](#li_f4d_pqa_91i)|设置是否允许推送屏幕流|1.18.1|
-|[IsLocalScreenPublishEnabled](#li_o5a_ciq_xeq)|查询是否允许推送屏幕流|1.18.1|
-|[ConfigLocalAudioPublish](#li_f7p_epu_ssn)|设置是否允许推送音频流|1.18.1|
-|[IsLocalAudioPublishEnabled](#li_wzp_2al_2hs)|查询是否允许推送音频流|1.18.1|
-|[ConfigLocalSimulcast](#li_pnj_yud_oi3)|设置是否允许推送次要视频流小流|1.18.1|
-|[IsLocalSimulcastEnabled](#li_n1k_mm0_g3q)|查询是否允许推送次要视频流小流|1.18.1|
-|[Publish](#li_p7r_dnm_syc)|手动推送视频和音频流|1.18.1|
+|[SetVideoProfile](#li_nbc_k0o_jkl)|设置视频流推流参数。|1.18.1|
+|[GetVideoProfile](#li_a5i_rk5_7ha)|获取视频流推流参数。|1.18.1|
+|[ConfigLocalCameraPublish](#li_gbb_iev_fo5)|设置是否允许推送相机流。|1.18.1|
+|[IsLocalCameraPublishEnabled](#li_sq5_96z_f8v)|查询是否允许推送相机流。|1.18.1|
+|[ConfigLocalScreenPublish](#li_f4d_pqa_91i)|设置是否允许推送屏幕流。|1.18.1|
+|[IsLocalScreenPublishEnabled](#li_o5a_ciq_xeq)|查询是否允许推送屏幕流。|1.18.1|
+|[ConfigLocalAudioPublish](#li_f7p_epu_ssn)|设置是否允许推送音频流。|1.18.1|
+|[IsLocalAudioPublishEnabled](#li_wzp_2al_2hs)|查询是否允许推送音频流。|1.18.1|
+|[ConfigLocalSimulcast](#li_pnj_yud_oi3)|设置是否允许推送次要视频流小流。|1.18.1|
+|[IsLocalSimulcastEnabled](#li_n1k_mm0_g3q)|查询是否允许推送次要视频流小流。|1.18.1|
+|[Publish](#li_p7r_dnm_syc)|手动推送视频和音频流。|1.18.1|
 
 录制相关接口
 
 |API|描述|以上版本支持|
 |---|--|------|
-|[StartRecording](#li_au1_g0n_813)|手动开启录制|1.18.1|
-|[StopRecording](#li_ylf_u1j_e81)|手动停止录制|1.18.1|
+|[StartRecording](#li_au1_g0n_813)|手动开启录制。|1.18.1|
+|[StopRecording](#li_ylf_u1j_e81)|手动停止录制。|1.18.1|
 
 视频相关接口
 
 |API|描述|以上版本支持|
 |---|--|------|
-|[SetExternalVideoSource](#li_gfj_kml_mjj)|设置是否启用外部视频输入源|1.18.1|
-|[PushExternalVideoFrame](#li_y8p_drt_qih)|输入外部视频数据|1.18.1|
-|[AddVideoWatermark](#li_1qe_qv2_hhe)|添加水印|1.18.11|
-|[ClearVideoWatermark](#li_8br_ugg_9we)|清除对应数据流水印信息|1.18.11|
+|[SetExternalVideoSource](#li_gfj_kml_mjj)|设置是否启用外部视频输入源。|1.18.1|
+|[PushExternalVideoFrame](#li_y8p_drt_qih)|输入外部视频数据。|1.18.1|
+|[AddVideoWatermark](#li_1qe_qv2_hhe)|添加水印。|1.18.11|
+|[ClearVideoWatermark](#li_8br_ugg_9we)|清除对应数据流水印信息。|1.18.11|
 
 音频相关接口
 
 |API|描述|以上版本支持|
 |---|--|------|
-|[SetExternalAudioSource](#li_vo8_1fn_wco)|设置是否启用外部音频输入推流|1.18.1|
-|[PushExternalAudioFrameRawData](#li_3jo_g18_sbm)|输入外部音频数据推流|1.18.1|
-|[SetExternalAudioPublishVolume](#li_etn_4fx_7t1)|设置外部输入音频推流混音音量|1.18.1|
-|[GetExternalAudioPublishVolume](#li_afn_kpe_do4)|获取外部输入音频推流混音音量|1.18.1|
+|[SetExternalAudioSource](#li_vo8_1fn_wco)|设置是否启用外部音频输入推流。|1.18.1|
+|[PushExternalAudioFrameRawData](#li_3jo_g18_sbm)|输入外部音频数据推流。|1.18.1|
+|[SetExternalAudioPublishVolume](#li_etn_4fx_7t1)|设置外部输入音频推流混音音量。|1.18.1|
+|[GetExternalAudioPublishVolume](#li_afn_kpe_do4)|获取外部输入音频推流混音音量。|1.18.1|
 
 媒体播放器相关接口
 
 |API|描述|以上版本支持|
 |---|--|------|
-|[CreateMediaPlayer](#li_wi0_ls1_7xl)|创建媒体播放器|1.18.1|
-|[DestroyMediaPlayer](#li_kyr_fyn_tn9)|销毁媒体播放器|1.18.1|
-|[SetEventHandler](#li_muq_76g_yj5)|设置播放器状态和事件回调通知|1.18.1|
-|[GetEventHandler](#li_fsx_klk_t63)|获取播放器状态和事件回调句柄|1.18.1|
-|[LoadResource](#li_hcf_awn_bxo)|加载播放资源|1.18.1|
-|[Start](#li_ial_sdk_l09)|开始播放|1.18.1|
-|[Stop](#li_py0_2t7_sp6)|停止播放|1.18.1|
-|[Pause](#li_3wh_pvh_lka)|暂停播放|1.18.1|
-|[Resume](#li_6rz_ukd_9rs)|恢复播放|1.18.1|
-|[SeekTo](#li_eyf_7me_0w6)|跳转播放|1.18.1|
-|[SetVolume](#li_my2_wxe_9sp)|设置播放器的音量（影响推流出去的音量）|1.18.1|
-|[SetVideoSource](#li_0w6_vud_bj3)|设置播放器的视频数据是否推流|1.18.1|
-|[EnableAudioSource](#li_z7m_8ba_gm8)|设置播放器的音频数据是否推流|1.18.1|
-|[GetDuration](#li_w9d_0ao_6kj)|获取播放的总时长|1.18.1|
-|[GetCurrentPlaybackTime](#li_gi8_5f3_d49)|获取当前的播放位置|1.18.1|
-|[GetCurrentVomume](#li_0n0_t05_4qx)|获取当前的播放音量|1.18.1|
-|[GetCurrentPlaybackState](#li_xzv_j0a_mo6)|获取当前的播放状态|1.18.1|
-|[GetIndex](#li_b9s_ki6_y50)|获取当前的播放器ID|1.18.1|
+|[CreateMediaPlayer](#li_wi0_ls1_7xl)|创建媒体播放器。|1.18.1|
+|[DestroyMediaPlayer](#li_kyr_fyn_tn9)|销毁媒体播放器。|1.18.1|
+|[SetEventHandler](#li_muq_76g_yj5)|设置播放器状态和事件回调通知。|1.18.1|
+|[GetEventHandler](#li_fsx_klk_t63)|获取播放器状态和事件回调句柄。|1.18.1|
+|[LoadResource](#li_hcf_awn_bxo)|加载播放资源。|1.18.1|
+|[Start](#li_ial_sdk_l09)|开始播放。|1.18.1|
+|[Stop](#li_py0_2t7_sp6)|停止播放。|1.18.1|
+|[Pause](#li_3wh_pvh_lka)|暂停播放。|1.18.1|
+|[Resume](#li_6rz_ukd_9rs)|恢复播放。|1.18.1|
+|[SeekTo](#li_eyf_7me_0w6)|跳转播放。|1.18.1|
+|[SetVolume](#li_my2_wxe_9sp)|设置播放器的音量（影响推流出去的音量）。|1.18.1|
+|[SetVideoSource](#li_0w6_vud_bj3)|设置播放器的视频数据是否推流。|1.18.1|
+|[EnableAudioSource](#li_z7m_8ba_gm8)|设置播放器的音频数据是否推流。|1.18.1|
+|[GetDuration](#li_w9d_0ao_6kj)|获取播放的总时长。|1.18.1|
+|[GetCurrentPlaybackTime](#li_gi8_5f3_d49)|获取当前的播放位置。|1.18.1|
+|[GetCurrentVomume](#li_0n0_t05_4qx)|获取当前的播放音量。|1.18.1|
+|[GetCurrentPlaybackState](#li_xzv_j0a_mo6)|获取当前的播放状态。|1.18.1|
+|[GetIndex](#li_b9s_ki6_y50)|获取当前的播放器ID。|1.18.1|
 
 ## 接口详情
 
@@ -99,12 +99,12 @@ AliRTCEngineInterface * CreateAliRTCEngine(EngineEventHandlerInterface * eventHa
 |参数名|类型|描述|
 |---|--|--|
 |eventHandler|EngineEventHandlerInterface \*|录制SDK所触发的事件通过EngineEventHandlerInterface类回调通知。|
-|lowPort|int|最小的可用端口。**说明：** 创建一个SDK实例需要占用一个系统端口进行音视频数据传输，建议端口范围设置为42000～45000，并保证其他服务不会占用此范围的端口。 |
-|highPort|int|最大的可用端口。**说明：** 创建一个SDK实例需要占用一个系统端口进行音视频数据传输，建议端口范围设置为42000～45000，并保证其他服务不会占用此范围的端口。 |
+|lowPort|int|最小的可用端口。 **说明：** 创建一个SDK实例需要占用一个系统端口进行音视频数据传输，建议端口范围设置为42000～45000，并保证其他服务不会占用此范围的端口。 |
+|highPort|int|最大的可用端口。 **说明：** 创建一个SDK实例需要占用一个系统端口进行音视频数据传输，建议端口范围设置为42000～45000，并保证其他服务不会占用此范围的端口。 |
 |logPath|const char \*|保存日志的路径。|
 |coreServicePath|const char \*|AliRtcCoreService可执行程序存放的绝对路径。|
 
--   Release：销毁AliRTCEngine实例。
+-   Release：释放AliRTCEngine实例。
 
     ```
     virtual void Release() = 0;
