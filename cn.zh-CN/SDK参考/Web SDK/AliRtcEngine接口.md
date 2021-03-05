@@ -1,10 +1,10 @@
 ---
-keyword: [rtc, AliRtcSDK]
+keyword: [Web, AliRtcEngine]
 ---
 
 # AliRtcEngine接口
 
-本文为您介绍了AliRtcSDK Web端的所有接口信息。您可以根据接口详细说明集成SDK，也可以调用接口方法实现不同功能。
+通过阅读本文，您可以了解到Web SDK的AliRtcEngine接口详情。
 
 ## 目录
 
@@ -12,98 +12,90 @@ keyword: [rtc, AliRtcSDK]
 
 |API|描述|以上版本支持|
 |---|--|------|
-|[isSupport](#li_tug_pff_d6o)|检测浏览器是否支持RTC SDK|1.14|
-|[getDevices](#li_oue_oog_rv0)|获取设备信息|1.2|
-|[getAvailableResolutions](#li_od6_3v6_cff)|获取可支持的分辨率|1.2|
-|[isSupportScreenShare](#li_jsg_21y_eqb)|是否支持屏幕共享|1.12|
-|[setChannelProfile](#li_uq5_q53_isf)|设置频道模式|1.12|
-|[setClientRole](#li_zeq_ic0_6ub)|设置角色|1.12|
-|[setAudioOnlyMode](#li_dir_9u2_amx)|设置是否为纯音频模式|1.12.2|
+|[isSupport](#li_tug_pff_d6o)|检测浏览器是否支持RTC SDK。|1.14|
+|[getDevices](#li_oue_oog_rv0)|获取设备信息。|1.2|
+|[getAvailableResolutions](#li_od6_3v6_cff)|获取可支持的分辨率。|1.2|
+|[isSupportScreenShare](#li_jsg_21y_eqb)|是否支持屏幕共享。|1.12|
+|[setChannelProfile](#li_uq5_q53_isf)|设置频道模式。|1.12|
+|[setClientRole](#li_zeq_ic0_6ub)|设置角色。|1.12|
+|[setAudioOnlyMode](#li_dir_9u2_amx)|设置是否为纯音频模式。|1.12.2|
 
 频道相关接口
 
 |API|描述|以上版本支持|
 |---|--|------|
-|[joinChannel](#li_oc0_s51_2gm)|加入频道|1.2|
-|[leaveChannel](#li_4gx_qmo_cfz)|离开频道|1.2|
+|[joinChannel](#li_oc0_s51_2gm)|加入频道。|1.2|
+|[leaveChannel](#li_4gx_qmo_cfz)|离开频道。|1.2|
 
 发布相关接口
 
 |API|描述|以上版本支持|
 |---|--|------|
-|[configLocalAudioPublish](#li_zq3_78u_31m)|设置是否允许发布音频流|1.9|
-|[configLocalCameraPublish](#li_342_kx3_twr)|设置是否允许发布相机流|1.9|
-|[configLocalScreenPublish](#li_yi7_0js_vo7)|设置是否允许发布屏幕共享流|1.9|
-|[publish](#li_u14_h7l_40t)|发布本地视频流|1.2|
-|[unPublish](#li_v1w_jmp_kxr)|结束发布本地流|1.2|
+|[configLocalAudioPublish](#li_zq3_78u_31m)|设置是否允许发布音频流。|1.9|
+|[configLocalCameraPublish](#li_342_kx3_twr)|设置是否允许发布相机流。|1.9|
+|[configLocalScreenPublish](#li_yi7_0js_vo7)|设置是否允许发布屏幕共享流。|1.9|
+|[publish](#li_u14_h7l_40t)|发布本地视频流。|1.2|
+|[unPublish](#li_v1w_jmp_kxr)|结束发布本地流。|1.2|
 
 订阅相关接口
 
 |API|描述|以上版本支持|
 |---|--|------|
-|[configRemoteAudio](#li_22b_5dy_94j)|设置是否订阅远端音频流|1.9|
-|[configRemoteCameraTrack](#li_2oq_y38_8fr)|设置是否订阅远端相机流|1.9|
-|[configRemoteScreenTrack](#li_fep_s8y_b92)|设置是否订阅远端屏幕流|1.9|
-|[subscribe](#li_f4m_2kv_97u)|订阅远程发布流|1.2|
-|[unSubscribe](#li_jfu_j59_hma)|取消订阅该用户所有的流|1.2|
+|[configRemoteAudio](#li_22b_5dy_94j)|设置是否订阅远端音频流。|1.9|
+|[configRemoteCameraTrack](#li_2oq_y38_8fr)|设置是否订阅远端相机流。|1.9|
+|[configRemoteScreenTrack](#li_fep_s8y_b92)|设置是否订阅远端屏幕流。|1.9|
+|[subscribe](#li_f4m_2kv_97u)|订阅远程发布流。|1.2|
+|[unSubscribe](#li_jfu_j59_hma)|取消订阅该用户所有的流。|1.2|
 
 视频相关接口
 
 |API|描述|以上版本支持|
 |---|--|------|
-|[currentCamera](#li_7kr_1ot_5vf)|指定摄像头设备|1.9|
-|[videoProfile](#li_eph_agq_kbu)|设置视频流参数|1.9|
-|[muteLocalCamera](#li_22i_jy6_nt0)|是否停止本地视频采集|1.2|
-|[setDisplayRemoteVideo](#li_1ju_ght_n22)|为远端的视频设置渲染窗口以及绘制参数|1.14|
-|[setVideoProfile](#li_pr2_8f3_iim)|设置视频流或共享流参数|1.11|
-|[enableCamera](#li_80k_y5g_m06)|设置是否使用摄像头|1.13.0|
+|[currentCamera](#li_7kr_1ot_5vf)|指定摄像头设备。|1.9|
+|[videoProfile](#li_eph_agq_kbu)|设置视频流参数。|1.9|
+|[muteLocalCamera](#li_22i_jy6_nt0)|是否停止本地视频采集。|1.2|
+|[setDisplayRemoteVideo](#li_1ju_ght_n22)|为远端的视频设置渲染窗口以及绘制参数。|1.14|
+|[setVideoProfile](#li_pr2_8f3_iim)|设置视频流或共享流参数。|1.11|
+|[enableCamera](#li_80k_y5g_m06)|设置是否使用摄像头。|1.13.0|
 
 音频相关接口
 
 |API|描述|以上版本支持|
 |---|--|------|
-|[currentAudioCapture](#li_e0n_h1y_fvj)|指定麦克风设备|1.9|
-|[muteLocalMic](#li_kx3_f9b_xai)|是否停止本地音频采集|1.2|
-|[muteRemoteAudioPlaying](#li_dgb_8yu_48m)|设置是否停止播放远端音频流|1.12.2|
-|[muteAllRemoteAudioPlaying](#li_4ol_ow8_546)|设置是否停止远端的所有音频流的播放|1.12.2|
-|[setAudioVolume](#li_unr_g3v_iy2)|设置订阅用户音量|1.13.0|
-|[getAudioVolume](#li_3m3_j7u_1yi)|获取订阅用户音量|1.13.0|
-|[enableAudioVolumeIndicator](#li_qsn_el9_eov)|设置接收音量值回调|1.13.0|
+|[currentAudioCapture](#li_e0n_h1y_fvj)|指定麦克风设备。|1.9|
+|[muteLocalMic](#li_kx3_f9b_xai)|是否停止本地音频采集。|1.2|
+|[muteRemoteAudioPlaying](#li_dgb_8yu_48m)|设置是否停止播放远端音频流。|1.12.2|
+|[muteAllRemoteAudioPlaying](#li_4ol_ow8_546)|设置是否停止远端的所有音频流的播放。|1.12.2|
+|[setAudioVolume](#li_unr_g3v_iy2)|设置订阅用户音量。|1.13.0|
+|[getAudioVolume](#li_3m3_j7u_1yi)|获取订阅用户音量。|1.13.0|
+|[enableAudioVolumeIndicator](#li_qsn_el9_eov)|设置接收音量值回调。|1.13.0|
 
 预览接口
 
 |API|描述|以上版本支持|
 |---|--|------|
-|[startPreview](#li_q8y_3m7_5z9)|预览本地摄像头|1.2|
-|[stopPreview](#li_rnn_eih_bir)|结束预览本地摄像头|1.2|
-|[enableHighDefinitionPreview](#li_j6u_7vu_nyd)|设置是否开启高清预览|1.12.1|
+|[startPreview](#li_q8y_3m7_5z9)|预览本地摄像头。|1.2|
+|[stopPreview](#li_rnn_eih_bir)|结束预览本地摄像头。|1.2|
+|[enableHighDefinitionPreview](#li_j6u_7vu_nyd)|设置是否开启高清预览。|1.12.1|
 
 远端用户查询接口
 
 |API|描述|以上版本支持|
 |---|--|------|
-|[getUserList](#li_r4b_x22_2me)|获取当前房间在线用户|1.9|
-|[getUserInfo](#li_vor_zpx_gsi)|获取用户信息|1.9|
+|[getUserList](#li_r4b_x22_2me)|获取当前房间在线用户。|1.9|
+|[getUserInfo](#li_vor_zpx_gsi)|获取用户信息。|1.9|
 
 其他接口
 
 |API|描述|以上版本支持|
 |---|--|------|
-|[on](#li_rdp_eyf_b1p)|订阅事件|1.2|
-|[off](#li_bz5_z76_25m)|取消订阅事件|1.2|
-|[setExternalMediaTrack](#li_la6_ta9_c59)|设置外部输入音视频流替换|1.12.1|
+|[on](#li_rdp_eyf_b1p)|订阅事件。|1.2|
+|[off](#li_bz5_z76_25m)|取消订阅事件。|1.2|
+|[setExternalMediaTrack](#li_la6_ta9_c59)|设置外部输入音视频流替换。|1.12.1|
 
 ## 接口详情
 
-AliRtcSDK Web端接口信息如下：
-
 -   isSupport：检测浏览器是否支持RTC SDK。
-
-    ```
-    isSupport(option)
-    ```
-
-    示例代码
 
     ```
     aliWebrtc.isSupport(option).then(re =>{
@@ -134,7 +126,7 @@ AliRtcSDK Web端接口信息如下：
     -   不再是静态方法。
     -   在实例化之后加入频道前，调用该接口。
     -   取消参数\{channelProfile: 0\}、\{channelProfile: 2\}。
-    返回参数：
+    返回参数
 
     |名称|类型|描述|
     |--|--|--|
@@ -151,12 +143,6 @@ AliRtcSDK Web端接口信息如下：
 -   getDevices：获取设备信息，返回摄像头和音频输入设备。如果外接设备重新插拔后获取不到设备信息，请尝试重新启动电脑。
 
     ```
-    getDevices()
-    ```
-
-    示例代码
-
-    ```
     aliWebrtc.getDevices().then((re)=>{
     }).catch((error)=>{ 
       console.log(error.message)
@@ -164,12 +150,6 @@ AliRtcSDK Web端接口信息如下：
     ```
 
 -   getAvailableResolutions：获取可支持的分辨率的数组信息。
-
-    ```
-    getAvailableResolutions(deviceId)
-    ```
-
-    示例代码
 
     ```
     aliWebrtc.getAvailableResolutions(deviceId).then((re)=>{
@@ -187,22 +167,10 @@ AliRtcSDK Web端接口信息如下：
 -   isSupportScreenShare：是否支持屏幕共享。
 
     ```
-    isSupportScreenShare()
-    ```
-
-    示例代码
-
-    ```
     aliWebrtc.isSupportScreenShare();
     ```
 
 -   setChannelProfile：设置频道模式。
-
-    ```
-    setChannelProfile(channelProfile)
-    ```
-
-    示例代码
 
     ```
     aliWebrtc.setChannelProfile(channelProfile);
@@ -219,12 +187,6 @@ AliRtcSDK Web端接口信息如下：
 -   setClientRole：设置角色。
 
     ```
-    setClientRole(role)
-    ```
-
-    示例代码
-
-    ```
     aliWebrtc.setClientRole(role);
     ```
 
@@ -239,12 +201,6 @@ AliRtcSDK Web端接口信息如下：
 -   setAudioOnlyMode：设置是否为纯音频模式。
 
     ```
-    setAudioOnlyMode(audioOnly)
-    ```
-
-    示例代码
-
-    ```
     aliWebrtc.setAudioOnlyMode(audioOnly);
     ```
 
@@ -257,12 +213,6 @@ AliRtcSDK Web端接口信息如下：
     **说明：** 需要早调用isSupport接口之前调用该接口。设置纯音频模式后，可以在调用isSupport时不再检测摄像头。加入频道后无法进行本地预览，推拉流只能是音频流。
 
 -   joinChannel：加入频道。
-
-    ```
-    joinChannel(authInfo,displayName)
-    ```
-
-    示例代码
 
     ```
     aliWebrtc.joinChannel({
@@ -297,12 +247,6 @@ AliRtcSDK Web端接口信息如下：
 -   leaveChannel：离开频道。
 
     ```
-    leaveChannel()
-    ```
-
-    示例代码
-
-    ```
     aliWebrtc.leaveChannel().then(()=>{
     } ,(error)=>{
         console.log(error.message);
@@ -310,8 +254,6 @@ AliRtcSDK Web端接口信息如下：
     ```
 
 -   configLocalAudioPublish：设置是否允许发布音频流。
-
-    示例代码
 
     ```
     aliWebrtc.configLocalAudioPublish=enable;
@@ -327,8 +269,6 @@ AliRtcSDK Web端接口信息如下：
 
 -   configLocalCameraPublish：设置是否允许发布相机流。
 
-    示例代码
-
     ```
     aliWebrtc.configLocalCameraPublish=enable;
     ```
@@ -343,8 +283,6 @@ AliRtcSDK Web端接口信息如下：
 
 -   configLocalScreenPublish：设置是否允许发布屏幕共享流。
 
-    示例代码
-
     ```
     aliWebrtc.configLocalScreenPublish=enable;
     ```
@@ -356,12 +294,6 @@ AliRtcSDK Web端接口信息如下：
     |enable|Boolean|是否表示允许发布屏幕共享流。true表示允许发布屏幕共享流，false表示不允许发布屏幕共享流。默认为不允许发布屏幕共享流。|
 
 -   publish：发布本地视频流。
-
-    ```
-    publish()
-    ```
-
-    示例代码
 
     ```
     aliWebrtc.publish().then(()=>{
@@ -377,12 +309,6 @@ AliRtcSDK Web端接口信息如下：
 -   unPublish：结束发布本地流，当您取消发布本地流时，远程会收到onUnPublisher事件。
 
     ```
-    unPublish()
-    ```
-
-    示例代码
-
-    ```
     aliWebrtc.unPublish().then(()=>{
     } ,(error)=>{
         console.log(error.message);
@@ -392,12 +318,6 @@ AliRtcSDK Web端接口信息如下：
     **说明：** 1.14版本开始取消该接口，建议设置config后调用publish接口。
 
 -   configRemoteAudio：设置是否订阅远端音频流。
-
-    ```
-    configRemoteAudio(userId,enable)
-    ```
-
-    示例代码
 
     ```
     aliWebrtc.configRemoteAudio(userId,enable);
@@ -413,12 +333,6 @@ AliRtcSDK Web端接口信息如下：
     **说明：** 需要调用subscribe后，才能设置生效。
 
 -   configRemoteCameraTrack：设置是否订阅远端相机流。
-
-    ```
-    configRemoteCameraTrack(userId,preferMaster,enable)
-    ```
-
-    示例代码
 
     ```
     
@@ -440,12 +354,6 @@ AliRtcSDK Web端接口信息如下：
 -   configRemoteScreenTrack：设置是否订阅远端屏幕流。
 
     ```
-    configRemoteScreenTrack(userId,enable)
-    ```
-
-    示例代码
-
-    ```
     aliWebrtc.configRemoteScreenTrack(userId,enable);
     ```
 
@@ -459,12 +367,6 @@ AliRtcSDK Web端接口信息如下：
     **说明：** 需要调用subscribe后，才能设置生效。
 
 -   subscribe：订阅远程发布流。
-
-    ```
-    subscribe(userId)
-    ```
-
-    示例代码
 
     ```
     aliWebrtc.subscribe(userId).then((userId)=>{
@@ -484,12 +386,6 @@ AliRtcSDK Web端接口信息如下：
 -   unSubscribe：取消订阅该用户所有的流。
 
     ```
-    unSubscribe(userId)
-    ```
-
-    示例代码
-
-    ```
     aliWebrtc.unSubscribe(userId).then(() => {
     },(error)=>{
         console.log(error.message);
@@ -505,8 +401,6 @@ AliRtcSDK Web端接口信息如下：
     **说明：** 1.14版本开始取消该接口，建议设置config后调用subscribe接口。
 
 -   currentCamera：指定摄像头设备。
-
-    示例代码
 
     ```
     //pc端
@@ -528,8 +422,6 @@ AliRtcSDK Web端接口信息如下：
     **说明：** 暂不支持热切换，需要在预览和推流之前设置。
 
 -   videoProfile：设置视频流参数。
-
-    示例代码
 
     ```
     aliWebrtc.videoProfile = { 
@@ -554,12 +446,6 @@ AliRtcSDK Web端接口信息如下：
 -   muteLocalCamera：是否停止本地视频采集。
 
     ```
-    muteLocalCamera(mute)
-    ```
-
-    示例代码
-
-    ```
     aliWebrtc.muteLocalCamera(true);
     ```
 
@@ -576,12 +462,6 @@ AliRtcSDK Web端接口信息如下：
     **说明：** 1.10及以上版本，该接口增加返回值。该接口需要在推流状态下设置有效。
 
 -   setDisplayRemoteVideo：为远端的视频设置渲染窗口以及绘制参数。
-
-    ```
-    setDisplayRemoteVideo(userId,video,type)
-    ```
-
-    示例代码
 
     ```
     aliWebrtc.setDisplayRemoteVideo(
@@ -601,12 +481,6 @@ AliRtcSDK Web端接口信息如下：
         -   订阅音频流的同时没有设置视图，音频无法播放。
     -   safari浏览器音频订阅后就在后台默认播放。
 -   setVideoProfile：设置摄像头或屏幕共享参数。
-
-    ```
-    setVideoProfile(config,type)
-    ```
-
-    示例代码
 
     ```
     aliWebrtc.setVideoProfile({ 
@@ -637,8 +511,6 @@ AliRtcSDK Web端接口信息如下：
 
 -   enableCamera：设置是否使用摄像头。
 
-    示例代码
-
     ```
     aliWebrtc.enableCamera = enable;
     ```
@@ -652,8 +524,6 @@ AliRtcSDK Web端接口信息如下：
     **说明：** 该接口需要在isSupport之前调用，设置后isSupport将不再检测摄像头。
 
 -   currentAudioCapture：指定麦克风设备。
-
-    示例代码
 
     ```
     aliWebrtc.currentAudioCapture = {
@@ -670,12 +540,6 @@ AliRtcSDK Web端接口信息如下：
     **说明：** 该接口暂不支持热切换，您需要在预览和推流之前进行设置。
 
 -   muteLocalMic：是否停止本地音频采集
-
-    ```
-    muteLocalMic(mute)
-    ```
-
-    示例代码
 
     ```
     aliWebrtc.muteLocalMic(true);
@@ -696,12 +560,6 @@ AliRtcSDK Web端接口信息如下：
 -   muteRemoteAudioPlaying：设置是否停止播放远端音频流。
 
     ```
-    muteRemoteAudioPlaying(userId, muted)
-    ```
-
-    示例代码
-
-    ```
     aliWebrtc.muteRemoteAudioPlaying(userId, muted);
     ```
 
@@ -715,12 +573,6 @@ AliRtcSDK Web端接口信息如下：
 -   muteAllRemoteAudioPlaying：设置是否停止远端的所有音频流的播放
 
     ```
-    muteAllRemoteAudioPlaying(muted)
-    ```
-
-    示例代码
-
-    ```
     aliWebrtc.muteAllRemoteAudioPlaying(muted);
     ```
 
@@ -731,12 +583,6 @@ AliRtcSDK Web端接口信息如下：
     |muted|Boolean|是否开启全员静音，true开启全员静音，false不开启全员静音。默认为不静音。|
 
 -   setAudioVolume：设置订阅用户音量。
-
-    ```
-    setAudioVolume(userId, volume)
-    ```
-
-    示例代码
 
     ```
     aliWebrtc.setAudioVolume (userId, volume);
@@ -756,12 +602,6 @@ AliRtcSDK Web端接口信息如下：
 -   getAudioVolume：获取订阅用户音量。
 
     ```
-    getAudioVolume(userId)
-    ```
-
-    示例代码
-
-    ```
     aliWebrtc.getAudioVolume(userId);
     ```
 
@@ -771,15 +611,13 @@ AliRtcSDK Web端接口信息如下：
     |--|--|--|
     |userId|String|用户ID|
 
-    返回参数：
+    返回参数
 
     |名称|类型|描述|
     |--|--|--|
     |volume|Number|音量值，取值\[0,1\]|
 
 -   enableAudioVolumeIndicator：设置接收音频音量值回调。
-
-    示例代码
 
     ```
     aliWebrtc.enableAudioVolumeIndicator = enable;
@@ -792,12 +630,6 @@ AliRtcSDK Web端接口信息如下：
     |enable|Boolean|是否接收。true表示接收，false表示不接受。默认为false不接收。|
 
 -   startPreview：预览本地摄像头。
-
-    ```
-    startPreview(video)
-    ```
-
-    示例代码
 
     ```
     aliWebrtc.startPreview(
@@ -813,12 +645,6 @@ AliRtcSDK Web端接口信息如下：
 -   stopPreview：结束预览本地摄像头。
 
     ```
-    stopPreview()
-    ```
-
-    示例代码
-
-    ```
     aliWebrtc.stopPreview().then(()=>{
     }).catch((error) => {
         // 结束预览失败
@@ -826,12 +652,6 @@ AliRtcSDK Web端接口信息如下：
     ```
 
 -   enableHighDefinitionPreview：设置高清预览接口。
-
-    ```
-    enableHighDefinitionPreview(enable)
-    ```
-
-    示例代码
 
     ```
     aliWebrtc.enableHighDefinitionPreview(enable);
@@ -844,12 +664,6 @@ AliRtcSDK Web端接口信息如下：
     |enable|Boolean|是否开启高清预览，true表示开启高清预览，false表示不开启高清预览。默认为开启高清预览。|
 
 -   getUserList：获取当前房间在线用户。返回当前房间所有在线用户列表信息。
-
-    ```
-    getUserList()
-    ```
-
-    示例代码
 
     ```
     aliWebrtc.getUserList();
@@ -869,12 +683,6 @@ AliRtcSDK Web端接口信息如下：
     |type|String|audio表示音频，video表示视频。|
 
 -   getUserInfo：获取用户信息。
-
-    ```
-    getUserInfo(userId)
-    ```
-
-    示例代码
 
     ```
     aliWebrtc.getUserInfo(userId);
@@ -920,12 +728,6 @@ AliRtcSDK Web端接口信息如下：
     |handler|String|处理事件的方法。|
 
 -   setExternalMediaTrack：设置外部输入。
-
-    ```
-    setExternalMediaTrack(track, type)
-    ```
-
-    示例代码
 
     ```
     aliWebrtc.setExternalMediaTrack(track, type);
