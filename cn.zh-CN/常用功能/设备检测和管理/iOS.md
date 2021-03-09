@@ -1,61 +1,69 @@
-# iOS {#concept_1909547 .concept}
+---
+keyword: [iOS, rtc, 设备检测]
+---
 
-本文档为您介绍了阿里云音视频通信的设备检测和管理功能，您可以检查硬件设备是否能正常工作。
+# iOS
 
-## 功能简介 {#section_jzf_ert_uwq .section}
+RTC SDK为您提供了设备检测和管理的功能，您可以在加入频道之前检查硬件设备是否能正常工作。通过阅读本文，您可以了解设备检测和管理的方法。
 
-阿里云音视频通信提供了检测和管理设备的功能，方便您测试和检测设备。例如，您可以查询设备信息、检测摄像头是否正常工作、检测音频设备是否正常录音及播放、设置摄像头方向或者切换音频设备（麦克风和扬声器）等。
+## 功能简介
 
-## 实现方法 {#section_ko6_9le_igl .section}
+RTC SDK通过调用内部方法实现设备检测和管理。例如，您可以查询设备信息、检测摄像头是否正常工作、检测音频设备是否正常录音及播放、设置摄像头方向或者切换音频设备（麦克风和扬声器）等。
 
-在实现该功能之前，需要您已经搭建App Server、实现基本功能等操作。详情请参见[入门概述](../cn.zh-CN/快速入门/入门概述.md#)。
+## 实现方法
 
-具体实现方法如下所示。
+-   switchCamera（仅iOS可用）：切换前后摄像头。
 
--   switchCamera：切换前后摄像头。
-
-    ``` {#codeblock_073_rws_sn0}
+    ```
     - (int)switchCamera;
     ```
 
-    该方法返回0为切换成功，其他为切换失败。
+    返回说明
 
--   setCameraZoom：设置摄像头参数。
+    0表示切换成功，其他表示切换失败。
 
-    ``` {#codeblock_xei_ki7_d4f}
+-   setCameraZoom（仅iOS可用）：设置摄像头参数。
+
+    ```
      - (int)setCameraZoom:(float)zoom flash:(BOOL)flash autoFocus:(BOOL)autoFocus;
     ```
 
-    参数：
+    参数说明
 
-    |参数|类型|描述|
+    |名称|类型|描述|
     |--|--|--|
-    |zoom|float|zoom变焦的级别。|
-    |flash|BOOL|是否打开闪光灯。|
-    |autoFocus|BOOL|是否打开自动对焦。|
+    |zoom|float|变焦的级别。取值范围：-3.0~3.0，默认取值1.0。|
+    |flash|BOOL|是否打开闪光灯。YES为打开闪光灯，NO为不打开闪光灯。默认不打开闪光灯。|
+    |autoFocus|BOOL|是否打开自动对焦。YES为打开自动对焦，NO为不打开自动对焦。默认不打开自动对焦。|
 
-    该方法返回0表示设置成功，其他表示设置失败
+    返回说明
 
--   isCameraOn：检查摄像头是否打开。
+    0表示设置成功，其他表示设置失败。
 
-    ``` {#codeblock_3eu_36k_25k}
+-   isCameraOn（仅iOS可用）：检查摄像头是否打开。
+
+    ```
     - (BOOL)isCameraOn;
     ```
 
-    该方法返回YES表示摄像头已打开，NO表示摄像头没有打开
+    返回说明
 
--   enableSpeakerphone：切换听筒、扬声器输出。
+    YES表示摄像头已打开，NO表示摄像头没有打开。
 
-    ``` {#codeblock_f4q_sa8_ppy}
+-   enableSpeakerphone（仅iOS可用）：设置音频输出为听筒还是扬声器。
+
+    ```
      - (int)enableSpeakerphone:(BOOL)enable;
     ```
 
-    参数：
+    参数说明
 
-    |参数|类型|描述|
+    |名称|类型|描述|
     |--|--|--|
-    |enable|BOOL|YES为听筒模式，NO为扬声器模式。|
+    |enable|BOOL|YES为扬声器模式，NO为听筒模式（默认值）。|
 
+    返回说明
 
-获得更多视频类功能实现方法，请参见[AliRtcEngine接口](../cn.zh-CN/API参考/iOS SDK/接口说明/AliRtcEngine接口.md#)。
+    0表示成功，其他返回错误码。
+
 
