@@ -1,10 +1,10 @@
 ---
-keyword: [web, rtc]
+keyword: [web, rtc, 视频属性]
 ---
 
 # Web
 
-本章节为您介绍了音视频通信视频属性的实现方法。您可以根据业务需求设置视频属性，获得更好的体验。
+RTC SDK为您提供设置视频流规格和类型的功能，您可以根据实际情况通过搭配视频流规格和类型设置视频属性，以达到更好的产品体验。通过阅读本文，您可以了解设置视频属性的方法。
 
 ## 功能简介
 
@@ -12,32 +12,29 @@ keyword: [web, rtc]
 
 ## 实现方法
 
-在实现该功能之前，需要您已经搭建AppServer、实现基本功能等操作。详情请参见[入门概述](/cn.zh-CN/快速入门/入门概述.md)。
-
-设置视频属性之前，您需要先调用getAvailableResolutions传入摄像头参数返回支持的分辨率和帧率，然后通过setVideoProfile方法设置视频属性，调用publish才能生效。
-
-**说明：**
-
--   屏幕共享清晰度与网络质量、设备性能有关，而不是设置的分辨率越高显示的越清晰。
--   1.13.2版本已删除参数maxBitrate，SDK会根据设置的分辨率和帧率自动设置最大码率。1.13.2以下版本如果调用setVideoProfile，还需要配置该参数。
+设置视频属性之前，您需要先调用[getAvailableResolutions](/cn.zh-CN/SDK参考/Web SDK/AliRtcEngine接口.md)传入摄像头参数返回支持的分辨率和帧率，再通过`setVideoProfile`方法设置视频属性，调用[publish](/cn.zh-CN/SDK参考/Web SDK/AliRtcEngine接口.md)才能生效。
 
 ```
 aliWebrtc.setVideoProfile({ 
       width,
       height,
-      frameRate
+      frameRate,
     },type);
 ```
 
-|参数|类型|描述|
+|名称|类型|描述|
 |--|--|--|
-|config|width|Number|宽度 -   摄像头：640（默认值）
--   屏幕共享：960（默认值） |
-|height|Number|高度 -   摄像头：480（默认值）
--   屏幕共享：540（默认值） |
-|frameRate|Number|帧率 -   摄像头：15（默认值）
--   屏幕共享：10（默认值） |
-|type|Number|1表示摄像头，2表示屏幕共享|
+|config|width|Number|宽度。取值： -   摄像头：640（默认值）。
+-   屏幕共享：960（默认值）。 |
+|height|Number|高度。取值： -   摄像头：480（默认值）。
+-   屏幕共享：540（默认值）。 |
+|frameRate|Number|帧率。取值范围：5~30。默认取值：
 
-获得更多功能实现方法，请参见[AliRtcEngine接口](/cn.zh-CN/SDK参考/Web SDK/AliRtcEngine接口.md)。
+-   摄像头：15（默认值）。
+-   屏幕共享：10（默认值）。 |
+|maxBitrate|Number|最大码率。取值： -   摄像头：500000（默认值）。
+-   屏幕共享：1500000（默认值）。
+
+**说明：** 1.13.2版本已删除该参数，SDK会根据设置的分辨率和帧率自动设置最大码率。1.13.2以下版本如果调用setVideoProfile，还需要配置该参数。 |
+|type|Number|1表示摄像头，2表示屏幕共享。|
 
