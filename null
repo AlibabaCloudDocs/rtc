@@ -1,4 +1,4 @@
-# Android播放音效文件
+# iOS播放音效文件
 
 阿里云RTC SDK为您提供伴奏文件和音效文件的相关接口方法，您可以通过本文了解其具体的实现方法。
 
@@ -6,88 +6,98 @@
 
 伴奏文件的接口方法如下所示。
 
--   调用startAudioAccompany开始混音伴奏。
+-   调用startAudioAccompanyWithFile开始混音伴奏，调用成功返回0，失败返回错误码。
+
+    **说明：** 调用该接口后，立即开始混音伴奏。
 
     ```
     //接口方法
-    public abstract int startAudioAccompany(String fileName, boolean onlyLocalPlay, boolean replaceMic, int loopCycles) ;
+    - (int)startAudioAccompanyWithFile:(NSString *)filePath onlyLocalPlay:(BOOL)onlyLocalPlay replaceMic:(BOOL)replaceMic loopCycles:(NSInteger)loopCycles;
     //示例方法
-    int ret =  mAliRtcEngine.startAudioAccompany(audioFileName, localPlay, replaceMic, loopCycles);
+    int code = [self.engine startAudioAccompanyWithFile:@"******" onlyLocalPlay:YES replaceMic:YES loopCycles:3];
+    if (code != 0) {
+        NSLog(@"播放失败,请检查参数配置");
+    }
     ```
 
-    |参数|类型|描述|
-    |--|--|--|
-    |fileName|String|伴奏文件路径|
-    |onlyLocalPlay|boolean|是否只本地播放，true：只本地播放；false：本地播放和推流|
-    |replaceMic|boolean|是否替换麦克风采集，true：替换麦克风采集，只有伴奏声；false：与麦克风共存|
-    |loopCycles|int|循环次数|
+    |参数|说明|
+    |--|--|
+    |filePath|伴奏文件路径|
+    |onlyLocalPlay|是否只本地播放。YES：仅本地播放；NO：本地播放和推流|
+    |replaceMic|是否替换麦克风采集，YES：替换麦克风采集，只有伴奏声；NO：与麦克风共存|
+    |loopCycles|循环次数，可以设置-1或者正整数|
 
--   调用pauseAudioAccompany暂停伴奏，调用成功返回0，失败返回错误码。
+-   调用pauseAudioAccompany暂停伴奏播放，调用成功返回0，失败返回错误码。
 
-    **说明：** 您需要在startAudioAccompany接口之后调用。
-
-    ```
-    //接口方法
-    public abstract int pauseAudioAccompany() ;
-    //示例方法mAliRtcEngine.pauseAudioAccompany();
-    ```
-
--   调用resumeAudioAccompany恢复伴奏播放，调用成功返回0，失败返回错误码。
-
-    **说明：** 您可以与pauseAudioAccompany接口搭配使用。
+    **说明：** 您需要在startAudioAccompanyWithFile接口之后调用。
 
     ```
     //接口方法
-    public abstract int resumeAudioAccompany() ;
-    //示例方法mAliRtcEngine.resumeAudioAccompany();
+    - (int)pauseAudioAccompany;
+    //示例接口
+    [self.engine pauseAudioAccompany];
     ```
 
--   调用stopAudioAccompany停止伴奏播放，调用成功返回0，失败返回错误码。
+-   调用resumeAudioAccompany恢复伴奏，调用成功返回0，失败返回错误码。
 
-    **说明：** 调用该接口后会立刻停止伴奏播放，您可以与startAudioAccompany接口搭配使用。
+    **说明：** 您可以与pauseAudioAccompany搭配使用。
 
     ```
     //接口方法
-    public abstract int stopAudioAccompany() ;
+    - (int)resumeAudioAccompany;
     //示例方法
-    mAliRtcEngine.stopAudioAccompany();
+    [self.engine resumeAudioAccompany];
     ```
 
--   您可以通过以下接口方法设置音量。
+-   调用stopAudioAccompany停止伴奏，调用成功返回0，失败返回错误码。
+
+    **说明：** 调用之后立刻停止伴奏播放，与startAudioAccompanyWithFile搭配使用。
 
     ```
-     /**
-         * 设置混音音量，需要在调用startAudioAccompany后才能生效
-         * @param volume 混音音量，取值：0~100
-         * @return 调用成功返回0，失败返回错误码
-         */
-        public abstract int setAudioAccompanyVolume( int volume) ;
+    //接口方法
+    - (int)stopAudioAccompany;
+    //示例方法
+    [self.engine stopAudioAccompany];
+    ```
+
+-   设置音量的接口方法如下所示。
+
+    ```
+    /**
+     * @brief 设置混音音量
+     * @param volume 混音音量，取值：0~100
+     * @return 调用成功返回0，失败返回错误码
+     * @note 设置音量需要在调用startAudioAccompanyWithFile接口后才能生效
+     */
+    - (int)setAudioAccompanyVolume:(NSInteger)volume;
     
-        /**
-         * 设置混音之后推流出去的音量，需要在调用startAudioAccompany后才能生效
-         * @param volume 混音音量，取值：0~100
-         * @return 调用成功返回0，失败返回错误码
-         */
-        public abstract int setAudioAccompanyPublishVolume(int volume) ;
+    /**
+     * @brief 设置混音之后推流出去的音量
+     * @param volume 混音音量，取值：0~100
+     * @return 调用成功返回0，失败返回错误码
+     * @note 设置音量需要在调用startAudioAccompanyWithFile接口后才能生效
+     */
+    - (int)setAudioAccompanyPublishVolume:(NSInteger)volume;
     
-        /**
-         * 获取推流出去的混音音量
-         * @return 调用成功返回0，失败返回错误码
-         */
-        public abstract int getAudioAccompanyPublishVolume() ;
+    /**
+     * @brief 获取推流出去的混音音量
+     * @return 调用成功返回0，失败返回错误码
+     */
+    - (int)getAudioAccompanyPublishVolume;
     
-        /**
-         * 设置混音之后本地播放的音量，需要在调用startAudioAccompany后才能生效
-         * @param volume 混音音量，取值：0~100
-         * @return 调用成功返回0，失败返回错误码
-         */
-        public abstract int setAudioAccompanyPlayoutVolume(int volume) ;
+    /**
+     * @brief 设置混音之后本地播放的音量
+     * @param volume 混音音量，取值：0~100
+     * @return 调用成功返回0，失败返回错误码
+     * @note 设置音量需要在调用startAudioAccompanyWithFile接口后才能生效
+     */
+    - (int)setAudioAccompanyPlayoutVolume:(NSInteger)volume;
     
-        /**
-         * 获取混音本地播放的音量
-         * @return 调用成功返回0，失败返回错误码
-         */
-        public abstract int getAudioAccompanyPlayoutVolume() ;
+    /**
+     * @brief 获取混音本地播放的音量
+     * @return 调用成功返回0，失败返回错误码
+     */
+    - (int)getAudioAccompanyPlayoutVolume;
     ```
 
 
@@ -95,112 +105,115 @@
 
 音效文件的接口方法如下所示。
 
--   调用preloadAudioEffect预加载音效文件，调用成功返回0，失败返回错误码。
-
-    **说明：** 您设置的音效文件ID会进行后续操作。
+-   调用preloadAudioEffectWithSoundId预加载音效文件，调用成功返回0，失败返回错误码。
 
     ```
     //接口方法
-    public abstract int preloadAudioEffect(int soundId, String filePath) ;
+    - (int)preloadAudioEffectWithSoundId:(NSInteger)soundId filePath:(NSString *)filePath;
     //示例方法
-    mAliRtcEngine.preloadAudioEffect(1, filePath);
+    [self.engine preloadAudioEffectWithSoundId:11235 filePath:@"*******"];
     ```
 
-    |参数|类型|描述|
+    |参数|类型|说明|
     |--|--|--|
-    |filePath|String|伴奏文件路径（建议不包含中文）|
-    |soundId|int|指定的文件ID，个数无限制|
+    |filePath|NSString \*|伴奏文件路径|
+    |soundId|NSInteger|指定的音效文件ID，个数无限制，您需要通过此ID做后续操作|
 
--   调用unloadAudioEffect根据预加载的音效文件ID删除预加载音效，调用成功返回0，失败返回错误码。
-
-    ```
-    //代码方法
-    public abstract int unloadAudioEffect(int soundId) ;
-    //示例方法
-    mAliRtcEngine.unloadAudioEffect(soundId);
-    ```
-
--   调用playAudioEffect开始播放音效，调用成功返回0，失败返回错误码。
-
-    **说明：** 成功调用后立即播放音效，您需要在preloadAudioEffectWithSoundId接口之后调用。
+-   调用unloadAudioEffectWithSoundId根据预加载的音效文件ID删除预加载音效，调用成功返回0，失败返回错误码。
 
     ```
     //接口方法
-    public abstract int playAudioEffect(int soundId, String filePath, int cycles, boolean publish);
+    - (int)unloadAudioEffectWithSoundId:(NSInteger)soundId;
     //示例方法
-    mAliRtcEngine.playAudioEffect(soundId, filePath, cycles, isPublish);
+    [self.engine unloadAudioEffectWithSoundId:11235];
     ```
 
-    |参数|类型|描述|
+-   调用playAudioEffectWithSoundId开始播放音效，调用成功返回0，失败返回错误码。
+
+    **说明：** 调用该接口后立即播放音效，您需要在preloadAudioEffectWithSoundId之后调用。
+
+    ```
+    //接口方法
+    - (int)playAudioEffectWithSoundId:(NSInteger)soundId filePath:(NSString *)filePath cycles:(NSInteger)cycles publish:(BOOL)publish;
+    //示例方法
+    int code = [self.engine playAudioEffectWithSoundId:11235 filePath:@"******" cycles:5 publish:YES];
+    if (code != 0) {
+        NSLog(@"播放失败,，请检查参数配置");
+    }
+    ```
+
+    |参数|类型|说明|
     |--|--|--|
-    |soundId|int|预加载时指定的文件ID|
-    |filePath|String|音效文件路径（建议不包含中文）|
-    |cycles|int|循环次数|
-    |publish|boolean|是否推流，false：不推流并且仅本地播放；true：本地播放和推流|
+    |soundId|NSInteger|预加载时指定的文件ID|
+    |filePath|NSString \*|音效文件路径|
+    |cycles|NSInteger|循环次数，可以设置为-1或者正整数|
+    |publish|BOOL|是否推流，NO：不推流、仅本地播放；YES：本地播放和推流|
 
--   调用pauseAudioEffect暂停音效，调用成功返回0，失败返回错误码。
+-   调用pauseAudioEffectWithSoundId暂停播放音效，调用成功返回0，失败返回错误码。
 
-    ```
-    //代码方法
-    public abstract int pauseAudioEffect(int soundId) ;
-    //示例方法
-    mAliRtcEngine.pauseAudioEffect(soundId);
-    ```
-
--   调用resumeAudioEffect恢复音效，调用成功返回0，失败返回错误码。
-
-    **说明：** 您可以与pauseAudioEffect接口搭配使用。
+    **说明：** 您需要在playAudioEffectWithSoundId接口之后调用。
 
     ```
     //接口方法
-    public abstract int resumeAudioEffect(int soundId) ;
+    - (int)pauseAudioEffectWithSoundId:(NSInteger)soundId;
     //示例方法
-    mAliRtcEngine.resumeAudioEffect(soundId);
+    [self.engine pauseAudioEffectWithSoundId:11235];
     ```
 
--   调用stopAudioEffect停止音效，调用成功返回0，失败返回错误码。
+-   调用resumeAudioEffectWithSoundId恢复播放音效，调用成功返回0，失败返回错误码。
 
-    **说明：** 成功调用之后会立刻停止音效播放，您可以与playAudioEffect接口搭配使用。
+    **说明：** 该接口可以和pauseAudioEffectWithSoundId搭配使用。
 
     ```
     //接口方法
-    public abstract int stopAudioEffect(int soundId) ;
+    - (int)resumeAudioEffectWithSoundId:(NSInteger)soundId;
     //示例方法
-    mAliRtcEngine.stopAudioEffect(soundId);
+    [self.engine resumeAudioEffectWithSoundId:11235];
     ```
 
--   您可以通过以下接口方法设置音效音量。
+-   调用stopAudioEffectWithSoundId停止播放音效，调用成功返回0，失败返回错误码。
+
+    **说明：** 调用该接口之后立刻停止播放音效，可以与playAudioEffectWithSoundId搭配使用。
 
     ```
-     /**
-         * 设置音效音量
-         * @param soundId 音效文件ID
-         * @param volume 混音音量，取值：0~100
-         * @return 调用成功返回0，失败返回错误码
-         */
-        public abstract int setAudioEffectPublishVolume(int soundId, int volume) ;
+    //接口方法
+    - (int)stopAudioEffectWithSoundId:(NSInteger)soundId;
+    //示例方法
+    [self.engine stopAudioEffectWithSoundId:11235];
+    ```
+
+-   设置音效音量接口方法如下所示。
+
+    ```
+    /**
+     * @brief 设置音效推流音量
+     * @param soundId 音效文件ID
+     * @param volume 混音音量，取值：0~100
+     * @return 调用成功返回0，失败返回错误码
+     */
+    - (int)setAudioEffectPublishVolumeWithSoundId:(NSInteger)soundId volume:(NSInteger)volume;
     
-        /**
-         * 获取推流音效音量
-         * @param soundId 音效文件ID
-         * @return 调用成功返回0~100音量，失败返回错误码
-         */
-        public abstract int getAudioEffectPublishVolume(int soundId) ;
+    /**
+     * @brief 获取推流音效音量
+     * @param soundId 音效文件ID
+     * @return 调用成功返回0~100音量，失败返回错误码
+     */
+    - (int)getAudioEffectPublishVolumeWithSoundId:(NSInteger)soundId;
     
-        /**
-         * 设置音效本地播放音量
-         * @param soundId 音效文件ID
-         * @param volume 混音音量，取值：0~100
-         * @return 调用成功返回0，失败返回错误码
-         */
-        public abstract int setAudioEffectPlayoutVolume(int soundId, int volume) ;
+    /**
+     * @brief 设置音效本地播放音量
+     * @param soundId 音效文件ID
+     * @param volume 混音音量，取值：0~100
+     * @return 调用成功返回0，失败返回错误码
+     */
+    - (int)setAudioEffectPlayoutVolumeWithSoundId:(NSInteger)soundId volume:(NSInteger)volume;
     
-        /**
-         * 获取音效本地播放音量
-         * @param soundId 音效文件ID
-         * @return 调用成功返回0~100音量，失败返回错误码
-         */
-        public abstract int getAudioEffectPlayoutVolume(int soundId) ;
+    /**
+     * @brief 获取音效本地播放音量
+     * @param soundId 音效文件分配ID
+     * @return 调用成功返回0~100音量，失败返回错误码
+     */
+    - (int)getAudioEffectPlayoutVolumeWithSoundId:(NSInteger)soundId;
     ```
 
 
