@@ -12,6 +12,8 @@ RTC SDK通过调用内部方法实现设备检测和管理。例如，您可以�
 
 ## 实现方法
 
+以下为常用的设备检测和管理方法，更多信息，请参见[AliRtcEngine接口](/cn.zh-CN/SDK参考/iOS和Mac SDK/AliRtcEngine接口.md)。
+
 -   switchCamera（仅iOS可用）：切换前后摄像头。
 
     ```
