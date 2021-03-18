@@ -13,6 +13,9 @@
 |---|--|
 |[DeleteChannel](/cn.zh-CN/服务端API/频道管理/DeleteChannel.md)|调用DeleteChannel删除频道。|
 |[RemoveTerminals](/cn.zh-CN/服务端API/频道管理/RemoveTerminals.md)|调用RemoveTerminals将指定终端用户从频道踢出。|
+|[DescribeChannelUsers](/cn.zh-CN/服务端API/频道管理/DescribeChannelUsers.md)|调用DescribeChannelUsers查询频道内各种模式下在线用户列表的详细信息。|
+|[DescribeUserInfoInChannel](/cn.zh-CN/服务端API/频道管理/DescribeUserInfoInChannel.md)|调用DescribeUserInfoInChannel查询用户在频道中实时信息。|
+|[DescribeChannelParticipants](/cn.zh-CN/服务端API/频道管理/DescribeChannelParticipants.md)|调用DescribeChannelParticipants查询频道在线用户列表，不包含详细信息。|
 
 ## 旁路转推
 
