@@ -1,53 +1,88 @@
----
-keyword: [RTC, 计费方式]
----
+# DescribeRtcChannels
 
-# 计费方式
+调用DescribeRtcChannels获取频道通信记录列表。
 
-阿里云RTC服务的计费方式默认为按量计费，当您进行音视频实时通信时，阿里云RTC会根据通话时长和不同的通话规格进行计费。本文为您介绍了RTC的计费方式、使用说明等，帮助您更好地使用音视频通信服务。
+## 调试
 
-## 按量计费
+[您可以在OpenAPI Explorer中直接运行该接口，免去您计算签名的困扰。运行成功后，OpenAPI Explorer可以自动生成SDK代码示例。](https://api.aliyun.com/#product=rtc&api=DescribeRtcChannels&type=RPC&version=2018-01-11)
 
-RTC的按量计费详情请参见[音视频通信定价说明](https://www.aliyun.com/price/product?#/rtc/detail)。
+## 请求参数
 
-## 音视频通信时长包（资源包）
+|名称|类型|是否必选|示例值|描述|
+|--|--|----|---|--|
+|Action|String|是|DescribeRtcChannels|操作接口名。系统规定参数，取值：**DescribeRtcChannels**。 |
+|AppId|String|是|yourAppId|应用ID，仅支持传单个ID。
 
-建议您优先购买资源包，当您使用资源时，扣除相应的额度，详情请参见[音视频通信时长包](https://common-buy.aliyun.com/?commodityCode=rtcdurationpackage)。
+ 您可以在控制台创建和查询。 |
+|StartTime|String|是|2018-01-29T05:00:00Z|查询数据起始时间，UTC格式，格式为yyyy-MM-ddTHH:mm:ssZ。 |
+|EndTime|String|是|2018-01-29T06:00:00Z|查询数据结束时间，UTC格式，格式为yyyy-MM-ddTHH:mm:ssZ。
 
-**说明：** 资源包分钟数按视频720P及以下规格计算，其他规格抵扣规则：4分钟语音通话抵扣1分钟资源包时长、2分钟360P及以下视频抵扣1分钟资源包时长、1分钟1080P视频抵扣3.75分钟资源包时长。
+ 结束时间需大于起始时间。 |
+|ChannelId|String|否|yourChannelId|频道ID，仅支持传单个ID。 |
+|PageSize|Integer|否|10|每页显示数量。默认为**10**，取值范围：**5**~**20**。 |
+|PageNo|Integer|否|1|页码。默认值**1**，取值范围：**0**~**3000**。 |
 
-资源包使用说明如下：
+## 返回数据
 
--   资源包购买后立即生效，请在资源包有效期内使用，到期后资源包不可使用。
--   资源包支持叠加购买，即有效期内资源用量叠加，多个资源包按到期时间先后进行抵扣。
--   资源包到期或超出使用额度，付费服务自动按量付费。为避免欠费导致服务不可用，请关注资源包消耗情况，及时新购资源包或保证账户余额充足。
--   资源包不支持升级或降级。
--   每个资源包的有效期独立计算，多个资源包有效期不叠加。
--   阿里云RTC提供的资源包，仅可抵扣RTC服务产生的用量。
+|名称|类型|示例值|描述|
+|--|--|---|--|
+|Channels|Array of Channel| |频道列表。 |
+|ChannelId|String|yourChannelId|频道ID。 |
+|EndTime|String|2018-01-29T06:00:00Z|频道结束时间，UTC格式，格式为yyyy-MM-ddTHH:mm:ssZ。 |
+|Finished|Boolean|true|频道是否已经结束。取值：
 
-资源包售后说明如下：
+ -   **true**：已经结束。
+-   **false**：还未结束。 |
+|StartTime|String|2018-01-29T05:00:00Z|频道开始时间，UTC格式，格式为yyyy-MM-ddTHH:mm:ssZ。 |
+|PageSize|Long|10|每页显示数量。 |
+|PageNo|Long|0|页码。 |
+|RequestId|String|16A96B9A-F203-4EC5-8E43-CB92E68F4CD8|请求ID。 |
+|TotalCnt|Long|1000|总页数。 |
 
--   如果您购买的资源包未超过7日且未消耗，可以退订。
--   如果您购买的资源包超过7日或已消耗，不可以退订。
--   如果您购买的资源包已消耗或已到期，剩余用量不可以退订或退款。
+## 示例
 
-## 旁路转推计费
+请求示例
 
-阿里云RTC为您提供旁路转推计费项， 该计费项默认按处理时长（以当日累计处理时长为结算标准，单位为分钟）进行计费。当您进行旁路转推时，阿里云RTC会根据您当日使用的不同转推规格所对应总时长进行叠加计费。
+```
+https://rtc.aliyuncs.com/?Action=DescribeRtcChannels
+&AppId=yourAppId
+&StartTime=2018-01-29T05:00:00Z
+&EndTime=2018-01-29T06:00:00Z
+&<公共请求参数>
+```
 
-旁路转推的计费详情请参见[旁路转推计费说明](https://www.aliyun.com/price/product?#/rtc/detail)。
+正常返回示例
 
-**说明：**
+`XML` 格式
 
-您在使用旁路转推功能时，需要仔细核对计费配置项是否符合业务场景。RTC会按照您配置项（TaskProfile）中设置的相关规格进行收费，如果您使用了超出规格的选项会导致推流失败，详情请参见[StartMPUTask](/cn.zh-CN/服务端API/旁路转推/StartMPUTask.md)。
+```
+<DescribeRtcChannelsResponse>
+  <TotalCnt>1000</TotalCnt>
+  <PageSize>10</PageSize>
+  <RequestId>16A96B9A-F203-4EC5-8E43-CB92E68F4CD8</RequestId>
+  <PageNo>0</PageNo>
+  <Channels>
+        <StartTime>2018-01-29T05:00:00Z</StartTime>
+        <Finished>true</Finished>
+        <EndTime>2018-01-29T06:00:00Z</EndTime>
+        <ChannelId>yourChannelId</ChannelId>
+  </Channels>
+</DescribeRtcChannelsResponse>
+```
 
-旁路转推服务API变更：参数TaskProfile于2020年6月1日23:00时由可选项变更为必填项，若缺失该参数，则默认按照最高规格16IN\_1080P计费。
+`JSON` 格式
 
-## 每日结算
-
-阿里云RTC服务会在每天凌晨两点左右统计前一日的账单并结算，具体出账单时间请您以系统为准。
-
-## 计费示例
-
-阿里云RTC为您提供在线教育类型的计费示例，您可以根据示例计算使用RTC服务所产生的实际费用，详情请参见[在线教育](/cn.zh-CN/产品定价/计费示例/在线教育.md)。
+```
+{"TotalCnt":"1000",
+"PageSize":"10",
+"RequestId":"16A96B9A-F203-4EC5-8E43-CB92E68F4CD8",
+"PageNo":"0",
+"Channels":[{
+    "StartTime":"2018-01-29T05:00:00Z",
+    "Finished":"true",
+    "EndTime":"2018-01-29T06:00:00Z",
+    "ChannelId":"yourChannelId"
+    }]
+}
+```
 
