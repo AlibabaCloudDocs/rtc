@@ -59,6 +59,7 @@
 |[PushExternalAudioFrameRawData](#li_3jo_g18_sbm)|输入外部音频数据推流。|1.18.1|
 |[SetExternalAudioPublishVolume](#li_etn_4fx_7t1)|设置外部输入音频推流混音音量。|1.18.1|
 |[GetExternalAudioPublishVolume](#li_afn_kpe_do4)|获取外部输入音频推流混音音量。|1.18.1|
+|[setAudioChannels](#li_co4_hyq_yos)|设置音频的推流模式。|1.18.12|
 
 媒体播放器相关接口
 
@@ -99,8 +100,8 @@ AliRTCEngineInterface * CreateAliRTCEngine(EngineEventHandlerInterface * eventHa
 |参数名|类型|描述|
 |---|--|--|
 |eventHandler|EngineEventHandlerInterface \*|录制SDK所触发的事件通过EngineEventHandlerInterface类回调通知。|
-|lowPort|int|最小的可用端口。 **说明：** 创建一个SDK实例需要占用一个系统端口进行音视频数据传输，建议端口范围设置为42000～45000，并保证其他服务不会占用此范围的端口。 |
-|highPort|int|最大的可用端口。 **说明：** 创建一个SDK实例需要占用一个系统端口进行音视频数据传输，建议端口范围设置为42000～45000，并保证其他服务不会占用此范围的端口。 |
+|lowPort|int|最小的可用端口。**说明：** 创建一个SDK实例需要占用一个系统端口进行音视频数据传输，建议端口范围设置为42000～45000，并保证其他服务不会占用此范围的端口。 |
+|highPort|int|最大的可用端口。**说明：** 创建一个SDK实例需要占用一个系统端口进行音视频数据传输，建议端口范围设置为42000～45000，并保证其他服务不会占用此范围的端口。 |
 |logPath|const char \*|保存日志的路径。|
 |coreServicePath|const char \*|AliRtcCoreService可执行程序存放的绝对路径。|
 
@@ -367,6 +368,22 @@ AliRTCEngineInterface * CreateAliRTCEngine(EngineEventHandlerInterface * eventHa
     ```
     virtual int GetExternalAudioPublishVolume() = 0;
     ```
+
+-   setAudioChannels：设置音频的推流模式。
+
+    ```
+    virtual int SetAudioChannels(AliRTCSdk::Linux::ExpectedAudioType type) = 0;
+    ```
+
+    参数说明
+
+    |参数名|类型|描述|
+    |---|--|--|
+    |type|AliRTCSdk::Linux::[ExpectedAudioType](t2459682.md#)|声道数。|
+
+    返回说明
+
+    0表示接口调用成功，-1表示接口调用失败。
 
 -   CreateMediaPlayer：创建媒体播放器。
 
