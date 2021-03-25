@@ -2,11 +2,11 @@
 
 调用StartMPUTask开始旁路直播任务。
 
-**说明：** 当您使用旁路转推服务时，阿里云视频直播服务有如下限制：
+当您使用旁路转推服务时，阿里云视频直播服务有如下限制：
 
 -   若未开启转码功能，默认每个账号下每个直播加速域名最多并发推送20个原画直播流。
 -   若启用转码功能，默认每个账号下每个直播加速域名最多并发推送10个转码直播流。
--   如有特殊需求，请提交工单申请开通。
+-   如有特殊需求，请[提交工单](https://selfservice.console.aliyun.com/ticket/createIndex)申请开通。
 
 ## 调试
 
@@ -50,7 +50,7 @@
  **说明：**
 
 -   单路转推模式下有效参数：**StreamType**、**SourceType**。
--   混流转码模式下有效参数：**TaskProfile**、**MediaEncode**、**LayoutIds**、**BackgroundColor**、**SubSpecUsers**、**CropMode**、**UserPanes**、**Backgrounds**、**Watermarks**、**ClockWidgets**。 |
+-   混流转码模式下有效参数：**TaskProfile**、**MediaEncode**、**LayoutIds**、**BackgroundColor**、**SubSpecUsers**、**CropMode**、**UserPanes**、**Backgrounds**、**Watermarks**。 |
 |CropMode|Integer|否|1|视频的裁剪方式。取值：
 
  -   **1**：保持比例裁剪。
