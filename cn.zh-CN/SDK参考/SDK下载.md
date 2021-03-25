@@ -48,8 +48,22 @@ npm地址：
 |-   [Linux（C++）接口说明](/cn.zh-CN/SDK参考/Linux SDK/C++/AliRtcEngine接口.md)
 -   [Linux（Java）接口说明](/cn.zh-CN/SDK参考/Linux SDK/Java/AliRtcEngine接口.md)
 
-|-   [V1.18.12（C++）](https://alivc-demo-cms.alicdn.com/versionProduct/sourceCode/rtc/linux/Release_1.18.12.linux.2103161_cpp.zip)
--   [V1.18.12（Java）](https://alivc-demo-cms.alicdn.com/versionProduct/sourceCode/rtc/linux/Release_1.18.12.linux.2103161_java.zip)
+|-   [V1.18.13（C++）](https://alivc-demo-cms.alicdn.com/versionProduct/sourceCode/rtc/linux/Release_1.18.13.linux.2103241_cpp.zip)
+-   [V1.18.13（Java）](https://alivc-demo-cms.alicdn.com/versionProduct/sourceCode/rtc/linux/Release_1.18.13.linux.2103241_java.zip)
 
 |无|
+
+## 精简版SDK
+
+RTC Android SDK提供so文件动态加载的功能，可以有效的减少安装包文件的大小，更多信息，请参见[Android SDK动态加载so文件方案](/cn.zh-CN/常见问题/Android SDK动态加载so文件方案.md)。
+
+|客户端|SDK下载地址|
+|---|-------|
+|Android|下载地址：
+
+[V1.17.41](https://alivc-demo-cms.alicdn.com/versionProduct/sourceCode/rtc/1.17.41/AliRTCSdk_1.17.41_arr_so(Android).zip)
+
+Maven依赖：
+
+com.aliyun.rtc:AliRTC:1.17.41.2102238 |
 
