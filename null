@@ -1,70 +1,122 @@
-# 生成Token
+# 设置音频属性
 
-RTC为您提供两种生成Token的方式，通过阅读本文，您可以了解控制台和服务端生成Token的方法。
+RTC SDK您提供设置音质和场景的功能，您可以根据实际情况通过搭配音质和场景设置音频属性，以达到更好的产品体验。通过阅读本文，您可以了解设置音频属性的方法。
 
--   您已经开通RTC服务，具体操作，请参见[开通服务](/cn.zh-CN/快速入门/开通服务.md)。
--   您已经创建好应用，具体操作，请参见[创建应用](/cn.zh-CN/快速入门/创建应用.md)。
--   您已经获取AppKey，具体操作，请参见[查询AppKey](/cn.zh-CN/控制台指南/查询AppKey.md)
+## 功能简介
 
-Token是阿里云设计的一种安全保护签名，目的是为了阻止恶意攻击者盗用您的云服务使用权。您需要在相应SDK的登录函数中提供AppID、UserID、ChannelId、Nonce、TimeStamp、GSLB和Token信息。其中AppID用于标识您的应用，UserID用于标识您的用户，而Token则是基于两者通过SHA256加密算法计算得出。因此，攻击者很难通过伪造Token盗用您的云服务流量。
+RTC SDK提供了三种音质模式（音频Profile规格）和四种场景（音频Scene规格）供您选择，如下所示：
 
-## 控制台
+音频Profile规格
 
-1.  登录[音视频通信RTC控制台](https://rtc.console.aliyun.com)。
+|音频Profile关键字|名称|声道数/采样率/编码码率|
+|------------|--|------------|
+|ENGINE\_LOW\_QUALITY\_MODE|低功耗音质模式|1/8kHz/12kbps|
+|ENGINE\_BASIC\_QUALITY\_MODE|标准音质模式（默认模式）|1/16kHz/24kbps|
+|ENGINE\_HIGH\_QUALITY\_MODE|高音质模式|1/48kHz/48kbps|
 
-2.  在左侧导航栏选择**接入工具**。
+音频Scene规格
 
-3.  在**Token生成器**页签下，输入生成Token所需要的参数。
+|场景关键字|名称|特性|
+|-----|--|--|
+|SCENE\_DEFAULT\_MODE|默认场景|推荐一般的音视频通信场景使用。|
+|SCENE\_EDUCATION\_MODE|教育场景|优先保证音频连续性与稳定性。|
+|SCENE\_MEDIA\_MODE|媒体场景|保真人声与音乐音质，推荐连麦直播间使用。|
+|SCENE\_MUSIC\_MODE|音乐场景|高保真音乐音质，推荐乐器教学等对音乐音质有要求的场景使用。|
 
-    |参数|描述|
-    |--|--|
-    |AppID|应用ID，在控制台**应用管理**页面创建和查看。|
-    |AppKey|应用AppKey，在控制台**应用管理**页面查询。|
-    |ChannelId|频道ID。1~64位，由大小写字母、数字、下划线（\_）、短划线（-）组成。|
-    |UserId|用户ID。1~64位，由大小写字母、数字、下划线（\_）、短划线（-）组成。|
-    |Nonce|随机码。以前缀AK-开头，由大小写字母、数字组成，最大64字节。例如：AK-2b9be4b25c2d38c409c376ffd2372be1。|
-    |TimeStamp|过期时间戳。可以选择12小时、24小时、3天和7天，代表令牌有效时间。|
+## 参数搭配推荐
 
-4.  单击**生成**。
+您可以根据推荐进行参数搭配，也可以根据自身实际业务场景进行自定义搭配。例如社交场景中，有背景音乐的音质需求，Scene可以选择音乐场景，如果没有背景音乐需求，Scene场景可以选择默认背景。
 
-    ![生成Token](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/2245068951/p72646.png)
+|业务场景|Profile设置|Scene设置|特性|
+|----|---------|-------|--|
+|音视频通话|标准音质模式（ENGINE\_BASIC\_QUALITY\_MODE）|默认场景（SCENE\_DEFAULT\_MODE）|在保证高清音质的同时，保证传输稳定流畅。|
+|音频社交场景|高音质模式（ENGINE\_HIGH\_QUALITY\_MODE）|音乐场景（SCENE\_MUSIC\_MODE）|高保真音乐音质，乐器教学等对音乐音质有要求的场景推荐使用。|
+|音频社交场景2|高音质模式（ENGINE\_HIGH\_QUALITY\_MODE）|默认场景（SCENE\_DEFAULT\_MODE）|高保真人声，没有背景音乐需求。|
+|教育场景|标准音质模式（ENGINE\_BASIC\_QUALITY\_MODE）|教育场景（SCENE\_EDUCATION\_MODE）|优先保证音频连续性与稳定性，同时保证音质高清。|
 
+## 实现方法
 
-## 服务端
+Android、iOS、Mac和Windows SDK平台关于音频的Profile设置与Scene设置通过集成RTC SDK时传递的extras参数设置，extras参数以JSON格式体现，如下所示：
 
-相对于控制台生成Token，服务端生成Token可以最大限度地保障计算Token的密钥不被泄露，具体的流程如下所示：
+```
+{"user_specified_ engine_mode" : "Profile设置关键字","user_specified_scene_mode" :"Scene场景关键字"}
+```
 
-1.  您的App在调用SDK的初始化函数之前，首先要向您的服务器请求Token。
-2.  您的服务器根据如下参数计算Token。
+示例代码如下所示：
+
+**说明：** 示例代码中SDK的初始化extras参数只包含了音频设置，实际代码设置过程中，还可以包含其他模块功能的初始化设置。
+
+-   Android
 
     ```
-    token = sha256(appId + appKey + channelId + userId + nonce + timestamp)
+    JSONObject jsonObject = new JSONObject();
+    //配置音质模式
+    try {
+       jsonObject.put("user_specified_engine_mode", "ENGINE_BASIC_QUALITY_MODE");
+       //配置场景模式
+       jsonObject.put("user_specified_scene_mode", "SCENE_DEFAULT_MODE");
+       AliRtcEngine aliRtcEngine = AliRtcEngine.getInstance(getApplicationContext(),jsonObject);
+    } catch (JSONException e) {
+       e.printStackTrace();
+    }
     ```
 
-3.  服务器将计算好的鉴权信息返回给您的App。
-4.  您的App将获得的鉴权信息通过特定API传递给SDK。
-5.  SDK将鉴权信息提交给阿里云服务器进行校验。
-6.  阿里云校验鉴权信息，确认合法性。
-7.  校验通过后，即可开始提供实时音视频服务。
+-   iOS
 
-![服务端获取流程图](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/1616764161/p94321.png)
+    ```
+    @property (nonatomic, strong) AliRtcEngine *engine;
+    NSMutableDictionary *extraDic = [[NSMutableDictionary alloc] init];
+    [extraDic setValue:@"ENGINE_BASIC_QUALITY_MODE" forKey:@"user_specified_engine_mode"];
+    [extraDic setValue:@"SCENE_EDUCATION_MODE" forKey:@"user_specified_scene_mode"];
+    
+    NSError *error = nil;
+    NSData *json = [NSJSONSerialization dataWithJSONObject:extraDic options:NSJSONWritingPrettyPrinted error:&error];
+    
+    NSString *string = [[NSString alloc] initWithData:json encoding:NSUTF8StringEncoding];
+    _engine = [AliRtcEngine sharedInstance:self extras: string];
+    ```
 
-|参数|说明|
-|--|--|
-|AppID|应用ID，通过控制台创建。|
-|UserID|您的唯一标识，由AppServer生成。同一个UserId的用户在其他端登录，先入会的端会被后入会的端踢出房间。 由大小写字母、数字组成，最大64字节。例如：2b9be4b25c2d38c409c376ffd2372be1。|
-|ChannelID|频道ID，AppServer生成。不支持设置ChannelID为0，并且ChannelID不可以重复，需要保持ChannelID的唯一。由大小写字母、数字、短划线（-）组成，最大64字节。例如：181-218-3406。|
-|Nonce|令牌随机码，由AppServer生成。以前缀AK-开头，由大小写字母、数字组成，最大64字节。例如：AK-2b9be4b25c2d38c409c376ffd2372be1。|
-|Timestamp|令牌过期时间戳，例如：1560588594代表过期时间为2019-06-15 16:49:54。|
-|Token|加入频道的Token，由AppServer生成。实际算法为`sha256(appId + appKey + channelId + userId + nonce + timestamp)`。|
-|GSLB|服务地址，该参数是数组类型，当前请使用：\["https://rgslb.rtc.aliyuncs.com"\]，请您通过业务服务器下发到客户端SDK，不建议您将该地址固化在客户端代码。|
+-   Mac
 
-服务端生成Token的签名算法为SHA256，您可以参见如下版本的生成Token函数：
+    ```
+    @property (nonatomic, strong) AliRtcEngine *engine;
+    NSMutableDictionary *extraDic = [[NSMutableDictionary alloc] init];
+    [extraDic setValue:@"ENGINE_BASIC_QUALITY_MODE" forKey:@"user_specified_engine_mode"];
+    [extraDic setValue:@"SCENE_EDUCATION_MODE" forKey:@"user_specified_scene_mode"];
+    
+    NSError *error = nil;
+    NSData *json = [NSJSONSerialization dataWithJSONObject:extraDic options:NSJSONWritingPrettyPrinted error:&error];
+    
+    NSString *string = [[NSString alloc] initWithData:json encoding:NSUTF8StringEncoding];
+    _engine = [AliRtcEngine sharedInstance:self extras: string];
+    ```
 
--   Golang程序实例请查看`CreateToken`函数，更多信息，请参见[Golang Demo](https://github.com/aliyunvideo/AliRtcAppServer/blob/master/golang/main.go)。
--   Java程序实例请查看`createToken`函数，更多信息，请参见[Java Demo](https://github.com/aliyunvideo/AliRtcAppServer/blob/master/java/src/main/java/com/company/App.java)。
--   Python程序实例请查看`create_token`函数，更多信息，请参见[Python Demo](https://github.com/aliyunvideo/AliRtcAppServer/blob/master/python/server.py)。
--   C\#程序实例请查看`CreateToken`函数，更多信息，请参见[C\# Demo](https://github.com/aliyunvideo/AliRtcAppServer/blob/master/csharp/rtc-app-csharp/Program.cs)。
--   Nodejs程序实例请查看`CreateToken`函数，更多信息，请参见[Node.js Demo](https://github.com/aliyunvideo/AliRtcAppServer/blob/master/nodejs/index.js)。
--   PHP程序实例请参查看`CreateToken`函数，更多信息，请参见[PHP Demo](https://github.com/aliyunvideo/AliRtcAppServer/blob/master/php/app/v1/login.php)。
+-   Windows
+
+    ```
+    std::string GetEngAndsceneMode(const std::string strEngMode, const std::string strSceneMode) 
+    {
+      std::string strParam = "{";
+      if (strEngMode == "default") 
+      {
+        strParam += "\"user_specified_engine_mode\" : \"ENGINE_BASIC_QUALITY_MODE\",";
+      }
+    
+      if (strSceneMode == "default")
+      {
+        strParam += "\"user_specified_scene_mode\" : \"SCENE_DEFAULT_MODE\",";
+      }
+    
+      strParam += "}";
+    
+      return strParam;
+    }
+    
+    AliRtcEventListener* rtcEventlister;
+    
+    std::string strEngMode = "default";
+    std::string strSceneMode = "default";
+    AliRtcEngine *mpEngine = AliRtcEngine::sharedInstance(rtcEventlister, GetEngAndsceneMode(strEngMode, strSceneMode).c_str());
+    ```
+
 
