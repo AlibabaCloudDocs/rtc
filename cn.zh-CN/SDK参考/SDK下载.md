@@ -40,7 +40,7 @@ npm地址：
 
 [npm](https://www.npmjs.com/package/aliyun-webrtc-sdk)
 
-|[Web示例代码](http://docs-aliyun.cn-hangzhou.oss.aliyun-inc.com/assets/attach/137410/cn_zh/1590117815969/AliRTC-WebSample%20%281%29.zip)|
+|[Web示例代码](https://alivc-demo-cms.alicdn.com/versionProduct/sourceCode/rtc/web/AliRTC-WebSample.zip)|
 |Unity|[Unity](/cn.zh-CN/快速入门/运行Demo示例/运行Unity Demo.md)|[Unity接口说明](/cn.zh-CN/SDK参考/Unity SDK/IAliRtcEngine接口.md)|[V1.15](http://docs-aliyun.cn-hangzhou.oss.aliyun-inc.com/assets/attach/137418/cn_zh/1589335526814/alirtc_unity_sdk_1.15.0_release.zip)|[Unity示例代码](https://github.com/aliyunvideo/AliRtcAppSample_Unity)|
 |Linux|-   [Linux（C++）](/cn.zh-CN/快速入门/集成客户端SDK/Linux/C++.md)
 -   [Linux（Java）](/cn.zh-CN/快速入门/集成客户端SDK/Linux/Java.md)
