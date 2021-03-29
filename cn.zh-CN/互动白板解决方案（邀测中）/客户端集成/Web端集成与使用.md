@@ -121,8 +121,8 @@
          * 白板文档的数据docData，其JSON格式如下所示：
          */
         resolve({
-          accessToken: "HnWuPIvSRcXitPhQhadHjtinBHKJwBTA",
-          collabHost: "daily-collab.xxxx.test",
+          accessToken: "HnWuPIvSRcXitPhQhadHjtinBHKJ****",
+          collabHost: "daily-collab.****.test",
           permission: 2,
           userInfo: {
             avatarUrl: "http://www.avatarset/Virginia.jpg",
@@ -135,7 +135,7 @@
     };
     
     const aliyunBoard = new AliyunBoard({
-        docKey：'xxxx',
+        docKey：'****',
       getDocumentData,
         getPreviewUrl: async (url: string, type: string) => {
         // 异步加签
