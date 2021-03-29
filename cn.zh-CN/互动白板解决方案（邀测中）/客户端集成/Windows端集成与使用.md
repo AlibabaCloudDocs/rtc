@@ -153,10 +153,10 @@ Windows端SDK接口的功能是通过函数`bool InvokeAPI(const char *method_na
         bool can_multiple_edit = false; //是否支持多人协同编辑
         if (can_multiple_edit) {
             config.config_data = "{}";
-          config.doc_data = "{\"accessToken\":\"bspdlhBnWnexpFFHfrbrutBwQaqPFffa\",\"collabHost\":\"collab-cn-shanghai.dingtalk.com\",\"permission\":2,\"userInfo\":{\"avatarUrl\":\"http://www.avatarset/Christina.jpg\",\"nick\":\"Christina\",\"nickPinyin\":\"Pinyin_Christina\",\"userId\":\"1234123\"},\"docKey\":\"oJGq7rgmRwGRnAKe\"}";
+          config.doc_data = "{\"accessToken\":\"bspdlhBnWnexpFFHfrbrutBwQaqP****\",\"collabHost\":\"collab-cn-shanghai.dingtalk.com\",\"permission\":2,\"userInfo\":{\"avatarUrl\":\"http://www.avatarset/Christina.jpg\",\"nick\":\"Christina\",\"nickPinyin\":\"Pinyin_Christina\",\"userId\":\"1234123\"},\"docKey\":\"oJGq7rgmRwGR****\"}";
                 /* 客户服务器通过调用白板服务器读取白板文档的数据，客户端通过客户服务器提供的接口获取白板文档的数据docData，其JSON格式如下所示：
                 {
-                    "accessToken": "bEVijFCQILnwlbfaesbeLxoZOFmgCQtx",
+                    "accessToken": "bEVijFCQILnwlbfaesbeLxoZOFmg****",
                     "collabHost": "pre-collab-cn-shanghai.dingtalk.com",
                     "permission": 2,
                     "userInfo": {
@@ -165,7 +165,7 @@ Windows端SDK接口的功能是通过函数`bool InvokeAPI(const char *method_na
                     "nickPinyin": "Pinyin_Harold",
                     "userId": "1234123"
                     },
-                    "docKey": "KM7qeYmW6J6kqpj8"
+                    "docKey": "KM7qeYmW6J6k****"
                 }
                 */
         } else {
