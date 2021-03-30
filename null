@@ -1,88 +1,144 @@
-# DescribeRtcChannels
+# 媒体扩展信息的使用
 
-调用DescribeRtcChannels获取频道通信记录列表。
+本文为您介绍媒体扩展信息的使用说明，您可以使用传递时间戳和位控制信息，以达到更好的产品体验。
 
-## 调试
+## 使用场景
 
-[您可以在OpenAPI Explorer中直接运行该接口，免去您计算签名的困扰。运行成功后，OpenAPI Explorer可以自动生成SDK代码示例。](https://api.aliyun.com/#product=rtc&api=DescribeRtcChannels&type=RPC&version=2018-01-11)
+在以下两种场景下可以使用媒体扩展信息：
 
-## 请求参数
+-   借用媒体链路传递时间戳，用于自己计算端到端网络延迟，或者跟自身其他业务做数据同步。
+-   传递位控制信息，目前可以传递8Byte数据，共64位，每一位或者每几位数据可以表示一些控制信息，可以用于自身业务上的指令传输。
 
-|名称|类型|是否必选|示例值|描述|
-|--|--|----|---|--|
-|Action|String|是|DescribeRtcChannels|操作接口名。系统规定参数，取值：**DescribeRtcChannels**。 |
-|AppId|String|是|yourAppId|应用ID，仅支持传单个ID。
+## 示例代码
 
- 您可以在控制台创建和查询。 |
-|StartTime|String|是|2018-01-29T05:00:00Z|查询数据起始时间，UTC格式，格式为yyyy-MM-ddTHH:mm:ssZ。 |
-|EndTime|String|是|2018-01-29T06:00:00Z|查询数据结束时间，UTC格式，格式为yyyy-MM-ddTHH:mm:ssZ。
+以下代码均以时间戳为例。
 
- 结束时间需大于起始时间。 |
-|ChannelId|String|否|yourChannelId|频道ID，仅支持传单个ID。 |
-|PageSize|Integer|否|10|每页显示数量。默认为**10**，取值范围：**5**~**20**。 |
-|PageNo|Integer|否|1|页码。默认值**1**，取值范围：**0**~**3000**。 |
+-   iOS
+    -   发送：
 
-## 返回数据
+        ```
+        NSTimeInterval now = [[NSDate dateWithTimeIntervalSinceNow:0] timeIntervalSince1970];
+        long long lNow = CFSwapInt64BigToHost((long long)(now * 1000));
+        NSData * timeData = [NSData dataWithBytes:&lNow length:sizeof(lNow)];
+        [self.engine sendMediaExtensionMsg:timeData repeatCount:5];
+        ```
 
-|名称|类型|示例值|描述|
-|--|--|---|--|
-|Channels|Array of Channel| |频道列表。 |
-|ChannelId|String|yourChannelId|频道ID。 |
-|EndTime|String|2018-01-29T06:00:00Z|频道结束时间，UTC格式，格式为yyyy-MM-ddTHH:mm:ssZ。 |
-|Finished|Boolean|true|频道是否已经结束。取值：
+    -   接收：
 
- -   **true**：已经结束。
--   **false**：还未结束。 |
-|StartTime|String|2018-01-29T05:00:00Z|频道开始时间，UTC格式，格式为yyyy-MM-ddTHH:mm:ssZ。 |
-|PageSize|Long|10|每页显示数量。 |
-|PageNo|Long|0|页码。 |
-|RequestId|String|16A96B9A-F203-4EC5-8E43-CB92E68F4CD8|请求ID。 |
-|TotalCnt|Long|1000|总页数。 |
+        ```
+        - (void)onMediaExtensionMsgReceived:(NSString *)uid message:(NSData *)data {
+            long long receivedLongLongValue = 0;
+            [data getBytes:&receivedLongLongValue length:8];
+            long long sentTime = CFSwapInt64BigToHost(receivedLongLongValue);
+            NSTimeInterval now = [[NSDate dateWithTimeIntervalSinceNow:0] timeIntervalSince1970];
+            long long nowTime = (long long)(now * 1000);
+            NSLog(@"%@", [NSString stringWithFormat:@"uid: %@, now: %lld, sent: %lld, 差值: %lld", uid, nowTime, sentTime, (nowTime-sentTime)];)}
+        ```
 
-## 示例
+-   Mac
+    -   发送：
 
-请求示例
+        ```
+        NSTimeInterval now = [[NSDate dateWithTimeIntervalSinceNow:0] timeIntervalSince1970];
+        long long lNow = CFSwapInt64BigToHost((long long)(now * 1000));
+        NSData * timeData = [NSData dataWithBytes:&lNow length:sizeof(lNow)];
+        [self.engine sendMediaExtensionMsg:timeData repeatCount:5];
+        ```
 
-```
-https://rtc.aliyuncs.com/?Action=DescribeRtcChannels
-&AppId=yourAppId
-&StartTime=2018-01-29T05:00:00Z
-&EndTime=2018-01-29T06:00:00Z
-&<公共请求参数>
-```
+    -   接收：
 
-正常返回示例
+        ```
+        - (void)onMediaExtensionMsgReceived:(NSString *)uid message:(NSData *)data {
+            long long receivedLongLongValue = 0;
+            [data getBytes:&receivedLongLongValue length:8];
+            long long sentTime = CFSwapInt64BigToHost(receivedLongLongValue);
+            NSTimeInterval now = [[NSDate dateWithTimeIntervalSinceNow:0] timeIntervalSince1970];
+            long long nowTime = (long long)(now * 1000);
+            NSLog(@"%@", [NSString stringWithFormat:@"uid: %@, now: %lld, sent: %lld, 差值: %lld", uid, nowTime, sentTime, (nowTime-sentTime)];)
+        ```
 
-`XML` 格式
+-   Android
+    -   发送：
 
-```
-<DescribeRtcChannelsResponse>
-  <TotalCnt>1000</TotalCnt>
-  <PageSize>10</PageSize>
-  <RequestId>16A96B9A-F203-4EC5-8E43-CB92E68F4CD8</RequestId>
-  <PageNo>0</PageNo>
-  <Channels>
-        <StartTime>2018-01-29T05:00:00Z</StartTime>
-        <Finished>true</Finished>
-        <EndTime>2018-01-29T06:00:00Z</EndTime>
-        <ChannelId>yourChannelId</ChannelId>
-  </Channels>
-</DescribeRtcChannelsResponse>
-```
+        ```
+        long lNow = System.currentTimeMillis();
+        byte b[] = new byte[8];
+        ByteBuffer buf = ByteBuffer.wrap(b);
+        buf.putLong(l);
+        buf.flip();
+        mAliRtcEngine.sendMediaExtensionMsg(buf.array(), 5);
+        ```
 
-`JSON` 格式
+    -   接收：
 
-```
-{"TotalCnt":"1000",
-"PageSize":"10",
-"RequestId":"16A96B9A-F203-4EC5-8E43-CB92E68F4CD8",
-"PageNo":"0",
-"Channels":[{
-    "StartTime":"2018-01-29T05:00:00Z",
-    "Finished":"true",
-    "EndTime":"2018-01-29T06:00:00Z",
-    "ChannelId":"yourChannelId"
-    }]
-}
-```
+        ```
+        public void onMediaExtensionMsgReceived(String uid, byte[] message) {
+            super.onMediaExtensionMsgReceived(uid, message);
+            ByteBuffer buffer = ByteBuffer.allocate(8);
+            buffer.put(message, 0, message.length);
+            buffer.flip();
+            long sentTime = buffer.getLong();
+        }
+        ```
+
+-   Windows
+    -   发送：
+
+        ```
+        char* long2charArr(long long num)
+        {
+            char* arr = new char[8];
+            int x = 56;
+            for (int i = 7; i >= 0; i--)
+            {
+                long long temp = num << x;
+                arr[i] = temp >> 56;
+                x -= 8;
+            }
+            return arr;
+        }
+        
+        SYSTEMTIME tmSys;
+        GetLocalTime(&tmSys);
+        CTime ctmNow(tmSys);
+        long long lNow = __int64(ctmNow.GetTime()) * 1000 + tmSys.wMilliseconds;
+        char* cNow = long2charArr(lNow);
+        mpEngine->sendMediaExtensionMsg((unsigned char*)cNow, 8, 5);
+        delete cNow;
+        ```
+
+    -   接收：
+
+        ```
+        long long charArr2long(char* p)
+        {
+            long long value = 0;
+            value = (((long long)p[0] << 56 & 0xFF00000000000000L) |
+            ((long long)p[1] << 48 & 0xFF000000000000L) |
+            ((long long)p[2] << 40 & 0xFF0000000000L) |
+            ((long long)p[3] << 32 & 0xFF00000000L) |
+            ((long long)p[4] << 24 & 0xFF000000L) |
+            ((long long)p[5] << 16 & 0xFF0000L) |
+            ((long long)p[6] << 8 & 0xFF00L) |
+            ((long long)p[7] & 0xFFL));
+            return value;
+        }
+        
+        void CTutorialDlg::onMediaExtensionMsgReceived(const AliRtc::String &uid, unsigned char* message, int size)
+        {
+            long long sentTime = charArr2long((char*)message);
+        }
+        ```
+
+
+## 各个端使用注意点
+
+因为复用音视频数据通道，必须控制自定义消息的发送频率和消息数据长度，使用限制如下：
+
+-   为了不影响媒体数据的传输质量，自定义消息体长度限制为8Byte，可以用来传输时间戳，位控制信息等。
+-   每秒最多发送30条消息。
+-   repeatCount为自定义消息冗余度，若大于1，则会发送多次，防止网络丢包导致的消息丢失。
+-   若repeatCount大于1，房间里的其他人也会收到多次相同的消息，需要去重。
+-   发送的自定义消息，在旁路直播时，房间里的订阅者也一样会收到。
+-   目前H5不支持发送和接收。
 
