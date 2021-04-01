@@ -135,7 +135,7 @@
     };
     
     const aliyunBoard = new AliyunBoard({
-        docKey：'****',
+        docKey:'****',
       getDocumentData,
         getPreviewUrl: async (url: string, type: string) => {
         // 异步加签
