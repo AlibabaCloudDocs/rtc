@@ -15,37 +15,67 @@
 
 ## 操作步骤
 
-1.  集成互动白板SDK，此处以Web SDK 0.0.2版本为例介绍。
+1.  集成互动白板SDK，此处以Web SDK 0.0.3版本为例介绍。
 
-    ```
-    <!DOCTYPE html>
-    <html lang="en">
-    
-    <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-      <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-      <title>demo</title>
-      <!-- Web SDK版本：0.0.2 -->
-      <link rel="stylesheet" href="https://g.alicdn.com/alidocs/wb-sdk/0.0.2/umd/index.css">
-    </head>
-    
-    <body data-spm="13945202">
-      <div id="root"></div>
-      <script crossorigin src="https://g.alicdn.com/code/lib/babel-polyfill/7.10.4/polyfill.js"></script>
-      <script crossorigin
-        src="http://g.alicdn.com/alidocs/static/??react/16.13.1/react.production.min.js,react-dom/16.13.1/react-dom.production.min.js"></script>
-      <!-- Web SDK版本：0.0.2 -->
-      <script crossorigin src="https://g.alicdn.com/alidocs/wb-sdk/0.0.2/umd/index.js"></script>
-    </body>
-    
-    </html>
-    ```
+    -   JS示例：
 
-    **说明：**
+        ```
+        <!DOCTYPE html>
+        <html lang="en">
+        
+        <head>
+          <meta charset="UTF-8" />
+          <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+          <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+          <title>demo</title>
+          <!-- Web SDK版本：0.0.3 -->
+          <link rel="stylesheet" href="https://g.alicdn.com/alidocs/wb-sdk/0.0.3/universal/index.css">
+        </head>
+        
+        <body data-spm="13945202">
+          <div id="root"></div>
+          <script crossorigin src="https://g.alicdn.com/code/lib/babel-polyfill/7.10.4/polyfill.js"></script>
+          <!-- Web SDK版本：0.0.3 -->
+          <script crossorigin src="https://g.alicdn.com/alidocs/wb-sdk/0.0.3/universal/index.js"></script>
+        </body>
+        
+        </html>
+        ```
 
-    -   在集成Web SDK之前，需要先引入react，并确保react-dom为16.13.0或以上版本。
-    -   如果需要兼容低版本的浏览器，需要引入polyfill。
+        **说明：**
+
+        -   项目需引用universal目录下的index.js。
+        -   如果需要兼容低版本的浏览器，需要引入polyfill。
+    -   React示例：
+
+        ```
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8" />
+          <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+          <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+          <title>demo</title>
+          <!-- Web SDK版本：0.0.3 -->
+          <link rel="stylesheet" href="https://g.alicdn.com/alidocs/wb-sdk/0.0.3/umd/index.css">
+        </head>
+        
+        <body data-spm="13945202">
+          <div id="root"></div>
+          <script crossorigin src="https://g.alicdn.com/code/lib/babel-polyfill/7.10.4/polyfill.js"></script>
+          <script crossorigin
+            src="//g.alicdn.com/alidocs/static/??react/16.13.1/react.production.min.js,react-dom/16.13.1/react-dom.production.min.js"></script>
+          <!-- Web SDK版本：0.0.3 -->
+          <script crossorigin src="https://g.alicdn.com/alidocs/wb-sdk/0.0.3/umd/index.js"></script>
+        </body>
+        
+        </html>
+        ```
+
+        **说明：**
+
+        -   在集成Web SDK之前，需要先引入react，并确保react-dom为16.13.0或以上版本。
+        -   如果需要兼容低版本的浏览器，需要引入polyfill。
 2.  创建并初始化白板控制器。
 
     ```
@@ -103,73 +133,131 @@
     ```
 
 |该参数传入后会覆盖默认的schema对象。|
+    |brush|Partial<Record<IBrushName, IBrushItem\>\>    ```
+其中type IBrushName = "pen" | "text" | "shape"
+interface IBrushItem {
+  strokeWidth?: number; // 线条大小
+  stroke?: string; // 线条颜色
+  fontFamily?: string; // 字体
+  fontSize?: number; // 字号
+}
+    ```
+
+|配置默认画笔属性。|
+    |minScale|number|配置缩放的最小值。|
+    |maxScale|number|配置缩放的最大值。|
+    |defaultToolType|AliyunBoardToolType|配置默认工具项。|
+    |fitMode|number|画布初始时的自适应模式，取值：    -   0：无自适应。
+    -   1（默认）：宽度自适应。
+    -   2：宽高自适应 |
+    |syncCursor|boolean|是否同步鼠标，取值：    -   true：同步。
+    -   false（默认）：不同步。 |
+    |eraserSize|number|默认橡皮可擦范围大小，可擦区域为正方形，默认值为20像素。|
     |attachmentHost|string|pdf.html页面的host地址。pdf附件需要在iframe中加载出来，需要和白板域名在同一个域下，否则会报access cross-origin frame的错误。|
 
 3.  使用示例说明。
 
-    ```
-    import React, { useEffect } from "react";
-    import ReactDOM from "react-dom";
-    import debounce from "lodash/debounce";
-    
-    const { Canvas, AliyunBoard } = window.aliyunBoardSDK;
-    
-    const getDocumentData = () => {
-      return new Promise(resolve => {
-        /**
-         * 客户服务器通过调用白板服务器读取白板文档的数据，客户端通过客户服务器提供的接口获取
-         * 白板文档的数据docData，其JSON格式如下所示：
-         */
-        resolve({
-          accessToken: "HnWuPIvSRcXitPhQhadHjtinBHKJ****",
-          collabHost: "daily-collab.****.test",
-          permission: 2,
-          userInfo: {
-            avatarUrl: "http://www.avatarset/Virginia.jpg",
-            userId: "23123",
-            nick: "Anne",
-            nickPinyin: "Pinyin_Anne",
+    -   JS示例：
+
+        ```
+        import debounce from "lodash/debounce";
+        
+        const { initBoard, AliyunBoard } = window.aliyunBoardSDK;
+        
+        const getDocumentData = () => {
+          return new Promise(resolve => {
+            /**
+             * 客户服务器通过调用白板服务器读取白板文档的数据，客户端通过客户服务器提供的接口获取
+             * 白板文档的数据docData，其JSON格式如下所示：
+             */
+            resolve({
+              accessToken: 'accessToken',
+              collabHost: 'collabHost',
+              permission: 2,
+              userInfo: {
+                avatarUrl: "http://www.avatarset/Gladys.jpg",
+                nick: "Gladys",
+                nickPinyin: "Pinyin_Gladys",
+                userId: "1234123",
+              },
+            });
+          });
+        };
+        
+        const aliyunBoard = new AliyunBoard({
+          getDocumentData,
+          docKey: "*******",
+          getPreviewUrl: (url: string, type: string) => {
+            return new Promise(resolve => {
+              console.log("file type:", type);
+              resolve(url);
+            });
           },
         });
-      });
-    };
-    
-    const aliyunBoard = new AliyunBoard({
-        docKey:'****',
-      getDocumentData,
-        getPreviewUrl: async (url: string, type: string) => {
-        // 异步加签
-            if (type === 'pdf') {
-                const previewUrl = await someAsyncSign(url);
-          return previewUrl;
-            } else {
-                return url
-            }
-      },
-    });
-    
-    const handleResize = debounce(() => {
-      const { stage } = aliyunBoard;
-      stage.scale = window.innerWidth / stage.width;
-    }, 300);
-    
-    export const BoardDemo = () => {
-      useEffect(() => {
+        
+        const handleResize = debounce(() => {
+          aliyunBoard.setScale(window.innerWidth / aliyunBoard.stage.width);
+        }, 300);
+        
         window.addEventListener("resize", handleResize);
-        return () => {
-          window.removeEventListener("resize", handleResize);
+        
+        const config = { model: aliyunBoard };
+        initBoard(config, document.getElementById("root"));
+        ```
+
+    -   React示例：
+
+        ```
+        import React, { useEffect } from "react";
+        import ReactDOM from "react-dom";
+        import debounce from "lodash/debounce";
+        
+        const { Canvas, AliyunBoard } = window.aliyunBoardSDK;
+        
+        const getDocumentData = () => {
+          return new Promise(resolve => {
+            /**
+             * 客户服务器通过调用白板服务器读取白板文档的数据，客户端通过客户服务器提供的接口获取
+             * 白板文档的数据docData，其JSON格式如下所示：
+             */
+            resolve({
+              accessToken: 'accessToken',
+              collabHost: 'collabHost',
+              permission: 2,
+              userInfo: {
+                avatarUrl: "http://www.avatarset/Gladys.jpg",
+                nick: "Gladys",
+                nickPinyin: "Pinyin_Gladys",
+                userId: "1234123",
+              },
+            });
+          });
         };
-      }, []);
-    
-      return (
-        <div>
-          <Canvas model={aliyunBoard} style={{ height: 500, overflow: "auto" }} />
-        </div>
-      );
-    };
-    
-    ReactDOM.render(<BoardDemo />, document.getElementById("root"));
-    ```
+        
+        const aliyunBoard = new AliyunBoard({
+          getDocumentData,
+        });
+        
+        const handleResize = debounce(() => {
+          aliyunBoard.setScale(window.innerWidth / aliyunBoard.stage.width);
+        }, 300);
+        
+        export const BoardDemo = () => {
+          useEffect(() => {
+            window.addEventListener("resize", handleResize);
+            return () => {
+              window.removeEventListener("resize", handleResize);
+            };
+          }, []);
+          return (
+            <div>
+              <Canvas model={aliyunBoard}/>
+            </div>
+          );
+        };
+        
+        ReactDOM.render(<BoardDemo />, document.getElementById("root"));
+        ```
 
 
 ## API
@@ -181,6 +269,7 @@
     |preScene|aliyunBoard.preScene\(\)|向前翻页。|
     |nextScene|aliyunBoard.nextScene\(\)|向后翻页。|
     |gotoScene|aliyunBoard.gotoScene\(pageNum: number\)|跳转至指定页面。|
+    |getCurrentSceneIndex|aliyunBoard.getCurrentSceneIndex\(\)|获取当前页index。|
     |addScene|aliyunBoard.addScene\(\)|增加页面。|
     |removeSceneById|aliyunBoard.removeSceneById\(id: string\)|按ID删除页面。|
     |removeSceneByIndex|aliyunBoard.removeSceneByIndex\(index: number\)|按index删除页面。|
@@ -192,6 +281,7 @@
     |setBackgroundColorByIndex|aliyunBoard.setBackgroundColorByIndex\(index: number, color: string\)|按index设置画布某页的背景色。|
     |setBackgroundColorById|aliyunBoard.setBackgroundColorById\(id: string, color: string\)|按ID设置画布某页的背景色。|
     |getCurrentScene|aliyunBoard.getCurrentScene\(\)|返回白板画布页Scene对象。|
+    |getScenes|aliyunBoard.getScenes\(\)|返回白板画布Scene对象列表。|
     |setReadOnly|aliyunBoard.setReadOnly\(readOnly: boolean\)|设置或取消当前画板只读属性。|
     |getReadOnly|aliyunBoard.getReadOnly\(\)|获取画板的只读属性。|
 
@@ -213,7 +303,10 @@
   fontSize?: number; // 字号
 }
     ``` |
+    |getCurrentToolType|aliyunBoard.getCurrentToolType\(\)|获取当前工具类型。其中AliyunBoardToolType = "pointer"\|"pen"\|"circle"\|"rect"\|"laser"\|"text"\|"eraser"\|"straight"。|
     |clearBoard|aliyunBoard.clearBoard\(\)|清空当前页白板。|
+    |unSelectAll|aliyunBoard.unSelectAll\(\)|取消形状选中。|
+    |setEraserSize|aliyunBoard.setEraserSize\(size: number\)|设置橡皮工具可擦除范围。|
 
 -   其他接口
 
@@ -240,6 +333,39 @@
     -   type：保存类型，默认为pdf。
 
 **说明：** 目前仅支持pdf。 |
-    |getPreviewData|aliyunBoard.getPreviewData\(index?:number\)|获取序号为index的白板页image对象，如果不传，则返回所有页的image对象列表。返回值：Image\[\] \| Image。|
+    |getPreviewData|aliyunBoard.getPreviewData\(index?:number\)|获取序号为index的白板页image对象，如果不传，则返回所有页的image对象列表。返回值：Image\[\] \| Image。**说明：** 仅支持Web端，暂不支持Native端调用。 |
+
+-   事件监听接口
+
+    |API|使用示例|描述|
+    |---|----|--|
+    |on|aliyunBoard.on\(eventType, \(...args: any\[\]\) =\> \{ console.log\(args\)\}\)|在aliyunBoard对象上注册事件监听。时间类型eventType取值请参见。|
+
+    事件类型eventType取值如下所示：
+
+    |事件类型|描述|
+    |----|--|
+    |ALIYUNBOARD\_READY|白板初始化完成事件。|
+    |ALIYUNBOARD\_ERROR\_EVENT|白板内部报错事件。|
+    |ALIYUNBOARD\_COLLABERROR\_EVENT|协同引擎运行时报错事件。|
+    |ALIYUNBOARD\_PINCH\_START|双指缩放开始事件。|
+    |ALIYUNBOARD\_PINCH|双指缩放事件。|
+    |ALIYUNBOARD\_PINCH\_END|双指缩放结束事件。|
+    |ALIYUNBOARD\_EXECUTE|协同消息执行完成后的回调事件。回调参数为：    ```
+{
+uid: string | number
+nick: string
+commandType: string
+type: string
+sceneId?: string
+shapeId?: string
+x?: number;
+y?: number;
+width?: number;
+height?: number;
+ready?: boolean;
+action: 'redo' | 'undo';
+}
+    ``` |
 
 
