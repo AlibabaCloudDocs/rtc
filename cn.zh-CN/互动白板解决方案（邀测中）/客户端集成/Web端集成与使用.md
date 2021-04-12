@@ -240,44 +240,6 @@ interface IBrushItem {
           );
         };
         
-        ReactDOM.render(<BoardDemo />, document.getElementById("root"));import React from "react";
-        import ReactDOM from "react-dom";
-        
-        const { Canvas, AliyunBoard } = window.aliyunBoardSDK;
-        
-        const getDocumentData = () => {
-          return new Promise(resolve => {
-            /**
-             * 客户服务端通过调用白板服务的打开白板接口获取白板文档的连接信息，客户端通过客户服务端提供的接口获取
-             * 白板文档的连接信息，其JSON格式如下所示：
-             */
-            resolve({
-              accessToken: '********',
-              collabHost: '********',
-              permission: 2,
-              userInfo: {
-                avatarUrl: "http://www.avatarset/Gladys.jpg",
-                nick: "Gladys",
-                nickPinyin: "Pinyin_Gladys",
-                userId: "1234123",
-              },
-            });
-          });
-        };
-        
-        const aliyunBoard = new AliyunBoard({
-          getDocumentData,
-          docKey: "*******"
-        });
-        
-        export const BoardDemo = () => {
-          return (
-            <div>
-              <Canvas model={aliyunBoard} style={{height: 900, width: '100%'}}/>
-            </div>
-          );
-        };
-        
         ReactDOM.render(<BoardDemo/>, document.getElementById("root"));
         ```
 
