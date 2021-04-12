@@ -1,10 +1,16 @@
+---
+keyword: Unity Demo
+---
+
 # 运行Unity Demo
 
-本章节为您介绍了Unity Demo的集成操作步骤。
+通过阅读本文，您可以了解运行Unity Demo的方法。
 
-您需要开通阿里云RTC服务并在控制台成功创建应用，具体操作请参见[入门概述](/cn.zh-CN/快速入门/入门概述.md)。
+-   您已开通阿里云RTC服务并在控制台已创建应用。具体操作请参见[入门概述](/cn.zh-CN/快速入门/入门概述.md)。
+-   您已从控制台获取鉴权信息，具体操作，请参见[接入工具](/cn.zh-CN/控制台指南/接入工具.md)。
 
-获取Token，详情请参见[服务端生成Token](/cn.zh-CN/常用功能/生成Token.md)。
+    **说明：** 从控制台获取的Token仅为开发测试使用，正式上线有被攻击风险。建议您自己搭建服务端生成Token，并使用HTTPS协议。搭建服务端请参见[服务端生成Token](/cn.zh-CN/基础功能/生成Token.md)。
+
 
 ## 创建Unity项目
 
@@ -19,7 +25,7 @@
 
 ## 集成SDK
 
-1.  下载[Unity SDK](/cn.zh-CN/SDK参考/SDK下载.md)。
+1.  下载并解压Unity SDK，下载地址，请参见[客户端SDK](/cn.zh-CN/SDK参考/SDK下载.md)。
 
     解压后包含sample和sdk两个目录，sample目录为Unity对接工程，sdk目录为Unity版本SDK。
 
@@ -64,7 +70,7 @@
 
 2.  UI界面保存到/Assets/Scenes/SampleScene.unity。
 
-3.  创建控制音视频通信功能的Home.cs文件，并将该文件添加到主Main Camera，使得Home.cs文件在Main Camera启动时就被加载。
+3.  创建控制音视频通信功能的Home.cs文件，并将该文件添加到主Main Camera，使Home.cs文件在Main Camera启动时就被加载。
 
 4.  获取权限（仅Android操作）。
 
