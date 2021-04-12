@@ -1,14 +1,17 @@
 ---
-keyword: [rtc, Linux, C++]
+keyword: [基本功能, Linux]
 ---
 
 # C++
 
-阿里云RTC的基本功能包含初始化SDK、加入频道、本地发布、录制和离开频道等。
+阿里云RTC的基本功能包含初始化SDK、加入频道、本地发布、订阅远端和离开频道等。通过阅读本文，您可以了解阿里云RTC的基本功能。
 
-1.  下载最新的SDK，更多信息，请参见[SDK下载](/cn.zh-CN/SDK参考/SDK下载.md)。
+-   您已下载并集成最新版本的SDK。具体操作，请参见[Linux（C++）端集成SDK](/cn.zh-CN/快速入门/集成客户端SDK/Linux/C++.md)。
+-   您已获取加入频道必须的频道鉴权令牌（Token）。具体操作，请参见[生成Token](/cn.zh-CN/基础功能/生成Token.md)。
 
-2.  初始化SDK。
+**说明：** 本文中的实现方法仅供参考，您可以根据实际业务需求进行开发。
+
+1.  初始化SDK。
 
     ```
     //初始化SDK
@@ -23,16 +26,12 @@ keyword: [rtc, Linux, C++]
     }
     ```
 
-    **注意：**
+    **说明：**
 
-    -   创建一个SDK实例需要占用一个系统端口进行音视频数据传输，建议端口范围设置为42000～45000，并保证其他服务不会占用此范围的端口。
-    -   log：示例代码中传入的第四个参数，表示log存放的路径，设置为nullptr，会默认放在/tmp路径下。
-    -   AliRtcCoreService：示例代码中传入的第五个参数，表示AliRtcCoreService可执行程序存放的绝对路径，设置为nullptr，会默认在当前路径下寻找。
-3.  获得加入频道必须的频道鉴权令牌（Token）。
-
-    -   您可以在控制台生成临时Token校验加入频道是否成功，详情请参见[控制台生成Token](/cn.zh-CN/常用功能/生成Token.md)。
-    -   在安全要求更高的场景下，建议您在服务端生成Token，详情请参见[服务端生成Token](/cn.zh-CN/常用功能/生成Token.md)。
-4.  加入频道。
+    -   创建一个SDK实例需要占用一个系统端口进行音视频数据传输，建议端口号范围设置为42000～45000，并保证其他服务不会占用此范围的端口。
+    -   示例代码中传入的第四个参数表示log存放的路径，如果设置为nullptr，会默认放在/tmp路径下。
+    -   示例代码中传入的第五个参数表示可执行程序AliRtcCoreService存放的绝对路径，如果设置为nullptr，会默认在当前路径下寻找。
+2.  加入频道。
 
     ```
     AliRTCSdk::Linux::AuthInfo authInfo;
@@ -91,73 +90,75 @@ keyword: [rtc, Linux, C++]
     |gslb|gslb服务地址，该参数是数组类型，当前请使用：`["https://****"]`，请您通过业务服务器下发到客户端SDK，不建议您将该地址固化在客户端代码。|
     |agent|agent服务地址，该参数是数组类型，当前请使用：`["https://****"]`，请您通过业务服务器下发到客户端SDK，不建议您将该地址固化在客户端代码。|
 
-5.  发布或取消发布本地流。
+3.  发布或取消发布本地流。
 
-    -   自动发布模式：加入频道成功后，即可发布本地流，无需再次调用publish接口。
-    -   手动发布模式：加入频道成功后，可通过以下接口发布本地流。
-    在发布Yuv和Pcm数据之前，需要设置推流的音视频参数。
+    -   发布本地流
 
-    ```
-    // 开启Yuv输入，使用视频流（原相机流）进行推送
-    // 注意：第二个参数useTexture目前只能设置为false
-    linuxEngine->SetExternalVideoSource(true, false, AliRTCSdk::Linux::VideoSourceCamera);
-    
-    // 开启Pcm输入
-    // 第二个参数为pcm的采样率，请根据实际情况设置
-    // 第三个参数为pcm的channel数，请根据实际情况设置
-    linuxEngine->SetExternalAudioSource(true, 16000, 2);
-    ```
+        -   自动发布模式：加入频道成功后，即可发布本地流，无需再次调用publish接口。
+        -   手动发布模式：加入频道成功后，可通过以下接口发布本地流。
+        在发布Yuv和Pcm数据之前，需要设置推流的音视频参数。
 
-    如果发布过程中需要变更配置或者停止发布，需要按如下流程先重新设置配置参数，然后再调用publish接口。
+        ```
+        // 开启Yuv输入，使用视频流（原相机流）进行推送
+        // 注意：第二个参数useTexture目前只能设置为false
+        linuxEngine->SetExternalVideoSource(true, false, AliRTCSdk::Linux::VideoSourceCamera);
+        
+        // 开启Pcm输入
+        // 第二个参数为pcm的采样率，请根据实际情况设置
+        // 第三个参数为pcm的channel数，请根据实际情况设置
+        linuxEngine->SetExternalAudioSource(true, 16000, 2);
+        ```
 
-    **说明：** Linux SDK通过原相机流和屏幕流通道传递视频流，Linux SDK不支持摄像头采集视频。
+        如果发布过程中需要变更配置或者停止发布，需要按如下流程先重新设置配置参数，然后再调用publish接口。
 
-    ```
-    //设置是否推视频流（原相机流）。true表示允许发布，false表示不允许。
-    linuxEngine->ConfigLocalCameraPublish(true);
-    
-    //设置是否推音频流。true表示允许发布，false表示不允许。 
-    linuxEngine->ConfigLocalAudioPublish(true);
-    
-    //设置是否推视频流（原屏幕流）。true表示允许发布，false表示不允许。
-    linuxEngine->ConfigLocalScreenPublish(true);
-    
-    //设置是否推次要视频流。true表示允许发布，false表示不允许。
-    linuxEngine->ConfigLocalSimulcast(true, AliRTCSdk::Linux::VideoSourceCamera);
-    
-    linuxEngine->publish();
-    
-    
-    while (true) {
-        ...
-    
-       // 推Yuv数据
-       linuxEngine->PushExternalVideoFrame(&sample, AliRTCSdk::Linux::VideoSourceCamera);
-    
-       // 推Pcm数据
-       linuxEngine->PushExternalAudioFrameRawData(cache_buf, frame_length, 0);
-    }
-    ```
+        **说明：** Linux SDK通过原相机流和屏幕流通道传递视频流，Linux SDK不支持摄像头采集视频。
 
-    取消发布本地流。
+        ```
+        //设置是否推视频流（原相机流）。true表示允许发布，false表示不允许。
+        linuxEngine->ConfigLocalCameraPublish(true);
+        
+        //设置是否推音频流。true表示允许发布，false表示不允许。 
+        linuxEngine->ConfigLocalAudioPublish(true);
+        
+        //设置是否推视频流（原屏幕流）。true表示允许发布，false表示不允许。
+        linuxEngine->ConfigLocalScreenPublish(true);
+        
+        //设置是否推次要视频流。true表示允许发布，false表示不允许。
+        linuxEngine->ConfigLocalSimulcast(true, AliRTCSdk::Linux::VideoSourceCamera);
+        
+        linuxEngine->publish();
+        
+        
+        while (true) {
+            ...
+        
+           // 推Yuv数据
+           linuxEngine->PushExternalVideoFrame(&sample, AliRTCSdk::Linux::VideoSourceCamera);
+        
+           // 推Pcm数据
+           linuxEngine->PushExternalAudioFrameRawData(cache_buf, frame_length, 0);
+        }
+        ```
 
-    ```
-    // 设置是否推视频流（原相机流）
-    linuxEngine->ConfigLocalCameraPublish(false);
-    
-    // 设置是否推音频流
-    linuxEngine->ConfigLocalAudioPublish(false);
-    
-    // 设置是否推视频流（原屏幕流）
-    linuxEngine->ConfigLocalScreenPublish(false);
-    
-    // 设置是否推次要视频流
-    linuxEngine->ConfigLocalSimulcast(false, AliRTCSdk::Linux::VideoSourceCamera);
-    
-    linuxEngine->publish();
-    ```
+    -   取消发布本地流
 
-    发布和取消发布本地流回调代码如下所示。
+        ```
+        // 设置是否推视频流（原相机流）
+        linuxEngine->ConfigLocalCameraPublish(false);
+        
+        // 设置是否推音频流
+        linuxEngine->ConfigLocalAudioPublish(false);
+        
+        // 设置是否推视频流（原屏幕流）
+        linuxEngine->ConfigLocalScreenPublish(false);
+        
+        // 设置是否推次要视频流
+        linuxEngine->ConfigLocalSimulcast(false, AliRTCSdk::Linux::VideoSourceCamera);
+        
+        linuxEngine->publish();
+        ```
+
+    发布和取消发布本地流回调代码如下所示：
 
     ```
     /**
@@ -168,23 +169,23 @@ keyword: [rtc, Linux, C++]
     virtual void OnPublishChangedNotify(int result, bool isPublished) = 0;
     ```
 
-6.  录制和取消录制。
+4.  录制和取消录制。
 
-    -   自动录制模式：加入频道成功后，无需调用以下接口，即可开始录制。
-    -   手动录制模式：加入频道成功后，可通过以下接口进行录制操作。
-    开始录制。
+    -   录制
+        -   自动录制模式：加入频道成功后，无需调用以下接口，即可开始录制。
+        -   手动录制模式：加入频道成功后，可通过以下接口进行录制操作。
 
-    ```
-    linuxEngine->StartRecording();
-    ```
+            ```
+            linuxEngine->StartRecording();
+            ```
 
-    取消录制。
+    -   取消录制
 
-    ```
-    linuxEngine->StopRecording();
-    ```
+        ```
+        linuxEngine->StopRecording();
+        ```
 
-    录制回调示例代码如下所示。
+    录制回调示例代码如下所示：
 
     ```
     /**
@@ -213,19 +214,17 @@ keyword: [rtc, Linux, C++]
     virtual void OnVideoFrameReceived(const char * uid, const AliRTCSdk::Linux::VideoFrame * frame) = 0;
     ```
 
-7.  离开频道。
+5.  离开频道。
 
     ```
     linuxEngine->LeaveChannel();
     ```
 
-8.  销毁SDK。
+6.  销毁SDK。
 
     ```
     linuxEngine->Release();
     linuxEngine = nullptr;
     ```
 
-
-接口详情请参见[AliRtcEngine接口](/cn.zh-CN/SDK参考/Linux SDK/Java/AliRtcEngine接口.md)。
 
