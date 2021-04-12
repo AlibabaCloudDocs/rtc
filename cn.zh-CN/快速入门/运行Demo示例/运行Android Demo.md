@@ -4,17 +4,25 @@ keyword: Android Demo
 
 # 运行Android Demo
 
-您可以阅读本文，了解快速运行Android Demo的操作方法，实现加入频道和远端用户进行音视频通信。
+通过阅读本文，您可以了解运行Android Demo的方法。
 
-在执行Demo步骤之前，您需要从控制台获取鉴权信息，具体操作请参见[生成Token](/cn.zh-CN/控制台指南/接入工具.md)。
+您已从控制台获取鉴权信息，具体操作，请参见[接入工具](/cn.zh-CN/控制台指南/接入工具.md)。
 
-您需要下载示例代码，详情请参见[SDK下载](/cn.zh-CN/SDK参考/SDK下载.md)。
+**说明：** 从控制台获取的Token仅为开发测试使用，正式上线有被攻击风险。建议您自己搭建服务端生成Token，并使用HTTPS协议。搭建服务端请参见[服务端生成Token](/cn.zh-CN/基础功能/生成Token.md)。
 
-1.  在该目录下的libs文件夹中添加RTC SDK，如果没有libs文件夹，需要手动创建。
+## 环境要求
+
+确保Demo运行在Android 4.4或以上版本的实体设备上。
+
+## 操作步骤
+
+1.  下载并解压SDK及示例代码，下载地址，请参见[客户端SDK](/cn.zh-CN/SDK参考/SDK下载.md)。
+
+2.  在示例代码的libs文件夹中添加RTC SDK，如果没有libs文件夹，需要手动创建。
 
     ![lib目录](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/5555588951/p110332.png)
 
-2.  打开AliRtcChatActivity.java文件，配置鉴权信息参数。
+3.  打开AliRtcChatActivity.java文件，配置鉴权信息参数。
 
     ```
             private void joinChannel() {
@@ -41,9 +49,9 @@ keyword: Android Demo
         }
     ```
 
-3.  运行Demo。Demo运行成功后进入音视频通话界面，您可以看到本地已经开启的预览视图，然后会自动加入频道，等待远端用户的加入。
+4.  运行Demo。
 
-    **说明：** Android端Demo必须在Android 4.4及以上系统的真机上运行。
+    Demo运行成功后进入音视频通话界面，您可以看到本地已经开启的预览视图，然后会自动加入频道，等待远端用户的加入。
 
     ![Android Demo](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/5555588951/p49548.png)
 
