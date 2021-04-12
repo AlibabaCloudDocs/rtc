@@ -32,7 +32,7 @@
           <link rel="stylesheet" href="https://g.alicdn.com/alidocs/wb-sdk/0.0.3/universal/index.css">
         </head>
         
-        <body data-spm="13945202">
+        <body>
           <div id="root"></div>
           <script crossorigin src="https://g.alicdn.com/code/lib/babel-polyfill/7.10.4/polyfill.js"></script>
           <!-- Web SDK版本：0.0.3 -->
@@ -60,7 +60,7 @@
           <link rel="stylesheet" href="https://g.alicdn.com/alidocs/wb-sdk/0.0.3/umd/index.css">
         </head>
         
-        <body data-spm="13945202">
+        <body>
           <div id="root"></div>
           <script crossorigin src="https://g.alicdn.com/code/lib/babel-polyfill/7.10.4/polyfill.js"></script>
           <script crossorigin
@@ -74,9 +74,9 @@
 
         **说明：**
 
-        -   在集成Web SDK之前，需要先引入react，并确保react-dom为16.13.0或以上版本。
+        -   在集成Web SDK之前，需要先引入react，并确保react-dom为16.13.1或以上版本。
         -   如果需要兼容低版本的浏览器，需要引入polyfill。
-2.  创建并初始化白板控制器。
+2.  创建并初始化白板控制器，使用示例，请参见[步骤 3](#step_fay_m3u_r26)。
 
     ```
     const AliyunBoard = new AliyunBoard(options: IAliyunBoardOption)
@@ -157,22 +157,22 @@ interface IBrushItem {
 
 3.  使用示例说明。
 
+    **说明：** 为保障资源安全，当客户端通过长连接访问互动白板服务时，只有访问域名存在于合法域名列表中，才可以正常访问白板服务。若Web端出现跨域问题（常见于使用localhost或IP:端口号访问页面），请绑定域名或使用本地域名，并进行白板应用合法域名的配置，具体操作，请参见[设置互动白板应用合法域名](/cn.zh-CN/互动白板解决方案（邀测中）/创建及配置应用.md)。
+
     -   JS示例：
 
         ```
-        import debounce from "lodash/debounce";
-        
         const { initBoard, AliyunBoard } = window.aliyunBoardSDK;
         
         const getDocumentData = () => {
           return new Promise(resolve => {
             /**
-             * 客户服务器通过调用白板服务器读取白板文档的数据，客户端通过客户服务器提供的接口获取
-             * 白板文档的数据docData，其JSON格式如下所示：
+             * 客户服务端通过调用白板服务的打开白板接口获取白板文档的连接信息，客户端通过客户服务端提供的接口获取
+             * 白板文档的连接信息，其JSON格式如下所示：
              */
             resolve({
-              accessToken: 'accessToken',
-              collabHost: 'collabHost',
+              accessToken: '*******',
+              collabHost: '*******',
               permission: 2,
               userInfo: {
                 avatarUrl: "http://www.avatarset/Gladys.jpg",
@@ -187,19 +187,13 @@ interface IBrushItem {
         const aliyunBoard = new AliyunBoard({
           getDocumentData,
           docKey: "*******",
-          getPreviewUrl: (url: string, type: string) => {
+          getPreviewUrl: (url, type) => {
             return new Promise(resolve => {
               console.log("file type:", type);
               resolve(url);
             });
           },
         });
-        
-        const handleResize = debounce(() => {
-          aliyunBoard.setScale(window.innerWidth / aliyunBoard.stage.width);
-        }, 300);
-        
-        window.addEventListener("resize", handleResize);
         
         const config = { model: aliyunBoard };
         initBoard(config, document.getElementById("root"));
@@ -208,21 +202,20 @@ interface IBrushItem {
     -   React示例：
 
         ```
-        import React, { useEffect } from "react";
+        import React from "react";
         import ReactDOM from "react-dom";
-        import debounce from "lodash/debounce";
         
         const { Canvas, AliyunBoard } = window.aliyunBoardSDK;
         
         const getDocumentData = () => {
           return new Promise(resolve => {
             /**
-             * 客户服务器通过调用白板服务器读取白板文档的数据，客户端通过客户服务器提供的接口获取
-             * 白板文档的数据docData，其JSON格式如下所示：
+             * 客户服务端通过调用白板服务的打开白板接口获取白板文档的连接信息，客户端通过客户服务端提供的接口获取
+             * 白板文档的连接信息，其JSON格式如下所示：
              */
             resolve({
-              accessToken: 'accessToken',
-              collabHost: 'collabHost',
+              accessToken: '********',
+              collabHost: '********',
               permission: 2,
               userInfo: {
                 avatarUrl: "http://www.avatarset/Gladys.jpg",
@@ -236,27 +229,56 @@ interface IBrushItem {
         
         const aliyunBoard = new AliyunBoard({
           getDocumentData,
+          docKey: "*******"
         });
         
-        const handleResize = debounce(() => {
-          aliyunBoard.setScale(window.innerWidth / aliyunBoard.stage.width);
-        }, 300);
-        
         export const BoardDemo = () => {
-          useEffect(() => {
-            window.addEventListener("resize", handleResize);
-            return () => {
-              window.removeEventListener("resize", handleResize);
-            };
-          }, []);
           return (
             <div>
-              <Canvas model={aliyunBoard}/>
+              <Canvas model={aliyunBoard} style={{height: 900, width: '100%'}}/>
             </div>
           );
         };
         
-        ReactDOM.render(<BoardDemo />, document.getElementById("root"));
+        ReactDOM.render(<BoardDemo />, document.getElementById("root"));import React from "react";
+        import ReactDOM from "react-dom";
+        
+        const { Canvas, AliyunBoard } = window.aliyunBoardSDK;
+        
+        const getDocumentData = () => {
+          return new Promise(resolve => {
+            /**
+             * 客户服务端通过调用白板服务的打开白板接口获取白板文档的连接信息，客户端通过客户服务端提供的接口获取
+             * 白板文档的连接信息，其JSON格式如下所示：
+             */
+            resolve({
+              accessToken: '********',
+              collabHost: '********',
+              permission: 2,
+              userInfo: {
+                avatarUrl: "http://www.avatarset/Gladys.jpg",
+                nick: "Gladys",
+                nickPinyin: "Pinyin_Gladys",
+                userId: "1234123",
+              },
+            });
+          });
+        };
+        
+        const aliyunBoard = new AliyunBoard({
+          getDocumentData,
+          docKey: "*******"
+        });
+        
+        export const BoardDemo = () => {
+          return (
+            <div>
+              <Canvas model={aliyunBoard} style={{height: 900, width: '100%'}}/>
+            </div>
+          );
+        };
+        
+        ReactDOM.render(<BoardDemo/>, document.getElementById("root"));
         ```
 
 
