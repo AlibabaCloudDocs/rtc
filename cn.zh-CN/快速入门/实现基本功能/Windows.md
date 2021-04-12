@@ -1,29 +1,25 @@
 ---
-keyword: [rtc, Windows]
+keyword: [基本功能, Windows]
 ---
 
 # Windows
 
-阿里云RTC的基本功能包含初始化SDK、加入频道、本地发布和订阅远端、离开频道等。当您成功初始化SDK，您可以进行本地预览视频功能，进行简单的预览和测试。当您操作本地发布和订阅远端时，可以设置手动或者自动模式。
+阿里云RTC的基本功能包含初始化SDK、加入频道、本地发布、订阅远端和离开频道等。通过阅读本文，您可以了解阿里云RTC的基本功能。
 
-在实现基本功能前，请您确保下载最新SDK，请参见[SDK下载](/cn.zh-CN/SDK参考/SDK下载.md)。
+-   您已下载并集成最新版本的SDK。具体操作，请参见[Windows端集成SDK](/cn.zh-CN/快速入门/集成客户端SDK/Windows.md)。
+-   您已获取加入频道必须的频道鉴权令牌（Token）。具体操作，请参见[生成Token](/cn.zh-CN/基础功能/生成Token.md)。
 
-获得加入频道必须的频道鉴权令牌（Token）：
-
--   您可以在控制台生成临时Token校验加入频道是否成功，详情请参见[控制台生成Token](/cn.zh-CN/常用功能/生成Token.md)。
--   在安全要求更高的场景下，建议您在服务端生成Token，详情请参见[服务端生成Token](/cn.zh-CN/常用功能/生成Token.md)。
-
-**说明：** 本文中的实现方法为主要功能方法，仅供参考，您可以根据业务需求进行实际开发。
+**说明：** 本文中的实现方法仅供参考，您可以根据实际业务需求进行开发。
 
 1.  初始化SDK。
 
-    1.  如果CRtcSampleDlg类中有定义AliRTCEngine实例，则需要创建AliRTCEngine实例，并注册AliRtcEventListener监听相关回调，更多信息，请参见[回调及监听](/cn.zh-CN/SDK参考/Windows SDK/回调及监听.md)。
+    1.  如果CRtcSampleDlg类中有定义AliRTCEngine实例，则需要创建AliRTCEngine实例，并注册AliRtcEventListener监听相关回调。更多信息，请参见[回调及监听](/cn.zh-CN/SDK参考/Windows SDK/回调及监听.md)。
 
         ```
         m_pEngine = AliRtcEngine::sharedInstance(AliRtcEventListener* pListener, char* pConfig);//pListener是您实现的AliRtcEventListener对象，用于接收SDK的回调。pConfig是SDK初始化配置，当前版本请使用空字符串
         ```
 
-        **说明：** 暂不支持多实例。
+        **说明：** 目前暂不支持多实例。
 
     2.  创建canvas布局进行本地预览视频。
 
@@ -54,6 +50,10 @@ keyword: [rtc, Windows]
 
     3.  设置自动或者手动模式。
 
+        **说明：** 默认实现自动发布和订阅，您也可以通过代码手动发布和订阅。
+
+        -   自动发布模式： 如果您打开自动发布模式，加入频道之后，SDK将自动开始发布音视频流；如果关闭自动发布模式，则需要您调用publish接口之后才会发布音视频流。
+        -   自动订阅模式： 如果您打开自动订阅模式，加入频道之后，SDK将会自动订阅当前频道内其他人的音视频流；如果关闭自动订阅模式，则需要您调用subscribe接口之后才会订阅其他人的音视频流。
         ```
         /*
         设置自动发布和订阅，只能在joinChannel之前设置
@@ -63,8 +63,6 @@ keyword: [rtc, Windows]
         m_pEngine->setAutoPublishSubscribe(bool autoPub, bool autoSub);
         ```
 
-        -   自动发布模式： 如果您打开自动发布模式，加入频道之后，SDK将自动开始发布音视频流；如果关闭自动发布模式，则需要您调用publish接口之后才会发布音视频流。
-        -   自动订阅模式： 如果您打开自动订阅模式，加入频道之后，SDK将会自动订阅当前频道内其他人的音视频流；如果关闭自动订阅模式，则需要您调用subscribe接口之后才会订阅其他人的音视频流。
 2.  加入频道。
 
     ```
@@ -90,113 +88,113 @@ keyword: [rtc, Windows]
 
     |参数|描述|
     |--|--|
-    |appid|应用ID，在控制台应用管理页面创建和查看。|
-    |channel|频道ID。1~64位，支持大小写字母、数字、下划线（\_）、短划线（-）。|
-    |user\_id|用户ID。1~64位，支持大小写字母、数字、下划线（\_）、短划线（-）。 **说明：** 同一个用户ID在其他端登录，先入会的端会被后入会的端踢出频道。 |
-    |nonce|随机码。需要加上前缀AK-，由字母\[a-zA-Z\]和数字\[0-9\]组成，不包含特殊字符，最大64字节。例如：AK-2b9be4b25c2d38c409c376ffd2372be1。|
-    |timestamp|频道过期时间戳。代表令牌有效时间为当前时间+所选择小时数。|
-    |token|频道鉴权令牌，计算方法：`token = sha256(appId + appKey + channel + userId + nonce + timestamp)`。|
-    |gslb|服务地址，该参数是数组类型，当前请使用：`["https://rgslb.rtc.aliyuncs.com"]`，请您通过业务服务器下发到客户端SDK，不建议您将该地址固化在客户端代码。|
+    |AppID|应用ID，在控制台**应用管理**页面创建和查看。|
+    |ChannelId|频道ID。1~64位，由大小写字母、数字、下划线（\_）、短划线（-）组成。|
+    |UserId|用户ID。1~64位，由大小写字母、数字、下划线（\_）、短划线（-）组成。 **说明：** 同一个用户ID在其他端登录，先入会的端会被后入会的端踢出频道。 |
+    |Nonce|随机码。以前缀AK-开头，由大小写字母、数字组成，最大64字节。例如：AK-2b9be4b25c2d38c409c376ffd2372be1。|
+    |TimeStamp|过期时间戳。可以选择12小时、24小时、3天和7天，代表令牌有效时间。|
+    |Token|频道鉴权令牌，计算方法：`token = sha256(appId + appKey + channelId + userId + nonce + timestamp)`。|
+    |GSLB|服务地址，该参数是数组类型，当前请使用：`["https://rgslb.rtc.aliyuncs.com"]`，请您通过业务服务器下发到客户端SDK，不建议您将该地址固化在客户端代码。|
 
 3.  发布或取消发布本地流。
 
-    发布本地流。
+    -   发布本地流
 
-    -   自动发布模式下：加入频道成功后，即可发布本地流，无需再次调用publish接口。
-    -   手动发布模式下：加入频道成功后，可通过以下接口发布本地流。
-    如果发布过程中需要变更配置或者停止发布，需要按如下流程先重新设置配置参数，然后再调用publish接口。
+        -   自动发布模式下：加入频道成功后，即可发布本地流，无需再次调用publish接口。
+        -   手动发布模式下：加入频道成功后，可通过以下接口发布本地流。
+        如果发布过程中需要变更配置或者停止发布，需要按如下流程先重新设置配置参数，然后再调用publish接口。
 
-    ```
-    //发布本地流设置
-    //true表示允许发布屏幕共享流，false表示不允许
-    m_pEngine->configLocalScreenPublish(true);
-    //true表示允许发布音频流，false表示不允许
-    m_pEngine->configLocalAudioPublish(true);
-    //true表示允许发布相机流，false表示不允许
-    m_pEngine->configLocalCameraPublish(true);
-    //true表示允许发布次要视频流；false表示不允许
-    //子码流
-    m_pEngine->configLocalSimulcast(true, AliRtcVideoTrack::AliRtcVideoTrackCamera); 
-    //屏幕共享流不支持子码流，因此第二个参数只能为AliRtcVideoTrack::AliRtcVideoTrackCamera。 
-    // Call back when publish finished
-    auto onPubResult = [](void *opaque, int errCode) {
-        if (errCode == 0) {
-           // 发布成功
-        } else {
-           // 发布失败
-        }
-    };
-    m_pEngine->publish(onPubResult, /*UserData，传递给onPubResult回调函数*/);
-    ```
+        ```
+        //发布本地流设置
+        //true表示允许发布屏幕共享流，false表示不允许
+        m_pEngine->configLocalScreenPublish(true);
+        //true表示允许发布音频流，false表示不允许
+        m_pEngine->configLocalAudioPublish(true);
+        //true表示允许发布相机流，false表示不允许
+        m_pEngine->configLocalCameraPublish(true);
+        //true表示允许发布次要视频流；false表示不允许
+        //子码流
+        m_pEngine->configLocalSimulcast(true, AliRtcVideoTrack::AliRtcVideoTrackCamera); 
+        //屏幕共享流不支持子码流，因此第二个参数只能为AliRtcVideoTrack::AliRtcVideoTrackCamera。 
+        // Call back when publish finished
+        auto onPubResult = [](void *opaque, int errCode) {
+            if (errCode == 0) {
+               // 发布成功
+            } else {
+               // 发布失败
+            }
+        };
+        m_pEngine->publish(onPubResult, /*UserData，传递给onPubResult回调函数*/);
+        ```
 
-    取消发布本地流。
+    -   取消发布本地流
 
-    ```
-    m_pEngine->configLocalScreenPublish(false);
-    m_pEngine->configLocalAudioPublish(false);
-    m_pEngine->configLocalCameraPublish(false);
-    m_pEngine->configLocalSimulcast(false, AliRtcVideoTrack::AliRtcVideoTrackCamera);
-    // 取消发布完成返回成功或者失败
-    auto onPubResult = [](void *opaque, int errCode) {
-        if (errCode == 0) {
-           // 取消发布成功
-        } else {
-           // 取发布失败
-        }
-    };
-    m_pEngine->publish(onPubResult, /*UserData，传递给onPubResult回调函数*/);
-    ```
+        ```
+        m_pEngine->configLocalScreenPublish(false);
+        m_pEngine->configLocalAudioPublish(false);
+        m_pEngine->configLocalCameraPublish(false);
+        m_pEngine->configLocalSimulcast(false, AliRtcVideoTrack::AliRtcVideoTrackCamera);
+        // 取消发布完成返回成功或者失败
+        auto onPubResult = [](void *opaque, int errCode) {
+            if (errCode == 0) {
+               // 取消发布成功
+            } else {
+               // 取发布失败
+            }
+        };
+        m_pEngine->publish(onPubResult, /*UserData，传递给onPubResult回调函数*/);
+        ```
 
 4.  订阅或取消订阅远程流。
 
-    订阅远程流。
+    -   订阅远程流
 
-    -   自动订阅模式下：加入频道成功后，即可订阅远端流，无需再次调用subscribe接口。
-    -   手动订阅模式下：加入频道成功后，可通过以下接口订阅远端流。
-    如果订阅过程中需要变更配置或者停止订阅，需要按如下流程先重新设置配置参数，然后再调用subscribe接口。
+        -   自动订阅模式下：加入频道成功后，即可订阅远端流，无需再次调用subscribe接口。
+        -   手动订阅模式下：加入频道成功后，可通过以下接口订阅远端流。
+        如果订阅过程中需要变更配置或者停止订阅，需要按如下流程先重新设置配置参数，然后再调用subscribe接口。
 
-    ```
-    //true表示允许订阅音频流，false表示不允许
-    m_pEngine->configRemoteAudio(/* remoteUserID */, true);
-    //true表示允许订阅屏幕共享流，false表示不允许
-    m_pEngine->configRemoteScreenTrack(/* remoteUserID */, true);
-    //第二个参数preferMaster true表示优先订阅大流，fales表示优先订阅次小流
-    //第三个参数enable true表示允许订阅相机流，false表示不允许
-    m_pEngine->configRemoteCameraTrack(/* remoteUserID */, true, true);
-    //Call back when subscribe finished
-    auto onSubResult = [](void *opaque, const AliRtc::String &uid, AliRtcVideoTrack vt, AliRtcAudioTrack at) { 
-    };
-    m_pEngine->subscribe(/* remoteUserID */, onSubResult, /*UserData*/);
-    ```
+        ```
+        //true表示允许订阅音频流，false表示不允许
+        m_pEngine->configRemoteAudio(/* remoteUserID */, true);
+        //true表示允许订阅屏幕共享流，false表示不允许
+        m_pEngine->configRemoteScreenTrack(/* remoteUserID */, true);
+        //第二个参数preferMaster true表示优先订阅大流，fales表示优先订阅次小流
+        //第三个参数enable true表示允许订阅相机流，false表示不允许
+        m_pEngine->configRemoteCameraTrack(/* remoteUserID */, true, true);
+        //Call back when subscribe finished
+        auto onSubResult = [](void *opaque, const AliRtc::String &uid, AliRtcVideoTrack vt, AliRtcAudioTrack at) { 
+        };
+        m_pEngine->subscribe(/* remoteUserID */, onSubResult, /*UserData*/);
+        ```
 
-    自动模式或非自动模式下，订阅成功后，您可以通过订阅的回调，进行相关UI操作或逻辑处理。
+        无论是自动模式还是非自动模式，当您订阅成功后，通您可以通过订阅的回调，进行相关UI操作或逻辑处理。
 
-    ```
-    auto onSubResult = [](void *opaque, const AliRtc::String &uid, AliRtcVideoTrack vt, AliRtcAudioTrack at) {
-        ...
-        // 设置视频流的窗口
-        if (vt == AliRtcVideoTrack::AliRtcVideoTrackCamera || vt == AliRtcVideoTrack::AliRtcVideoTrackBoth) {
-            /*设置远端视频预览*/
+        ```
+        auto onSubResult = [](void *opaque, const AliRtc::String &uid, AliRtcVideoTrack vt, AliRtcAudioTrack at) {
+            ...
+            // 设置视频流的窗口
+            if (vt == AliRtcVideoTrack::AliRtcVideoTrackCamera || vt == AliRtcVideoTrack::AliRtcVideoTrackBoth) {
+                /*设置远端视频预览*/
+            }
+        ```
+
+        另外，您可以通过onRemoteTrackAvailableNotify回调获得远端用户的流状态变更。例如：手动模式下，收到此回调后，可以获取到远端用户的发布状态，然后相应做出订阅操作，或者更新UI等。
+
+        ```
+         void onRemoteTrackAvailableNotify(const AliRtc::String & uid,   AliRtcAudioTrack audioTrack, AliRtcVideoTrack videoTrack) {   
         }
-    ```
+        ```
 
-    另外，您可以通过onRemoteTrackAvailableNotify回调获得远端用户的流状态变更。例如：手动模式下，收到此回调后，可以获取到远端用户的发布状态，然后相应做出订阅操作，或者更新UI等。
+    -   取消订阅远程流
 
-    ```
-     void onRemoteTrackAvailableNotify(const AliRtc::String & uid,   AliRtcAudioTrack audioTrack, AliRtcVideoTrack videoTrack) {   
-    }
-    ```
-
-    取消订阅远程流。
-
-    ```
-    m_pEngine->configRemoteAudio(/* remoteUserID */, false);
-    m_pEngine->configRemoteScreenTrack(/* remoteUserID */, false);
-    m_pEngine->configRemoteCameraTrack(/* remoteUserID */, true, false);
-    auto onSubResult = [](void *opaque, const AliRtc::String &uid, AliRtcVideoTrack vt, AliRtcAudioTrack at) {
-    };
-    m_pEngine->subscribe(/* remoteUserID */, onSubResult, /*UserData*/);
-    ```
+        ```
+        m_pEngine->configRemoteAudio(/* remoteUserID */, false);
+        m_pEngine->configRemoteScreenTrack(/* remoteUserID */, false);
+        m_pEngine->configRemoteCameraTrack(/* remoteUserID */, true, false);
+        auto onSubResult = [](void *opaque, const AliRtc::String &uid, AliRtcVideoTrack vt, AliRtcAudioTrack at) {
+        };
+        m_pEngine->subscribe(/* remoteUserID */, onSubResult, /*UserData*/);
+        ```
 
 5.  离开频道。
 
@@ -204,8 +202,6 @@ keyword: [rtc, Windows]
     m_pEngine->leaveChannel();
     ```
 
-    您可以下载示例代码，快速跑通Demo，实现频道内和其他人进行实时音视频通话，详情请参见[Windows Demo](/cn.zh-CN/Demo/Windows Demo.md)。
 
-    接口方法请参见[AliRtcEngine接口](/cn.zh-CN/SDK参考/Windows SDK/AliRtcEngine接口.md)。
-
+您可以下载示例代码，快速运行Demo，实现频道内和其他人进行实时音视频通话，详情请参见[t170947.md\#](/cn.zh-CN/快速入门/运行Demo示例/运行Windows Demo.md)。
 
