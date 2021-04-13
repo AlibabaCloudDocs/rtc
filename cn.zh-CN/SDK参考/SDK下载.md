@@ -14,20 +14,20 @@ keyword: [SDK, 下载]
 |---|-----|-----|-------|----|
 |iOS|[iOS](/cn.zh-CN/快速入门/集成客户端SDK/iOS.md)|[iOS接口说明](/cn.zh-CN/SDK参考/iOS和Mac SDK/AliRtcEngine接口.md)|下载地址：
 
-[V1.17.44](https://alivc-demo-cms.alicdn.com/versionProduct/sourceCode/rtc/1.17.44/AliRTCSdk_1.17.44(iOS).zip)
+[V1.17.45](https://alivc-demo-cms.alicdn.com/versionProduct/sourceCode/rtc/1.17.45/AliRTCSdk_1.17.45(iOS).zip)
 
 pod版本号：
 
-1.17.44
+1.17.45
 
 |[iOS示例代码](https://github.com/aliyunvideo/AliRtcAppSample_iOS)|
 |Android|[Android](/cn.zh-CN/快速入门/集成客户端SDK/Android.md)|[Android接口说明](/cn.zh-CN/SDK参考/Android SDK/AliRtcEngine接口.md)|下载地址：
 
-[V1.17.44](https://alivc-demo-cms.alicdn.com/versionProduct/sourceCode/rtc/1.17.44/AliRTCSdk_1.17.44(Android).zip)
+[V1.17.45](https://alivc-demo-cms.alicdn.com/versionProduct/sourceCode/rtc/1.17.45/AliRTCSdk_1.17.45(Android).zip)
 
 Maven依赖：
 
-com.aliyun.rtc:AliRTC-Full:1.17.44.2103302100126
+com.aliyun.rtc:AliRTC-Full:1.17.45.2104121607506
 
 |[Android示例代码](https://github.com/aliyunvideo/AliRtcAppSample_Android)|
 |Windows|[Windows](/cn.zh-CN/快速入门/集成客户端SDK/Windows.md)|[Windows接口说明](/cn.zh-CN/SDK参考/Windows SDK/AliRtcEngine接口.md)|[V1.17.42](https://alivc-demo-cms.alicdn.com/versionProduct/sourceCode/rtc/1.17.42/AliRTCSdk_1.17.42(Windows).zip)|[Windows示例代码](https://github.com/aliyunvideo/AliRtcAppSample_Windows/tree/master/MFC%20Demo)|
@@ -61,9 +61,9 @@ RTC Android SDK提供so文件动态加载的功能，可以有效的减少安装
 |---|-------|
 |Android|下载地址：
 
-[V1.17.44](https://alivc-demo-cms.alicdn.com/versionProduct/sourceCode/rtc/1.17.44/AliRTCSdk_1.17.44(Android_aar%2Bso).zip)
+[V1.17.45](https://alivc-demo-cms.alicdn.com/versionProduct/sourceCode/rtc/1.17.45/AliRTCSdk_1.17.45(Android_arr_so).zip)
 
 Maven依赖：
 
-com.aliyun.rtc:AliRTC:1.17.44.2103302100126 |
+com.aliyun.rtc:AliRTC:1.17.45.2104121607506 |
 
