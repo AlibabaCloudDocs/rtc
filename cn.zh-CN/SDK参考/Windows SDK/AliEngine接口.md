@@ -23,8 +23,8 @@ keyword: [Windows SDK, AliEngine]
 
 频道相关接口
 
-|API|描述|以上版本支持|
-|---|--|------|
+|API|描述|支持的最低版本|
+|---|--|-------|
 |[JoinChannel](#li_009)|加入频道。|1.1|
 |[LeaveChannel](#li_010)|离开频道。|1.1|
 |[SwitchChannel](#li_011)|切换频道。|2.1|
@@ -35,8 +35,8 @@ keyword: [Windows SDK, AliEngine]
 
 发布相关接口
 
-|API|描述|以上版本支持|
-|---|--|------|
+|API|描述|支持的最低版本|
+|---|--|-------|
 |[PublishLocalVideoStream](#li_016)|设置是否允许推视频流。|2.1|
 |[IsLocalVideoStreamPublished](#li_017)|查询当前是否允许推视频流。|1.1|
 |[IsScreenSharePublished](#li_018)|查询当前是否允许推屏幕流。|1.1|
@@ -47,8 +47,8 @@ keyword: [Windows SDK, AliEngine]
 
 订阅相关接口
 
-|API|描述|以上版本支持|
-|---|--|------|
+|API|描述|支持的最低版本|
+|---|--|-------|
 |[SetRemoteVideoStreamType](#li_023)|设置订阅的相机流格式。|2.1|
 |[SetRemoteDefaultVideoStreamType](#li_024)|设置默认订阅的相机流格式。|2.1|
 |[SetDefaultSubscribeAllRemoteAudioStreams](#li_025)|设置是否默认拉音频流。|2.1|
@@ -60,8 +60,8 @@ keyword: [Windows SDK, AliEngine]
 
 视频相关接口
 
-|API|描述|以上版本支持|
-|---|--|------|
+|API|描述|支持的最低版本|
+|---|--|-------|
 |[SetScreenShareEncoderConfiguration](#li_031)|设置屏幕共享编码属性。|2.1|
 |[SetLocalViewConfig](#li_032)|为本地预览设置渲染窗口以及绘制参数。|1.1|
 |[SetCameraCapturerConfiguration](#li_033)|设置摄像头采集偏好。|2.1|
@@ -97,8 +97,8 @@ keyword: [Windows SDK, AliEngine]
 
 共享视频接口
 
-|API|描述|以上版本支持|
-|---|--|------|
+|API|描述|支持的最低版本|
+|---|--|-------|
 |[StartScreenShareByDesktopId](#li_063)|根据桌面ID进行屏幕分享。|2.1|
 |[StartScreenShareByScreenRegion](#li_064)|根据屏幕区域进行屏幕分享。|2.1|
 |[StartScreenShareByWindowId](#li_065)|根据窗口ID进行屏幕分享。|2.1|
@@ -113,8 +113,8 @@ keyword: [Windows SDK, AliEngine]
 
 音频相关接口
 
-|API|描述|以上版本支持|
-|---|--|------|
+|API|描述|支持的最低版本|
+|---|--|-------|
 |[SetAudioOnlyMode](#li_075)|设置为纯音频模式还是音视频模式。|1.1|
 |[IsAudioOnlyMode](#li_076)|查询当前是否为纯音频模式。|1.1|
 |[MuteLocalMic](#li_077)|设置是否停止推本地音频。|1.1|
@@ -175,8 +175,8 @@ keyword: [Windows SDK, AliEngine]
 
 音频设备管理接口
 
-|API|描述|以上版本支持|
-|---|--|------|
+|API|描述|支持的最低版本|
+|---|--|-------|
 |[GetAudioCaptureList](#li_133)|获取系统中的录音设备列表。|2.1|
 |[GetCurrentAudioCaptureName](#li_134)|获取使用的录音设备名称。|2.1|
 |[GetCurrentAudioCaptureID](#li_135)|获取使用的录音设备ID。|2.1|
@@ -200,8 +200,8 @@ keyword: [Windows SDK, AliEngine]
 
 视频设备管理接口
 
-|API|描述|以上版本支持|
-|---|--|------|
+|API|描述|支持的最低版本|
+|---|--|-------|
 |[GetCameraList](#li_153)|获取摄像头列表。|2.1|
 |[GetCurrentCameraName](#li_154)|获取当前使用的摄像头名称。|2.1|
 |[GetCurrentCameraID](#li_155)|获取当前使用的摄像头ID。|2.1|
@@ -210,8 +210,8 @@ keyword: [Windows SDK, AliEngine]
 
 媒体引擎接口
 
-|API|描述|以上版本支持|
-|---|--|------|
+|API|描述|支持的最低版本|
+|---|--|-------|
 |[RegisterVideoSampleObserver](#li_158)|订阅视频数据输出。|2.1|
 |[UnRegisterVideoSampleObserver](#li_159)|取消订阅视频数据输出。|2.1|
 |[RegisterLocalVideoTextureObserver](#li_160)|订阅本地视频纹理数据。|2.1|
@@ -238,8 +238,8 @@ keyword: [Windows SDK, AliEngine]
 
 直播旁路接口
 
-|API|描述|以上版本支持|
-|---|--|------|
+|API|描述|支持的最低版本|
+|---|--|-------|
 |[StartLiveStreaming](#li_181)|开始直播拉流。|2.1|
 |[StopLiveStreaming](#li_182)|停止直播拉流。|2.1|
 |[StartPublishLiveStream](#li_183)|开启旁路直播。|2.1|
@@ -250,31 +250,31 @@ keyword: [Windows SDK, AliEngine]
 
 跨频道连麦接口
 
-|API|描述|以上版本支持|
-|---|--|------|
+|API|描述|支持的最低版本|
+|---|--|-------|
 |[StartChannelRelay](#li_188)|开启跨频道连麦。|2.1|
 |[UpdateChannelRelay](#li_189)|更新跨频道连麦。|2.1|
 |[StopChannelRelay](#li_190)|停止跨频道连麦。|2.1|
 
 预览接口
 
-|API|描述|以上版本支持|
-|---|--|------|
+|API|描述|支持的最低版本|
+|---|--|-------|
 |[StartPreview](#li_191)|开始本地预览。|1.1|
 |[StopPreview](#li_192)|停止本地预览。|1.1|
 
 远端用户查询接口
 
-|API|描述|以上版本支持|
-|---|--|------|
+|API|描述|支持的最低版本|
+|---|--|-------|
 |[GetOnlineRemoteUsers](#li_193)|获取远端在线用户列表。|1.1|
 |[GetUserInfo](#li_194)|查询远端用户信息。|1.1|
 |[IsUserOnline](#li_195)|查询用户是否在线。|1.1|
 
 其他接口
 
-|API|描述|以上版本支持|
-|---|--|------|
+|API|描述|支持的最低版本|
+|---|--|-------|
 |[SetLogLevel](#li_196)|设置日志级别。|1.1|
 |[GetSDKVersion](#li_197)|获取SDK版本号。|1.1|
 |[GetErrorDescription](#li_198)|获取错误码描述|2.1|
@@ -303,7 +303,7 @@ keyword: [Windows SDK, AliEngine]
 
     |名称|类型|描述|
     |--|--|--|
-    |comp|bool|是否兼容H5。取值：    -   true：兼容H5。
+    |comp|bool|是否兼容H5。取值：     -   true：兼容H5。
     -   false（默认值）：不兼容H5。 |
 
     **说明：** 当前版本不支持在创建AliEngine实例之后更改H5兼容模式，必须在创建实例之前就调用此方法。
@@ -516,7 +516,7 @@ keyword: [Windows SDK, AliEngine]
 
     |名称|类型|描述|
     |--|--|--|
-    |enable|bool|是否允许推视频流。取值：    -   true（默认值）：允许推视频流。
+    |enable|bool|是否允许推视频流。取值：     -   true（默认值）：允许推视频流。
     -   false：不允许推视频流。 |
 
 -   IsLocalVideoStreamPublished：查询当前是否允许推视频流。
@@ -549,7 +549,7 @@ keyword: [Windows SDK, AliEngine]
 
     |名称|类型|描述|
     |--|--|--|
-    |enable|bool|是否允许推音频流。取值：    -   true（默认值）：允许推音频流。
+    |enable|bool|是否允许推音频流。取值：     -   true（默认值）：允许推音频流。
     -   false：不允许推音频流。 |
 
     返回说明
@@ -576,7 +576,7 @@ keyword: [Windows SDK, AliEngine]
 
     |名称|类型|描述|
     |--|--|--|
-    |enable|bool|是否允许推次要视频流。取值：    -   true（默认值）：允许推次要视频流。
+    |enable|bool|是否允许推次要视频流。取值：     -   true（默认值）：允许推次要视频流。
     -   false：不允许推次要视频流。 |
 
     返回说明
@@ -801,7 +801,7 @@ keyword: [Windows SDK, AliEngine]
 
     |名称|类型|描述|
     |--|--|--|
-    |enabled|bool|禁用或重新启用本地视频采集。取值：    -   true（默认值）：重新启用视频采集。
+    |enabled|bool|禁用或重新启用本地视频采集。取值：     -   true（默认值）：重新启用视频采集。
     -   false：停止视频采集。 |
 
     返回说明
@@ -818,7 +818,7 @@ keyword: [Windows SDK, AliEngine]
 
     |名称|类型|描述|
     |--|--|--|
-    |mute|bool|停止或恢复推视频流。取值：    -   true：停止推视频流。
+    |mute|bool|停止或恢复推视频流。取值：     -   true：停止推视频流。
     -   false（默认值）：恢复推视频流。 |
     |track|[AliEngineVideoTrack](/cn.zh-CN/SDK参考/Windows SDK/数据类型.md)|需要改变推流状态的视频流类型。|
 
@@ -838,7 +838,7 @@ keyword: [Windows SDK, AliEngine]
 
     |名称|类型|描述|
     |--|--|--|
-    |mute|bool|停止或恢复渲染。取值：    -   true：停止渲染，所有视频为黑帧。
+    |mute|bool|停止或恢复渲染。取值：     -   true：停止渲染，所有视频为黑帧。
     -   false（默认值）：恢复渲染。 |
 
     返回说明
@@ -999,7 +999,7 @@ keyword: [Windows SDK, AliEngine]
 
     |名称|类型|描述|
     |--|--|--|
-    |enable|bool|是否启用基础美颜。取值：    -   true：开启。
+    |enable|bool|是否启用基础美颜。取值：     -   true：开启。
     -   false（默认值）：关闭。 |
     |config|const [AliEngineBeautyConfig](/cn.zh-CN/SDK参考/Windows SDK/数据类型.md) &|基础美颜参数。|
 
@@ -1200,7 +1200,7 @@ keyword: [Windows SDK, AliEngine]
 
     |名称|类型|描述|
     |--|--|--|
-    |enable|bool|是否开启摄像头人脸对焦。取值：    -   true：开启。
+    |enable|bool|是否开启摄像头人脸对焦。取值：     -   true：开启。
     -   false：关闭。 |
 
     返回说明
@@ -1377,7 +1377,7 @@ keyword: [Windows SDK, AliEngine]
 
     |名称|类型|描述|
     |--|--|--|
-    |audioOnly|bool|音频模式或音视频模式。取值：    -   true：只有音频推流和拉流。
+    |audioOnly|bool|音频模式或音视频模式。取值：     -   true：只有音频推流和拉流。
     -   false：音视频推流和拉流。 |
 
     返回说明
@@ -1404,7 +1404,7 @@ keyword: [Windows SDK, AliEngine]
 
     |名称|类型|描述|
     |--|--|--|
-    |mute|bool|停止或恢复本地音频数据发送。取值：    -   true：本地音频发送静音帧。
+    |mute|bool|停止或恢复本地音频数据发送。取值：     -   true：本地音频发送静音帧。
     -   false：恢复正常。 |
     |mode|[AliEngineMuteLocalAudioMode](/cn.zh-CN/SDK参考/Windows SDK/数据类型.md)|静音模式，默认麦克风静音模式。|
 
@@ -1425,7 +1425,7 @@ keyword: [Windows SDK, AliEngine]
     |名称|类型|描述|
     |--|--|--|
     |uid|const char \*|用户ID。|
-    |bool|mute|停止或恢复远端的音频播放。取值：    -   true：停止播放。
+    |bool|mute|停止或恢复远端的音频播放。取值：     -   true：停止播放。
     -   false：恢复播放。 |
 
     返回说明
@@ -1442,7 +1442,7 @@ keyword: [Windows SDK, AliEngine]
 
     |名称|类型|描述|
     |--|--|--|
-    |mute|bool|停止或恢复远端所有的音频播放。取值：    -   true：停止播放。
+    |mute|bool|停止或恢复远端所有的音频播放。取值：     -   true：停止播放。
     -   false：恢复播放。 |
 
     返回说明
@@ -1516,7 +1516,7 @@ keyword: [Windows SDK, AliEngine]
 
     |名称|类型|描述|
     |--|--|--|
-    |defaultToSpeakerphone|bool|默认音频输出为听筒或扬声器。取值：    -   true（默认值）：扬声器模式。
+    |defaultToSpeakerphone|bool|默认音频输出为听筒或扬声器。取值：     -   true（默认值）：扬声器模式。
     -   false：听筒模式。 |
 
     返回说明
@@ -1533,7 +1533,7 @@ keyword: [Windows SDK, AliEngine]
 
     |名称|类型|描述|
     |--|--|--|
-    |enable|bool|音频输出为听筒或扬声器。取值：    -   true：扬声器模式。
+    |enable|bool|音频输出为听筒或扬声器。取值：     -   true：扬声器模式。
     -   false（默认值）：听筒模式。 |
 
     返回说明
@@ -1594,7 +1594,7 @@ keyword: [Windows SDK, AliEngine]
     |--|--|--|
     |interval|int|时间间隔，单位为毫秒，最小值不得小于10ms，建议设置300~500ms；小于等于0表示不启用音量提示和说话人提示功能。|
     |smooth|int|平滑系数，数值越大平滑程度越高，反之越低，实时性越好，取值范围：\[0,9\]，建议设置3。|
-    |reportVad|int|说话人检测开关。取值：    -   0：关闭。
+    |reportVad|int|说话人检测开关。取值：     -   0：关闭。
     -   1：开启，通过onAudioVolumeCallback接口回调每一个说话人的状态。 |
 
     返回说明
@@ -1644,7 +1644,7 @@ keyword: [Windows SDK, AliEngine]
 
     |名称|类型|描述|
     |--|--|--|
-    |enable|bool|是否开启本地音频流量控制。取值：    -   true：开启。
+    |enable|bool|是否开启本地音频流量控制。取值：     -   true：开启。
     -   false：关闭。 |
 
     返回说明
@@ -1663,7 +1663,7 @@ keyword: [Windows SDK, AliEngine]
 
     |名称|类型|描述|
     |--|--|--|
-    |enable|bool|是否开启本地音频流量控制。取值：    -   true：开启。
+    |enable|bool|是否开启本地音频流量控制。取值：     -   true：开启。
     -   false：关闭。 |
 
     返回说明
@@ -2172,7 +2172,7 @@ keyword: [Windows SDK, AliEngine]
 
     |名称|类型|描述|
     |--|--|--|
-    |enable|bool|是否开启系统声音采集推送。取值：    -   true：开启。
+    |enable|bool|是否开启系统声音采集推送。取值：     -   true：开启。
     -   false：关闭。 |
 
     返回说明
@@ -2705,7 +2705,7 @@ keyword: [Windows SDK, AliEngine]
 
     |名称|类型|描述|
     |--|--|--|
-    |enable|bool|是否启用外部视频输入源。取值：    -   true：开启。
+    |enable|bool|是否启用外部视频输入源。取值：     -   true：开启。
     -   false：关闭。 |
     |useTexture|bool|是否使用texture模式。|
     |type|[AliEngineVideoTrack](/cn.zh-CN/SDK参考/Windows SDK/数据类型.md)|流类型。|
@@ -2742,7 +2742,7 @@ keyword: [Windows SDK, AliEngine]
 
     |名称|类型|描述|
     |--|--|--|
-    |enable|bool|是否启用外部音频输入源。取值：    -   true：开启。
+    |enable|bool|是否启用外部音频输入源。取值：     -   true：开启。
     -   false：关闭。 |
     |sampleRate|unsigned int|采样率，例如16000Hz、48000Hz等。|
     |channelsPerFrame|unsigned int|声道数，例如1或2。|
@@ -2805,7 +2805,7 @@ keyword: [Windows SDK, AliEngine]
 
     |名称|类型|描述|
     |--|--|--|
-    |mixed|bool|是否与麦克风采集音频混合。取值：    -   true：混音。
+    |mixed|bool|是否与麦克风采集音频混合。取值：     -   true：混音。
     -   false：完全替换麦克风采集数据。 |
 
     返回说明
@@ -2822,7 +2822,7 @@ keyword: [Windows SDK, AliEngine]
 
     |名称|类型|描述|
     |--|--|--|
-    |enable|bool|是否启用外部输入音频播放。取值：    -   true：开启。
+    |enable|bool|是否启用外部输入音频播放。取值：     -   true：开启。
     -   false：关闭。 |
     |sampleRate|unsigned int|采样率，例如16kHz、48kHz等。|
     |channelsPerFrame|unsigned int|声道数，例如1或2。|
