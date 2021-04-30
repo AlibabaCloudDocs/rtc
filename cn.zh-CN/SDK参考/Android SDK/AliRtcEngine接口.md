@@ -24,8 +24,8 @@ keyword: [AliRtcEngine, Android]
 
 频道相关接口
 
-|API|描述|以上版本支持|
-|---|--|------|
+|API|描述|支持的最低版本|
+|---|--|-------|
 |[joinChannel](#li_swo_yjn_89o)|加入频道。|1.1|
 |[leaveChannel](#li_dx8_0lv_lm3)|离开频道。|1.1|
 |[switchChannel](#li_ay6_94b_hdg)|切换频道|2.1|
@@ -36,8 +36,8 @@ keyword: [AliRtcEngine, Android]
 
 发布相关接口
 
-|API|描述|以上版本支持|
-|---|--|------|
+|API|描述|支持的最低版本|
+|---|--|-------|
 |[publishLocalVideoStream](#li_bia_2ol_v2y)|设置是否发布视频流。|2.1|
 |[isLocalVideoStreamPublished](#li_nje_vk5_rqz)|查询当前是否发布视频流。|1.1|
 |[isScreenSharePublished](#li_3ty_rlt_6w3)|查询当前是否发布屏幕流。|1.1|
@@ -48,8 +48,8 @@ keyword: [AliRtcEngine, Android]
 
 订阅相关接口
 
-|API|描述|以上版本支持|
-|---|--|------|
+|API|描述|支持的最低版本|
+|---|--|-------|
 |[setRemoteVideoStreamType](#li_m6x_6la_3kd)|设置订阅的相机流格式，大流或小流。|2.1|
 |[setRemoteDefaultVideoStreamType](#li_1lq_jtq_hht)|设置默认订阅的相机流格式，大流或小流。|2.1|
 |[setDefaultSubscribeAllRemoteAudioStreams](#li_go3_hvh_jai)|设置是否默认接收音频流。|2.1|
@@ -61,8 +61,8 @@ keyword: [AliRtcEngine, Android]
 
 视频相关接口
 
-|API|描述|以上版本支持|
-|---|--|------|
+|API|描述|支持的最低版本|
+|---|--|-------|
 |[createRenderSurfaceView](#li_p0b_xqr_zoo)|创建SurfaceView渲染视图。|2.1|
 |[createRenderTextureView](#li_wt1_c8b_56e)|创建TextureView渲染视图。|2.1|
 |[setScreenShareEncoderConfiguration](#li_60v_yvr_j3u)|设置屏幕共享编码属性。|2.1|
@@ -94,16 +94,16 @@ keyword: [AliRtcEngine, Android]
 
 共享视频接口
 
-|API|描述|以上版本支持|
-|---|--|------|
+|API|描述|支持的最低版本|
+|---|--|-------|
 |[StartScreenShare\[1/2\]](#li_zcr_gpn_k8i)|开始屏幕分享。|2.1|
 |[StartScreenShare\[2/2\]](#li_oen_e52_rx6)|开始屏幕分享。|2.1|
 |[StopScreenShare](#li_3hp_hro_a61)|停止屏幕分享。|2.1|
 
 音频相关接口
 
-|API|描述|以上版本支持|
-|---|--|------|
+|API|描述|支持的最低版本|
+|---|--|-------|
 |[setAudioOnlyMode](#li_yqo_xa0_8mx)|设置为纯音频模式还是音视频模式。|1.1|
 |[isAudioOnly](#li_wic_jxw_szz)|查询当前是否为纯音频模式。|1.1|
 |[muteLocalMic](#li_958_lzr_u98)|设置是否停止发布本地音频。|1.1|
@@ -160,8 +160,8 @@ keyword: [AliRtcEngine, Android]
 
 媒体引擎接口
 
-|API|描述|以上版本支持|
-|---|--|------|
+|API|描述|支持的最低版本|
+|---|--|-------|
 |[registerVideoSampleObserver](#li_ziq_fra_44g)|订阅视频数据输出。|1.17|
 |[unRegisterVideoSampleObserver](#li_ha4_n0d_7dv)|取消订阅视频数据输出。|1.17|
 |[registerLocalVideoTextureObserver](#li_4b6_0b6_9py)|订阅本地视频纹理数据。|1.15|
@@ -184,8 +184,8 @@ keyword: [AliRtcEngine, Android]
 
 直播旁路接口
 
-|API|描述|以上版本支持|
-|---|--|------|
+|API|描述|支持的最低版本|
+|---|--|-------|
 |[startLiveStreaming](#li_ixf_hmb_n69)|开始直播拉流。|2.1|
 |[stopLiveStreaming](#li_5h8_jkt_wzz)|停止直播拉流。|2.1|
 |[startPublishLiveStream](#li_d2b_5hp_bme)|开启旁路直播。|2.1|
@@ -195,31 +195,31 @@ keyword: [AliRtcEngine, Android]
 
 跨频道连麦接口
 
-|API|描述|以上版本支持|
-|---|--|------|
+|API|描述|支持的最低版本|
+|---|--|-------|
 |[startChannelRelay](#li_73s_4vq_f4w)|开启跨频道连麦。|2.1|
 |[updateChannelRelay](#li_hg0_lsq_vu9)|更新跨频道连麦。|2.1|
 |[stopChannelRelay](#li_t5r_39t_w40)|停止跨频道连麦。|2.1|
 
 预览接口
 
-|API|描述|以上版本支持|
-|---|--|------|
+|API|描述|支持的最低版本|
+|---|--|-------|
 |[startPreview](#li_xvh_tsw_iw8)|开始本地预览。|1.1|
 |[stopPreview](#li_e6j_aje_x87)|停止本地预览。|1.1|
 
 远端用户查询接口
 
-|API|描述|以上版本支持|
-|---|--|------|
+|API|描述|支持的最低版本|
+|---|--|-------|
 |[getOnlineRemoteUsers](#li_9lk_rak_x4y)|获取远端在线用户列表。|1.1|
 |[getUserInfo](#li_eu3_45h_nc7)|查询远端用户信息。|1.1|
 |[isUserOnline](#li_rl4_dj0_65q)|查询用户是否在线。|1.1|
 
 其他接口
 
-|API|描述|以上版本支持|
-|---|--|------|
+|API|描述|支持的最低版本|
+|---|--|-------|
 |[setLogLevel](#li_wfs_u8q_la2)|设置日志级别。|1.1|
 |[getSDKVersion](#li_8d1_rc4_j0k)|获取SDK版本号。|1.1|
 |[getErrorDescription](#li_sq7_au9_d41)|获取错误码描述。|2.1|
