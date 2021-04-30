@@ -10,6 +10,8 @@ keyword: [SDK, 下载]
 
 ## 客户端SDK
 
+**说明：** 自2021年5月起，阿里云RTC将逐步停止对SDK 1.17的支持与维护，请使用最新版本的SDK。更多信息，请参见[新版SDK下载](/cn.zh-CN/SDK参考/SDK下载.md)。
+
 |客户端|集成SDK|API参考|SDK下载地址|示例代码|
 |---|-----|-----|-------|----|
 |iOS|[iOS](/cn.zh-CN/快速入门/集成客户端SDK/iOS.md)|[iOS接口说明](/cn.zh-CN/SDK参考/1.17版本/iOS和Mac SDK/AliRtcEngine接口.md)|下载地址：
