@@ -22,8 +22,8 @@ keyword: [iOS SDK, Mac SDK, AliRtcEngine]
 
 频道相关接口
 
-|API|描述|以上版本支持|
-|---|--|------|
+|API|描述|支持的最低版本|
+|---|--|-------|
 |[joinChannel](#li_008)|加入频道。|1.1|
 |[leaveChannel](#li_009)|离开频道。|1.1|
 |[switchChannel](#li_010)|切换频道。|2.1|
@@ -34,8 +34,8 @@ keyword: [iOS SDK, Mac SDK, AliRtcEngine]
 
 发布相关接口
 
-|API|描述|以上版本支持|
-|---|--|------|
+|API|描述|支持的最低版本|
+|---|--|-------|
 |[publishLocalVideoStream](#li_015)|设置是否允许发布视频流。|2.1|
 |[isLocalVideoStreamPublished](#li_016)|查询当前是否允许发布视频流。|1.1|
 |[isScreenSharePublished](#li_017)|查询当前是否允许发布屏幕流。|1.1|
@@ -46,8 +46,8 @@ keyword: [iOS SDK, Mac SDK, AliRtcEngine]
 
 订阅相关接口
 
-|API|描述|以上版本支持|
-|---|--|------|
+|API|描述|支持的最低版本|
+|---|--|-------|
 |[setRemoteVideoStreamType](#li_022)|设置订阅的相机流格式，大流或小流。|2.1|
 |[setRemoteDefaultVideoStreamType](#li_023)|设置默认订阅的相机流格式，大流或小流。|2.1|
 |[setDefaultSubscribeAllRemoteAudioStreams](#li_024)|设置是否默认接收音频流。|2.1|
@@ -59,8 +59,8 @@ keyword: [iOS SDK, Mac SDK, AliRtcEngine]
 
 视频相关接口
 
-|API|描述|以上版本支持|
-|---|--|------|
+|API|描述|支持的最低版本|
+|---|--|-------|
 |[setScreenShareEncoderConfiguration](#li_030)|设置屏幕共享编码属性。|2.1|
 |[setLocalViewConfig](#li_031)|为本地预览设置渲染窗口以及绘制参数。|1.1|
 |[setCameraCapturerConfiguration](#li_032)|设置摄像头采集偏好。|2.1|
@@ -90,15 +90,15 @@ keyword: [iOS SDK, Mac SDK, AliRtcEngine]
 
 共享视频接口
 
-|API|描述|以上版本支持|
-|---|--|------|
+|API|描述|支持的最低版本|
+|---|--|-------|
 |[startScreenShare](#li_056)|开始屏幕分享。|2.1|
 |[stopScreenShare](#li_057)|停止屏幕分享。|2.1|
 
 音频相关接口
 
-|API|描述|以上版本支持|
-|---|--|------|
+|API|描述|支持的最低版本|
+|---|--|-------|
 |[setAudioOnlyMode](#li_058)|设置为纯音频模式还是音视频模式。|1.1|
 |[isAudioOnly](#li_059)|查询当前是否为纯音频模式。|1.1|
 |[muteLocalMic](#li_060)|停止或恢复本地音频数据发送。|1.1|
@@ -155,8 +155,8 @@ keyword: [iOS SDK, Mac SDK, AliRtcEngine]
 
 媒体引擎接口
 
-|API|描述|以上版本支持|
-|---|--|------|
+|API|描述|支持的最低版本|
+|---|--|-------|
 |[registerVideoSampleObserver](#li_112)|订阅视频数据输出。|1.17|
 |[unRegisterVideoSampleObserver](#li_113)|取消订阅视频数据输出。|1.17|
 |[registerLocalVideoTexture](#li_114)|订阅本地视频纹理数据。|1.15|
@@ -177,8 +177,8 @@ keyword: [iOS SDK, Mac SDK, AliRtcEngine]
 
 直播旁路接口
 
-|API|描述|以上版本支持|
-|---|--|------|
+|API|描述|支持的最低版本|
+|---|--|-------|
 |[startLiveStreaming](#li_129)|开始直播拉流。|2.1|
 |[stopLiveStreaming](#li_130)|停止直播拉流。|2.1|
 |[startPublishLiveStream](#li_131)|开启旁路直播。|2.1|
@@ -188,31 +188,31 @@ keyword: [iOS SDK, Mac SDK, AliRtcEngine]
 
 跨频道连麦接口
 
-|API|描述|以上版本支持|
-|---|--|------|
+|API|描述|支持的最低版本|
+|---|--|-------|
 |[startChannelRelay](#li_135)|开启跨频道连麦。|2.1|
 |[updateChannelRelay](#li_136)|更新跨频道连麦。|2.1|
 |[stopChannelRelay](#li_137)|停止跨频道连麦。|2.1|
 
 预览接口
 
-|API|描述|以上版本支持|
-|---|--|------|
+|API|描述|支持的最低版本|
+|---|--|-------|
 |[startPreview](#li_138)|开始本地预览。|1.1|
 |[stopPreview](#li_139)|停止本地预览。|1.1|
 
 远端用户查询接口
 
-|API|描述|以上版本支持|
-|---|--|------|
+|API|描述|支持的最低版本|
+|---|--|-------|
 |[getOnlineRemoteUsers](#li_140)|获取远端在线用户列表。|1.1|
 |[getUserInfo](#li_141)|查询远端用户信息。|1.1|
 |[isUserOnline](#li_142)|查询用户是否在线。|1.1|
 
 其他接口
 
-|API|描述|以上版本支持|
-|---|--|------|
+|API|描述|支持的最低版本|
+|---|--|-------|
 |[getSDKVersion](#li_143)|获取SDK版本号。|1.1|
 |[getErrorDescription](#li_144)|获取错误码描述。|2.1|
 |[setClientRole](#li_145)|设置用户角色。|1.16|
@@ -1277,7 +1277,7 @@ keyword: [iOS SDK, Mac SDK, AliRtcEngine]
     |--|--|--|
     |interval|NSInteger|时间间隔，单位为毫秒，最小值不得小于10ms，建议设置300~500ms，小于等于0表示不启用音量提示和说话人提示功能。|
     |smooth|NSInteger|平滑系数，取值范围：\[0,9\]，数值越大平滑程度越高，反之越低，实时性越好，建议设置3。|
-    |reportVad|NSInteger|说话人检测开关，取值：    -   1：开启，通过[onAudioVolumeCallback](/cn.zh-CN/SDK参考/iOS和Mac SDK/回调及监听.md)接口回调每一个说话人的状态。
+    |reportVad|NSInteger|说话人检测开关，取值：     -   1：开启，通过[onAudioVolumeCallback](/cn.zh-CN/SDK参考/iOS和Mac SDK/回调及监听.md)接口回调每一个说话人的状态。
     -   0：关闭。 |
 
     返回说明
