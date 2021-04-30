@@ -30,7 +30,7 @@ Maven依赖：
 com.aliyun.rtc:AliRTC-Full:1.17.45.2104121607506
 
 |[Android示例代码](https://github.com/aliyunvideo/AliRtcAppSample_Android)|
-|Windows|[Windows](/cn.zh-CN/快速入门/集成客户端SDK/Windows.md)|[Windows接口说明](/cn.zh-CN/SDK参考/Windows SDK/AliRtcEngine接口.md)|[V1.17.42](https://alivc-demo-cms.alicdn.com/versionProduct/sourceCode/rtc/1.17.42/AliRTCSdk_1.17.42(Windows).zip)|[Windows示例代码](https://github.com/aliyunvideo/AliRtcAppSample_Windows/tree/master/MFC%20Demo)|
+|Windows|[Windows](/cn.zh-CN/快速入门/集成客户端SDK/Windows.md)|[Windows接口说明](/cn.zh-CN/SDK参考/Windows SDK/AliRtcEngine接口.md)|[V1.17.47](https://alivc-demo-cms.alicdn.com/versionProduct/sourceCode/rtc/1.17.47/AliRTCSdk_1.17.47(Windows).zip)|[Windows示例代码](https://github.com/aliyunvideo/AliRtcAppSample_Windows/tree/master/MFC%20Demo)|
 |Mac|[Mac](/cn.zh-CN/快速入门/集成客户端SDK/Mac.md)|[Mac接口说明](/cn.zh-CN/SDK参考/iOS和Mac SDK/AliRtcEngine接口.md)|[V1.17.42](https://alivc-demo-cms.alicdn.com/versionProduct/sourceCode/rtc/1.17.42/AliRTCSdk_1.17.42(Mac).zip)|[Mac示例代码](https://github.com/aliyunvideo/AliRtcAppSample_Mac)|
 |Web|[Web](/cn.zh-CN/快速入门/集成客户端SDK/Web.md)|[Web接口说明](/cn.zh-CN/SDK参考/Web SDK/AliRtcEngine接口.md)|下载地址：
 
