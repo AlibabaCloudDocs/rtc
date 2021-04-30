@@ -49,16 +49,6 @@ Android SDK提供so文件动态加载的功能，可以有效的减少安装包�
     -   此处不能使用`System.loadLibrary()`方式加载so文件，是因为`System.loadLibrary()`的参数为so文件名（不包含文件的扩展名），而且必须是在JVM属性`java.library.path`所指向的路径中，其他的路径不能识别，同时由于受到权限限制，下载的so文件没有办法保存在JVM属性`java.library.path`所指向的路径中，因此不能使用此方法；于此相反，使用System.load\(\)时，System.load\(\)的参数可以是任意路径，只要路径为so文件的绝对路径即可，因此进行so文件加载时，只能使用此方法。
 5.  在/app/src/main/AndroidManifest.xml文件中添加如下代码，获取相应的设备权限。
 
-    ```
-    <uses-permission android:name="android.permission.CAMERA"/>
-    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/> 
-    ```
-
 
 方法二：手动集成
 
@@ -77,16 +67,6 @@ Android SDK提供so文件动态加载的功能，可以有效的减少安装包�
     -   下载后的文件解压后包含aar和so文件，请根据实际情况选择其中某一个so文件即可。
     -   此处不能使用`System.loadLibrary()`方式加载so文件，是因为`System.loadLibrary()`的参数为so文件名（不包含文件的扩展名），而且必须是在JVM属性`java.library.path`所指向的路径中，其他的路径不能识别，同时由于受到权限限制，下载的so文件没有办法保存在JVM属性`java.library.path`所指向的路径中，因此不能使用此方法；于此相反，使用System.load\(\)时，System.load\(\)的参数可以是任意路径，只要路径为so文件的绝对路径即可，因此进行so文件加载时，只能使用此方法。
 4.  在/app/src/main/AndroidManifest.xml文件中添加如下代码，获取相应的设备权限。
-
-    ```
-    <uses-permission android:name="android.permission.CAMERA"/>
-    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/> 
-    ```
 
 
 ## 后续操作
