@@ -10,6 +10,7 @@
 |[SetAppName](/cn.zh-CN/互动白板解决方案（邀测中）/服务端API/2020-12-14版本/白板应用接口/SetAppName.md)|为白板应用重命名。|
 |[SetAppStatus](/cn.zh-CN/互动白板解决方案（邀测中）/服务端API/2020-12-14版本/白板应用接口/SetAppStatus.md)|为白板应用设置状态。|
 |[DescribeApps](/cn.zh-CN/互动白板解决方案（邀测中）/服务端API/2020-12-14版本/白板应用接口/DescribeApps.md)|分页查询白板应用信息。|
+|[SetAppCallbackType](/cn.zh-CN/互动白板解决方案（邀测中）/服务端API/2020-12-14版本/白板应用接口/SetAppCallbackType.md)|设置白板应用的回调类型。|
 
 ## 白板文档接口
 
@@ -24,4 +25,5 @@
 |API|描述|
 |---|--|
 |[RefreshUsersPermissions](/cn.zh-CN/互动白板解决方案（邀测中）/服务端API/2020-12-14版本/用户权限接口/RefreshUsersPermissions.md)|刷新用户权限缓存。|
+|[SetUsersPermissions](/cn.zh-CN/互动白板解决方案（邀测中）/服务端API/2020-12-14版本/用户权限接口/SetUsersPermissions.md)|设置白板文档用户的长期权限。|
 
