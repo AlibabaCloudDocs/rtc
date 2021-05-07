@@ -123,7 +123,7 @@ keyword: [iOS SDK, Mac SDK, AliRtcEngine]
 |[setAudioEffectPitchValue](#li_080)|设置变调参数。|2.1|
 |[setAudioEffectReverbMode](#li_081)|设置混响音效模式。|2.1|
 |[setAudioEffectReverbParamType](#li_082)|设置混响音效类型和具体参数。|2.1|
-|[startAudioAccompany](#li_083)|开始混音。|1.15|
+|[startAudioAccompanyWithFile](#li_083)|开始混音。|1.15|
 |[stopAudioAccompany](#li_084)|停止混音。|1.15|
 |[setAudioAccompanyVolume](#li_085)|设置混音音量。|1.15|
 |[setAudioAccompanyPublishVolume](#li_086)|设置混音之后推流出去的音量。|1.15|
@@ -554,7 +554,7 @@ keyword: [iOS SDK, Mac SDK, AliRtcEngine]
     **说明：**
 
     -   入会前、后均可调用。如果在加入频道后调用setDefaultSubscribeAllRemoteAudioStreams:NO，会接收不到设置后加入频道的用户的音频流。
-    -   停止接收音频流后，如果想要恢复接收，请调用[subscribeRemoteAudioStream](#li_026):uid sub:YES，并指定你想要接收的远端用户UID。
+    -   停止接收音频流后，如果想要恢复接收，请调用[subscribeRemoteAudioStream](#li_026):uid sub:YES，并指定您想要接收的远端用户UID。
     -   如果想恢复接收多个用户的音频流，则需要多次调用[subscribeRemoteAudioStream](#li_026)。setDefaultSubscribeAllRemoteAudioStreams:YES只能恢复接收后面加入频道的用户的音频流。
 -   subscribeAllRemoteAudioStreams：停止或恢复接收所有远端音频流。
 
@@ -591,7 +591,7 @@ keyword: [iOS SDK, Mac SDK, AliRtcEngine]
 
     0表示方法调用成功，其他表示方法调用失败。
 
-    **说明：** 如果之前有调用过[subscribeAllRemoteAudioStreams](#li_025):NO对所有远端音频进行静音，在调用本API之前请确保你已调用[subscribeAllRemoteAudioStreams](#li_025):YES。[subscribeAllRemoteAudioStreams](#li_025)是全局控制，[subscribeRemoteAudioStream](#li_026)是精细控制。
+    **说明：** 如果之前有调用过[subscribeAllRemoteAudioStreams](#li_025):NO对所有远端音频进行静音，在调用本API之前请确保您已调用[subscribeAllRemoteAudioStreams](#li_025):YES。[subscribeAllRemoteAudioStreams](#li_025)是全局控制，[subscribeRemoteAudioStream](#li_026)是精细控制。
 
 -   setDefaultSubscribeAllRemoteVideoStreams：设置是否默认接收视频流。
 
@@ -612,7 +612,7 @@ keyword: [iOS SDK, Mac SDK, AliRtcEngine]
     **说明：**
 
     -   入会前、后均可调用。如果在加入频道后调用setDefaultSubscribeAllRemoteVideoStreams:NO，会接收不到设置后加入频道的用户的视频流。
-    -   停止接收视频流后，如果想要恢复接收，请调用[subscribeRemoteVideoStream](#li_029):uid track:track sub:YES，并指定你想要接收的远端用户UID。
+    -   停止接收视频流后，如果想要恢复接收，请调用[subscribeRemoteVideoStream](#li_029):uid track:track sub:YES，并指定您想要接收的远端用户UID。
     -   如果想恢复接收多个用户的视频流，则需要多次调用[subscribeRemoteVideoStream](#li_029)，setDefaultSubscribeAllRemoteVideoStreams:YES 只能恢复接收后面加入频道的用户的视频流。
 -   subscribeAllRemoteVideoStreams：停止或恢复接收所有远端视频流。
 
@@ -1434,7 +1434,7 @@ keyword: [iOS SDK, Mac SDK, AliRtcEngine]
 
     0表示方法调用成功，其他表示方法调用失败。
 
--   startAudioAccompany：开始混音。
+-   startAudioAccompanyWithFile：开始混音。
 
     ```
     - (int)startAudioAccompanyWithFile:(NSString *_Nonnull)filePath onlyLocalPlay:(BOOL)onlyLocalPlay replaceMic:(BOOL)replaceMic loopCycles:(NSInteger)loopCycles;
@@ -1463,7 +1463,7 @@ keyword: [iOS SDK, Mac SDK, AliRtcEngine]
 
     0表示方法调用成功，其他表示方法调用失败。
 
--   setAudioAccompanyVolume：设置混音音量（需要在[startAudioAccompany](#li_083)后才能生效\)。
+-   setAudioAccompanyVolume：设置混音音量（需要在[startAudioAccompanyWithFile](#li_083)后才能生效）。
 
     ```
     - (int)setAudioAccompanyVolume:(NSInteger)volume;
@@ -1479,7 +1479,7 @@ keyword: [iOS SDK, Mac SDK, AliRtcEngine]
 
     0表示方法调用成功，其他表示方法调用失败。
 
--   setAudioAccompanyPublishVolume：设置混音之后推流出去的音量（需要在[startAudioAccompany](#li_083)后才能生效）。
+-   setAudioAccompanyPublishVolume：设置混音之后推流出去的音量（需要在[startAudioAccompanyWithFile](#li_083)后才能生效）。
 
     ```
     - (int)setAudioAccompanyPublishVolume:(NSInteger)volume;
@@ -1505,7 +1505,7 @@ keyword: [iOS SDK, Mac SDK, AliRtcEngine]
 
     返回推流出的混音音量，返回0~100为成功，其他为返回的错误码。
 
--   setAudioAccompanyPlayoutVolume：设置混音之后本地播放的音量（需要在[startAudioAccompany](#li_083)后才能生效）。
+-   setAudioAccompanyPlayoutVolume：设置混音之后本地播放的音量（需要在[startAudioAccompanyWithFile](#li_083)后才能生效）。
 
     ```
     - (int)setAudioAccompanyPlayoutVolume:(NSInteger)volume;
