@@ -1,10 +1,8 @@
 # SDK使用过程中如何减少耗时
 
-本文为您介绍在使用SDK过程中减少耗时的方法。
+使用SDK过程中若存在不合理的配置或调用可能会增加耗时。通过阅读本文，您可以了解减少耗时的方法。
 
 ## 配置合理的自动订阅和自动推流
-
-以下建议可以为您减少耗时：
 
 -   如果您的场景中，入会后会默认推流，建议您采用自动推流模式。
 -   如果您的场景中，入会后默认会订阅频道中的人，建议您采用自动订阅的模式。自动订阅模式在接收到远端用户回调之后，不需要再手动订阅，能更加节省时间。
@@ -19,17 +17,12 @@ setAutoPublish：设置是否自动发布，是否自动订阅。默认是自动
 
 ## 合理的使用publish和subscribe接口
 
-以下建议可以为您减少耗时：
-
 -   publish和subscribe接口用于手动推流、手动订阅、以及会议中推流和订阅配置的变更。
 -   publish接口需要配合configLocalCameraPublish、configLocalScreenPublish、configLocalAudioPublish接口使用。
 -   subscribe接口需要配合configRemoteCameraTrack、configRemoteScreenTrack、configRemoteAudio接口使用。
 -   根据自身的需要，合理使用大小流。目前默认推小流，如果无需小流，建议关闭。
--   需要注意：每次config完之后调用一次publish接口或者subscribe接口就可以，无需重复调用。
-
-    如：当前相机流（大流）和音频流需要调用publish接口，而屏幕共享流不需要调用。
-
-    -   正确的调用方式如下：
+-   每次config完之后调用一次publish接口或者subscribe接口就可以，无需重复调用。例如：当前相机流（大流）和音频流需要调用publish接口，而屏幕共享流不需要调用，调用方式如下所示：
+    -   正确的调用方式
 
         ```
         [self.engine configLocalAudioPublish:YES];
@@ -41,7 +34,7 @@ setAutoPublish：设置是否自动发布，是否自动订阅。默认是自动
         }]; 
         ```
 
-    -   错误的调用方式如下：
+    -   错误的调用方式
 
         ```
         [self.engine configLocalAudioPublish:YES];
@@ -68,37 +61,37 @@ setAutoPublish：设置是否自动发布，是否自动订阅。默认是自动
 
 ## 场景中存在频繁切换频道或者频繁入离会
 
-以下建议可以为您减少耗时：
+-   维护一个SDK的示例，避免频繁的创建和销毁SDK增加耗时。可以通过一个SDK实例的入离会来达到切换频道的效果。
+-   可以根据需要，提前打开音频设备，节省每次入离会的耗时。例如：在语音直播间的场景，可以在创建SDK后调用一次startAudioPlayer接口提前打开播放设备。在销毁SDK前调用stopAudioPlayer接口关闭播放设备。中间切换频道和入离会均无需再额外调用。startAudioPlayer和stopAudioPlayer接口如下所示：
+    -   startAudioPlayer：开启音频播放。
 
--   维护一个SDK的示例，避免频繁的创建和销毁sdk带来的耗时。通过一个SDK实例的入离会来达到切换频道的效果。
--   可以根据需要，提前打开音频设备，节省每次入离会的耗时。比如：
+        ```
+        - (void)startAudioPlayer;
+        ```
 
-    在语音直播间的场景，可以在创建SDK后调用一次startAudioPlayer接口提前打开播放设备。在销毁sdk前调用stopAudioPlayer接口关闭播放设备。中间切换频道和入离会均无需再额外调用。
+        **说明：** 您可以控制提前打开音频播放，如果不设置，SDK会在订阅成功的时候打开音频播放。
 
-    startAudioPlayer：开启音频播放。您可以控制提前打开音频播放，如果不设置，SDK会在订阅成功的时候打开音频播放。
+    -   stopAudioPlayer：关闭音频播放。
 
-    ```
-    - (void)startAudioPlayer;
-    ```
+        ```
+        - (void)stopAudioPlayer;
+        ```
 
-    stopAudioPlayer：关闭音频播放。您可以控制关闭音频播放。
-
-    ```
-    - (void)stopAudioPlayer;
-    ```
+        **说明：** 该接口在入会前调用。
 
 -   音频采集设备也可以根据自身的场景决定是否提前打开。
+    -   startAudioCapture：开启音频采集。
 
-    startAudioCapture：开启音频采集。您可以控制提前打开音频采集，如果不设置，SDK会在开始推流的时候打开音频采集。
+        ```
+        - (void)startAudioCapture;
+        ```
 
-    ```
-    - (void)startAudioCapture;
-    ```
+        **说明：** 您可以控制提前打开音频采集，如果不设置，SDK会在开始推流的时候打开音频采集。
 
-    stopAudioCapture：关闭音频采集。您可以控制关闭音频采集。
+    -   stopAudioCapture：关闭音频采集。
 
-    ```
-    - (void)stopAudioCapture;
-    ```
+        ```
+        - (void)stopAudioCapture;
+        ```
 
 
