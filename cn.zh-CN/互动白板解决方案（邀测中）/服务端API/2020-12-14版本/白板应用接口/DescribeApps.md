@@ -27,7 +27,7 @@
 |ResponseSuccess|Boolean|true|调用结果。 |
 |ErrorCode|String|null|错误码。 |
 |ErrorMsg|String|null|错误信息。 |
-|Result|object| |返回的结果信息。 |
+|Result|Object| |返回的结果信息。 |
 |TotalNum|Long|15|应用总个数。 |
 |TotalPage|Long|5|应用总页数。 |
 |AppList|Array of appList| |应用详情列表。 |
@@ -40,6 +40,7 @@
 |CallbackUrl|String|http://www.example.com/callback|白板应用回调地址URL。 |
 |DomainNames|String|www.example1.com,www.example2.com|合法域名列表，多个使用英文逗号\(,\)分隔。 |
 |CreateTime|String|2020-04-10 12:20:30.567|白板应用的创建时间。 |
+|CallbackType|String|userPermissionCallback,whiteBoardProfileCallback,userProfileCallback,hostCheckCallback|白板应用的回调类型，多个使用英文逗号\(,\)分隔，all表示设置了全部回调。 |
 
 ## 示例
 
@@ -63,38 +64,41 @@ HTTP/1.1 200 OK
 Content-Type:application/xml
 
 <DescribeAppsResponse>
-	<RequestId>29D20DA7-985D-425E-89BD-26594D327DCC</RequestId>
-	<ResponseSuccess>true</ResponseSuccess>
-	<ErrorMsg></ErrorMsg>
-	<ErrorCode></ErrorCode>
-	<Result>
-		<TotalNum>15</TotalNum>
-		<TotalPage>5</TotalPage>
-		<AppList>
-			<CallbackUrl>http://www.example.com/callback</CallbackUrl>
-			<Status>1</Status>
-			<AppID>zt87****</AppID>
-			<CreateTime>2021-04-10 16:10:57.217</CreateTime>
-			<DomainNames>www.example1.com,www.example2.com</DomainNames>
-			<AppName>我的APP1</AppName>
-		</AppList>
-		<AppList>
-			<CallbackUrl>http://www.example.com/callback</CallbackUrl>
-			<Status>1</Status>
-			<AppID>sf1g****</AppID>
-			<CreateTime>2021-04-12 15:29:27.315</CreateTime>
-			<DomainNames>www.example1.com,www.example2.com</DomainNames>
-			<AppName>我的APP2</AppName>
-		</AppList>
-		<AppList>
-			<CallbackUrl>http://www.example.com/callback</CallbackUrl>
-			<Status>1</Status>
-			<AppID>5s77****</AppID>
-			<CreateTime>2021-04-12 17:00:39.325</CreateTime>
-			<DomainNames>www.example1.com,www.example2.com</DomainNames>
-			<AppName>我的APP3</AppName>
-		</AppList>
-	</Result>
+    <RequestId>29D20DA7-985D-425E-89BD-26594D327DCC</RequestId>
+    <ResponseSuccess>true</ResponseSuccess>
+    <ErrorMsg/>
+    <ErrorCode/>
+    <Result>
+        <TotalNum>15</TotalNum>
+        <TotalPage>5</TotalPage>
+        <AppList>
+            <CallbackUrl>http://www.example.com/callback</CallbackUrl>
+            <Status>1</Status>
+            <AppID>zt87****</AppID>
+            <CreateTime>2021-04-10 16:10:57.217</CreateTime>
+            <DomainNames>www.example1.com,www.example2.com</DomainNames>
+            <AppName>我的APP1</AppName>
+            <CallbackType>userPermissionCallback</CallbackType>
+        </AppList>
+        <AppList>
+            <CallbackUrl>http://www.example.com/callback</CallbackUrl>
+            <Status>1</Status>
+            <AppID>sf1g****</AppID>
+            <CreateTime>2021-04-12 15:29:27.315</CreateTime>
+            <DomainNames>www.example1.com,www.example2.com</DomainNames>
+            <AppName>我的APP2</AppName>
+            <CallbackType>userPermissionCallback,whiteBoardProfileCallback</CallbackType>
+        </AppList>
+        <AppList>
+            <CallbackUrl>http://www.example.com/callback</CallbackUrl>
+            <Status>1</Status>
+            <AppID>5s77****</AppID>
+            <CreateTime>2021-04-12 17:00:39.325</CreateTime>
+            <DomainNames>www.example1.com,www.example2.com</DomainNames>
+            <AppName>我的APP3</AppName>
+            <CallbackType>userPermissionCallback,userProfileCallback</CallbackType>
+        </AppList>
+    </Result>
 </DescribeAppsResponse>
 ```
 
@@ -118,21 +122,24 @@ Content-Type:application/json
       "AppID" : "zt87****",
       "CreateTime" : "2021-04-10 16:10:57.217",
       "DomainNames" : "www.example1.com,www.example2.com",
-      "AppName" : "我的APP1"
+      "AppName" : "我的APP1",
+      "CallbackType" : "userPermissionCallback"
     }, {
       "CallbackUrl" : "http://www.example.com/callback",
       "Status" : 1,
       "AppID" : "sf1g****",
       "CreateTime" : "2021-04-12 15:29:27.315",
       "DomainNames" : "www.example1.com,www.example2.com",
-      "AppName" : "我的APP2"
+      "AppName" : "我的APP2",
+      "CallbackType" : "userPermissionCallback,whiteBoardProfileCallback"
     }, {
       "CallbackUrl" : "http://www.example.com/callback",
       "Status" : 1,
       "AppID" : "5s77****",
       "CreateTime" : "2021-04-12 17:00:39.325",
       "DomainNames" : "www.example1.com,www.example2.com",
-      "AppName" : "我的APP3"
+      "AppName" : "我的APP3",
+      "CallbackType" : "userPermissionCallback,userProfileCallback"
     } ]
   }
 }
