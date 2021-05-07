@@ -15,7 +15,7 @@
 
 ## 操作步骤
 
-1.  集成互动白板SDK，此处以Web SDK 0.0.3版本为例介绍。
+1.  集成互动白板SDK，此处以Web SDK 0.0.4版本为例介绍。
 
     -   JS示例：
 
@@ -28,15 +28,15 @@
           <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
           <meta http-equiv="X-UA-Compatible" content="ie=edge" />
           <title>demo</title>
-          <!-- Web SDK版本：0.0.3 -->
-          <link rel="stylesheet" href="https://g.alicdn.com/alidocs/wb-sdk/0.0.3/universal/index.css">
+          <!-- Web SDK版本：0.0.4 -->
+          <link rel="stylesheet" href="https://g.alicdn.com/alidocs/wb-sdk/0.0.4/universal/index.css">
         </head>
         
         <body>
           <div id="root"></div>
           <script crossorigin src="https://g.alicdn.com/code/lib/babel-polyfill/7.10.4/polyfill.js"></script>
-          <!-- Web SDK版本：0.0.3 -->
-          <script crossorigin src="https://g.alicdn.com/alidocs/wb-sdk/0.0.3/universal/index.js"></script>
+          <!-- Web SDK版本：0.0.4 -->
+          <script crossorigin src="https://g.alicdn.com/alidocs/wb-sdk/0.0.4/universal/index.js"></script>
         </body>
         
         </html>
@@ -56,8 +56,8 @@
           <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
           <meta http-equiv="X-UA-Compatible" content="ie=edge" />
           <title>demo</title>
-          <!-- Web SDK版本：0.0.3 -->
-          <link rel="stylesheet" href="https://g.alicdn.com/alidocs/wb-sdk/0.0.3/umd/index.css">
+          <!-- Web SDK版本：0.0.4 -->
+          <link rel="stylesheet" href="https://g.alicdn.com/alidocs/wb-sdk/0.0.4/umd/index.css">
         </head>
         
         <body>
@@ -65,8 +65,8 @@
           <script crossorigin src="https://g.alicdn.com/code/lib/babel-polyfill/7.10.4/polyfill.js"></script>
           <script crossorigin
             src="//g.alicdn.com/alidocs/static/??react/16.13.1/react.production.min.js,react-dom/16.13.1/react-dom.production.min.js"></script>
-          <!-- Web SDK版本：0.0.3 -->
-          <script crossorigin src="https://g.alicdn.com/alidocs/wb-sdk/0.0.3/umd/index.js"></script>
+          <!-- Web SDK版本：0.0.4 -->
+          <script crossorigin src="https://g.alicdn.com/alidocs/wb-sdk/0.0.4/umd/index.js"></script>
         </body>
         
         </html>
@@ -109,6 +109,7 @@
     nick?: string; // 昵称
     nickPinyin?: string // 昵称拼音
   };
+  wsDomain: string; // 高性能长连接服务地址
 }
     ```
 
@@ -116,9 +117,9 @@
     |schema|    ```
 {
   size?: {
-     width?: number; // 画布宽
-     height?: number; // 画布高
-     dpi?: number; // dpi
+     width?: number; // 画布宽，单位：厘米
+     height?: number; // 画布高，单位：厘米
+     dpi?: number; // dpi（dot per inch）
   },
   scale?: number;  // 缩放，默认为1
   slides?: [] ISlide
@@ -132,7 +133,26 @@
 }
     ```
 
-|该参数传入后会覆盖默认的schema对象。|
+|白板初始化时使用的schema对象，传入后会覆盖默认的schema对象。示例代码如下所示：    -   覆盖默认的背景色
+
+        ```
+{
+ slides:[{ background: 'red'}]
+}
+        ```
+
+    -   覆盖默认的画布大小（默认值为size: \{width: 21, height: 29.7, dpi: 144\}）
+
+        ```
+{
+ size: {width: 15, height: 22, dpi: 144}
+}
+        ```
+
+**说明：**
+
+    -   计算方式：如果需要宽度是1500px，则width=1500/144\*2.54=26.46（1 inch = 2.54 cm）。
+    -   协同版本的schema各个端需保持一致，即schema里不能有变量。如果需要做各个端适配，可以调用setScale来进行缩放，详情请参见[内容操作接口](#li_aqo_li1_bdh)。 |
     |brush|Partial<Record<IBrushName, IBrushItem\>\>    ```
 其中type IBrushName = "pen" | "text" | "shape"
 interface IBrushItem {
@@ -143,7 +163,12 @@ interface IBrushItem {
 }
     ```
 
-|配置默认画笔属性。|
+|配置默认画笔属性。例如：配置默认画笔为绿色, 线条粗细为 8；默认形状为黄色，线条粗细为2，代码如下所示：    ```
+{
+    pen: { stroke: "green", strokeWidth: 8 },
+    shape: { stroke: "yellow", strokeWidth: 2},
+}
+    ``` |
     |minScale|number|配置缩放的最小值。|
     |maxScale|number|配置缩放的最大值。|
     |defaultToolType|AliyunBoardToolType|配置默认工具项。|
@@ -154,6 +179,15 @@ interface IBrushItem {
     -   false（默认）：不同步。 |
     |eraserSize|number|默认橡皮可擦范围大小，可擦区域为正方形，默认值为20像素。|
     |attachmentHost|string|pdf.html页面的host地址。pdf附件需要在iframe中加载出来，需要和白板域名在同一个域下，否则会报access cross-origin frame的错误。|
+    |syncMode|number|协同模式，取值：    -   0：正常模式。
+    -   1：课堂模式。
+**说明：** 开启课堂模式后会将老师的视口范围同步到学生端，需要设置老师端的forceSync配置项为true。 |
+    |forceSync|boolean|指定开启课堂模式后的老师端协同状态（需要和syncMode的课堂模式同时使用），取值：    -   true：协同模式，如果syncMode为课堂模式，需要设置此参数为true。
+    -   false（默认）：非协同模式。 |
+    |drawableGestureMode|string|指定在大屏上多点触控的模式，取值：    -   igoreSecond（默认）：只响应第一个触控点。
+    -   multiple：支持多点触控。 |
+    |pinchable|boolean|是否开启移动端上双指手势缩放画布，取值：    -   true（默认）：开启。
+    -   false：关闭。 |
 
 3.  使用示例说明。
 
@@ -296,7 +330,7 @@ interface IBrushItem {
 
     |API|使用示例|描述|
     |---|----|--|
-    |addImage|aliyunBoard.addImage\(shape: IShapeModel\)|添加图片。如果x, y 不传，则默认插入画布页中间位置，如果图片预览时涉及权限，则需配合[getPreviewUrl](#entry_q81_hgl_zk3)一起使用。    ```
+    |addImage|aliyunBoard.addImage\(shape:IShapeModel\)|添加图片。如果x, y 不传，则默认插入画布页中间位置，如果图片预览时涉及权限，则需配合[getPreviewUrl](#entry_q81_hgl_zk3)一起使用。    ```
 其中IShapeModel = {
  width: number, // 图片展示的宽
  height: number, // 图片展示的高
@@ -318,6 +352,8 @@ interface IBrushItem {
 
 **说明：** 目前仅支持pdf。 |
     |getPreviewData|aliyunBoard.getPreviewData\(index?:number\)|获取序号为index的白板页image对象，如果不传，则返回所有页的image对象列表。返回值：Image\[\] \| Image。**说明：** 仅支持Web端，暂不支持Native端调用。 |
+    |setPinchable|aliyunBoard.setPinchable\(true:boolean\)|设置是否开启移动端手势缩放。|
+    |getPinchable|aliyunBoard.setPinchable\(true:boolean\)|返回是否开启了移动端手势缩放。|
 
 -   事件监听接口
 
