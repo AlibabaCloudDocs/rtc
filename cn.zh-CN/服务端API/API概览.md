@@ -49,19 +49,3 @@
 |[StopRecordTask](/cn.zh-CN/服务端API/云端录制/StopRecordTask.md)|停止视频录制任务。|
 |[UpdateRecordTask](/cn.zh-CN/服务端API/云端录制/UpdateRecordTask.md)|更新录制视频任务。|
 
-## 数据服务
-
-|API|描述|
-|---|--|
-|[DescribeCallList]()|分页查询时间范围内创建的通信信息。|
-|[DescribeCall]()|获取单次通信详情。|
-|[DescribeQoeMetricData]()|获取单次通信中用户的下行体验质量指标。|
-|[DescribePubUserListBySubUser]()|根据订阅端获取通信中发布端用户列表。|
-|[DescribeEndPointMetricData]()|获取端对端指标数据。|
-|[DescribeEndPointEventList]()|获取端对端用户事件列表。|
-|[DescribeChannelOverallData]()|查询频道概览数据。|
-|[DescribeChannelUserMetrics]()|查询频道概览中的用户数据。|
-|[DescribeChannelTopPubUserList]()|获取频道内发布端的用户列表（按用户在线时长降序）。|
-|[DescribeChannelAreaDistributionStatData]()|获取频道地区分布统计数据。|
-|[DescribeChannelDistributionStatData]()|获取频道分布统计数据。|
-
