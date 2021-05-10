@@ -64,10 +64,10 @@ keyword: [iOS SDK, Mac SDK, AliRtcEngine]
 |[setScreenShareEncoderConfiguration](#li_030)|设置屏幕共享编码属性。|2.1|
 |[setLocalViewConfig](#li_031)|为本地预览设置渲染窗口以及绘制参数。|1.1|
 |[setCameraCapturerConfiguration](#li_032)|设置摄像头采集偏好。|2.1|
-|[setDeviceOrientationMode](#li_033)|设置设备方向。|2.1|
+|[setDeviceOrientationMode](#li_033)|设置设备方向（仅iOS）。|2.1|
 |[enableLocalVideo](#li_034)|禁用或重新启用本地视频采集。|2.1|
 |[muteLocalCamera](#li_035)|停止或恢复本地视频数据数据发送。|1.1|
-|[muteAllRemoteVideoRendering](#li_036)|停止或恢复远端所有的视频渲染。|2.1|
+|[muteAllRemoteVideoRendering](#li_036)|停止或恢复远端所有的视频渲染（仅iOS）。|2.1|
 |[setRemoteViewConfig](#li_037)|为远端的视频设置渲染窗口以及绘制参数。|1.1|
 |[isCameraOn](#li_038)|检查摄像头是否打开。|1.1|
 |[stopRecord](#li_039)|停止录制。|1.17|
@@ -77,22 +77,26 @@ keyword: [iOS SDK, Mac SDK, AliRtcEngine]
 |[addVideoWatermark](#li_043)|添加水印。|2.1|
 |[clearVideoWatermark](#li_044)|清理对应数据流水印信息。|2.1|
 |[snapshotVideo](#li_045)|截图。|2.1|
-|[switchCamera](#li_046)|切换前后摄像头。|1.1|
-|[getCurrentCameraDirection](#li_047)|获取当前摄像头方向，默认前置摄像头。|1.1|
-|[setCameraZoom](#li_048)|设置摄像头缩放比例。|1.1|
-|[setCameraFlash](#li_049)|设置摄像头闪光灯是否打开。|1.14|
-|[isCameraFocusPointSupported](#li_050)|摄像头是否支持手动聚焦。|1.14|
-|[isCameraExposurePointSupported](#li_051)|摄像头是否支持设置曝光区域。|1.14|
-|[setCameraFocusPoint](#li_052)|设置摄像头手动聚焦。|1.14|
-|[setCameraExposurePoint](#li_053)|设置摄像头曝光点。|1.14|
-|[isCameraAutoFocusFaceModeSupported](#li_054)|摄像头是否支持人脸聚焦。|2.1|
-|[setCameraAutoFocusFaceModeEnabled](#li_055)|设置摄像头人脸对焦。|2.1|
+|[switchCamera](#li_046)|切换前后摄像头（仅iOS）。|1.1|
+|[getCurrentCameraDirection](#li_047)|获取当前摄像头方向，默认前置摄像头（仅iOS）。|1.1|
+|[setCameraZoom](#li_048)|设置摄像头缩放比例（仅iOS）。|1.1|
+|[setCameraFlash](#li_049)|设置摄像头闪光灯是否打开（仅iOS）。|1.14|
+|[isCameraFocusPointSupported](#li_050)|摄像头是否支持手动聚焦（仅iOS）。|1.14|
+|[isCameraExposurePointSupported](#li_051)|摄像头是否支持设置曝光区域（仅iOS）。|1.14|
+|[setCameraFocusPoint](#li_052)|设置摄像头手动聚焦（仅iOS）。|1.14|
+|[setCameraExposurePoint](#li_053)|设置摄像头曝光点（仅iOS）。|1.14|
+|[isCameraAutoFocusFaceModeSupported](#li_054)|摄像头是否支持人脸聚焦（仅iOS）。|2.1|
+|[setCameraAutoFocusFaceModeEnabled](#li_055)|设置摄像头人脸对焦（仅iOS）。|2.1|
 
 共享视频接口
 
 |API|描述|支持的最低版本|
 |---|--|-------|
-|[startScreenShare](#li_056)|开始屏幕分享。|2.1|
+|[startScreenShare](#li_056)|开始屏幕分享（仅iOS）。|2.1|
+|[startScreenShareWithDesktopId](#li_157)|根据桌面ID进行屏幕分享（仅Mac）。|2.1|
+|[startScreenShareWithWindowId](#li_158)|根据窗口ID进行屏幕分享（仅Mac）。|2.1|
+|[getScreenShareSourceInfoWithType](#li_159)|获取屏幕分享源信息（仅Mac）。|2.1|
+|[updateScreenShareConfig](#li_160)|更新屏幕分享配置（仅Mac）。|2.1|
 |[stopScreenShare](#li_057)|停止屏幕分享。|2.1|
 
 音频相关接口
@@ -109,20 +113,33 @@ keyword: [iOS SDK, Mac SDK, AliRtcEngine]
 |[startAudioPlayer](#li_065)|开启音频播放设备。|1.11|
 |[stopAudioPlayer](#li_066)|关闭音频播放。|1.11|
 |[setRemoteAudioVolume](#li_067)|设置本地播放的指定远端用户音量。|2.1|
-|[enableSpeakerphone](#li_068)|设置音频输出为听筒或扬声器。|2.1|
-|[isEnableSpeakerphone](#li_069)|获取当前音频输出为听筒或扬声器。|2.1|
+|[enableSpeakerphone](#li_068)|设置音频输出为听筒或扬声器（仅iOS）。|2.1|
+|[isEnableSpeakerphone](#li_069)|获取当前音频输出为听筒或扬声器（仅iOS）。|2.1|
 |[setRecordingVolume](#li_070)|设置录音音量。|1.16.2|
 |[setPlayoutVolume](#li_071)|设置播放音量。|1.16.2|
+|[setRecordingDeviceVolume](#li_161)|设置音频采集设备音量（仅Mac）。|2.1|
+|[getRecordingDeviceVolume](#li_162)|获取音频采集设备音量（仅Mac）。|2.1|
+|[setPlayoutDeviceVolume](#li_163)|设置音频播放设备音量（仅Mac）。|2.1|
+|[getPlayoutDeviceVolume](#li_164)|获取音频播放设备音量（仅Mac）。|2.1|
+|[setExternalAudioRenderVolume](#li_165)|设置外部输入音频的播放音量（仅Mac）。|2.1|
+|[getExternalAudioRenderVolume](#li_166)|获取外部输入音频的播放音量（仅Mac）。|2.1|
 |[enableAudioVolumeIndication](#li_072)|设置音量回调频率和平滑系数。|1.17.9|
 |[setAudioProfile](#li_073)|设置音频Profile。|2.1|
-|[setAudioSessionOperationRestriction](#li_074)|设置SDK对AVAudioSession的控制权限。|2.1|
-|[setDeviceVolumeType](#li_075)|设置SDK设备音量类型。|2.1|
+|[setAudioSessionOperationRestriction](#li_074)|设置SDK对AVAudioSession的控制权限（仅iOS）。|2.1|
+|[setDeviceVolumeType](#li_075)|设置SDK设备音量类型（仅iOS）。|2.1|
 |[enableAudioDTX](#li_076)|开启本地音频流量控制（语音）。|2.1|
 |[enableAudioAMD](#li_077)|开启本地音频流量控制（麦克风）。|2.1|
 |[setAudioEffectVoiceChangerMode](#li_079)|设置变声音效模式。|2.1|
 |[setAudioEffectPitchValue](#li_080)|设置变调参数。|2.1|
 |[setAudioEffectReverbMode](#li_081)|设置混响音效模式。|2.1|
 |[setAudioEffectReverbParamType](#li_082)|设置混响音效类型和具体参数。|2.1|
+|[enableEarBack](#li_110)|启用耳返（仅iOS）。|1.15|
+|[setEarBackVolume](#li_111)|设置耳返音量（仅iOS）。|1.15|
+
+伴奏与音效接口（仅iOS）
+
+|API|描述|支持的最低版本|
+|---|--|-------|
 |[startAudioAccompanyWithFile](#li_083)|开始混音。|1.15|
 |[stopAudioAccompany](#li_084)|停止混音。|1.15|
 |[setAudioAccompanyVolume](#li_085)|设置混音音量。|1.15|
@@ -135,23 +152,21 @@ keyword: [iOS SDK, Mac SDK, AliRtcEngine]
 |[getAudioAccompanyDuration](#li_092)|获取伴奏文件时长。|1.17.30|
 |[getAudioAccompanyCurrentPosition](#li_093)|获取音乐文件播放进度。|1.17.30|
 |[setAudioAccompanyPosition](#li_094)|设置音频文件的播放位置。|1.17.30|
-|[preloadAudioEffect](#li_095)|预加载音效文件。|1.15|
-|[unloadAudioEffect](#li_096)|删除预加载的音效文件。|1.15|
-|[playAudioEffect](#li_097)|开始播放音效。|1.15|
-|[stopAudioEffect](#li_098)|停止播放音效。|1.15|
+|[preloadAudioEffectWithSoundId](#li_095)|预加载音效文件。|1.15|
+|[unloadAudioEffectWithSoundId](#li_096)|删除预加载的音效文件。|1.15|
+|[playAudioEffectWithSoundId](#li_097)|开始播放音效。|1.15|
+|[stopAudioEffectWithSoundId](#li_098)|停止播放音效。|1.15|
 |[stopAllAudioEffects](#li_099)|停止播放所有音效。|1.15|
-|[setAudioEffectPublishVolume](#li_100)|设置音效推流音量。|1.15|
-|[getAudioEffectPublishVolume](#li_101)|获取推流音效音量。|1.15|
-|[setAudioEffectPlayoutVolume](#li_102)|设置音效本地播放音量。|1.15|
-|[getAudioEffectPlayoutVolume](#li_103)|获取音效本地播放音量。|1.15|
+|[setAudioEffectPublishVolumeWithSoundId](#li_100)|设置音效推流音量。|1.15|
+|[getAudioEffectPublishVolumeWithSoundId](#li_101)|获取推流音效音量。|1.15|
+|[setAudioEffectPlayoutVolumeWithSoundId](#li_102)|设置音效本地播放音量。|1.15|
+|[getAudioEffectPlayoutVolumeWithSoundId](#li_103)|获取音效本地播放音量。|1.15|
 |[setAllAudioEffectsPublishVolume](#li_104)|设置所有音效本地播放音量。|1.15|
 |[setAllAudioEffectsPlayoutVolume](#li_105)|设置所有音效推流音量。|1.15|
-|[pauseAudioEffect](#li_106)|暂停音效。|1.15|
+|[pauseAudioEffectWithSoundId](#li_106)|暂停音效。|1.15|
 |[pauseAllAudioEffects](#li_107)|暂停所有音效。|1.15|
-|[resumeAudioEffect](#li_108)|重新开始播放音效。|1.15|
+|[resumeAudioEffectWithSoundId](#li_108)|重新开始播放音效。|1.15|
 |[resumeAllAudioEffects](#li_109)|重新开始播放所有音效。|1.15|
-|[enableEarBack](#li_110)|启用耳返。|1.15|
-|[setEarBackVolume](#li_111)|设置耳返音量。|1.15|
 
 媒体引擎接口
 
@@ -159,8 +174,8 @@ keyword: [iOS SDK, Mac SDK, AliRtcEngine]
 |---|--|-------|
 |[registerVideoSampleObserver](#li_112)|订阅视频数据输出。|1.17|
 |[unRegisterVideoSampleObserver](#li_113)|取消订阅视频数据输出。|1.17|
-|[registerLocalVideoTexture](#li_114)|订阅本地视频纹理数据。|1.15|
-|[unregisterLocalVideoTexture](#li_115)|取消本地视频纹理数据输出。|1.15|
+|[registerLocalVideoTexture](#li_114)|订阅本地视频纹理数据（仅iOS）。|1.15|
+|[unregisterLocalVideoTexture](#li_115)|取消本地视频纹理数据输出（仅iOS）。|1.15|
 |[subscribeAudioData](#li_116)|订阅音频数据输出。|1.17|
 |[unSubscribeAudioData](#li_117)|取消音频数据输出。|1.17|
 |[setSubscribeAudioNumChannel](#li_118)|设置输出音频声道数（混音前数据不支持该参数设置）。|2.1|
@@ -179,11 +194,11 @@ keyword: [iOS SDK, Mac SDK, AliRtcEngine]
 
 |API|描述|支持的最低版本|
 |---|--|-------|
-|[startLiveStreaming](#li_129)|开始直播拉流。|2.1|
+|[startLiveStreamingWithAuthInfo](#li_129)|开始直播拉流。|2.1|
 |[stopLiveStreaming](#li_130)|停止直播拉流。|2.1|
-|[startPublishLiveStream](#li_131)|开启旁路直播。|2.1|
-|[updatePublishLiveStream](#li_132)|更新旁路直播相关参数。|2.1|
-|[stopPublishLiveStream](#li_133)|停止旁路直播。|2.1|
+|[startPublishLiveStreamWithURL](#li_131)|开启旁路直播。|2.1|
+|[updatePublishLiveStreamWithURL](#li_132)|更新旁路直播相关参数。|2.1|
+|[stopPublishLiveStreamWithURL](#li_133)|停止旁路直播。|2.1|
 |[setLiveStreamingViewConfig](#li_134)|设置直播拉流窗口及渲染参数。|2.1|
 
 跨频道连麦接口
@@ -209,6 +224,40 @@ keyword: [iOS SDK, Mac SDK, AliRtcEngine]
 |[getUserInfo](#li_141)|查询远端用户信息。|1.1|
 |[isUserOnline](#li_142)|查询用户是否在线。|1.1|
 
+设备管理接口（仅Mac）
+
+|API|描述|支持的最低版本|
+|---|--|-------|
+|[getAudioCaptures](#li_167)|获取系统中的录音设备列表。|1.1|
+|[getCurrentAudioCapture](#li_168)|获取使用的录音设备名称。|1.1|
+|[getCurrentAudioCaptureID](#li_169)|获取使用的录音设备ID。|1.16.2|
+|[setCurrentAudioCapture](#li_170)|通过名称设置录音设备。|1.1|
+|[setCurrentAudioCaptureWithID](#li_171)|通过ID设置录音设备。|1.16.2|
+|[getAudioRenderers](#li_172)|获取系统中的扬声器列表。|1.1|
+|[getCurrentAudioRenderer](#li_173)|获取当前使用的扬声器名称。|1.1|
+|[getCurrentAudioRendererID](#li_174)|获取当前使用的扬声器ID。|1.16.2|
+|[setCurrentAudioRenderer](#li_175)|通过名称设置扬声器。|1.1|
+|[setCurrentAudioRendererWithID](#li_176)|通过ID设置扬声器。|1.16.2|
+|[getCameraList](#li_177)|获取摄像头列表。|1.1|
+|[getCurrentCamera](#li_178)|获取当前使用的摄像头名称。|1.1|
+|[getCurrentCameraID](#li_179)|获取当前使用的摄像头ID。|1.16.2|
+|[setCurrentCamera](#li_180)|通过名称设置摄像头。|1.1|
+|[setCurrentCameraWithID](#li_181)|通过ID设置摄像头。|1.16.2|
+|[startTestAudioRecordWithName](#li_182)|开始测试音频采集设备。|1.16.2|
+|[stopTestAudioRecord](#li_183)|停止测试音频采集设备。|1.16.2|
+|[startTestAudioPlayoutWithName](#li_184)|开始测试音频播放设备。|1.16.2|
+|[stopTestAudioPlayout](#li_185)|停止测试音频播放设备。|1.16.2|
+
+视频布局录制接口（仅Mac）
+
+|API|描述|支持的最低版本|
+|---|--|-------|
+|[startRecord](#li_186)|开始录制。|2.1|
+|[pauseRecord](#li_187)|暂停录制。|2.1|
+|[resumeRecord](#li_188)|重新开启录制。|2.1|
+|[UpdateRecordLayout](#li_189)|更新录制信息。|2.1|
+|[addRecordTemplate](#li_190)|添加录制模板。|2.1|
+
 其他接口
 
 |API|描述|支持的最低版本|
@@ -216,7 +265,8 @@ keyword: [iOS SDK, Mac SDK, AliRtcEngine]
 |[getSDKVersion](#li_143)|获取SDK版本号。|1.1|
 |[getErrorDescription](#li_144)|获取错误码描述。|2.1|
 |[setClientRole](#li_145)|设置用户角色。|1.16|
-|[getCurrentClientRole](#li_146)|获取用户角色。|1.17.19|
+|[getCurrentClientRole](#li_146)|获取用户角色（仅iOS）。|1.17.19|
+|[getClientRole](#li_191)|获取用户角色（仅Mac）。|1.17.19|
 |[startLastmileDetect](#li_147)|开始网络质量探测。|1.16.2|
 |[stopLastmileDetect](#li_148)|停止网络质量探测。|1.16.2|
 |[postFeedbackWithUid](#li_149)|SDK问题反馈。|1.17.12|
@@ -225,8 +275,8 @@ keyword: [iOS SDK, Mac SDK, AliRtcEngine]
 |[stopIntelligentDenoise](#li_152)|关闭智能降噪。|1.17.19|
 |[refreshAuthInfo](#li_153)|刷新鉴权信息。|1.17.41|
 |[getCurrentConnectionStatus](#li_154)|获取当前网络链接状态。|2.1|
-|[enableDelegateMainQueue](#li_155)|是否分发回调到主线程。|2.1|
-|[setDelegateQueue](#li_156)|指定回调线程队列。|2.1|
+|[enableDelegateMainQueue](#li_155)|是否分发回调到主线程（仅iOS）。|2.1|
+|[setDelegateQueue](#li_156)|指定回调线程队列（仅iOS）。|2.1|
 
 ## 接口详情
 
@@ -704,7 +754,7 @@ keyword: [iOS SDK, Mac SDK, AliRtcEngine]
 
     0表示方法调用成功，其他表示方法调用失败。
 
--   setDeviceOrientationMode：设置设备方向。
+-   setDeviceOrientationMode：设置设备方向（仅iOS）。
 
     ```
     - (int)setDeviceOrientationMode:(AliRtcOrientationMode)mode;
@@ -755,7 +805,7 @@ keyword: [iOS SDK, Mac SDK, AliRtcEngine]
 
     **说明：** 此接口只是控制指定视频流上是否发送黑帧，采集和数据发送不会停止，如果需要关闭采集请使用[enableLocalVideo](#li_034)接口，如果需要中止视频数据发送请使用[publishLocalVideoStream](#li_015)接口。
 
--   muteAllRemoteVideoRendering：停止或恢复远端所有的视频渲染。
+-   muteAllRemoteVideoRendering：停止或恢复远端所有的视频渲染（仅iOS）。
 
     ```
     - (int)muteAllRemoteVideoRendering:(BOOL)mute;
@@ -912,7 +962,7 @@ keyword: [iOS SDK, Mac SDK, AliRtcEngine]
 
     0表示方法调用成功，其他表示方法调用失败。
 
--   switchCamera：切换前后摄像头。
+-   switchCamera：切换前后摄像头（仅iOS）。
 
     ```
     - (int)switchCamera;
@@ -922,7 +972,7 @@ keyword: [iOS SDK, Mac SDK, AliRtcEngine]
 
     0表示方法调用成功，其他表示方法调用失败。
 
--   getCurrentCameraDirection：获取当前摄像头方向，默认前置摄像头。
+-   getCurrentCameraDirection：获取当前摄像头方向，默认前置摄像头（仅iOS）。
 
     ```
     - (AliRtcCameraDirection)getCurrentCameraDirection;
@@ -932,7 +982,7 @@ keyword: [iOS SDK, Mac SDK, AliRtcEngine]
 
     返回camera方向枚举值。
 
--   setCameraZoom：设置摄像头缩放比例。
+-   setCameraZoom：设置摄像头缩放比例（仅iOS）。
 
     ```
     - (int)setCameraZoom:(float)zoom;
@@ -948,7 +998,7 @@ keyword: [iOS SDK, Mac SDK, AliRtcEngine]
 
     0表示方法调用成功，其他表示方法调用失败。
 
--   setCameraFlash：设置摄像头闪光灯是否打开。
+-   setCameraFlash：设置摄像头闪光灯是否打开（仅iOS）。
 
     ```
     - (int)setCameraFlash:(BOOL)flash;
@@ -964,7 +1014,7 @@ keyword: [iOS SDK, Mac SDK, AliRtcEngine]
 
     0表示方法调用成功，其他表示方法调用失败。
 
--   isCameraFocusPointSupported：摄像头是否支持手动聚焦。
+-   isCameraFocusPointSupported：摄像头是否支持手动聚焦（仅iOS）。
 
     ```
     - (BOOL)isCameraFocusPointSupported;
@@ -974,7 +1024,7 @@ keyword: [iOS SDK, Mac SDK, AliRtcEngine]
 
     YES表示支持，NO表示不支持。
 
--   isCameraExposurePointSupported：摄像头是否支持设置曝光区域。
+-   isCameraExposurePointSupported：摄像头是否支持设置曝光区域（仅iOS）。
 
     ```
     - (BOOL)isCameraExposurePointSupported;
@@ -984,7 +1034,7 @@ keyword: [iOS SDK, Mac SDK, AliRtcEngine]
 
     YES表示支持，NO表示不支持。
 
--   setCameraFocusPoint：设置摄像头手动聚焦。
+-   setCameraFocusPoint：设置摄像头手动聚焦（仅iOS）。
 
     ```
     - (int)setCameraFocusPoint:(CGPoint)point;
@@ -1000,7 +1050,7 @@ keyword: [iOS SDK, Mac SDK, AliRtcEngine]
 
     0表示方法调用成功，其他表示方法调用失败。
 
--   setCameraExposurePoint：设置摄像头曝光点。
+-   setCameraExposurePoint：设置摄像头曝光点（仅iOS）。
 
     ```
     - (int)setCameraExposurePoint:(CGPoint)point;
@@ -1016,7 +1066,7 @@ keyword: [iOS SDK, Mac SDK, AliRtcEngine]
 
     0表示方法调用成功，其他表示方法调用失败。
 
--   isCameraAutoFocusFaceModeSupported：摄像头是否支持人脸聚焦。
+-   isCameraAutoFocusFaceModeSupported：摄像头是否支持人脸聚焦（仅iOS）。
 
     ```
     - (BOOL)isCameraAutoFocusFaceModeSupported;
@@ -1026,7 +1076,7 @@ keyword: [iOS SDK, Mac SDK, AliRtcEngine]
 
     YES表示支持，NO表示不支持。
 
--   setCameraAutoFocusFaceModeEnabled：设置摄像头人脸对焦。
+-   setCameraAutoFocusFaceModeEnabled：设置摄像头人脸对焦（仅iOS）。
 
     ```
     - (BOOL)setCameraAutoFocusFaceModeEnabled:(BOOL)enable;
@@ -1042,7 +1092,7 @@ keyword: [iOS SDK, Mac SDK, AliRtcEngine]
 
     YES表示方法调用成功，NO表示方法调用失败。
 
--   startScreenShar：开始屏幕分享。
+-   startScreenShare：开始屏幕分享（仅iOS）。
 
     ```
     - (int)startScreenShare;
@@ -1207,7 +1257,7 @@ keyword: [iOS SDK, Mac SDK, AliRtcEngine]
 
     0表示方法调用成功，其他表示方法调用失败。
 
--   enableSpeakerphone：设置音频输出为听筒或扬声器。
+-   enableSpeakerphone：设置音频输出为听筒或扬声器（仅iOS）。
 
     ```
     - (int)enableSpeakerphone:(BOOL)enable;
@@ -1223,7 +1273,7 @@ keyword: [iOS SDK, Mac SDK, AliRtcEngine]
 
     0表示方法调用成功，其他表示方法调用失败。
 
--   isEnableSpeakerphone：获取当前音频输出为听筒或扬声器。
+-   isEnableSpeakerphone：获取当前音频输出为听筒或扬声器（仅iOS）。
 
     ```
     - (BOOL)isEnableSpeakerphone;
@@ -1277,7 +1327,7 @@ keyword: [iOS SDK, Mac SDK, AliRtcEngine]
     |--|--|--|
     |interval|NSInteger|时间间隔，单位为毫秒，最小值不得小于10ms，建议设置300~500ms，小于等于0表示不启用音量提示和说话人提示功能。|
     |smooth|NSInteger|平滑系数，取值范围：\[0,9\]，数值越大平滑程度越高，反之越低，实时性越好，建议设置3。|
-    |reportVad|NSInteger|说话人检测开关，取值：     -   1：开启，通过[onAudioVolumeCallback](/cn.zh-CN/SDK参考/iOS和Mac SDK/回调及监听.md)接口回调每一个说话人的状态。
+    |reportVad|NSInteger|说话人检测开关，取值：    -   1：开启，通过[onAudioVolumeCallback](/cn.zh-CN/SDK参考/iOS和Mac SDK/回调及监听.md)接口回调每一个说话人的状态。
     -   0：关闭。 |
 
     返回说明
@@ -1301,7 +1351,7 @@ keyword: [iOS SDK, Mac SDK, AliRtcEngine]
 
     0表示方法调用成功，其他表示方法调用失败。
 
--   setAudioSessionOperationRestriction：设置SDK对AVAudioSession的控制权限。
+-   setAudioSessionOperationRestriction：设置SDK对AVAudioSession的控制权限（仅iOS）。
 
     ```
     - (int)setAudioSessionOperationRestriction:(AliRtcAudioSessionOperationRestriction)restriction;
@@ -1317,7 +1367,7 @@ keyword: [iOS SDK, Mac SDK, AliRtcEngine]
 
     0表示方法调用成功，其他表示方法调用失败。
 
--   setDeviceVolumeType：设置SDK设备音量类型。
+-   setDeviceVolumeType：设置SDK设备音量类型（仅iOS）。
 
     ```
     - (int)setDeviceVolumeType:(AliRtcDeviceVolumeType)type;
@@ -1434,7 +1484,7 @@ keyword: [iOS SDK, Mac SDK, AliRtcEngine]
 
     0表示方法调用成功，其他表示方法调用失败。
 
--   startAudioAccompanyWithFile：开始混音。
+-   startAudioAccompanyWithFile：开始混音（仅iOS）。
 
     ```
     - (int)startAudioAccompanyWithFile:(NSString *_Nonnull)filePath onlyLocalPlay:(BOOL)onlyLocalPlay replaceMic:(BOOL)replaceMic loopCycles:(NSInteger)loopCycles;
@@ -1453,7 +1503,7 @@ keyword: [iOS SDK, Mac SDK, AliRtcEngine]
 
     0表示方法调用成功，其他表示方法调用失败。
 
--   stopAudioAccompany：停止混音。
+-   stopAudioAccompany：停止混音（仅iOS）。
 
     ```
     - (int)stopAudioAccompany;
@@ -1463,7 +1513,7 @@ keyword: [iOS SDK, Mac SDK, AliRtcEngine]
 
     0表示方法调用成功，其他表示方法调用失败。
 
--   setAudioAccompanyVolume：设置混音音量（需要在[startAudioAccompanyWithFile](#li_083)后才能生效）。
+-   setAudioAccompanyVolume：设置混音音量（需要在[startAudioAccompanyWithFile](#li_083)后才能生效）（仅iOS）。
 
     ```
     - (int)setAudioAccompanyVolume:(NSInteger)volume;
@@ -1479,7 +1529,7 @@ keyword: [iOS SDK, Mac SDK, AliRtcEngine]
 
     0表示方法调用成功，其他表示方法调用失败。
 
--   setAudioAccompanyPublishVolume：设置混音之后推流出去的音量（需要在[startAudioAccompanyWithFile](#li_083)后才能生效）。
+-   setAudioAccompanyPublishVolume：设置混音之后推流出去的音量（需要在[startAudioAccompanyWithFile](#li_083)后才能生效）（仅iOS）。
 
     ```
     - (int)setAudioAccompanyPublishVolume:(NSInteger)volume;
@@ -1495,7 +1545,7 @@ keyword: [iOS SDK, Mac SDK, AliRtcEngine]
 
     0表示方法调用成功，其他表示方法调用失败。
 
--   getAudioAccompanyPublishVolume：获取推流出去的混音音量。
+-   getAudioAccompanyPublishVolume：获取推流出去的混音音量（仅iOS）。
 
     ```
     - (int)getAudioAccompanyPublishVolume;
@@ -1505,7 +1555,7 @@ keyword: [iOS SDK, Mac SDK, AliRtcEngine]
 
     返回推流出的混音音量，返回0~100为成功，其他为返回的错误码。
 
--   setAudioAccompanyPlayoutVolume：设置混音之后本地播放的音量（需要在[startAudioAccompanyWithFile](#li_083)后才能生效）。
+-   setAudioAccompanyPlayoutVolume：设置混音之后本地播放的音量（需要在[startAudioAccompanyWithFile](#li_083)后才能生效）（仅iOS）。
 
     ```
     - (int)setAudioAccompanyPlayoutVolume:(NSInteger)volume;
@@ -1521,7 +1571,7 @@ keyword: [iOS SDK, Mac SDK, AliRtcEngine]
 
     0表示方法调用成功，其他表示方法调用失败。
 
--   getAudioAccompanyPlayoutVolume：获取混音本地播放的音量。
+-   getAudioAccompanyPlayoutVolume：获取混音本地播放的音量（仅iOS）。
 
     ```
     - (int)getAudioAccompanyPlayoutVolume;
@@ -1531,7 +1581,7 @@ keyword: [iOS SDK, Mac SDK, AliRtcEngine]
 
     返回混音本地播放的音量，返回0~100为成功，其他为返回的错误码。
 
--   pauseAudioAccompany：暂停混音。
+-   pauseAudioAccompany：暂停混音（仅iOS）。
 
     ```
     public abstract int pauseAudioAccompany();
@@ -1541,7 +1591,7 @@ keyword: [iOS SDK, Mac SDK, AliRtcEngine]
 
     0表示方法调用成功，其他表示方法调用失败。
 
--   resumeAudioAccompany：重新开始混音。
+-   resumeAudioAccompany：重新开始混音（仅iOS）。
 
     ```
     - (int)pauseAudioAccompany;
@@ -1551,7 +1601,7 @@ keyword: [iOS SDK, Mac SDK, AliRtcEngine]
 
     0表示方法调用成功，其他表示方法调用失败。
 
--   getAudioAccompanyDuration：获取伴奏文件时长。
+-   getAudioAccompanyDuration：获取伴奏文件时长（仅iOS）。
 
     ```
     - (int)getAudioAccompanyDuration;
@@ -1561,7 +1611,7 @@ keyword: [iOS SDK, Mac SDK, AliRtcEngine]
 
     返回伴奏文件时长（单位：ms），小于0表示错误码。
 
--   getAudioAccompanyCurrentPosition：获取音乐文件播放进度。
+-   getAudioAccompanyCurrentPosition：获取音乐文件播放进度（仅iOS）。
 
     ```
     - (int)getAudioAccompanyCurrentPosition;
@@ -1571,7 +1621,7 @@ keyword: [iOS SDK, Mac SDK, AliRtcEngine]
 
     返回音乐文件播放进度（单位：ms），小于0表示错误码。
 
--   setAudioAccompanyPosition：设置音频文件的播放位置。
+-   setAudioAccompanyPosition：设置音频文件的播放位置（仅iOS）。
 
     ```
     - (int)setAudioAccompanyPosition:(int)pos;
@@ -1587,7 +1637,7 @@ keyword: [iOS SDK, Mac SDK, AliRtcEngine]
 
     0表示方法调用成功，其他表示方法调用失败。
 
--   PreloadAudioEffect：预加载音效文件。
+-   preloadAudioEffectWithSoundId：预加载音效文件（仅iOS）。
 
     ```
     - (int)preloadAudioEffectWithSoundId:(NSInteger)soundId filePath:(NSString *_Nonnull)filePath;
@@ -1604,7 +1654,7 @@ keyword: [iOS SDK, Mac SDK, AliRtcEngine]
 
     0表示方法调用成功，其他表示方法调用失败。
 
--   unloadAudioEffect：删除预加载的音效文件。
+-   unloadAudioEffectWithSoundId：删除预加载的音效文件（仅iOS）。
 
     ```
     - (int)unloadAudioEffectWithSoundId:(NSInteger)soundId;
@@ -1620,7 +1670,7 @@ keyword: [iOS SDK, Mac SDK, AliRtcEngine]
 
     0表示方法调用成功，其他表示方法调用失败。
 
--   playAudioEffect：开始播放音效。
+-   playAudioEffectWithSoundId：开始播放音效（仅iOS）。
 
     ```
     - (int)playAudioEffectWithSoundId:(NSInteger)soundId filePath:(NSString *_Nonnull)filePath cycles:(NSInteger)cycles publish:(BOOL)publish;
@@ -1639,7 +1689,7 @@ keyword: [iOS SDK, Mac SDK, AliRtcEngine]
 
     0表示方法调用成功，其他表示方法调用失败。
 
--   stopAudioEffect：停止播放音效。
+-   stopAudioEffectWithSoundId：停止播放音效（仅iOS）。
 
     ```
     - (int)stopAudioEffectWithSoundId:(NSInteger)soundId;
@@ -1655,7 +1705,7 @@ keyword: [iOS SDK, Mac SDK, AliRtcEngine]
 
     0表示方法调用成功，其他表示方法调用失败。
 
--   stopAllAudioEffects：停止播放所有音效。
+-   stopAllAudioEffects：停止播放所有音效（仅iOS）。
 
     ```
     - (int)stopAllAudioEffects;
@@ -1665,7 +1715,7 @@ keyword: [iOS SDK, Mac SDK, AliRtcEngine]
 
     0表示方法调用成功，其他表示方法调用失败。
 
--   setAudioEffectPublishVolume：设置音效推流音量。
+-   setAudioEffectPublishVolumeWithSoundId：设置音效推流音量（仅iOS）。
 
     ```
     - (int)setAudioEffectPublishVolumeWithSoundId:(NSInteger)soundId volume:(NSInteger)volume;
@@ -1682,7 +1732,7 @@ keyword: [iOS SDK, Mac SDK, AliRtcEngine]
 
     0表示方法调用成功，其他表示方法调用失败。
 
--   getAudioEffectPublishVolume：获取推流音效音量。
+-   getAudioEffectPublishVolumeWithSoundId：获取推流音效音量（仅iOS）。
 
     ```
     - (int)getAudioEffectPublishVolumeWithSoundId:(NSInteger)soundId;
@@ -1698,7 +1748,7 @@ keyword: [iOS SDK, Mac SDK, AliRtcEngine]
 
     0表示方法调用成功，其他表示方法调用失败。
 
--   setAudioEffectPlayoutVolume：设置音效本地播放音量。
+-   setAudioEffectPlayoutVolumeWithSoundId：设置音效本地播放音量（仅iOS）。
 
     ```
     - (int)setAudioEffectPlayoutVolumeWithSoundId:(NSInteger)soundId volume:(NSInteger)volume;
@@ -1715,7 +1765,7 @@ keyword: [iOS SDK, Mac SDK, AliRtcEngine]
 
     0表示方法调用成功，其他表示方法调用失败。
 
--   getAudioEffectPlayoutVolume：获取音效本地播放音量。
+-   getAudioEffectPlayoutVolumeWithSoundId：获取音效本地播放音量（仅iOS）。
 
     ```
     - (int)getAudioEffectPlayoutVolumeWithSoundId:(NSInteger)soundId;
@@ -1731,7 +1781,7 @@ keyword: [iOS SDK, Mac SDK, AliRtcEngine]
 
     0表示方法调用成功，其他表示方法调用失败。
 
--   setAllAudioEffectsPublishVolume：设置所有音效本地播放音量。
+-   setAllAudioEffectsPublishVolume：设置所有音效本地播放音量（仅iOS）。
 
     ```
     - (int)setAllAudioEffectsPublishVolume:(NSInteger)volume;
@@ -1747,7 +1797,7 @@ keyword: [iOS SDK, Mac SDK, AliRtcEngine]
 
     0表示方法调用成功，其他表示方法调用失败。
 
--   setAllAudioEffectsPlayoutVolume：设置所有音效推流音量。
+-   setAllAudioEffectsPlayoutVolume：设置所有音效推流音量（仅iOS）。
 
     ```
     - (int)setAllAudioEffectsPlayoutVolume:(NSInteger)volume;
@@ -1763,7 +1813,7 @@ keyword: [iOS SDK, Mac SDK, AliRtcEngine]
 
     0表示方法调用成功，其他表示方法调用失败。
 
--   pauseAudioEffect：暂停音效。
+-   pauseAudioEffectWithSoundId：暂停音效（仅iOS）。
 
     ```
     - (int)pauseAudioEffectWithSoundId:(NSInteger)soundId;
@@ -1779,7 +1829,7 @@ keyword: [iOS SDK, Mac SDK, AliRtcEngine]
 
     0表示方法调用成功，其他表示方法调用失败。
 
--   pauseAllAudioEffects：暂停所有音效。
+-   pauseAllAudioEffects：暂停所有音效（仅iOS）。
 
     ```
     - (int)pauseAllAudioEffects;
@@ -1789,7 +1839,7 @@ keyword: [iOS SDK, Mac SDK, AliRtcEngine]
 
     0表示方法调用成功，其他表示方法调用失败。
 
--   resumeAudioEffect：重新开始播放音效。
+-   resumeAudioEffectWithSoundId：重新开始播放音效（仅iOS）。
 
     ```
     - (int)resumeAudioEffectWithSoundId:(NSInteger)soundId;
@@ -1805,7 +1855,7 @@ keyword: [iOS SDK, Mac SDK, AliRtcEngine]
 
     0表示方法调用成功，其他表示方法调用失败。
 
--   resumeAllAudioEffects：重新开始播放所有音效。
+-   resumeAllAudioEffects：重新开始播放所有音效（仅iOS）。
 
     ```
     - (int)resumeAllAudioEffects;
@@ -1815,7 +1865,7 @@ keyword: [iOS SDK, Mac SDK, AliRtcEngine]
 
     0表示方法调用成功，其他表示方法调用失败。
 
--   enableEarBack：启用耳返。
+-   enableEarBack：启用耳返（仅iOS）。
 
     ```
     - (int)enableEarBack:(BOOL)enable;
@@ -1831,7 +1881,7 @@ keyword: [iOS SDK, Mac SDK, AliRtcEngine]
 
     0表示方法调用成功，其他表示方法调用失败。
 
--   setEarBackVolume：设置耳返音量。
+-   setEarBackVolume：设置耳返音量（仅iOS）。
 
     ```
     - (int)setEarBackVolume:(NSInteger)volume;
@@ -1859,13 +1909,13 @@ keyword: [iOS SDK, Mac SDK, AliRtcEngine]
     - (void)unregisterVideoSampleObserver;
     ```
 
--   registerLocalVideoTexture：订阅本地视频纹理数据。
+-   registerLocalVideoTexture：订阅本地视频纹理数据（仅iOS）。
 
     ```
     - (void)registerLocalVideoTexture;
     ```
 
--   unregisterLocalVideoTexture：取消本地视频纹理数据输出。
+-   unregisterLocalVideoTexture：取消本地视频纹理数据输出（仅iOS）。
 
     ```
     - (void)unregisterLocalVideoTexture;
@@ -2067,7 +2117,7 @@ keyword: [iOS SDK, Mac SDK, AliRtcEngine]
 
     0表示方法调用成功，其他表示方法调用失败。
 
--   startLiveStreaming：开始直播拉流。
+-   startLiveStreamingWithAuthInfo：开始直播拉流。
 
     ```
     - (void)startLiveStreamingWithAuthInfo:(AliRtcAuthInfo *_Nonnull)authInfo onResult:(void(^_Nullable)(int errCode))onResult;
@@ -2086,7 +2136,7 @@ keyword: [iOS SDK, Mac SDK, AliRtcEngine]
     - (int)stopLiveStreaming;
     ```
 
--   startPublishLiveStream：开启旁路直播。
+-   startPublishLiveStreamWithURL：开启旁路直播。
 
     ```
     - (int)startPublishLiveStreamWithURL:(NSString *_Nonnull)streamURL liveTranscoding:(AliRtcLiveTranscoding *_Nonnull)trancoding;
@@ -2103,7 +2153,7 @@ keyword: [iOS SDK, Mac SDK, AliRtcEngine]
 
     0表示方法调用成功，其他表示方法调用失败。
 
--   updatePublishLiveStream：更新旁路直播相关参数。
+-   updatePublishLiveStreamWithURL：更新旁路直播相关参数。
 
     ```
     - (int)updatePublishLiveStreamWithURL:(NSString *_Nonnull)streamURL liveTranscoding:(AliRtcLiveTranscoding *_Nonnull)trancoding;
@@ -2120,7 +2170,7 @@ keyword: [iOS SDK, Mac SDK, AliRtcEngine]
 
     0表示方法调用成功，其他表示方法调用失败。
 
--   stopPublishLiveStream：停止旁路直播。
+-   stopPublishLiveStreamWithURL：停止旁路直播。
 
     ```
     - (int)stopPublishLiveStreamWithURL:(NSString *_Nonnull)streamURL;
@@ -2327,7 +2377,7 @@ keyword: [iOS SDK, Mac SDK, AliRtcEngine]
 
     0表示方法调用成功，其他表示方法调用失败。
 
--   getCurrentClientRole：获取用户角色。
+-   getCurrentClientRole：获取用户角色（仅iOS）。
 
     ```
     - (AliRtcClientRole)getCurrentClientRole;
@@ -2442,7 +2492,7 @@ keyword: [iOS SDK, Mac SDK, AliRtcEngine]
 
     返回当前网络连接状态。
 
--   enableDelegateMainQueue：是否分发回调到主线程。
+-   enableDelegateMainQueue：是否分发回调到主线程（仅iOS）。
 
     ```
     - (int)enableDelegateMainQueue:(BOOL)enabled;
@@ -2458,7 +2508,7 @@ keyword: [iOS SDK, Mac SDK, AliRtcEngine]
 
     0表示方法调用成功，其他表示方法调用失败。
 
--   setDelegateQueue：指定回调线程队列。
+-   setDelegateQueue：指定回调线程队列（仅iOS）。
 
     ```
     - (int)setDelegateQueue:(NSOperationQueue *_Nullable)queue;
@@ -2478,4 +2528,399 @@ keyword: [iOS SDK, Mac SDK, AliRtcEngine]
 
     -   如果调用[enableDelegateMainQueue](#li_155):YES时，此接口设置无效，回调线程为主线程。
     -   如果调用[enableDelegateMainQueue](#li_155):NO时，可通过此接口指定回调线程，若不设置，则使用SDK的默认子线程。
+-   startScreenShareWithDesktopId：根据桌面ID进行屏幕分享（仅Mac）。
+
+    ```
+    - (int)startScreenShareWithDesktopId:(int)desktopId config:(AliRtcScreenShareConfig * _Nonnull)config;
+    ```
+
+    参数说明
+
+    |名称|类型|描述|
+    |--|--|--|
+    |desktopId|int|桌面ID，可通过[getScreenShareSourceInfoWithType](#li_159)接口获取。|
+    |config|[AliRtcScreenShareConfig](/cn.zh-CN/SDK参考/iOS和Mac SDK/数据类型.md) \* \_Nonnull|屏幕分享配置。|
+
+    返回说明
+
+    0表示方法调用成功，其他表示方法调用失败。
+
+-   startScreenShareWithWindowId：根据窗口ID进行屏幕分享（仅Mac）。
+
+    ```
+    - (int)startScreenShareWithWindowId:(int)windowId config:(AliRtcScreenShareConfig * _Nonnull)config;
+    ```
+
+    参数说明
+
+    |名称|类型|描述|
+    |--|--|--|
+    |windowId|int|窗口ID，可通过[getScreenShareSourceInfoWithType](#li_159)接口获取。|
+    |config|[AliRtcScreenShareConfig](/cn.zh-CN/SDK参考/iOS和Mac SDK/数据类型.md) \* \_Nonnull|屏幕分享配置。|
+
+    返回说明
+
+    0表示方法调用成功，其他表示方法调用失败。
+
+-   getScreenShareSourceInfoWithType：获取屏幕分享源信息（仅Mac）。
+
+    ```
+    - (NSArray<AliRtcScreenSourceInfo *> * _Nullable)getScreenShareSourceInfoWithType:(AliRtcScreenShareType)type;
+    ```
+
+    参数说明
+
+    |名称|类型|描述|
+    |--|--|--|
+    |type|[AliRtcScreenShareType](/cn.zh-CN/SDK参考/iOS和Mac SDK/数据类型.md)|屏幕分享类型。|
+
+    返回说明
+
+    返回一个列表，列表里的对象类型为屏幕分享源信息[AliRtcScreenSourceInfo](/cn.zh-CN/SDK参考/iOS和Mac SDK/数据类型.md)。
+
+-   updateScreenShareConfig：更新屏幕分享配置（仅Mac）。
+
+    ```
+    - (int)updateScreenShareConfig:(AliRtcScreenShareConfig * _Nonnull)config;
+    ```
+
+    参数说明
+
+    |名称|类型|描述|
+    |--|--|--|
+    |config|[AliRtcScreenShareConfig](/cn.zh-CN/SDK参考/iOS和Mac SDK/数据类型.md) \* \_Nonnull|屏幕分享配置。|
+
+    返回说明
+
+    返回一个列表，列表里的对象类型为屏幕分享源信息[AliRtcScreenSourceInfo](/cn.zh-CN/SDK参考/iOS和Mac SDK/数据类型.md)。
+
+-   setRecordingDeviceVolume：设置音频采集设备音量（仅Mac）。
+
+    ```
+    - (int)setRecordingDeviceVolume:(NSInteger)volume;
+    ```
+
+    参数说明
+
+    |名称|类型|描述|
+    |--|--|--|
+    |volume|NSInteger|音量范围：\[0,100\]。|
+
+    返回说明
+
+    0表示方法调用成功，其他表示方法调用失败。
+
+-   getRecordingDeviceVolume：获取音频采集设备音量（仅Mac）。
+
+    ```
+    - (int)getRecordingDeviceVolume;
+    ```
+
+    返回说明
+
+    返回音频采集设备音量（音量范围：\[0,100\]），-1表示方法调用失败。
+
+-   setPlayoutDeviceVolume：设置音频播放设备音量（仅Mac）。
+
+    ```
+    - (int)setPlayoutDeviceVolume:(NSInteger)volume;
+    ```
+
+    参数说明
+
+    |名称|类型|描述|
+    |--|--|--|
+    |volume|NSInteger|音量范围：\[0,100\]。|
+
+    返回说明
+
+    0表示方法调用成功，其他表示方法调用失败。
+
+-   getPlayoutDeviceVolume：获取音频播放设备音量（仅Mac）。
+
+    ```
+    - (int)getPlayoutDeviceVolume;
+    ```
+
+    返回说明
+
+    返回音频播放设备音量（音量范围：\[0,100\]），-1表示方法调用失败。
+
+-   setExternalAudioRenderVolume：设置外部输入音频的播放音量（仅Mac）。
+
+    ```
+    - (int)setExternalAudioRenderVolume:(int)vol;
+    ```
+
+    参数说明
+
+    |名称|类型|描述|
+    |--|--|--|
+    |vol|int|音量范围：\[0,100\]。|
+
+    返回说明
+
+    0表示方法调用成功，其他表示方法调用失败。
+
+-   getExternalAudioRenderVolume：获取外部输入音频的播放音量（仅Mac）。
+
+    ```
+    - (int)getExternalAudioRenderVolume;
+    ```
+
+    返回说明
+
+    返回音频播放音量（音量范围：\[0,100\]）。
+
+-   getAudioCaptures：获取系统中的录音设备列表（仅Mac）。
+
+    ```
+    - (NSArray<AliRtcDeviceInfo *> *_Nullable)getAudioCaptures;
+    ```
+
+-   getCurrentAudioCapture：获取使用的录音设备名称（仅Mac）。
+
+    ```
+    - (NSString *_Nullable)getCurrentAudioCapture;
+    ```
+
+-   getCurrentAudioCaptureID：获取使用的录音设备ID（仅Mac）。
+
+    ```
+    - (NSString *_Nullable)getCurrentAudioCaptureID;
+    ```
+
+-   setCurrentAudioCapture：通过名称设置录音设备（仅Mac）。
+
+    ```
+    - (void)setCurrentAudioCapture:(NSString *_Nonnull)capture;
+    ```
+
+    参数说明
+
+    |名称|类型|描述|
+    |--|--|--|
+    |capture|NSString \*\_Nonnull|要设置的录音设备的名称。|
+
+-   setCurrentAudioCaptureWithID：通过ID设置录音设备（仅Mac）。
+
+    ```
+    - (void)setCurrentAudioCaptureWithID:(NSString *_Nonnull)captureID;
+    ```
+
+    参数说明
+
+    |名称|类型|描述|
+    |--|--|--|
+    |captureID|NSString \*\_Nonnull|要设置的录音设备的ID。|
+
+-   getAudioRenderers：获取系统中的扬声器列表（仅Mac）。
+
+    ```
+    - (NSArray<AliRtcDeviceInfo *> *_Nullable)getAudioRenderers;
+    ```
+
+-   getCurrentAudioRenderer：获取当前使用的扬声器名称（仅Mac）。
+
+    ```
+    - (NSString *_Nullable)getCurrentAudioRenderer;
+    ```
+
+-   getCurrentAudioRendererID：获取当前使用的扬声器ID（仅Mac）。
+
+    ```
+    - (NSString *_Nullable)getCurrentAudioRendererID;
+    ```
+
+-   setCurrentAudioRenderer：通过名称设置扬声器（仅Mac）。
+
+    ```
+    - (void)setCurrentAudioRenderer:(NSString *_Nonnull)renderer;
+    ```
+
+    参数说明
+
+    |名称|类型|描述|
+    |--|--|--|
+    |renderer|NSString \*\_Nonnull|要设置的扬声器设备的名称。|
+
+-   setCurrentAudioRendererWithID：通过ID设置扬声器（仅Mac）。
+
+    ```
+    - (void)setCurrentAudioRendererWithID:(NSString *_Nonnull)rendererID;
+    ```
+
+    参数说明
+
+    |名称|类型|描述|
+    |--|--|--|
+    |rendererID|NSString \*\_Nonnull|要设置的扬声器设备的ID。|
+
+-   getCameraList：获取摄像头列表（仅Mac）。
+
+    ```
+    - (NSArray<AliRtcDeviceInfo *> *_Nullable)getCameraList;
+    ```
+
+-   getCurrentCamera：获取当前使用的摄像头名称（仅Mac）。
+
+    ```
+    - (NSString *_Nullable)getCurrentCamera;
+    ```
+
+-   getCurrentCameraID：获取当前使用的摄像头ID（仅Mac）。
+
+    ```
+    - (NSString *_Nullable)getCurrentCameraID;
+    ```
+
+-   setCurrentCamera：通过名称设置摄像头（仅Mac）。
+
+    ```
+    - (void)setCurrentCamera:(NSString *_Nonnull)camera;
+    ```
+
+    参数说明
+
+    |名称|类型|描述|
+    |--|--|--|
+    |camera|NSString \*\_Nonnull|要设置的摄像头设备的名称。|
+
+-   setCurrentCameraWithID：通过ID设置摄像头（仅Mac）。
+
+    ```
+    - (void)setCurrentCameraWithID:(NSString *_Nonnull)cameraID;
+    ```
+
+    参数说明
+
+    |名称|类型|描述|
+    |--|--|--|
+    |cameraID|NSString \*\_Nonnull|要设置的摄像头设备的ID。|
+
+-   startTestAudioRecordWithName：开始测试音频采集设备（仅Mac）。
+
+    ```
+    - (int)startTestAudioRecordWithName:(NSString *_Nonnull)deviceName;
+    ```
+
+    参数说明
+
+    |名称|类型|描述|
+    |--|--|--|
+    |deviceName|NSString \*\_Nonnull|音频采集设备名称。|
+
+-   stopTestAudioRecord：停止测试音频采集设备（仅Mac）。
+
+    ```
+    - (int)stopTestAudioRecord;
+    ```
+
+    返回说明
+
+    0表示方法调用成功，其他表示方法调用失败。
+
+-   startTestAudioPlayoutWithName：开始测试音频播放设备（仅Mac）。
+
+    ```
+    - (int)startTestAudioPlayoutWithName:(NSString *_Nonnull)deviceName filePath:(NSString *_Nonnull)filePath loopCycles:(NSInteger)loopCycles;
+    ```
+
+    参数说明
+
+    |名称|类型|描述|
+    |--|--|--|
+    |deviceName|NSString \*\_Nonnull|音频采集设备名称。|
+    |filePath|NSString \*\_Nonnull|音频文件路径。|
+    |loopCycles|NSInteger|重复播放次数，-1为循环播放。|
+
+-   stopTestAudioPlayout：停止测试音频播放设备（仅Mac）。
+
+    ```
+    - (int)stopTestAudioPlayout;
+    ```
+
+    返回说明
+
+    0表示方法调用成功，其他表示方法调用失败。
+
+-   startRecord：开始录制（仅Mac）。
+
+    ```
+    - (BOOL)startRecord:(NSString*_Nonnull)filePath recordLayout:(AliRtcRecordVideoLayout*_Nonnull)recordLayout;
+    ```
+
+    参数说明
+
+    |名称|类型|描述|
+    |--|--|--|
+    |filePath|NSString\*\_Nonnull|文件路径。|
+    |recordLayout|[AliRtcRecordVideoLayout](/cn.zh-CN/SDK参考/iOS和Mac SDK/数据类型.md)\*\_Nonnull|视频窗口布局设置。|
+
+    返回说明
+
+    YES表示方法调用成功，NO表示方法调用失败。
+
+-   pauseRecord：暂停录制（仅Mac）。
+
+    ```
+    - (BOOL)pauseRecord;
+    ```
+
+    返回说明
+
+    YES表示方法调用成功，NO表示方法调用失败。
+
+-   resumeRecord：重新开启录制（仅Mac）。
+
+    ```
+    - (BOOL)resumeRecord;
+    ```
+
+    返回说明
+
+    YES表示方法调用成功，NO表示方法调用失败。
+
+-   UpdateRecordLayout：更新录制信息（仅Mac）。
+
+    ```
+    - (BOOL)UpdateRecordLayout:(AliRtcRecordVideoLayout*_Nonnull)layout;
+    ```
+
+    参数说明
+
+    |名称|类型|描述|
+    |--|--|--|
+    |layout|[AliRtcRecordVideoLayout](/cn.zh-CN/SDK参考/iOS和Mac SDK/数据类型.md)\*\_Nonnull|视频窗口布局设置。|
+
+    返回说明
+
+    YES表示方法调用成功，NO表示方法调用失败。
+
+-   addRecordTemplate：添加录制模板（仅Mac）。
+
+    ```
+    - (BOOL)addRecordTemplate:(AliRtcRecordTemplate*_Nonnull)recordTemplate;
+    ```
+
+    参数说明
+
+    |名称|类型|描述|
+    |--|--|--|
+    |recordTemplate|[AliRtcRecordTemplate](/cn.zh-CN/SDK参考/iOS和Mac SDK/数据类型.md)\*\_Nonnull|录制模板。|
+
+    返回说明
+
+    YES表示方法调用成功，NO表示方法调用失败。
+
+-   getClientRole：获取用户角色（仅Mac）。
+
+    ```
+    - (AliRtcClientRole)getClientRole;
+    ```
+
+    返回说明
+
+    返回当前用户角色。
+
 
