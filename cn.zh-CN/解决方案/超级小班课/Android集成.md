@@ -66,7 +66,7 @@
 
     本Demo中在客户端代码配置AppId和AppKey的方式，很容易被反编译逆向破解，一旦AppId和AppKey泄露，攻击者就可以盗用您的阿里云流量，因此该配置方式仅适合用于本地Demo的运行和功能调试。
 
-    正确的Token签发方式是将Token的计算代码集成到您的服务端，并提供面向App的接口，在需要Token时由您的App接口向业务服务器发起请求获取动态Token。具体操作，请参见[生成Token](/cn.zh-CN/常用功能/生成Token.md)。
+    正确的Token签发方式是将Token的计算代码集成到您的服务端，并提供面向App的接口，在需要Token时由您的App接口向业务服务器发起请求获取动态Token。具体操作，请参见[生成Token](/cn.zh-CN/基础功能/生成Token.md)。
 
 5.  选择一台已连接的真机设备。（暂不支持模拟器运行）
 
@@ -117,7 +117,7 @@
     |---|--|
     |[sharedInstance](#li_jox_e4t_etu)|获取单例对象|
     |[destorySharedInstance](#li_yv2_ack_684)|毁单例对象|
-    |[login](#%20li_pe9_sd6_ttg)|加入房间|
+    |[login](#li_pe9_sd6_ttg)|加入房间|
     |[logout](#li_xld_k3q_cc0)|退出房间|
     |[muteLocalCamera](#li_y1w_vtg_qlu)|切换是否停止发布本地视频|
     |[muteLocalMic](#li_t5u_vqp_koz)|切换是否停止发布本地音频|
