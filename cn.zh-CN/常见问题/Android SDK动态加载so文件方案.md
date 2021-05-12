@@ -33,9 +33,9 @@ Android SDK提供so文件动态加载的功能，可以有效的减少安装包�
     }
     ```
 
-    **说明：** 此处maven依赖的版本仅供参考，获取最新的maven依赖，请参见[精简版SDK](/cn.zh-CN/SDK参考/SDK下载.md)。
+    **说明：** 此处maven依赖的版本仅供参考，获取最新的maven依赖，请参见[精简版SDK（v2.1）](/cn.zh-CN/SDK参考/SDK下载.md)。
 
-3.  下载并解压so文件，下载地址，请参见[精简版SDK](/cn.zh-CN/SDK参考/SDK下载.md)。
+3.  下载并解压so文件，下载地址，请参见[精简版SDK（v2.1）](/cn.zh-CN/SDK参考/SDK下载.md)。
 
 4.  在代码中添加如下代码，加载so文件。
 
@@ -52,7 +52,7 @@ Android SDK提供so文件动态加载的功能，可以有效的减少安装包�
 
 方法二：手动集成
 
-1.  下载并解压Android SDK，下载地址，请参见[精简版SDK](/cn.zh-CN/SDK参考/SDK下载.md)。
+1.  下载并解压Android SDK，下载地址，请参见[精简版SDK（v2.1）](/cn.zh-CN/SDK参考/SDK下载.md)。
 
 2.  复制SDK文件AliRTCSdk.aar到App模块下的libs文件夹中。
 
