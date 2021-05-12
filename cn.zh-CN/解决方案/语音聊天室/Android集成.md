@@ -110,7 +110,7 @@
     |[destorySharedInstance](#li_nft_wmt_5zn)|毁单例对象|
     |[login](#li_p7g_28q_vms)|加入房间|
     |[logout](#li_m4c_sja_kye)|退出房间|
-    |[setAudioEffectVolume](#%20li_x3q_9po_mm3)|设置音效音量|
+    |[setAudioEffectVolume](#li_x3q_9po_mm3)|设置音效音量|
     |[setAudioAccompanyVolume](#li_66k_o3c_cd7)|设置伴奏音量|
     |[enterSeat](#li_j1l_npk_vtf)|上麦|
     |[leavelSeat](#li_qm7_00y_2ob)|下麦|
