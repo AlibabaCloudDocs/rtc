@@ -173,7 +173,7 @@ keyword: [AliRtcEngine, Android]
 |[registerAudioVolumeObserver](#li_d7k_w8e_au5)|注册音量数据输出对象。|1.16.2|
 |[unRegisterAudioVolumeObserver](#li_ggp_jl3_4od)|取消音量数据输出对象注册。|1.16.2|
 |[setExternalVideoSource](#li_2yn_opu_25s)|启用外部视频输入源。|2.1|
-|[pushExternalVideoFrame](#li_2yn_opu_25s.)|输入视频数据。|2.1|
+|[pushExternalVideoFrame](#li_2yn_opu_25s)|输入视频数据。|2.1|
 |[setExternalAudioSource](#li_fyr_py9_gq7)|设置是否启用外部音频输入源。|1.17.9|
 |[pushExternalAudioFrameRawData](#li_y31_jei_vmh)|输入音频数据。|1.17.9|
 |[setExternalAudioVolume](#li_zbd_duq_vly)|设置混音音量。|1.17.9|
