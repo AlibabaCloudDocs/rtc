@@ -327,7 +327,7 @@ AliRTCEngineInterface * CreateAliRTCEngine(EngineEventHandlerInterface * eventHa
 
 -   SetExternalAudioSource：设置是否启用外部音频输入推流。返回值，大于等于0表示成功，小于0表示失败。
 
-    **说明：** 通过[SetExternalAudioPublishVolume](#li_s51_z44_wfb)设置输入音频推流音量。
+    **说明：** 通过[SetExternalAudioPublishVolume](#li_etn_4fx_7t1)设置输入音频推流音量。
 
     ```
     virtual int SetExternalAudioSource(bool enable, unsigned int sampleRate,  unsigned int channelsPerFrame) = 0;
