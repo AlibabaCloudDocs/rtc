@@ -114,8 +114,8 @@
 
     |参数名|类型|描述|
     |---|--|--|
-    |authInfo|[AuthInfo](#li_840_oxo_a2y)|认证信息，从App Server获取。|
-    |config|[JoinChannelConfig](#li_hsk_phh_cpy)|加入频道时的设置项。|
+    |authInfo|[AuthInfo](/cn.zh-CN/SDK参考/Linux SDK/Java/数据类型.md)|认证信息，从App Server获取。|
+    |config|[JoinChannelConfig](/cn.zh-CN/SDK参考/Linux SDK/Java/数据类型.md)|加入频道时的设置项。|
 
 -   leaveChannel：离开频道。
 
@@ -133,12 +133,12 @@
 
     |参数名|类型|描述|
     |---|--|--|
-    |profile|[VideoProfile](#li_dpv_hd0_mk2)|预定义的视频分辨率和帧率，具体请参见[VideoProfile](#li_dpv_hd0_mk2)。|
-    |track|[VideoTrack](#li_eny_1bk_jqr)|视频流的类型，具体请参见[VideoTrack](#li_eny_1bk_jqr)。|
+    |profile|[VideoProfile](/cn.zh-CN/SDK参考/Linux SDK/Java/数据类型.md)|预定义的视频分辨率和帧率，具体请参见[VideoProfile](/cn.zh-CN/SDK参考/Linux SDK/Java/数据类型.md)。|
+    |track|[VideoTrack](/cn.zh-CN/SDK参考/Linux SDK/Java/数据类型.md)|视频流的类型，具体请参见[VideoTrack](/cn.zh-CN/SDK参考/Linux SDK/Java/数据类型.md)。|
 
 -   getVideoProfile：获取视频流推流参数。
 
-    **说明：** 返回的是正在使用的（已经推流中）或者即将被使用的（下一次推流才会生效）视频分辨率和帧率，具体请参见[VideoProfile](#li_dpv_hd0_mk2)。返回值不一定是正在使用的[VideoProfile](#li_dpv_hd0_mk2)，另外不支持VideoTrackScreen。
+    **说明：** 返回的是正在使用的（已经推流中）或者即将被使用的（下一次推流才会生效）视频分辨率和帧率，具体请参见[VideoProfile](/cn.zh-CN/SDK参考/Linux SDK/Java/数据类型.md)。返回值不一定是正在使用的[VideoProfile](/cn.zh-CN/SDK参考/Linux SDK/Java/数据类型.md)，另外不支持VideoTrackScreen。
 
     ```
     public abstract int getVideoProfile(VideoTrack track);
@@ -146,7 +146,7 @@
 
     |参数名|类型|描述|
     |---|--|--|
-    |track|[VideoTrack](#li_eny_1bk_jqr)|视频流的类型，具体请参见[VideoTrack](#li_eny_1bk_jqr)。|
+    |track|[VideoTrack](/cn.zh-CN/SDK参考/Linux SDK/Java/数据类型.md)|视频流的类型，具体请参见[VideoTrack](/cn.zh-CN/SDK参考/Linux SDK/Java/数据类型.md)。|
 
 -   configLocalCameraPublish：设置是否允许推送相机流。
 
@@ -213,7 +213,7 @@
     |参数名|类型|描述|
     |---|--|--|
     |enabled|boolean|是否允许推送次要视频流小流。true：允许，false：禁止。|
-    |track|[VideoTrack](#li_eny_1bk_jqr)|视频流的类型，详细请参见[VideoTrack](#li_eny_1bk_jqr)。|
+    |track|[VideoTrack](/cn.zh-CN/SDK参考/Linux SDK/Java/数据类型.md)|视频流的类型，详细请参见[VideoTrack](/cn.zh-CN/SDK参考/Linux SDK/Java/数据类型.md)。|
 
 -   isLocalSimulcastEnabled：查询是否允许推送次要视频流小流。返回值，true表示允许，false表示禁止。
 
@@ -231,7 +231,7 @@
 
 -   startRecording：手动开启录制。
 
-    **说明：** 如果需要手工配置所有推流和拉流，请通过[JoinChannelConfig](#li_hsk_phh_cpy)字段，再[joinChannel](#li_ewc_9e8_wqb)时，选择RecordingManually。
+    **说明：** 如果需要手工配置所有推流和拉流，请通过[JoinChannelConfig](/cn.zh-CN/SDK参考/Linux SDK/Java/数据类型.md)字段，再[joinChannel](#li_ewc_9e8_wqb)时，选择RecordingManually。
 
     ```
     public abstract int startRecording();
@@ -255,8 +255,8 @@
     |---|--|--|
     |enable|boolean|是否启用外部视频输入源。true：开启，false：关闭。|
     |useTexture|boolean|是否使用texture模式，目前只支持false。|
-    |source|[VideoSource](#li_pg5_xu6_yt9)|流类型。|
-    |renderMode|[RenderMode](#li_dv2_e64_nnt)|绘制模式。|
+    |source|[VideoSource](/cn.zh-CN/SDK参考/Linux SDK/Java/数据类型.md)|流类型。|
+    |renderMode|[RenderMode](/cn.zh-CN/SDK参考/Linux SDK/Java/数据类型.md)|绘制模式。|
 
 -   pushExternalVideoFrame：输入外部视频数据。
 
@@ -268,8 +268,8 @@
 
     |参数名|类型|描述|
     |---|--|--|
-    |frame|[VideoDataSample](#li_lf0_zi6_ibk)|帧数据。|
-    |source|[VideoSource](#li_pg5_xu6_yt9)|流类型。|
+    |frame|[VideoDataSample](/cn.zh-CN/SDK参考/Linux SDK/Java/数据类型.md)|帧数据。|
+    |source|[VideoSource](/cn.zh-CN/SDK参考/Linux SDK/Java/数据类型.md)|流类型。|
 
 -   addVideoWatermark：添加水印。
 
@@ -447,8 +447,8 @@
     |参数名|类型|描述|
     |---|--|--|
     |enable|boolean|是否推流。true：允许，false：禁止。|
-    |source|AliRTCLinuxEngine.[VideoSource](#li_pg5_xu6_yt9)|选择视频源推流。|
-    |renderMode|AliRTCLinuxEngine.[RenderMode](#li_dv2_e64_nnt)|视频源的缩放方式。|
+    |source|AliRTCLinuxEngine.[VideoSource](/cn.zh-CN/SDK参考/Linux SDK/Java/数据类型.md)|选择视频源推流。|
+    |renderMode|AliRTCLinuxEngine.[RenderMode](/cn.zh-CN/SDK参考/Linux SDK/Java/数据类型.md)|视频源的缩放方式。|
 
 -   enableAudioSource：设置播放器的音频数据是否推流。返回0为接口调用成功，其他表示失败。
 
