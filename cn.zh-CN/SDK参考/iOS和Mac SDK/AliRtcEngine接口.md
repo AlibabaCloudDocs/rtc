@@ -471,14 +471,14 @@ keyword: [iOS SDK, Mac SDK, AliRtcEngine]
 -   publishLocalVideoStream：设置是否允许发布相机流。
 
     ```
-    - (int)publishLocalVideoStream:(BOOL)enabled;
+    - (int)publishLocalVideoStream:(BOOL)enable;
     ```
 
     参数说明
 
     |名称|类型|描述|
     |--|--|--|
-    |enabled|boolean|YES表示发送视频，NO表示停止发送，默认YES。|
+    |enable|boolean|YES表示发送视频，NO表示停止发送，默认YES。|
 
 -   isLocalVideoStreamPublished：查询当前是否允许发布视频流。
 
@@ -503,7 +503,7 @@ keyword: [iOS SDK, Mac SDK, AliRtcEngine]
 -   publishLocalAudioStream：设置是否允许发布音频流。
 
     ```
-    - (int)publishLocalAudioStream:(BOOL)enabled;
+    - (int)publishLocalAudioStream:(BOOL)enable;
     ```
 
     参数说明
@@ -529,7 +529,7 @@ keyword: [iOS SDK, Mac SDK, AliRtcEngine]
 -   publishLocalDualStream：设置是否允许发布次要视频流。
 
     ```
-    - (int)publishLocalDualStream:(BOOL)enabled;
+    - (int)publishLocalDualStream:(BOOL)enable;
     ```
 
     参数说明
@@ -773,14 +773,14 @@ keyword: [iOS SDK, Mac SDK, AliRtcEngine]
 -   enableLocalVideo：禁用或重新启用本地视频采集。
 
     ```
-    - (int)enableLocalVideo:(BOOL)enabled;
+    - (int)enableLocalVideo:(BOOL)enable;
     ```
 
     参数说明
 
     |名称|类型|描述|
     |--|--|--|
-    |enabled|BOOL|YES表示恢复正常，NO表示停止视频采集，默认YES。|
+    |enable|BOOL|YES表示恢复正常，NO表示停止视频采集，默认YES。|
 
     返回说明
 
@@ -1327,7 +1327,7 @@ keyword: [iOS SDK, Mac SDK, AliRtcEngine]
     |--|--|--|
     |interval|NSInteger|时间间隔，单位为毫秒，最小值不得小于10ms，建议设置300~500ms，小于等于0表示不启用音量提示和说话人提示功能。|
     |smooth|NSInteger|平滑系数，取值范围：\[0,9\]，数值越大平滑程度越高，反之越低，实时性越好，建议设置3。|
-    |reportVad|NSInteger|说话人检测开关，取值：    -   1：开启，通过[onAudioVolumeCallback](/cn.zh-CN/SDK参考/iOS和Mac SDK/回调及监听.md)接口回调每一个说话人的状态。
+    |reportVad|NSInteger|说话人检测开关，取值：     -   1：开启，通过[onAudioVolumeCallback](/cn.zh-CN/SDK参考/iOS和Mac SDK/回调及监听.md)接口回调每一个说话人的状态。
     -   0：关闭。 |
 
     返回说明
@@ -2495,14 +2495,14 @@ keyword: [iOS SDK, Mac SDK, AliRtcEngine]
 -   enableDelegateMainQueue：是否分发回调到主线程（仅iOS）。
 
     ```
-    - (int)enableDelegateMainQueue:(BOOL)enabled;
+    - (int)enableDelegateMainQueue:(BOOL)enable;
     ```
 
     参数说明
 
     |名称|类型|描述|
     |--|--|--|
-    |enabled|BOOL|YES表示回调分发至主线程队列，NO表示回调不分发至主线程队列，默认为YES。|
+    |enable|BOOL|YES表示回调分发至主线程队列，NO表示回调不分发至主线程队列，默认为YES。|
 
     返回说明
 
