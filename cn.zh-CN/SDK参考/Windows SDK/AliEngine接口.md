@@ -509,7 +509,7 @@ keyword: [Windows SDK, AliEngine]
 -   PublishLocalVideoStream：设置是否允许推视频流。
 
     ```
-    int PublishLocalVideoStream(bool enabled);
+    int PublishLocalVideoStream(bool enable);
     ```
 
     参数说明
@@ -542,7 +542,7 @@ keyword: [Windows SDK, AliEngine]
 -   PublishLocalAudioStream：设置是否允许推音频流。
 
     ```
-    int PublishLocalAudioStream(bool enabled);
+    int PublishLocalAudioStream(bool enable);
     ```
 
     参数说明
@@ -569,7 +569,7 @@ keyword: [Windows SDK, AliEngine]
 -   PublishLocalDualStream：设置是否允许推次要视频流。
 
     ```
-    int PublishLocalDualStream(bool enabled);
+    int PublishLocalDualStream(bool enable);
     ```
 
     参数说明
@@ -794,14 +794,14 @@ keyword: [Windows SDK, AliEngine]
 -   EnableLocalVideo：禁用或重新启用本地视频采集。
 
     ```
-    int EnableLocalVideo(bool enabled);
+    int EnableLocalVideo(bool enable);
     ```
 
     参数说明
 
     |名称|类型|描述|
     |--|--|--|
-    |enabled|bool|禁用或重新启用本地视频采集。取值：     -   true（默认值）：重新启用视频采集。
+    |enable|bool|禁用或重新启用本地视频采集。取值：     -   true（默认值）：重新启用视频采集。
     -   false：停止视频采集。 |
 
     返回说明
