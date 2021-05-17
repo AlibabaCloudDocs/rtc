@@ -7,13 +7,15 @@ keyword: [基本功能, Windows]
 阿里云RTC的基本功能包含初始化SDK、加入频道、本地发布、订阅远端和离开频道等。通过阅读本文，您可以了解阿里云RTC的基本功能。
 
 -   您已下载并集成最新版本的SDK。具体操作，请参见[Windows端集成SDK](/cn.zh-CN/快速入门/集成客户端SDK/Windows.md)。
--   您已获取加入频道必须的频道鉴权令牌（Token）。具体操作，请参见[生成Token](/cn.zh-CN/基础功能/生成Token.md)。
+-   您已获取加入频道必需的频道鉴权令牌（Token）。具体操作，请参见[生成Token](/cn.zh-CN/基础功能/生成Token.md)。
+
+## 操作步骤
 
 **说明：** 本文中的实现方法仅供参考，您可以根据实际业务需求进行开发。
 
 1.  初始化SDK。
 
-    1.  如果CRtcSampleDlg类中有定义AliRTCEngine实例，则需要创建AliRTCEngine实例，并注册AliRtcEventListener监听相关回调。更多信息，请参见[回调及监听](/cn.zh-CN/SDK参考/Windows SDK/回调及监听.md)。
+    1.  如果CRtcSampleDlg类中有定义AliRTCEngine实例，则需要创建AliRTCEngine实例，并注册AliRtcEventListener监听相关回调。更多信息，请参见[回调及监听](/cn.zh-CN/SDK参考/Windows SDK/Windows SDK（v1.17）/回调及监听.md)。
 
         ```
         m_pEngine = AliRtcEngine::sharedInstance(AliRtcEventListener* pListener, char* pConfig);//pListener是您实现的AliRtcEventListener对象，用于接收SDK的回调。pConfig是SDK初始化配置，当前版本请使用空字符串
@@ -203,5 +205,5 @@ keyword: [基本功能, Windows]
     ```
 
 
-您可以下载示例代码，快速运行Demo，实现频道内和其他人进行实时音视频通话，详情请参见[t170947.md\#](/cn.zh-CN/快速入门/运行Demo示例/运行Windows Demo.md)。
+您可以下载示例代码，快速运行Demo，实现频道内和其他人进行实时音视频通话，详情请参见[运行Windows Demo](/cn.zh-CN/快速入门/运行Demo示例/运行Windows Demo.md)。
 
