@@ -6,7 +6,7 @@
 
 **说明：** SDK允许先推流然后开启外部视频输入，但这种情况下，默认开始推流时，先推送出的是本地原始采集源（摄像头或屏幕捕获）的视频数据，直到启用外部输入。
 
-1.  调用[registerVideoRawDataInterface](/cn.zh-CN/SDK参考/Android SDK/AliRtcEngine接口.md)注册外部视频接口回调。
+1.  调用[registerVideoRawDataInterface](/cn.zh-CN/SDK参考/Android SDK/Android SDK（v1.17）/AliRtcEngine接口.md)注册外部视频接口回调。
 
     ```
     //获取AliRtcEngine实例
@@ -33,13 +33,13 @@
 
     |参数|说明|
     |--|--|
-    |MediaStatesVideoFormat|数据类型，目前默认AndroidYUV数据返回NV21|
-    |width|视频流宽|
-    |height|视频流高|
-    |rotation|视频流角度|
-    |video\_frame\_length|数据buffer长度|
-    |lineSize|yuv数据数组，具体使用请参见下文示例|
-    |frame|buffer数据|
+    |MediaStatesVideoFormat|数据类型，目前默认AndroidYUV数据返回NV21。|
+    |width|视频流宽。|
+    |height|视频流高。|
+    |rotation|视频流角度。|
+    |video\_frame\_length|数据buffer长度。|
+    |lineSize|yuv数据数组，具体使用请参见下文示例。|
+    |frame|buffer数据。|
 
     示例方法如下所示。
 
@@ -113,20 +113,19 @@
         }
     ```
 
-3.  调用[unRegisterVideoRawDataInterface](/cn.zh-CN/SDK参考/Android SDK/AliRtcEngine接口.md)取消注册外部视频接口回调。
+3.  调用[unRegisterVideoRawDataInterface](/cn.zh-CN/SDK参考/Android SDK/Android SDK（v1.17）/AliRtcEngine接口.md)取消注册外部视频接口回调。
 
     ```
-    mAliRtcEngine.unRegisterVideoRawDataInterface(
-                        type);
+    mAliRtcEngine.unRegisterVideoRawDataInterface(type);
     ```
 
 
 ## 输入外部音频流
 
-1.  调用[setExternalAudioSource](/cn.zh-CN/SDK参考/Android SDK/AliRtcEngine接口.md)启用外部音频输入，并调用[setMixedWithMic](/cn.zh-CN/SDK参考/Android SDK/AliRtcEngine接口.md)设置外部音频输入是否与麦克风混合。
+1.  调用[setExternalAudioSource](/cn.zh-CN/SDK参考/Android SDK/Android SDK（v1.17）/AliRtcEngine接口.md)启用外部音频输入，并调用[setMixedWithMic](/cn.zh-CN/SDK参考/Android SDK/Android SDK（v1.17）/AliRtcEngine接口.md)设置外部音频输入是否与麦克风混合。
 
     ```
-    //获取mAliRtcEngine，
+    //获取mAliRtcEngine
     AliRtcEngine  mAliRtcEngine = AliRtcEngine.getInstance(getApplicationContext());
     //设置开启外部音频输入源
     mAliRtcEngine.setExternalAudioSource(true,44100,1);
@@ -134,7 +133,7 @@
     mAliRtcEngine.setMixedWithMic(false);
     ```
 
-2.  调用[pushExternalAudioFrameRawData](/cn.zh-CN/SDK参考/Android SDK/AliRtcEngine接口.md)输入音频数据。
+2.  调用[pushExternalAudioFrameRawData](/cn.zh-CN/SDK参考/Android SDK/Android SDK（v1.17）/AliRtcEngine接口.md)输入音频数据。
 
     **说明：** 如果返回值为17236225，表示当前buffer队列饱和，建议您等待20ms，再继续输送数据。
 
