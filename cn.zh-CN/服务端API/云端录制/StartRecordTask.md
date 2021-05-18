@@ -13,7 +13,7 @@
 |Action|String|是|StartRecordTask|操作接口名，系统规定参数。取值：**StartRecordTask**。 |
 |AppId|String|是|yourAppId|应用ID。通过控制台创建和查询，仅支持传单个ID。 |
 |ChannelId|String|是|yourChannelId|频道ID。仅支持传单个ID。 |
-|TaskId|String|是|yourTaskId|任务ID。仅支持传单个ID。 |
+|TaskId|String|是|yourTaskId|任务ID。仅支持传单个ID，需保证唯一。由1~55位大小写字母、数字、下划线、短划线（-）组成。 |
 |TemplateId|String|是|76dasgb\*\*\*\*|配置模板ID。 |
 |TaskProfile|String|否|4IN\_1080P|任务计费配置。 |
 |MediaEncode|Integer|否|20|编码选项。 |
