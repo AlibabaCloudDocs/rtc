@@ -15,7 +15,7 @@
 
 ## 操作步骤
 
-1.  集成互动白板SDK，此处以Web SDK 0.0.4版本为例介绍。
+1.  集成互动白板SDK，此处以Web SDK 0.0.5版本为例介绍。
 
     -   JS示例：
 
@@ -28,15 +28,15 @@
           <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
           <meta http-equiv="X-UA-Compatible" content="ie=edge" />
           <title>demo</title>
-          <!-- Web SDK版本：0.0.4 -->
-          <link rel="stylesheet" href="https://g.alicdn.com/alidocs/wb-sdk/0.0.4/universal/index.css">
+          <!-- Web SDK版本：0.0.5 -->
+          <link rel="stylesheet" href="https://g.alicdn.com/alidocs/wb-sdk/0.0.5/universal/index.css">
         </head>
         
         <body>
           <div id="root"></div>
           <script crossorigin src="https://g.alicdn.com/code/lib/babel-polyfill/7.10.4/polyfill.js"></script>
-          <!-- Web SDK版本：0.0.4 -->
-          <script crossorigin src="https://g.alicdn.com/alidocs/wb-sdk/0.0.4/universal/index.js"></script>
+          <!-- Web SDK版本：0.0.5 -->
+          <script crossorigin src="https://g.alicdn.com/alidocs/wb-sdk/0.0.5/universal/index.js"></script>
         </body>
         
         </html>
@@ -56,8 +56,8 @@
           <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
           <meta http-equiv="X-UA-Compatible" content="ie=edge" />
           <title>demo</title>
-          <!-- Web SDK版本：0.0.4 -->
-          <link rel="stylesheet" href="https://g.alicdn.com/alidocs/wb-sdk/0.0.4/umd/index.css">
+          <!-- Web SDK版本：0.0.5 -->
+          <link rel="stylesheet" href="https://g.alicdn.com/alidocs/wb-sdk/0.0.5/umd/index.css">
         </head>
         
         <body>
@@ -65,8 +65,8 @@
           <script crossorigin src="https://g.alicdn.com/code/lib/babel-polyfill/7.10.4/polyfill.js"></script>
           <script crossorigin
             src="//g.alicdn.com/alidocs/static/??react/16.13.1/react.production.min.js,react-dom/16.13.1/react-dom.production.min.js"></script>
-          <!-- Web SDK版本：0.0.4 -->
-          <script crossorigin src="https://g.alicdn.com/alidocs/wb-sdk/0.0.4/umd/index.js"></script>
+          <!-- Web SDK版本：0.0.5 -->
+          <script crossorigin src="https://g.alicdn.com/alidocs/wb-sdk/0.0.5/umd/index.js"></script>
         </body>
         
         </html>
@@ -295,7 +295,7 @@ interface IBrushItem {
     |getScale|aliyunBoard.getScale\(\)|获取当前画板缩放值。|
     |undo|aliyunBoard.undo\(\)|撤销上一步操作。|
     |redo|aliyunBoard.redo\(\)|重做上一步操作。|
-    |setToolType|aliyunBoard.setToolType\("pointer"\)|指针，支持选中图元，并拖动到指定位置。其中AliyunBoardToolType = "pointer"\|"pen"\|"circle"\|"rect"\|"laser"\|"text"\|"eraser"\|"straight"，其他绘画类接口请参见[绘画接口](#li_zc9_lc1_tyq)。|
+    |setToolType|aliyunBoard.setToolType\("pointer"\)|指针，支持选中图元，并拖动到指定位置。其中AliyunBoardToolType = "pointer"\|"pen"\|"circle"\|"rect"\|"laser"\|"text"\|"eraser"\|"straight"\|"triangle"，其他绘画类接口请参见[绘画接口](#li_zc9_lc1_tyq)。|
     |setBackgroundColorByIndex|aliyunBoard.setBackgroundColorByIndex\(index: number, color: string\)|按index设置画布某页的背景色。|
     |setBackgroundColorById|aliyunBoard.setBackgroundColorById\(id: string, color: string\)|按ID设置画布某页的背景色。|
     |getCurrentScene|aliyunBoard.getCurrentScene\(\)|返回白板画布页Scene对象。|
@@ -313,6 +313,7 @@ interface IBrushItem {
     |aliyunBoard.setToolType\("straight"\)|直线绘制，绘制直线样式涂鸦，可设置粗细、颜色。|
     |aliyunBoard.setToolType\("rect"\)|矩形绘制，绘制矩形样式涂鸦，可设置粗细、颜色。|
     |aliyunBoard.setToolType\("circle"\)|椭圆绘制，绘制椭圆样式涂鸦，可设置粗细、颜色。|
+    |aliyunBoard.setToolType\("triangle"\)|三角形绘制，绘制三角形样式涂鸦，可设置粗细、颜色。|
     |setCurrentBrush|aliyunBoard.setCurrentBrush\(brush: IBrushItem\)|设置当前工具属性，可设置线条颜色、粗细，文字字号、字体。    ```
 其中IBrushItem = {
   strokeWidth?: number; // 线条大小
@@ -321,7 +322,7 @@ interface IBrushItem {
   fontSize?: number; // 字号
 }
     ``` |
-    |getCurrentToolType|aliyunBoard.getCurrentToolType\(\)|获取当前工具类型。其中AliyunBoardToolType = "pointer"\|"pen"\|"circle"\|"rect"\|"laser"\|"text"\|"eraser"\|"straight"。|
+    |getCurrentToolType|aliyunBoard.getCurrentToolType\(\)|获取当前工具类型。其中AliyunBoardToolType = "pointer"\|"pen"\|"circle"\|"rect"\|"laser"\|"text"\|"eraser"\|"straight"\|"triangle"。|
     |clearBoard|aliyunBoard.clearBoard\(\)|清空当前页白板。|
     |unSelectAll|aliyunBoard.unSelectAll\(\)|取消形状选中。|
     |setEraserSize|aliyunBoard.setEraserSize\(size: number\)|设置橡皮工具可擦除范围。|
@@ -339,6 +340,7 @@ interface IBrushItem {
  href: string // 图片地址或加签需要的ID
 }
     ``` |
+    |addBackgroundImage|aliyunBoard.addBackgroundImage\(url: string\)|添加背景图片（背景图不可删除和编辑）。|
     |addAttachment|aliyunBoard.addAttachment\(attachment: IAttachment\)|添加附件。目前可添加的附件类型有pdf、mp4、mp3，如果附件预览时涉及权限，则需配合[getPreviewUrl](#entry_q81_hgl_zk3)一起使用。    ```
 其中IAttachment = {
  id?: string, // 附件的ID，不传则自动生成随机ID
