@@ -163,7 +163,7 @@ interface IBrushItem {
 }
     ```
 
-|配置默认画笔属性。例如：配置默认画笔为绿色, 线条粗细为 8；默认形状为黄色，线条粗细为2，代码如下所示：    ```
+|配置默认画笔属性。例如：配置默认画笔为绿色，线条粗细为 8；默认形状为黄色，线条粗细为2，代码如下所示：    ```
 {
     pen: { stroke: "green", strokeWidth: 8 },
     shape: { stroke: "yellow", strokeWidth: 2},
@@ -340,7 +340,7 @@ interface IBrushItem {
  href: string // 图片地址或加签需要的ID
 }
     ``` |
-    |addBackgroundImage|aliyunBoard.addBackgroundImage\(url: string\)|添加背景图片（背景图不可删除和编辑）。|
+    |addBackgroundImage|aliyunBoard.addBackgroundImage\(url: string\)|添加背景图片（背景图不可删除和编辑）。|
     |addAttachment|aliyunBoard.addAttachment\(attachment: IAttachment\)|添加附件。目前可添加的附件类型有pdf、mp4、mp3，如果附件预览时涉及权限，则需配合[getPreviewUrl](#entry_q81_hgl_zk3)一起使用。    ```
 其中IAttachment = {
  id?: string, // 附件的ID，不传则自动生成随机ID
