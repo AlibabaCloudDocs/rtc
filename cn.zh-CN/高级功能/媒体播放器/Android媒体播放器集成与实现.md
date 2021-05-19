@@ -25,7 +25,7 @@
 
 2.  集成阿里云RTC SDK，具体操作，请参见[集成客户端SDK](/cn.zh-CN/快速入门/集成客户端SDK/Android.md)。
 
-    **说明：** 需要集成RTC SDK 1.17.46版本，详情请参见[SDK下载](/cn.zh-CN/SDK参考/SDK下载.md)。
+    **说明：** 需要集成RTC SDK 1.17.48及以上版本，目前暂不支持RTC SDK 2.1版本，详情请参见[SDK下载](/cn.zh-CN/SDK参考/SDK下载.md)。
 
 3.  集成阿里云播放器SDK，具体操作，请参见[Android端集成](/cn.zh-CN/播放器SDK/Android播放器/集成文档.md)。
 
@@ -39,7 +39,7 @@
 
 4.  集成媒体播放器组件。
 
-    1.  下载并解压媒体播放器组件，下载地址，请参见[媒体播放器组件](/cn.zh-CN/SDK参考/SDK下载.mdsection_9a0_e3m_v6o)。
+    1.  下载并解压媒体播放器组件，下载地址，请参见[组件下载](/cn.zh-CN/SDK参考/SDK下载.mdsection_9a0_e3m_v6o)。
 
     2.  复制AliRtcPlayerExtension.aar文件至App模块下的libs文件夹中。
 
