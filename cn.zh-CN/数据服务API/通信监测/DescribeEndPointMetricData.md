@@ -27,8 +27,12 @@ POST /api/call/describeEndPointMetricData HTTP/1.1
 
  **说明：** 如果传入的频道释放时间超过真实的释放时间，将返回从创建时间开始到真实释放时间之间的数据，且最多返回最近3个小时的数据。 |
 |SubUserId|String|Query|否|testsubuserid|订阅端用户ID。 |
-|PubUserId|String|Query|否|c906531af5f9\*\*\*\*|发布端用户ID。 |
-|PubCallIdList|String|Query|否|testcall1,testcall2|发布端用户通信流的Call ID，多个用英文逗号（,）分隔。 |
+|PubUserId|String|Query|否|c906531af5f9\*\*\*\*|发布端用户ID。
+
+ **说明：** PubUserId和PubCallIdList参数只能二选一输入。 |
+|PubCallIdList|String|Query|否|testcall1,testcall2|发布端用户通信流的Call ID，多个用英文逗号（,）分隔。
+
+ **说明：** PubUserId和PubCallIdList参数只能二选一输入。 |
 |Metrics|String|Query|是|APP\_CPU,SYSTEM\_CPU|指标枚举列表，多个用英文逗号（,）分隔。 |
 
 指标如下所示：
