@@ -34,7 +34,7 @@ POST /api/call/describeCall HTTP/1.1
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
-|CallInfo|object| |通信基本信息。 |
+|CallInfo|Object| |通信基本信息。 |
 |AppId|String|pdtk\*\*\*\*|App ID。 |
 |ChannelId|String|1230|频道ID。 |
 |CallStatus|String|OUT|通信状态。取值：
@@ -67,15 +67,15 @@ POST /api/call/describeCall HTTP/1.1
 
  -   **GOOD**：优良。
 -   **BAD**：欠佳。 |
-|DurMetricStatData|object| |时长统计数据。 |
+|DurMetricStatData|Object| |时长统计数据。 |
 |PubAudio|Long|0|发布音频时长，单位：秒。 |
 |SubAudio|Long|0|订阅音频时长，单位：秒。 |
 |PubVideo360|Long|0|发布360P视频时长，单位：秒。 |
-|SubVideo360|Long|0|订阅360P视频时长时长，单位：秒。 |
-|PubVideo720|Long|0|发布720P视频时长时长，单位：秒。 |
-|SubVideo720|Long|0|订阅720P视频时长时长，单位：秒。 |
-|PubVideo1080|Long|0|发布1080P视频时长时长，单位：秒。 |
-|SubVideo1080|Long|0|订阅1080P视频时长时长，单位：秒。 |
+|SubVideo360|Long|0|订阅360P视频时长，单位：秒。 |
+|PubVideo720|Long|0|发布720P视频时长，单位：秒。 |
+|SubVideo720|Long|0|订阅720P视频时长，单位：秒。 |
+|PubVideo1080|Long|0|发布1080P视频时长，单位：秒。 |
+|SubVideo1080|Long|0|订阅1080P视频时长，单位：秒。 |
 |PubVideoScreenShare|Long|0|发布屏幕共享时长，单位：秒。 |
 |SubVideoScreenShare|Long|0|订阅屏幕共享时长，单位：秒。 |
 |RequestId|String|EC4960AA-A407-4853-975E-D68F253E18FF|请求ID。 |
