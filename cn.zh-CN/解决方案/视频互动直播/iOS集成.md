@@ -56,7 +56,7 @@
 
     ![导入源码](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/6934688061/p204988.png)
 
-4.  选择运行Target为RTCSolution，将一台iOS设备设备使用数据线与电脑链接，在**Xcode**中选择相应的设备，设备在设置中打开开发者模式。（暂不支持模拟器运行）
+4.  选择运行Target为RTCSolution，将一台iOS设备使用数据线与电脑链接，在**Xcode**中选择相应的设备，设备在设置中打开开发者模式。（暂不支持模拟器运行）
 
     ![Target选择](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/6934688061/p204987.png)
 
