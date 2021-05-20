@@ -303,7 +303,7 @@ keyword: [Windows SDK, AliEngine]
 
     |名称|类型|描述|
     |--|--|--|
-    |comp|bool|是否兼容H5。取值：     -   true：兼容H5。
+    |comp|bool|是否兼容H5。取值：    -   true：兼容H5。
     -   false（默认值）：不兼容H5。 |
 
     **说明：** 当前版本不支持在创建AliEngine实例之后更改H5兼容模式，必须在创建实例之前就调用此方法。
@@ -516,7 +516,7 @@ keyword: [Windows SDK, AliEngine]
 
     |名称|类型|描述|
     |--|--|--|
-    |enable|bool|是否允许推视频流。取值：     -   true（默认值）：允许推视频流。
+    |enable|bool|是否允许推视频流。取值：    -   true（默认值）：允许推视频流。
     -   false：不允许推视频流。 |
 
 -   IsLocalVideoStreamPublished：查询当前是否允许推视频流。
@@ -549,7 +549,7 @@ keyword: [Windows SDK, AliEngine]
 
     |名称|类型|描述|
     |--|--|--|
-    |enable|bool|是否允许推音频流。取值：     -   true（默认值）：允许推音频流。
+    |enable|bool|是否允许推音频流。取值：    -   true（默认值）：允许推音频流。
     -   false：不允许推音频流。 |
 
     返回说明
@@ -576,7 +576,7 @@ keyword: [Windows SDK, AliEngine]
 
     |名称|类型|描述|
     |--|--|--|
-    |enable|bool|是否允许推次要视频流。取值：     -   true（默认值）：允许推次要视频流。
+    |enable|bool|是否允许推次要视频流。取值：    -   true（默认值）：允许推次要视频流。
     -   false：不允许推次要视频流。 |
 
     返回说明
@@ -801,14 +801,14 @@ keyword: [Windows SDK, AliEngine]
 
     |名称|类型|描述|
     |--|--|--|
-    |enable|bool|禁用或重新启用本地视频采集。取值：     -   true（默认值）：重新启用视频采集。
+    |enable|bool|禁用或重新启用本地视频采集。取值：    -   true（默认值）：重新启用视频采集。
     -   false：停止视频采集。 |
 
     返回说明
 
     0表示方法调用成功，其他表示方法调用失败。
 
--   MuteLocalCamera：停止或恢复本地视频数据数据发送。
+-   MuteLocalCamera：停止或恢复本地视频数据发送。
 
     ```
     int MuteLocalCamera(bool mute, AliEngineVideoTrack track);
@@ -818,7 +818,7 @@ keyword: [Windows SDK, AliEngine]
 
     |名称|类型|描述|
     |--|--|--|
-    |mute|bool|停止或恢复推视频流。取值：     -   true：停止推视频流。
+    |mute|bool|停止或恢复推视频流。取值：    -   true：停止推视频流。
     -   false（默认值）：恢复推视频流。 |
     |track|[AliEngineVideoTrack](/cn.zh-CN/SDK参考/Windows SDK/数据类型.md)|需要改变推流状态的视频流类型。|
 
@@ -838,7 +838,7 @@ keyword: [Windows SDK, AliEngine]
 
     |名称|类型|描述|
     |--|--|--|
-    |mute|bool|停止或恢复渲染。取值：     -   true：停止渲染，所有视频为黑帧。
+    |mute|bool|停止或恢复渲染。取值：    -   true：停止渲染，所有视频为黑帧。
     -   false（默认值）：恢复渲染。 |
 
     返回说明
@@ -999,7 +999,7 @@ keyword: [Windows SDK, AliEngine]
 
     |名称|类型|描述|
     |--|--|--|
-    |enable|bool|是否启用基础美颜。取值：     -   true：开启。
+    |enable|bool|是否启用基础美颜。取值：    -   true：开启。
     -   false（默认值）：关闭。 |
     |config|const [AliEngineBeautyConfig](/cn.zh-CN/SDK参考/Windows SDK/数据类型.md) &|基础美颜参数。|
 
@@ -1200,7 +1200,7 @@ keyword: [Windows SDK, AliEngine]
 
     |名称|类型|描述|
     |--|--|--|
-    |enable|bool|是否开启摄像头人脸对焦。取值：     -   true：开启。
+    |enable|bool|是否开启摄像头人脸对焦。取值：    -   true：开启。
     -   false：关闭。 |
 
     返回说明
@@ -1377,7 +1377,7 @@ keyword: [Windows SDK, AliEngine]
 
     |名称|类型|描述|
     |--|--|--|
-    |audioOnly|bool|音频模式或音视频模式。取值：     -   true：只有音频推流和拉流。
+    |audioOnly|bool|音频模式或音视频模式。取值：    -   true：只有音频推流和拉流。
     -   false：音视频推流和拉流。 |
 
     返回说明
@@ -1404,7 +1404,7 @@ keyword: [Windows SDK, AliEngine]
 
     |名称|类型|描述|
     |--|--|--|
-    |mute|bool|停止或恢复本地音频数据发送。取值：     -   true：本地音频发送静音帧。
+    |mute|bool|停止或恢复本地音频数据发送。取值：    -   true：本地音频发送静音帧。
     -   false：恢复正常。 |
     |mode|[AliEngineMuteLocalAudioMode](/cn.zh-CN/SDK参考/Windows SDK/数据类型.md)|静音模式，默认麦克风静音模式。|
 
@@ -1425,7 +1425,7 @@ keyword: [Windows SDK, AliEngine]
     |名称|类型|描述|
     |--|--|--|
     |uid|const char \*|用户ID。|
-    |bool|mute|停止或恢复远端的音频播放。取值：     -   true：停止播放。
+    |bool|mute|停止或恢复远端的音频播放。取值：    -   true：停止播放。
     -   false：恢复播放。 |
 
     返回说明
@@ -1442,7 +1442,7 @@ keyword: [Windows SDK, AliEngine]
 
     |名称|类型|描述|
     |--|--|--|
-    |mute|bool|停止或恢复远端所有的音频播放。取值：     -   true：停止播放。
+    |mute|bool|停止或恢复远端所有的音频播放。取值：    -   true：停止播放。
     -   false：恢复播放。 |
 
     返回说明
@@ -1516,7 +1516,7 @@ keyword: [Windows SDK, AliEngine]
 
     |名称|类型|描述|
     |--|--|--|
-    |defaultToSpeakerphone|bool|默认音频输出为听筒或扬声器。取值：     -   true（默认值）：扬声器模式。
+    |defaultToSpeakerphone|bool|默认音频输出为听筒或扬声器。取值：    -   true（默认值）：扬声器模式。
     -   false：听筒模式。 |
 
     返回说明
@@ -1533,7 +1533,7 @@ keyword: [Windows SDK, AliEngine]
 
     |名称|类型|描述|
     |--|--|--|
-    |enable|bool|音频输出为听筒或扬声器。取值：     -   true：扬声器模式。
+    |enable|bool|音频输出为听筒或扬声器。取值：    -   true：扬声器模式。
     -   false（默认值）：听筒模式。 |
 
     返回说明
@@ -1594,7 +1594,7 @@ keyword: [Windows SDK, AliEngine]
     |--|--|--|
     |interval|int|时间间隔，单位为毫秒，最小值不得小于10ms，建议设置300~500ms；小于等于0表示不启用音量提示和说话人提示功能。|
     |smooth|int|平滑系数，数值越大平滑程度越高，反之越低，实时性越好，取值范围：\[0,9\]，建议设置3。|
-    |reportVad|int|说话人检测开关。取值：     -   0：关闭。
+    |reportVad|int|说话人检测开关。取值：    -   0：关闭。
     -   1：开启，通过onAudioVolumeCallback接口回调每一个说话人的状态。 |
 
     返回说明
@@ -1644,7 +1644,7 @@ keyword: [Windows SDK, AliEngine]
 
     |名称|类型|描述|
     |--|--|--|
-    |enable|bool|是否开启本地音频流量控制。取值：     -   true：开启。
+    |enable|bool|是否开启本地音频流量控制。取值：    -   true：开启。
     -   false：关闭。 |
 
     返回说明
@@ -1663,7 +1663,7 @@ keyword: [Windows SDK, AliEngine]
 
     |名称|类型|描述|
     |--|--|--|
-    |enable|bool|是否开启本地音频流量控制。取值：     -   true：开启。
+    |enable|bool|是否开启本地音频流量控制。取值：    -   true：开启。
     -   false：关闭。 |
 
     返回说明
@@ -2172,7 +2172,7 @@ keyword: [Windows SDK, AliEngine]
 
     |名称|类型|描述|
     |--|--|--|
-    |enable|bool|是否开启系统声音采集推送。取值：     -   true：开启。
+    |enable|bool|是否开启系统声音采集推送。取值：    -   true：开启。
     -   false：关闭。 |
 
     返回说明
@@ -2705,7 +2705,7 @@ keyword: [Windows SDK, AliEngine]
 
     |名称|类型|描述|
     |--|--|--|
-    |enable|bool|是否启用外部视频输入源。取值：     -   true：开启。
+    |enable|bool|是否启用外部视频输入源。取值：    -   true：开启。
     -   false：关闭。 |
     |useTexture|bool|是否使用texture模式。|
     |type|[AliEngineVideoTrack](/cn.zh-CN/SDK参考/Windows SDK/数据类型.md)|流类型。|
@@ -2742,7 +2742,7 @@ keyword: [Windows SDK, AliEngine]
 
     |名称|类型|描述|
     |--|--|--|
-    |enable|bool|是否启用外部音频输入源。取值：     -   true：开启。
+    |enable|bool|是否启用外部音频输入源。取值：    -   true：开启。
     -   false：关闭。 |
     |sampleRate|unsigned int|采样率，例如16000Hz、48000Hz等。|
     |channelsPerFrame|unsigned int|声道数，例如1或2。|
@@ -2805,7 +2805,7 @@ keyword: [Windows SDK, AliEngine]
 
     |名称|类型|描述|
     |--|--|--|
-    |mixed|bool|是否与麦克风采集音频混合。取值：     -   true：混音。
+    |mixed|bool|是否与麦克风采集音频混合。取值：    -   true：混音。
     -   false：完全替换麦克风采集数据。 |
 
     返回说明
@@ -2822,7 +2822,7 @@ keyword: [Windows SDK, AliEngine]
 
     |名称|类型|描述|
     |--|--|--|
-    |enable|bool|是否启用外部输入音频播放。取值：     -   true：开启。
+    |enable|bool|是否启用外部输入音频播放。取值：    -   true：开启。
     -   false：关闭。 |
     |sampleRate|unsigned int|采样率，例如16kHz、48kHz等。|
     |channelsPerFrame|unsigned int|声道数，例如1或2。|
