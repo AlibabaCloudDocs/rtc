@@ -478,7 +478,7 @@
 
         ```
             /**
-             * 登陆回调
+             * 登录回调
              *
              * @param result 状态码
              * @param uid 自己的uid
