@@ -66,7 +66,7 @@ keyword: [iOS SDK, Mac SDK, AliRtcEngine]
 |[setCameraCapturerConfiguration](#li_032)|设置摄像头采集偏好。|2.1|
 |[setDeviceOrientationMode](#li_033)|设置设备方向（仅iOS）。|2.1|
 |[enableLocalVideo](#li_034)|禁用或重新启用本地视频采集。|2.1|
-|[muteLocalCamera](#li_035)|停止或恢复本地视频数据数据发送。|1.1|
+|[muteLocalCamera](#li_035)|停止或恢复本地视频数据发送。|1.1|
 |[muteAllRemoteVideoRendering](#li_036)|停止或恢复远端所有的视频渲染（仅iOS）。|2.1|
 |[setRemoteViewConfig](#li_037)|为远端的视频设置渲染窗口以及绘制参数。|1.1|
 |[isCameraOn](#li_038)|检查摄像头是否打开。|1.1|
@@ -786,7 +786,7 @@ keyword: [iOS SDK, Mac SDK, AliRtcEngine]
 
     0表示方法调用成功，其他表示方法调用失败。
 
--   muteLocalCamera：停止或恢复本地视频数据数据发送。
+-   muteLocalCamera：停止或恢复本地视频数据发送。
 
     ```
     - (int)muteLocalCamera:(BOOL)mute forTrack:(AliRtcVideoTrack)track;
@@ -1327,7 +1327,7 @@ keyword: [iOS SDK, Mac SDK, AliRtcEngine]
     |--|--|--|
     |interval|NSInteger|时间间隔，单位为毫秒，最小值不得小于10ms，建议设置300~500ms，小于等于0表示不启用音量提示和说话人提示功能。|
     |smooth|NSInteger|平滑系数，取值范围：\[0,9\]，数值越大平滑程度越高，反之越低，实时性越好，建议设置3。|
-    |reportVad|NSInteger|说话人检测开关，取值：     -   1：开启，通过[onAudioVolumeCallback](/cn.zh-CN/SDK参考/iOS和Mac SDK/回调及监听.md)接口回调每一个说话人的状态。
+    |reportVad|NSInteger|说话人检测开关，取值：    -   1：开启，通过[onAudioVolumeCallback](/cn.zh-CN/SDK参考/iOS和Mac SDK/回调及监听.md)接口回调每一个说话人的状态。
     -   0：关闭。 |
 
     返回说明
@@ -2335,7 +2335,7 @@ keyword: [iOS SDK, Mac SDK, AliRtcEngine]
 
     YES表示在线，NO表示离线。
 
--   getSdkVersion：获取SKD版本号。
+-   getSdkVersion：获取SDK版本号。
 
     ```
     + (NSString *_Nonnull)getSdkVersion;
