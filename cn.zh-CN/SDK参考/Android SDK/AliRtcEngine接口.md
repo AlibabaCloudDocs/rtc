@@ -248,9 +248,9 @@ keyword: [AliRtcEngine, Android]
 
     |参数|类型|描述|
     |--|--|--|
-    |enable|int|设置是否兼容H5，取值：     -   0：不兼容H5。
+    |enable|int|设置是否兼容H5，取值：    -   0：不兼容H5。
     -   1：兼容H5。
- 默认值为0。|
+默认值为0。|
 
     **说明：** 当前版本不支持在创建AliRtcEngine实例之后更改H5兼容模式，必须在创建实例之前就调用此接口。
 
@@ -469,9 +469,9 @@ keyword: [AliRtcEngine, Android]
 
     |参数|类型|描述|
     |--|--|--|
-    |enable|boolean|是否发布相机流，取值：     -   true：发布相机流。
+    |enable|boolean|是否发布相机流，取值：    -   true：发布相机流。
     -   false：不发布相机流。
- 默认值为true。|
+默认值为true。|
 
 -   isLocalVideoStreamPublished：查询当前是否发布相机流。
 
@@ -503,9 +503,9 @@ keyword: [AliRtcEngine, Android]
 
     |参数|类型|描述|
     |--|--|--|
-    |enable|boolean|是否发布音频流，取值：     -   true：发布音频流。
+    |enable|boolean|是否发布音频流，取值：    -   true：发布音频流。
     -   false：不发布音频流。
- 默认值为true。|
+默认值为true。|
 
     返回说明
 
@@ -531,9 +531,9 @@ keyword: [AliRtcEngine, Android]
 
     |参数|类型|描述|
     |--|--|--|
-    |enable|boolean|是否发布次要视频流，取值：     -   true：发布次要视频流。
+    |enable|boolean|是否发布次要视频流，取值：    -   true：发布次要视频流。
     -   false：不发布次要视频流。
- 默认值为false。|
+默认值为false。|
 
     返回说明
 
@@ -592,9 +592,9 @@ keyword: [AliRtcEngine, Android]
 
     |参数|类型|描述|
     |--|--|--|
-    |sub|boolean|是否默认接收音频流，取值：     -   true：默认接收音频流。
+    |sub|boolean|是否默认接收音频流，取值：    -   true：默认接收音频流。
     -   false：默认不接收音频流。
- 默认值为true。|
+默认值为true。|
 
     返回说明
 
@@ -610,9 +610,9 @@ keyword: [AliRtcEngine, Android]
 
     |参数|类型|描述|
     |--|--|--|
-    |sub|boolean|是否接收所有远端音频流，取值：     -   true：接收所有远端音频流。
+    |sub|boolean|是否接收所有远端音频流，取值：    -   true：接收所有远端音频流。
     -   false：不接收所有远端音频流。
- 默认值为true。|
+默认值为true。|
 
     返回说明
 
@@ -629,9 +629,9 @@ keyword: [AliRtcEngine, Android]
     |参数|类型|描述|
     |--|--|--|
     |uid|String|远端用户ID。|
-    |sub|boolean|停止或恢复特定远端用户的音频流拉取，取值：     -   true：恢复。
+    |sub|boolean|停止或恢复特定远端用户的音频流拉取，取值：    -   true：恢复。
     -   false：停止。
- 默认值为true。|
+默认值为true。|
 
     返回说明
 
@@ -647,9 +647,9 @@ keyword: [AliRtcEngine, Android]
 
     |参数|类型|描述|
     |--|--|--|
-    |sub|boolean|是否默认接收视频流，取值：     -   true：默认接收。
+    |sub|boolean|是否默认接收视频流，取值：    -   true：默认接收。
     -   false：默认不接收。
- 默认值为true。|
+默认值为true。|
 
     返回说明
 
@@ -665,9 +665,9 @@ keyword: [AliRtcEngine, Android]
 
     |参数|类型|描述|
     |--|--|--|
-    |sub|boolean|停止或恢复接收所有远端视频流，取值：     -   true：恢复。
+    |sub|boolean|停止或恢复接收所有远端视频流，取值：    -   true：恢复。
     -   false：停止。
- 默认值为true。|
+默认值为true。|
 
     返回说明
 
@@ -685,9 +685,9 @@ keyword: [AliRtcEngine, Android]
     |--|--|--|
     |uid|Srring|远端用户ID。|
     |track|[AliRtcVideoTrack](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)|视频流类型。|
-    |sub|boolean|停止或恢复特定远端用户的视频流拉取，取值：     -   true：恢复。
+    |sub|boolean|停止或恢复特定远端用户的视频流拉取，取值：    -   true：恢复。
     -   false：停止。
- 默认值为true。|
+默认值为true。|
 
     返回说明
 
@@ -794,15 +794,15 @@ keyword: [AliRtcEngine, Android]
 
     |参数|类型|描述|
     |--|--|--|
-    |enable|boolean|禁用或重新启用本地视频采集，取值：     -   true：重新启用。
+    |enable|boolean|禁用或重新启用本地视频采集，取值：    -   true：重新启用。
     -   false：禁用。
- 默认值为true。|
+默认值为true。|
 
     返回说明
 
     0表示方法调用成功，其他表示方法调用失败。
 
--   muteLocalCamera：停止或恢复本地视频数据数据发送。
+-   muteLocalCamera：停止或恢复本地视频数据发送。
 
     ```
     public abstract int muteLocalCamera(boolean mute, AliRtcVideoTrack track);
@@ -812,9 +812,9 @@ keyword: [AliRtcEngine, Android]
 
     |参数|类型|描述|
     |--|--|--|
-    |mute|boolean|停止或恢复本地视频数据数据发送，取值：     -   true：停止。
+    |mute|boolean|停止或恢复本地视频数据发送，取值：    -   true：停止。
     -   false：恢复。
- 默认值为false。|
+默认值为false。|
     |track|[AliRtcVideoTrack](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)|需要改变发布状态的视频流类型。|
 
     返回说明
@@ -835,9 +835,9 @@ keyword: [AliRtcEngine, Android]
 
     |参数|类型|描述|
     |--|--|--|
-    |mute|boolean|停止或恢复远端所有的视频渲染，取值：     -   true：停止渲染，所有视频为黑帧。
+    |mute|boolean|停止或恢复远端所有的视频渲染，取值：    -   true：停止渲染，所有视频为黑帧。
     -   false表示恢复渲染。
- 默认值为false。|
+默认值为false。|
 
     返回说明
 
@@ -915,9 +915,9 @@ keyword: [AliRtcEngine, Android]
 
     |参数|类型|描述|
     |--|--|--|
-    |enable|boolean|是否启用基础美颜，取值：     -   true：开启美颜。
+    |enable|boolean|是否启用基础美颜，取值：    -   true：开启美颜。
     -   false：关闭美颜。
- 默认false。|
+默认false。|
     |config|[AliRtcBeautyConfig](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)|基础美颜参数。|
 
     返回说明
@@ -1035,9 +1035,9 @@ keyword: [AliRtcEngine, Android]
 
     |参数|类型|描述|
     |--|--|--|
-    |flash|boolean|摄像头闪光灯是否打开，取值：     -   true：开启。
+    |flash|boolean|摄像头闪光灯是否打开，取值：    -   true：开启。
     -   false：关闭。
- 默认值为false。|
+默认值为false。|
 
     返回说明
 
@@ -1117,9 +1117,9 @@ keyword: [AliRtcEngine, Android]
 
     |参数|类型|描述|
     |--|--|--|
-    |enable|boolean|是否开启摄像头人脸对焦，取值：     -   true：开启。
+    |enable|boolean|是否开启摄像头人脸对焦，取值：    -   true：开启。
     -   false：关闭。
- 默认值为false。|
+默认值为false。|
 
     返回说明
 
@@ -1173,9 +1173,9 @@ keyword: [AliRtcEngine, Android]
 
     |参数|类型|描述|
     |--|--|--|
-    |audioOnly|boolean|设置音频模式还是音视频模式，取值：     -   true：只有音频推流和拉流。
+    |audioOnly|boolean|设置音频模式还是音视频模式，取值：    -   true：只有音频推流和拉流。
     -   false：音视频都支持。
- 默认值为false。|
+默认值为false。|
 
     返回说明
 
@@ -1201,9 +1201,9 @@ keyword: [AliRtcEngine, Android]
 
     |参数|类型|描述|
     |--|--|--|
-    |mute|boolean|停止或恢复本地音频数据发送，取值：     -   true：本地音频发送静音帧。
+    |mute|boolean|停止或恢复本地音频数据发送，取值：    -   true：本地音频发送静音帧。
     -   false：恢复。
- 默认值为false。|
+默认值为false。|
     |mode|[AliRtcMuteLocalAudioMode](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)|静音模式，默认麦克风静音模式。|
 
     返回说明
@@ -1221,9 +1221,9 @@ keyword: [AliRtcEngine, Android]
     |参数|类型|描述|
     |--|--|--|
     |uid|String|用户ID。|
-    |mute|boolean|停止或恢复远端的音频播放，取值：     -   true：停止播放。
+    |mute|boolean|停止或恢复远端的音频播放，取值：    -   true：停止播放。
     -   false：恢复播放。
- 默认值为false。|
+默认值为false。|
 
     返回说明
 
@@ -1239,9 +1239,9 @@ keyword: [AliRtcEngine, Android]
 
     |参数|类型|描述|
     |--|--|--|
-    |mute|boolean|停止或恢复远端所有的音频播放，取值：     -   true：停止播放。
+    |mute|boolean|停止或恢复远端所有的音频播放，取值：    -   true：停止播放。
     -   false：恢复播放。
- 默认值为false。|
+默认值为false。|
 
     返回说明
 
@@ -1314,9 +1314,9 @@ keyword: [AliRtcEngine, Android]
 
     |参数|类型|描述|
     |--|--|--|
-    |enable|boolean|音频输出为听筒还是扬声器，取值：     -   true：扬声器模式。
+    |enable|boolean|音频输出为听筒还是扬声器，取值：    -   true：扬声器模式。
     -   false：听筒模式。
- 默认值为false。|
+默认值为false。|
 
     返回说明
 
@@ -1376,7 +1376,7 @@ keyword: [AliRtcEngine, Android]
     |--|--|--|
     |interval|int|时间间隔，单位：毫秒，最小值不得小于10ms，建议设置范围：300~500。小于等于0表示不启用音量提示和说话人提示功能。|
     |smooth|int|平滑系数，数值越大平滑程度越高，反之越低，实时性越好，建议设置3，取值范围：\[0,9\]。|
-    |reportVad|int|本地语音检测开关。     -   1：开启，通过[AliRtcAudioVolumeObserver](/cn.zh-CN/SDK参考/Android SDK/回调及监听.md)接口回调。
+    |reportVad|int|本地语音检测开关。    -   1：开启，通过[AliRtcAudioVolumeObserver](/cn.zh-CN/SDK参考/Android SDK/回调及监听.md)接口回调。
     -   0：关闭。 |
 
     返回说明
@@ -1410,9 +1410,9 @@ keyword: [AliRtcEngine, Android]
 
     |参数|类型|描述|
     |--|--|--|
-    |enable|boolean|开启本地音频流量控制，取值：     -   true：开启。
+    |enable|boolean|开启本地音频流量控制，取值：    -   true：开启。
     -   false：关闭。
- 默认值为false。|
+默认值为false。|
 
     返回说明
 
@@ -1428,9 +1428,9 @@ keyword: [AliRtcEngine, Android]
 
     |参数|类型|描述|
     |--|--|--|
-    |enable|boolean|开启本地音频流量控制，取值：     -   true：开启。
+    |enable|boolean|开启本地音频流量控制，取值：    -   true：开启。
     -   false：关闭。
- 默认值为false。|
+默认值为false。|
 
     返回说明
 
@@ -1512,9 +1512,9 @@ keyword: [AliRtcEngine, Android]
     |参数|类型|描述|
     |--|--|--|
     |filePath|String|混音文件路径。|
-    |onlyLocalPlay|boolean|是否仅本地播放，取值：     -   true：仅本地播放。
+    |onlyLocalPlay|boolean|是否仅本地播放，取值：    -   true：仅本地播放。
     -   false：本地播放且推流到远端。 |
-    |replaceMic|boolean|是否替换mic的音频流，     -   true：伴奏音频流替换本地mic音频流。
+    |replaceMic|boolean|是否替换mic的音频流，    -   true：伴奏音频流替换本地mic音频流。
     -   false：伴奏音频流和mic音频流同时推。 |
     |loopCycles|int|循环次数，-1表示一直循环。|
 
@@ -1702,9 +1702,9 @@ keyword: [AliRtcEngine, Android]
     |soundId|int|用户给该音效文件分配的ID。|
     |filePath|String|音效文件路径。|
     |cycles|int|循环次数，-1表示一直循环。|
-    |publish|boolean|是否将音效音频流推到远端，取值：     -   true：将音效音频流推到远端。
+    |publish|boolean|是否将音效音频流推到远端，取值：    -   true：将音效音频流推到远端。
     -   false：不将音效音频流推到远端。
- 默认值为false。|
+默认值为false。|
 
     返回说明
 
@@ -1896,9 +1896,9 @@ keyword: [AliRtcEngine, Android]
 
     |参数|类型|描述|
     |--|--|--|
-    |enable|boolean|是否启用耳返，取值：     -   true：开启耳返。
+    |enable|boolean|是否启用耳返，取值：    -   true：开启耳返。
     -   false：关闭耳返。
- 默认值为false。|
+默认值为false。|
 
     返回说明
 
@@ -2054,12 +2054,12 @@ keyword: [AliRtcEngine, Android]
 
     |参数|类型|描述|
     |--|--|--|
-    |enable|boolean|启用外部视频输入源，取值：     -   true：启用。
+    |enable|boolean|启用外部视频输入源，取值：    -   true：启用。
     -   false：关闭。
- 默认值为false。|
-    |useTexture|boolean|是否使用使用texture模式，取值：     -   true：使用。
+默认值为false。|
+    |useTexture|boolean|是否使用使用texture模式，取值：    -   true：使用。
     -   fase：不使用。
- 默认值为false。|
+默认值为false。|
     |type|[AliRtcVideoTrack](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)|视频流类型。|
     |renderMode|[AliRtcRenderMode](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)|渲染模式。|
 
@@ -2090,9 +2090,9 @@ keyword: [AliRtcEngine, Android]
 
     |参数|类型|描述|
     |--|--|--|
-    |enable|boolean|是否启用外部音频输入源。     -   true：开启。
+    |enable|boolean|是否启用外部音频输入源。    -   true：开启。
     -   false：关闭。
- 默认值为false。|
+默认值为false。|
     |sampleRate|int|采样率。|
     |channelsPerFrame|int|声道数，取值1或2。|
 
@@ -2154,9 +2154,9 @@ keyword: [AliRtcEngine, Android]
 
     |参数|类型|描述|
     |--|--|--|
-    |mixed|boolean|是否与麦克风采集音频混合，取值：     -   true：混合。
+    |mixed|boolean|是否与麦克风采集音频混合，取值：    -   true：混合。
     -   false：完全替换麦克风采集数据。
- 默认值为true。|
+默认值为true。|
 
     返回说明
 
@@ -2172,9 +2172,9 @@ keyword: [AliRtcEngine, Android]
 
     |参数|类型|描述|
     |--|--|--|
-    |enable|boolean|是否启用外部输入音频播放，取值：     -   true：开启。
+    |enable|boolean|是否启用外部输入音频播放，取值：    -   true：开启。
     -   false：关闭。
- 默认值为false。|
+默认值为false。|
     |sampleRate|int|采样率。|
     |channelsPerFrame|int|声道数，取值1或2。|
 
