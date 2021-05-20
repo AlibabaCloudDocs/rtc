@@ -30,7 +30,12 @@
 |OssFilePrefix|String|是|record/\{AppId\}/\{ChannelId\_TaskId\}/\{EscapedStartTime\}\_\{EscapedEndTime\}|录制文件命名规则。
 
  **说明：** 为确保录制的文件名称唯一，目前录制文件的命名规则为record/\{AppId\}/\{ChannelId\_TaskId\}/\{EscapedStartTime\}\_\{EscapedEndTime\}。 |
-|TaskProfile|String|是|4IN\_1080P|任务计费配置，根据您的不同设置，进行收费。请参见下文中的TaskProfile枚举值。 |
+|TaskProfile|String|是|4IN\_1080P|任务计费配置，根据您的不同设置，进行收费。请参见下文中的TaskProfile枚举值。
+
+ **说明：**
+
+-   编码选项MediaEncode的分辨率需要小于等于TaskProfile的分辨率。
+-   布局最大窗格数需要小于等于TaskProfile的输入路数。 |
 |BackgroundColor|Integer|否|0|背景色RGB。默认是0（黑色）。计算公式为R+G×256+B×65536，R（红）、G（绿）、B（蓝）的取值：**0~255**。 |
 |DelayStopTime|Integer|否|180|延时停止录制的时间。单位：秒。默认值为**180**秒。 |
 |MnsQueue|String|否|record-callback-queue|录制事件回调消息队列。
