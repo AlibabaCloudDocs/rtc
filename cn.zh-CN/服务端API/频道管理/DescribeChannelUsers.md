@@ -22,7 +22,7 @@
 
  -   1：Communication（通信模式）。
 -   2：Interactive\_live（直播模式）。 |
-|CommTotalNum|Integer|100|通信模式下频道内的的用户总数，如果频道是其他模式，该参数为0。 |
+|CommTotalNum|Integer|100|通信模式下频道内的用户总数，如果频道是其他模式，该参数为0。 |
 |InteractiveUserList|List|\["4455\*\*\*\*", "3267\*\*\*\*", "efbc\*\*\*\*"\]|直播模式下频道内的互动者用户列表，频道是其他模式时，该参数为空。 |
 |InteractiveUserNum|Integer|0|直播模式下频道内的互动者用户总数，如果频道是其他模式，该参数为0。 |
 |IsChannelExist|Boolean|true|频道是否存在，取值：true\|false。 |
@@ -45,7 +45,7 @@ https://rtc.aliyuncs.com/?Action=DescribeChannelUsers
 
 正常返回示例
 
-`XML` 格式
+`XML`格式
 
 ```
 <DescribeChannelUsersResponse>
@@ -62,7 +62,7 @@ https://rtc.aliyuncs.com/?Action=DescribeChannelUsers
 </DescribeChannelUsersResponse>
 ```
 
-`JSON` 格式
+`JSON`格式
 
 ```
 {
