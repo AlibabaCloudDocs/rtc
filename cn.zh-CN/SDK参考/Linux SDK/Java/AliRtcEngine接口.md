@@ -72,7 +72,7 @@
 |[stop](#li_4zv_ejz_kfx)|停止播放。|1.18.1|
 |[pause](#li_y0w_ob4_w6n)|暂停播放。|1.18.1|
 |[resume](#li_nlx_s1w_kpr)|恢复播放。|1.18.1|
-|[seekTo]()|跳转播放。|1.18.1|
+|[seekTo](#li_76a_hxg_kgr)|跳转播放。|1.18.1|
 |[setVideoSource](#li_ptj_b6e_oec)|设置播放器的视频数据是否推流。|1.18.1|
 |[enableAudioSource](#li_da7_ltl_xxv)|设置播放器的音频数据是否推流。|1.18.1|
 |[setVolume](#li_f52_kaz_o1s)|设置播放器的音量（影响推流出去的音量）。|1.18.1|
