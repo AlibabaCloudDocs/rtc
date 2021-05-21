@@ -2057,7 +2057,7 @@ keyword: [AliRtcEngine, Android]
     |enable|boolean|启用外部视频输入源，取值：    -   true：启用。
     -   false：关闭。
 默认值为false。|
-    |useTexture|boolean|是否使用使用texture模式，取值：    -   true：使用。
+    |useTexture|boolean|是否使用texture模式，取值：    -   true：使用。
     -   fase：不使用。
 默认值为false。|
     |type|[AliRtcVideoTrack](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)|视频流类型。|
