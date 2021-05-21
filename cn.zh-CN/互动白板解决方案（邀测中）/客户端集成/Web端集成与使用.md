@@ -174,7 +174,7 @@ interface IBrushItem {
     |defaultToolType|AliyunBoardToolType|配置默认工具项。|
     |fitMode|number|画布初始时的自适应模式，取值：    -   0：无自适应。
     -   1（默认）：宽度自适应。
-    -   2：宽高自适应 |
+    -   2：高度自适应 |
     |syncCursor|boolean|是否同步鼠标，取值：    -   true：同步。
     -   false（默认）：不同步。 |
     |eraserSize|number|默认橡皮可擦范围大小，可擦区域为正方形，默认值为20像素。|
@@ -355,7 +355,7 @@ interface IBrushItem {
 **说明：** 目前仅支持pdf。 |
     |getPreviewData|aliyunBoard.getPreviewData\(index?:number\)|获取序号为index的白板页image对象，如果不传，则返回所有页的image对象列表。返回值：Image\[\] \| Image。**说明：** 仅支持Web端，暂不支持Native端调用。 |
     |setPinchable|aliyunBoard.setPinchable\(true:boolean\)|设置是否开启移动端手势缩放。|
-    |getPinchable|aliyunBoard.setPinchable\(true:boolean\)|返回是否开启了移动端手势缩放。|
+    |getPinchable|aliyunBoard.getPinchable\(true:boolean\)|返回是否开启了移动端手势缩放。|
 
 -   事件监听接口
 
