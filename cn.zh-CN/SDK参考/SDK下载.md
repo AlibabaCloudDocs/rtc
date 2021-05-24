@@ -112,14 +112,3 @@ Maven依赖：
 
 com.aliyun.rtc:AliRTC:1.17.48.21051715055011 |
 
-## 组件下载
-
-|组件名称|客户端|下载地址|
-|----|---|----|
-|媒体播放器|Android|下载地址：
-
-[V1.0](https://alivc-demo-cms.alicdn.com/versionProduct/sourceCode/rtc/player_extention/AliRtcPlayerExtension_1.0(Android).zip) |
-|iOS|下载地址：
-
-[V1.0](https://alivc-demo-cms.alicdn.com/versionProduct/sourceCode/rtc/player_extention/AliRtcPlayerExtension_1.0(iOS).zip) |
-
