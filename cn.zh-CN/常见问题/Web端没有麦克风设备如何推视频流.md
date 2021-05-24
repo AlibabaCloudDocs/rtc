@@ -1,6 +1,6 @@
 # Web端没有麦克风设备如何推视频流
 
-通过阅读本文，您可以了解到当Web端没有麦克风时，设备推视频流的方法。
+通过阅读本文，您可以了解到当Web端没有麦克风时设备推视频流的方法。
 
 1.  设置纯订阅模式跳过isSupport设备检测。
 
@@ -14,12 +14,14 @@
 
 2.  获取audiotrack，设置外部输入`setExternalMediaTrack`替换音频流。
 
-    可通过audio、video或canvas播放音频或视频，使用`captureStream`方法获取mediaStream，然后调用`mediaStream.getAudioTracks()`获取音频列表，再获取其中某一个audiotrack。最后设置外部输入`setExternalMediaTrack`替换音频流。
-
     ```
+    //获取mediaStream
     let mediaStream = video.captureStream(); // video为播放视频的media标签
+    //获取音频列表
     let audiotracks = mediaStream && mediaStream.getAudioTracks()
+    //获取其中某一个audiotrack
     let audiotrack = (audiotracks && audiotracks.length) ? audiotracks[0]
+    //置外部输入替换音频流
     aliWebrtc.setExternalMediaTrack(audiotrack, 0);
     ```
 
