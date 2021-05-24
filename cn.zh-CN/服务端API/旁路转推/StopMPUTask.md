@@ -2,9 +2,7 @@
 
 调用StopMPUTask停止任务。
 
-**调用该接口前，请您注意：**
-
-在需要停止旁路直播任务时，您可以主动调用StopMPUTask接口。在异常未调用StopMPUTask的情况下，本次旁路直播任务会在频道中最后一个人离开频道2分钟后自动停止任务。停止后如需恢复旁路直播，您需要重新调用StartMPUTask接口。
+**说明：** 在需要停止旁路直播任务时，您可以主动调用StopMPUTask接口。如果异常未调用StopMPUTask，本次旁路直播任务会在频道中最后一个人离开频道2分钟后自动停止任务。停止后如果需要恢复旁路直播，您需要重新调用StartMPUTask接口。
 
 ## 调试
 
@@ -17,8 +15,8 @@
 |Action|String|是|StopMPUTask|操作接口名，系统规定参数，取值：**StopMPUTask**。 |
 |AppId|String|是|yourAppId|应用ID，仅支持传单个ID。
 
- 您可以在控制台创建和查询。 |
-|TaskId|String|是|yourTaskId|任务ID，仅支持传单个ID，通过[StartMpuTask](~~93183~~)接口设置。 |
+ **说明：** 您可以在[控制台](https://rtc.console.aliyun.com/manage/list#/manage/list)创建和查询。 |
+|TaskId|String|是|yourTaskId|任务ID，仅支持传单个ID，可通过[StartMpuTask](~~93183~~)接口设置。 |
 
 ## 返回数据
 
@@ -39,7 +37,7 @@ https://rtc.aliyuncs.com?Action=StopMPUTask
 
 正常返回示例
 
-`XML` 格式
+`XML`格式
 
 ```
 <StopMPUTaskResponse>
@@ -47,7 +45,7 @@ https://rtc.aliyuncs.com?Action=StopMPUTask
 </StopMPUTaskResponse>
 ```
 
-`JSON` 格式
+`JSON`格式
 
 ```
 {
