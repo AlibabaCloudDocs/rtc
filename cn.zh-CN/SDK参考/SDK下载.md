@@ -6,8 +6,6 @@ keyword: [SDK, 下载]
 
 通过阅读本文，您可以了解RTC SDK的下载方式。
 
-**说明：** 目前RTC SDK支持的语言有Java、Python、PHP、Go、.NET、Node.js。关于如何获取更多语言的SDK，请参见[阿里云开放平台](https://open.aliyun.com/sdk?product=rtc)。
-
 ## 客户端SDK（v2.1）
 
 |客户端|集成SDK|API参考|SDK下载地址|示例代码|
