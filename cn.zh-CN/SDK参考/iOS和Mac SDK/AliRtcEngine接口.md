@@ -361,7 +361,7 @@ keyword: [iOS SDK, Mac SDK, AliRtcEngine]
 
     |名称|类型|描述|
     |--|--|--|
-    |logLevel|AliRtcLogLevel[AliRtcLogLevel](/cn.zh-CN/SDK参考/iOS和Mac SDK/数据类型.md)|Log级别。|
+    |logLevel|[AliRtcLogLevel](/cn.zh-CN/SDK参考/iOS和Mac SDK/数据类型.md)|Log级别。|
 
 -   joinChannel：加入频道。
 
