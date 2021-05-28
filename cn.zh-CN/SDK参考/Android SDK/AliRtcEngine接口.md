@@ -81,7 +81,7 @@ keyword: [AliRtcEngine, Android]
 |[addVideoWatermark](#li_0t3_jmm_py2)|添加水印。|2.1|
 |[clearVideoWatermark](#li_w5q_0ue_lyp)|清理对应数据流水印信息。|2.1|
 |[snapshotVideo](#li_eix_lf1_5t5)|截图。|2.1|
-|[switchCamera](#li_u8j_wps_qpq)|切换前后摄像头。|1.1|
+|[switchCamera](#li_u8j_wps_qpq)|切换前后摄像头（默认为前置摄像头）。|1.1|
 |[getCurrentCameraType](#li_ct1_qya_qa1)|获取当前摄像头方向。|1.1|
 |[setCameraZoom](#li_dp1_mcp_ns8)|设置摄像头缩放比例。|1.1|
 |[setCameraFlash](#li_b5n_1nz_e1b)|设置摄像头闪光灯是否打开。|1.14|
@@ -319,7 +319,7 @@ keyword: [AliRtcEngine, Android]
 
     |参数|类型|描述|
     |--|--|--|
-    |logDirPath|String|日志文件保存绝对路径。默认路径：/sdcard/目录下。|
+    |logDirPath|String|日志文件保存绝对路径。默认路径：/sdcard/Ali\_RTC\_Log目录下。|
 
     返回说明
 
@@ -560,7 +560,7 @@ keyword: [AliRtcEngine, Android]
     |参数|类型|描述|
     |--|--|--|
     |uid|String|远端用户ID。|
-    |streamType|[AliRtcVideoStreamType](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)|相机流格式。|
+    |streamType|[AliRtcVideoStreamType](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)|相机流格式。默认值为AliRtcVideoStreamTypeHigh（大流）。|
 
     返回说明
 
@@ -576,7 +576,7 @@ keyword: [AliRtcEngine, Android]
 
     |参数|类型|描述|
     |--|--|--|
-    |streamType|[AliRtcVideoStreamType](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)|相机流格式。|
+    |streamType|[AliRtcVideoStreamType](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)|相机流格式。默认值为AliRtcVideoStreamTypeHigh（大流）。|
 
     返回说明
 
@@ -727,7 +727,10 @@ keyword: [AliRtcEngine, Android]
 
     |参数|类型|描述|
     |--|--|--|
-    |config|[AliRtcScreenShareEncoderConfiguration](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)|屏幕共享编码属性。|
+    |config|[AliRtcScreenShareEncoderConfiguration](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)|屏幕共享编码属性。默认值：    -   dimensions：\[0,0\]
+    -   frameRate：5
+    -   bitrate：0
+    -   rotation：0 |
 
 -   setLocalViewConfig：为本地预览设置渲染窗口以及绘制参数。
 
@@ -762,7 +765,8 @@ keyword: [AliRtcEngine, Android]
 
     |参数|类型|描述|
     |--|--|--|
-    |cameraCapturerConfiguration|[AliEngineCameraCapturerConfiguration](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)|摄像头采集偏好。|
+    |cameraCapturerConfiguration|[AliEngineCameraCapturerConfiguration](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)|摄像头采集偏好。默认值：    -   preference：0
+    -   cameraDirection：0 |
 
     返回说明
 
@@ -778,7 +782,7 @@ keyword: [AliRtcEngine, Android]
 
     |参数|类型|描述|
     |--|--|--|
-    |mode|[AliRtcOrientationMode](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)|设备方向。|
+    |mode|[AliRtcOrientationMode](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)|设备方向。默认值为AliRtcOrientationModeAuto（自适应横竖屏模式）。|
 
     返回说明
 
@@ -936,7 +940,12 @@ keyword: [AliRtcEngine, Android]
 
     |参数|类型|描述|
     |--|--|--|
-    |config|[AliRtcVideoEncoderConfiguration](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)|预定义的编码属性。|
+    |config|[AliRtcVideoEncoderConfiguration](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)|预定义的编码属性。默认值：    -   dimensions：\[640,480\]
+    -   frameRate：15
+    -   bitrate：0
+    -   mirrorMode：0
+    -   orientationMode：0
+    -   rotation：0 |
 
 -   addVideoWatermark：添加水印。
 
@@ -989,7 +998,7 @@ keyword: [AliRtcEngine, Android]
 
     0表示方法调用成功，其他表示方法调用失败。截图结果通过[onSnapshotComplete](/cn.zh-CN/SDK参考/Android SDK/回调及监听.md)回调返回。
 
--   switchCamera：切换前后摄像头。
+-   switchCamera：切换前后摄像头（默认为前置摄像头）。
 
     ```
     public abstract int switchCamera();
@@ -1019,7 +1028,7 @@ keyword: [AliRtcEngine, Android]
 
     |参数|类型|描述|
     |--|--|--|
-    |zoom|float|zoom的级别。|
+    |zoom|float|zoom的级别。默认值为1.0。|
 
     返回说明
 
@@ -1298,7 +1307,7 @@ keyword: [AliRtcEngine, Android]
     |参数|类型|描述|
     |--|--|--|
     |uid|String|用户ID。|
-    |int|volume|播放音量，取值范围：\[0,100\]。0表示静音，100表示原始音量。|
+    |int|volume|播放音量，取值范围：\[0,100\]。0表示静音，100表示原始音量，默认值为100。|
 
     返回说明
 
@@ -1314,9 +1323,8 @@ keyword: [AliRtcEngine, Android]
 
     |参数|类型|描述|
     |--|--|--|
-    |enable|boolean|音频输出为听筒还是扬声器，取值：    -   true：扬声器模式。
-    -   false：听筒模式。
-默认值为false。|
+    |enable|boolean|音频输出为听筒还是扬声器，取值：    -   true（默认值）：扬声器模式。
+    -   false：听筒模式。 |
 
     返回说明
 
@@ -1342,7 +1350,7 @@ keyword: [AliRtcEngine, Android]
 
     |参数|类型|描述|
     |--|--|--|
-    |volume|int|音量取值范围：\[0,400\]。0表示静音，100表示原始音量。大于100表示放大音量，小于100表示减小音量。|
+    |volume|int|音量取值范围：\[0,400\]。0表示静音，100表示原始音量。大于100表示放大音量，小于100表示减小音量，默认值为100。|
 
     返回说明
 
@@ -1358,7 +1366,7 @@ keyword: [AliRtcEngine, Android]
 
     |参数|类型|描述|
     |--|--|--|
-    |volume|int|音量取值范围：\[0,400\]。0表示静音，100表示原始音量。大于100表示放大音量，小于100表示减小音量。|
+    |volume|int|音量取值范围：\[0,400\]。0表示静音，100表示原始音量。大于100表示放大音量，小于100表示减小音量，默认值为100。|
 
     返回说明
 
@@ -1374,10 +1382,10 @@ keyword: [AliRtcEngine, Android]
 
     |参数|类型|描述|
     |--|--|--|
-    |interval|int|时间间隔，单位：毫秒，最小值不得小于10ms，建议设置范围：300~500。小于等于0表示不启用音量提示和说话人提示功能。|
-    |smooth|int|平滑系数，数值越大平滑程度越高，反之越低，实时性越好，建议设置3，取值范围：\[0,9\]。|
+    |interval|int|时间间隔，单位：毫秒，最小值不得小于10ms，建议设置范围：300~500。小于等于0表示不启用音量提示和说话人提示功能，默认值为300ms。|
+    |smooth|int|平滑系数，数值越大平滑程度越高，反之越低，实时性越好，建议设置3，取值范围：\[0,9\]，默认值为3。|
     |reportVad|int|本地语音检测开关。    -   1：开启，通过[AliRtcAudioVolumeObserver](/cn.zh-CN/SDK参考/Android SDK/回调及监听.md)接口回调。
-    -   0：关闭。 |
+    -   0（默认值）：关闭。 |
 
     返回说明
 
@@ -1393,8 +1401,8 @@ keyword: [AliRtcEngine, Android]
 
     |参数|类型|描述|
     |--|--|--|
-    |profile|int|音频采集或编码模式参数，更多信息，请参见[AliRtcAudioProfile](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)。|
-    |scenario|int|音频场景模式参数，更多信息，请参见[AliRtcAudioScenario](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)。|
+    |profile|int|音频采集或编码模式参数，默认值为AliEngineBasicQualityMode。更多信息，请参见[AliRtcAudioProfile](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)。|
+    |scenario|int|音频场景模式参数，默认值为AliEngineSceneDefaultMode。更多信息，请参见[AliRtcAudioScenario](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)。|
 
     返回说明
 
@@ -1446,7 +1454,7 @@ keyword: [AliRtcEngine, Android]
 
     |参数|类型|描述|
     |--|--|--|
-    |mode|[AliRtcAudioEffectVoiceChangerMode](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)|变声音效模式。|
+    |mode|[AliRtcAudioEffectVoiceChangerMode](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)|变声音效模式，默认值为AliRtcSdk\_AudioEffect\_Voice\_Changer\_OFF（关闭）。|
 
     返回说明
 
@@ -1478,7 +1486,7 @@ keyword: [AliRtcEngine, Android]
 
     |参数|类型|描述|
     |--|--|--|
-    |mode|[AliRtcAudioEffectReverbMode](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)|音效混响模式。|
+    |mode|[AliRtcAudioEffectReverbMode](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)|音效混响模式，默认值为AliRtcAudioEffectReverb\_Off（关闭）。|
 
     返回说明
 
@@ -1542,7 +1550,7 @@ keyword: [AliRtcEngine, Android]
 
     |参数|类型|描述|
     |--|--|--|
-    |volume|int|混音音量，取值范围：0~100。|
+    |volume|int|混音音量，取值范围：0~100，默认值为50。|
 
     返回说明
 
@@ -1558,7 +1566,7 @@ keyword: [AliRtcEngine, Android]
 
     |参数|类型|描述|
     |--|--|--|
-    |volume|int|混音音量，取值范围：0~100。|
+    |volume|int|混音音量，取值范围：0~100，默认值为50。|
 
     返回说明
 
@@ -1584,7 +1592,7 @@ keyword: [AliRtcEngine, Android]
 
     |参数|类型|描述|
     |--|--|--|
-    |volume|int|混音音量，取值范围：0~100。|
+    |volume|int|混音音量，取值范围：0~100，默认值为50。|
 
     返回说明
 
@@ -1747,7 +1755,7 @@ keyword: [AliRtcEngine, Android]
     |参数|类型|描述|
     |--|--|--|
     |soundId|int|用户给该音效文件分配的ID。|
-    |volume|int|混音音量，取值范围：0~100。|
+    |volume|int|混音音量，取值范围：0~100，默认值为50。|
 
     返回说明
 
@@ -1780,7 +1788,7 @@ keyword: [AliRtcEngine, Android]
     |参数|类型|描述|
     |--|--|--|
     |soundId|int|用户给该音效文件分配的ID。|
-    |volume|int|混音音量，取值范围：0~100。|
+    |volume|int|混音音量，取值范围：0~100，默认值为50。|
 
     返回说明
 
@@ -1812,7 +1820,7 @@ keyword: [AliRtcEngine, Android]
 
     |参数|类型|描述|
     |--|--|--|
-    |volume|int|混音音量，取值范围：0~100。|
+    |volume|int|混音音量，取值范围：0~100，默认值为50。|
 
     返回说明
 
@@ -1828,7 +1836,7 @@ keyword: [AliRtcEngine, Android]
 
     |参数|类型|描述|
     |--|--|--|
-    |volume|int|混音音量，取值范围：0~100。|
+    |volume|int|混音音量，取值范围：0~100，默认值为50。|
 
     返回说明
 
@@ -2128,7 +2136,7 @@ keyword: [AliRtcEngine, Android]
 
     |参数|类型|描述|
     |--|--|--|
-    |vol|int|音量，取值范围：0~100。|
+    |vol|int|音量，取值范围：0~100，默认值为50。|
 
     返回说明
 
@@ -2446,7 +2454,7 @@ keyword: [AliRtcEngine, Android]
 
     |参数|类型|描述|
     |--|--|--|
-    |clientRole|[AliRTCSdkClientRole](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)|用户角色类型。|
+    |clientRole|[AliRTCSdkClientRole](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)|用户角色类型，默认值为AliRtcClientRoleInteractive（主播角色）。|
 
     返回说明
 
