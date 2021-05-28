@@ -1,35 +1,15 @@
-H5端如何实现镜像及显示横屏录制的视频 
-========================================
+# 旁路转推纯音频的配置说明
 
-Web SDK本身不提供镜像和横竖屏接口，需要您自己实现。通过阅读本文，您可以了解实现H5端镜像及显示横屏录制视频的方法。
+通过阅读本文，您可以了解通过调用StartMPUTask旁路转推纯音频的设置方法。
 
-H5端镜像 
---------------------------
+## 设置方法
 
-通过给video标签设置css，来实现镜像功能。 
+纯音频模式和音视频模式的旁路转推参数配置类似，区别在于LayoutIds（布局），MediaEncode（编码选项）及TaskProfile（任务计费配置）参数的配置。
 
-    {
-            transform: rotateY(180deg);
-            -webkit-transform: rotateY(180deg);
-            -moz-transform: rotateY(180deg);
-    } 
+纯音频模式以上参数配置说明如下：
 
+-   LayoutIds：根据任务计费配置参数TaskProfile决定，TaskProfile设置为Mixed\_Audio时不限制音频源数量。
+-   MediaEncode：只能设置为0。
 
-
-显示横屏录制的视频 
-------------------------------
-
-在video标签外增加一个div标签，并在div上设置css，来显示远端横屏录制的画面。
-
-    {
-       transform: rotate(90deg);
-       -webkit-transform: rotate(90deg);
-       -moz-transform: rotate(90deg);
-    }
-
-
-
-
-
-
+更多参数说明信息，请参见[StartMPUTask](/cn.zh-CN/服务端API/旁路转推/StartMPUTask.md)。
 
