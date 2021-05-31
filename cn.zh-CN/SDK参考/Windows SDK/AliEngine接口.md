@@ -130,7 +130,7 @@ keyword: [Windows SDK, AliEngine]
 |[IsEnableSpeakerphone](#li_087)|获取当前音频输出为听筒还是扬声器（适用于Android或iOS端）。|2.1|
 |[SetRecordingVolume](#li_088)|设置录音音量。|1.16.2|
 |[SetPlayoutVolume](#li_089)|设置播放音量。|1.16.2|
-|[EnableAudioVolumeIndication](#li_090)|设置音量回调频率和平滑系数。|1.17.9|
+|[EnableAudioVolumeIndication](#li_090)|设置音量回调频率和平滑系数，默认不启用。|1.17.9|
 |[SetAudioProfile](#li_091)|设置音频Profile。|2.1|
 |[SetDeviceVolumeType](#li_092)|设置音量类型（适用于iOS端）。|2.1|
 |[EnableAudioDTX](#li_093)|开启本地音频流量控制（检测语音）。|2.1|
@@ -604,7 +604,7 @@ keyword: [Windows SDK, AliEngine]
     |名称|类型|描述|
     |--|--|--|
     |uid|const char\*|远端用户ID。|
-    |streamType|[AliEngineVideoStreamType](/cn.zh-CN/SDK参考/Windows SDK/数据类型.md)|相机流格式。|
+    |streamType|[AliEngineVideoStreamType](/cn.zh-CN/SDK参考/Windows SDK/数据类型.md)|相机流格式，默认值为AliEngineVideoStreamTypeHigh（大流）。|
 
     返回说明
 
@@ -620,7 +620,7 @@ keyword: [Windows SDK, AliEngine]
 
     |名称|类型|描述|
     |--|--|--|
-    |streamType|[AliEngineVideoStreamType](/cn.zh-CN/SDK参考/Windows SDK/数据类型.md)|相机流格式。|
+    |streamType|[AliEngineVideoStreamType](/cn.zh-CN/SDK参考/Windows SDK/数据类型.md)|相机流格式，默认值为AliEngineVideoStreamTypeHigh（大流）。|
 
     返回说明
 
@@ -636,7 +636,8 @@ keyword: [Windows SDK, AliEngine]
 
     |名称|类型|描述|
     |--|--|--|
-    |sub|bool|是否订阅。|
+    |sub|bool|是否订阅，取值：    -   true（默认值）：订阅用户的音频流。
+    -   false：取消订阅用户的音频流。 |
 
     返回说明
 
@@ -652,7 +653,8 @@ keyword: [Windows SDK, AliEngine]
 
     |名称|类型|描述|
     |--|--|--|
-    |sub|bool|是否订阅。|
+    |sub|bool|是否订阅，取值：    -   true（默认值）：订阅所有远端用户的音频流。
+    -   false：取消订阅所有远端用户的音频流。 |
 
     返回说明
 
@@ -669,7 +671,8 @@ keyword: [Windows SDK, AliEngine]
     |名称|类型|描述|
     |--|--|--|
     |uid|const char\*|远端用户ID。|
-    |sub|bool|是否订阅。|
+    |sub|bool|是否订阅，取值：    -   true（默认值）：订阅指定用户的音频流。
+    -   false：取消订阅指定用户的音频流。 |
 
     返回说明
 
@@ -685,7 +688,8 @@ keyword: [Windows SDK, AliEngine]
 
     |名称|类型|描述|
     |--|--|--|
-    |sub|bool|是否订阅。|
+    |sub|bool|是否订阅，取值：    -   true（默认值）：订阅用户的视频流。
+    -   false：取消订阅用户的视频流。 |
 
     返回说明
 
@@ -701,7 +705,8 @@ keyword: [Windows SDK, AliEngine]
 
     |名称|类型|描述|
     |--|--|--|
-    |sub|bool|是否订阅。|
+    |sub|bool|是否订阅，取值：    -   true（默认值）：订阅所有用户的视频流。
+    -   false：取消订阅所有用户的视频流。 |
 
     返回说明
 
@@ -719,7 +724,8 @@ keyword: [Windows SDK, AliEngine]
     |--|--|--|
     |uid|const char\*|远端用户ID。|
     |track|[AliEngineVideoTrack](/cn.zh-CN/SDK参考/Windows SDK/数据类型.md)|视频流类型。|
-    |sub|bool|是否订阅。|
+    |sub|bool|是否订阅，取值：    -   true（默认值）：订阅指定用户的视频流。
+    -   false：取消订阅指定用户的视频流。 |
 
     返回说明
 
@@ -735,7 +741,10 @@ keyword: [Windows SDK, AliEngine]
 
     |名称|类型|描述|
     |--|--|--|
-    |config|const [AliEngineScreenShareEncoderConfiguration](/cn.zh-CN/SDK参考/Windows SDK/数据类型.md) &|屏幕共享编码属性。|
+    |config|const [AliEngineScreenShareEncoderConfiguration](/cn.zh-CN/SDK参考/Windows SDK/数据类型.md) &|屏幕共享编码属性，默认值：    -   dimensions：\(0,0\)
+    -   frameRate：AliEngineFrameRateFps5
+    -   bitrate：512
+    -   rotationMode：AliEngineRotationMode\_0 |
 
 -   SetLocalViewConfig：为本地预览设置渲染窗口以及绘制参数。
 
@@ -756,7 +765,7 @@ keyword: [Windows SDK, AliEngine]
 
     **说明：**
 
-    -   支持加入频道之前和之后切换窗口。如果canvas中的hWnd为NULL，则停止渲染。
+    -   支持加入频道之前和之后切换窗口。如果canvas中的displayView为NULL，则停止渲染。
     -   如果在播放过程中需要重新设置渲染方式，请保持canvas中其他成员变量不变，仅修改renderMode。
     -   canvas中渲染方式默认为AliEngineRenderModeAuto。
 -   SetCameraCapturerConfiguration：设置摄像头采集偏好。
@@ -769,7 +778,7 @@ keyword: [Windows SDK, AliEngine]
 
     |名称|类型|描述|
     |--|--|--|
-    |config|const [AliEngineCameraCapturerConfiguration](/cn.zh-CN/SDK参考/Windows SDK/数据类型.md) &|采集偏好。|
+    |config|const [AliEngineCameraCapturerConfiguration](/cn.zh-CN/SDK参考/Windows SDK/数据类型.md) &|采集偏好，默认值为AliEngineCaptureOutputPreferenceAuto。|
 
     返回说明
 
@@ -785,7 +794,7 @@ keyword: [Windows SDK, AliEngine]
 
     |名称|类型|描述|
     |--|--|--|
-    |mode|[AliEngineOrientationMode](/cn.zh-CN/SDK参考/Windows SDK/数据类型.md)|设备方向。|
+    |mode|[AliEngineOrientationMode](/cn.zh-CN/SDK参考/Windows SDK/数据类型.md)|设备方向，默认值为AliEngineOrientationModePortrait（固定竖屏模式）。|
 
     返回说明
 
@@ -831,7 +840,7 @@ keyword: [Windows SDK, AliEngine]
 -   MuteAllRemoteVideo：停止或恢复远端所有的视频渲染。
 
     ```
-    int MuteLocalCamera(bool mute, AliEngineVideoTrack track);
+    int MuteAllRemoteVideo(bool mute);
     ```
 
     参数说明
@@ -1019,7 +1028,12 @@ keyword: [Windows SDK, AliEngine]
 
     |名称|类型|描述|
     |--|--|--|
-    |config|const [AliEngineVideoEncoderConfiguration](/cn.zh-CN/SDK参考/Windows SDK/数据类型.md) &|预定义的编码属性。|
+    |config|const [AliEngineVideoEncoderConfiguration](/cn.zh-CN/SDK参考/Windows SDK/数据类型.md) &|预定义的编码属性，默认值：    -   dimensions：\(640, 480\)
+    -   frameRate：AliEngineFrameRateFps15
+    -   bitrate：512
+    -   orientationMode：AliEngineVideoEncoderOrientationModeAdaptive
+    -   mirrorMode：AliEngineVideoMirrorModeDisabled
+    -   rotationMode：AliEngineRotationMode\_0 |
 
 -   AddVideoWatermark：添加水印。
 
@@ -1074,7 +1088,7 @@ keyword: [Windows SDK, AliEngine]
 
     **说明：** 截图结果通过[OnSnapshotComplete](/cn.zh-CN/SDK参考/Windows SDK/回调及监听.md)回调返回。
 
--   SwitchCamera：切换前后摄像头（适用于Android或iOS端）。
+-   SwitchCamera：切换前后摄像头，默认为前置摄像头（适用于Android或iOS端）。
 
     ```
     int SwitchCamera();
@@ -1104,7 +1118,7 @@ keyword: [Windows SDK, AliEngine]
 
     |名称|类型|描述|
     |--|--|--|
-    |zoom|float|zoom的级别。|
+    |zoom|float|zoom的级别，默认值为1.0。|
 
     返回说明
 
@@ -1120,7 +1134,8 @@ keyword: [Windows SDK, AliEngine]
 
     |名称|类型|描述|
     |--|--|--|
-    |flash|bool|是否允许闪光灯。|
+    |flash|bool|是否允许闪光灯，取值：    -   true：打开闪光灯。
+    -   false（默认值）：关闭闪光灯。 |
 
     返回说明
 
@@ -1200,8 +1215,8 @@ keyword: [Windows SDK, AliEngine]
 
     |名称|类型|描述|
     |--|--|--|
-    |enable|bool|是否开启摄像头人脸对焦。取值：    -   true：开启。
-    -   false：关闭。 |
+    |enable|bool|是否开启摄像头人脸对焦。取值：    -   true：开启人脸对焦。
+    -   false（默认值）：关闭人脸对焦。 |
 
     返回说明
 
@@ -1378,7 +1393,7 @@ keyword: [Windows SDK, AliEngine]
     |名称|类型|描述|
     |--|--|--|
     |audioOnly|bool|音频模式或音视频模式。取值：    -   true：只有音频推流和拉流。
-    -   false：音视频推流和拉流。 |
+    -   false（默认值）：音视频推流和拉流。 |
 
     返回说明
 
@@ -1405,7 +1420,7 @@ keyword: [Windows SDK, AliEngine]
     |名称|类型|描述|
     |--|--|--|
     |mute|bool|停止或恢复本地音频数据发送。取值：    -   true：本地音频发送静音帧。
-    -   false：恢复正常。 |
+    -   false（默认值）：恢复正常。 |
     |mode|[AliEngineMuteLocalAudioMode](/cn.zh-CN/SDK参考/Windows SDK/数据类型.md)|静音模式，默认麦克风静音模式。|
 
     返回说明
@@ -1426,7 +1441,7 @@ keyword: [Windows SDK, AliEngine]
     |--|--|--|
     |uid|const char \*|用户ID。|
     |bool|mute|停止或恢复远端的音频播放。取值：    -   true：停止播放。
-    -   false：恢复播放。 |
+    -   false（默认值）：恢复播放。 |
 
     返回说明
 
@@ -1443,7 +1458,7 @@ keyword: [Windows SDK, AliEngine]
     |名称|类型|描述|
     |--|--|--|
     |mute|bool|停止或恢复远端所有的音频播放。取值：    -   true：停止播放。
-    -   false：恢复播放。 |
+    -   false（默认值）：恢复播放。 |
 
     返回说明
 
@@ -1500,7 +1515,7 @@ keyword: [Windows SDK, AliEngine]
     |名称|类型|描述|
     |--|--|--|
     |uid|const char \*|用户ID。|
-    |int|volume|播放音量，取值范围：\[0,100\]。其中，0表示静音，100表示原始音量。|
+    |int|volume|播放音量，取值范围：\[0,100\]。其中，0表示静音，100表示原始音量，默认值为100。|
 
     返回说明
 
@@ -1560,7 +1575,7 @@ keyword: [Windows SDK, AliEngine]
 
     |名称|类型|描述|
     |--|--|--|
-    |volume|int|取值范围：\[0,400\]。其中0表示静音；大于100表示放大音量；小于100表示减小音量。|
+    |volume|int|取值范围：\[0,400\]。其中0表示静音，默认值为100；大于100表示放大音量；小于100表示减小音量。|
 
     返回说明
 
@@ -1576,13 +1591,13 @@ keyword: [Windows SDK, AliEngine]
 
     |名称|类型|描述|
     |--|--|--|
-    |volume|int|取值范围：\[0,400\]。其中0表示静音；大于100表示放大音量；小于100表示减小音量。|
+    |volume|int|取值范围：\[0,400\]。其中0表示静音，默认值为100；大于100表示放大音量；小于100表示减小音量。|
 
     返回说明
 
     0表示方法调用成功，其他表示方法调用失败。
 
--   EnableAudioVolumeIndication：设置音量回调频率和平滑系数。
+-   EnableAudioVolumeIndication：设置音量回调频率和平滑系数，默认不启用。
 
     ```
     int EnableAudioVolumeIndication(int interval, int smooth, int reportVad);
@@ -1611,8 +1626,8 @@ keyword: [Windows SDK, AliEngine]
 
     |名称|类型|描述|
     |--|--|--|
-    |audio\_profile|int|音频采集或编码模式参数，详情请参见[AliEngineAudioProfile](/cn.zh-CN/SDK参考/Windows SDK/数据类型.md)。|
-    |audio\_scene|int|音频场景模式参数，详情请参见[AliEngineAudioScenario](/cn.zh-CN/SDK参考/Windows SDK/数据类型.md)。|
+    |audio\_profile|int|音频采集或编码模式参数，默认值为AliEngineBasicQualityMode，详情请参见[AliEngineAudioProfile](/cn.zh-CN/SDK参考/Windows SDK/数据类型.md)。|
+    |audio\_scene|int|音频场景模式参数，默认值为AliEngineSceneDefaultMode，详情请参见[AliEngineAudioScenario](/cn.zh-CN/SDK参考/Windows SDK/数据类型.md)。|
 
     返回说明
 
@@ -1628,7 +1643,7 @@ keyword: [Windows SDK, AliEngine]
 
     |名称|类型|描述|
     |--|--|--|
-    |type|int|音量类型。|
+    |type|int|音量类型，默认值为0。|
 
     返回说明
 
@@ -1645,7 +1660,7 @@ keyword: [Windows SDK, AliEngine]
     |名称|类型|描述|
     |--|--|--|
     |enable|bool|是否开启本地音频流量控制。取值：    -   true：开启。
-    -   false：关闭。 |
+    -   false（默认值）：关闭。 |
 
     返回说明
 
@@ -1664,7 +1679,7 @@ keyword: [Windows SDK, AliEngine]
     |名称|类型|描述|
     |--|--|--|
     |enable|bool|是否开启本地音频流量控制。取值：    -   true：开启。
-    -   false：关闭。 |
+    -   false（默认值）：关闭。 |
 
     返回说明
 
@@ -1682,7 +1697,7 @@ keyword: [Windows SDK, AliEngine]
 
     |名称|类型|描述|
     |--|--|--|
-    |mode|const [AliEngineAudioEffectVoiceChangerMode](/cn.zh-CN/SDK参考/Windows SDK/数据类型.md) &|变声音效模式。|
+    |mode|const [AliEngineAudioEffectVoiceChangerMode](/cn.zh-CN/SDK参考/Windows SDK/数据类型.md) &|变声音效模式，默认值为AliRtcSdk\_AudioEffect\_Voice\_Changer\_OFF。|
 
     返回说明
 
@@ -1714,7 +1729,7 @@ keyword: [Windows SDK, AliEngine]
 
     |名称|类型|描述|
     |--|--|--|
-    |mode|const [AliEngineAudioEffectReverbMode](/cn.zh-CN/SDK参考/Windows SDK/数据类型.md) &|音效模式。|
+    |mode|const [AliEngineAudioEffectReverbMode](/cn.zh-CN/SDK参考/Windows SDK/数据类型.md) &|音效模式，默认值为AliRtcAudioEffectReverb\_Off。|
 
     返回说明
 
@@ -1776,7 +1791,7 @@ keyword: [Windows SDK, AliEngine]
 
     |名称|类型|描述|
     |--|--|--|
-    |volume|int|混音音量，取值范围：\[0,100\]。|
+    |volume|int|混音音量，取值范围：\[0,100\]，默认值为50。|
 
     返回说明
 
@@ -1794,7 +1809,7 @@ keyword: [Windows SDK, AliEngine]
 
     |名称|类型|描述|
     |--|--|--|
-    |volume|int|混音音量，取值范围：\[0,100\]。|
+    |volume|int|混音音量，取值范围：\[0,100\]，默认值为50。|
 
     返回说明
 
@@ -1822,7 +1837,7 @@ keyword: [Windows SDK, AliEngine]
 
     |名称|类型|描述|
     |--|--|--|
-    |volume|int|混音音量，取值范围：\[0,100\]。|
+    |volume|int|混音音量，取值范围：\[0,100\]，默认值为50。|
 
     返回说明
 
@@ -1991,7 +2006,7 @@ keyword: [Windows SDK, AliEngine]
     |名称|类型|描述|
     |--|--|--|
     |soundId|unsigned int|用户给该音效文件分配的ID。|
-    |volume|int|混音音量，取值范围：\[0,100\]。|
+    |volume|int|混音音量，取值范围：\[0,100\]，默认值为50。|
 
     返回说明
 
@@ -2024,7 +2039,7 @@ keyword: [Windows SDK, AliEngine]
     |名称|类型|描述|
     |--|--|--|
     |soundId|unsigned int|用户给该音效文件分配的ID。|
-    |volume|int|混音音量，取值范围：\[0,100\]。|
+    |volume|int|混音音量，取值范围：\[0,100\]，默认值为50。|
 
     返回说明
 
@@ -2056,7 +2071,7 @@ keyword: [Windows SDK, AliEngine]
 
     |名称|类型|描述|
     |--|--|--|
-    |volume|int|混音音量，取值范围：\[0,100\]。|
+    |volume|int|混音音量，取值范围：\[0,100\]，默认值为50。|
 
     返回说明
 
@@ -2072,7 +2087,7 @@ keyword: [Windows SDK, AliEngine]
 
     |名称|类型|描述|
     |--|--|--|
-    |volume|int|混音音量，取值范围：\[0,100\]。|
+    |volume|int|混音音量，取值范围：\[0,100\]，默认值为50。|
 
     返回说明
 
@@ -2140,7 +2155,8 @@ keyword: [Windows SDK, AliEngine]
 
     |名称|类型|描述|
     |--|--|--|
-    |enable|bool|是否启用耳返。|
+    |enable|bool|是否启用耳返，取值：    -   true：启用耳返。
+    -   false（默认值）：关闭耳返。 |
 
     返回说明
 
@@ -2173,7 +2189,7 @@ keyword: [Windows SDK, AliEngine]
     |名称|类型|描述|
     |--|--|--|
     |enable|bool|是否开启系统声音采集推送。取值：    -   true：开启。
-    -   false：关闭。 |
+    -   false（默认值）：关闭。 |
 
     返回说明
 
@@ -2199,7 +2215,7 @@ keyword: [Windows SDK, AliEngine]
 
     |名称|类型|描述|
     |--|--|--|
-    |volume|int|设置音量。|
+    |volume|int|音量，取值范围：\[0,100\]，默认值为100。|
 
     返回说明
 
@@ -2351,7 +2367,7 @@ keyword: [Windows SDK, AliEngine]
 
     |名称|类型|描述|
     |--|--|--|
-    |volume|int|音量值。|
+    |volume|int|音量，取值范围：\[0,100\]，默认值为当前系统麦克风音量。|
 
     返回说明
 
@@ -2377,7 +2393,7 @@ keyword: [Windows SDK, AliEngine]
 
     |名称|类型|描述|
     |--|--|--|
-    |volume|int|音量值。|
+    |volume|int|音量，取值范围：\[0,100\]，默认值为系统扬声器当前音量。|
 
     返回说明
 
@@ -2743,7 +2759,7 @@ keyword: [Windows SDK, AliEngine]
     |名称|类型|描述|
     |--|--|--|
     |enable|bool|是否启用外部音频输入源。取值：    -   true：开启。
-    -   false：关闭。 |
+    -   false（默认值）：关闭。 |
     |sampleRate|unsigned int|采样率，例如16000Hz、48000Hz等。|
     |channelsPerFrame|unsigned int|声道数，例如1或2。|
 
@@ -2779,7 +2795,7 @@ keyword: [Windows SDK, AliEngine]
 
     |名称|类型|描述|
     |--|--|--|
-    |vol|int|音量，取值范围：\[0,100\]。|
+    |vol|int|音量，取值范围：\[0,100\]，默认值为50。|
 
     返回说明
 
@@ -2805,7 +2821,7 @@ keyword: [Windows SDK, AliEngine]
 
     |名称|类型|描述|
     |--|--|--|
-    |mixed|bool|是否与麦克风采集音频混合。取值：    -   true：混音。
+    |mixed|bool|是否与麦克风采集音频混合。取值：    -   true（默认值）：混音。
     -   false：完全替换麦克风采集数据。 |
 
     返回说明
@@ -2823,7 +2839,7 @@ keyword: [Windows SDK, AliEngine]
     |名称|类型|描述|
     |--|--|--|
     |enable|bool|是否启用外部输入音频播放。取值：    -   true：开启。
-    -   false：关闭。 |
+    -   false（默认值）：关闭。 |
     |sampleRate|unsigned int|采样率，例如16kHz、48kHz等。|
     |channelsPerFrame|unsigned int|声道数，例如1或2。|
 
@@ -2861,7 +2877,7 @@ keyword: [Windows SDK, AliEngine]
 
     |名称|类型|描述|
     |--|--|--|
-    |volScal|int|音量。|
+    |volScal|int|音量，取值范围：\[0,100\]，默认值为50。|
 
     返回说明
 
@@ -3096,7 +3112,7 @@ keyword: [Windows SDK, AliEngine]
 
     |名称|类型|描述|
     |--|--|--|
-    |logLevel|[AliEngineLogLevel](/cn.zh-CN/SDK参考/Windows SDK/数据类型.md)|Log级别，详情请参见AliEngineLogLevel。|
+    |logLevel|[AliEngineLogLevel](/cn.zh-CN/SDK参考/Windows SDK/数据类型.md)|Log级别，默认值为AliEngineLogLevelInfo。|
 
 -   GetSDKVersion：获取SDK版本号。
 
@@ -3147,7 +3163,7 @@ keyword: [Windows SDK, AliEngine]
 
     |名称|类型|描述|
     |--|--|--|
-    |clientRole|const [AliEngineClientRole](/cn.zh-CN/SDK参考/Windows SDK/数据类型.md)|用户角色类型。|
+    |clientRole|const [AliEngineClientRole](/cn.zh-CN/SDK参考/Windows SDK/数据类型.md)|用户角色类型，默认值为AliEngineClientRoleInteractive（主播角色）。|
 
     返回说明
 
@@ -3265,7 +3281,7 @@ keyword: [Windows SDK, AliEngine]
 
     |名称|类型|描述|
     |--|--|--|
-    |restriction|[AliEngineAudioSessionOperationRestriction](/cn.zh-CN/SDK参考/Windows SDK/数据类型.md)|AVAudioSession控制权限设置。|
+    |restriction|[AliEngineAudioSessionOperationRestriction](/cn.zh-CN/SDK参考/Windows SDK/数据类型.md)|AVAudioSession控制权限设置，默认值为AliEngineAudioSessionOperationRestrictionNone。|
 
     返回说明
 
