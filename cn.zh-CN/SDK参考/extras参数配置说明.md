@@ -11,10 +11,10 @@ extras字符配置的功能列表如下表所示。
 |user\_specified\_aec|音频3A：回声消除|TRUE：开启，FALSE：关闭|Android、iOS、Mac、Windows|
 |user\_specified\_ans|音频3A：自动降噪|TRUE：开启，FALSE：关闭|Android、iOS、Mac、Windows|
 |user\_specified\_agc|音频3A：自动增益|TRUE：开启，FALSE：关闭|Android、iOS、Mac、Windows|
-|user\_specified\_engine\_mode|音质模式|TRUE：开启，FALSE：关闭|Android、iOS、Mac、Windows|
-|user\_specified\_scene\_mode|场景模式|TRUE：开启，FALSE：关闭|Android、iOS、Mac、Windows|
+|user\_specified\_engine\_mode|音质模式|[音质模式取值](#li_4g0_izm_69a)|Android、iOS、Mac、Windows|
+|user\_specified\_scene\_mode|场景模式|[场景模式取值](#li_50c_13h_dis)|Android、iOS、Mac、Windows|
 |user\_specified\_video\_preprocess|使用三方美颜处理视频|TRUE：开启，FALSE：关闭|Android、iOS|
-|user\_specified\_groupid|1对1模式|TRUE：开启，FALSE：关闭|Android、iOS、Mac、Windows|
+|user\_specified\_groupid|1对1模式|1v1|Android、iOS、Mac、Windows|
 
 ## 音频3A
 
