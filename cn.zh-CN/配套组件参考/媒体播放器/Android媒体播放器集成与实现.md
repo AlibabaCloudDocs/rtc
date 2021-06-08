@@ -271,7 +271,7 @@
 
     您可以调用`setExternalAudioPublishVolume`方法调节远端用户听到的音量，或者调用`setExternalAudioPlayoutVolume`方法调节本地用户的播放音量。
 
-4.  取消发布媒体资源并解绑定频道。
+4.  取消发布媒体资源并解除绑定频道。
 
     ```
     aliRtcEngine.configLocalScreenPublish(false);
