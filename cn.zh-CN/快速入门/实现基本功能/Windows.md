@@ -11,7 +11,7 @@ keyword: [基本功能, Windows]
 
 ## 使用限制
 
-本文仅供SDK 2.1及以上版本使用，如果您需要SDK 1.17版本对应的文档，请[提交工单](https://selfservice.console.aliyun.com/ticket/createIndex.htm)获取。
+本文仅供SDK 2.1及以上版本使用，如果您需要SDK 1.17版本对应的文档，请参见[Windows端实现基本功能](/cn.zh-CN/快速入门/实现基本功能（旧版）/Windows.md)。
 
 ## 操作步骤
 
