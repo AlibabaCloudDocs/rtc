@@ -68,7 +68,6 @@ keyword: [AliRtcEngine, Android]
 |[setScreenShareEncoderConfiguration](#li_60v_yvr_j3u)|设置屏幕共享编码属性。|2.1|
 |[setLocalViewConfig](#li_19l_b99_byb)|为本地预览设置渲染窗口以及绘制参数。|1.1|
 |[setCameraCapturerConfiguration](#li_mvf_438_yb4)|设置摄像头采集偏好。|2.1|
-|[setDeviceOrientationMode](#li_x8h_f8q_voi)|设置设备方向。|2.1|
 |[enableLocalVideo](#li_zdg_4qo_iaf)|禁用或重新启用本地视频采集。|2.1|
 |[muteLocalCamera](#li_3yz_809_uf9)|设置是否停止发布本地视频流。|1.1|
 |[muteAllRemoteVideoRendering](#li_ekd_d3m_gan)|停止或恢复远端所有的视频渲染。|2.1|
@@ -91,14 +90,17 @@ keyword: [AliRtcEngine, Android]
 |[setCameraExposurePoint](#li_21n_82h_35w)|设置摄像头曝光点。|1.14|
 |[isCameraAutoFocusFaceModeSupported](#li_jct_gl0_bqe)|摄像头是否支持人脸聚焦。|2.1|
 |[setCameraAutoFocusFaceModeEnabled](#li_zmi_9jl_o6l)|设置摄像头人脸对焦。|2.1|
+|[getVideoCaptureData](#li_001)|主动获取缓存的采集帧。|2.4|
+|[getVideoPreEncoderData](#li_002)|主动获取缓存的编码前帧。|2.4|
+|[getVideoRenderData](#li_003)|主动获取缓存的拉流帧。|2.4|
 
 共享视频接口
 
 |API|描述|支持的最低版本|
 |---|--|-------|
-|[StartScreenShare\[1/2\]](#li_zcr_gpn_k8i)|开始屏幕分享。|2.1|
-|[StartScreenShare\[2/2\]](#li_oen_e52_rx6)|开始屏幕分享。|2.1|
-|[StopScreenShare](#li_3hp_hro_a61)|停止屏幕分享。|2.1|
+|[startScreenShare](#li_zcr_gpn_k8i)|开始屏幕分享。|2.1|
+|[startScreenShare](#li_oen_e52_rx6)|开始屏幕分享。|2.1|
+|[stopScreenShare](#li_3hp_hro_a61)|停止屏幕分享。|2.1|
 
 音频相关接口
 
@@ -110,6 +112,7 @@ keyword: [AliRtcEngine, Android]
 |[muteRemoteAudioPlaying](#li_rvi_ca2_3d6)|设置是否停止播放远端音频流。|1.1|
 |[muteAllRemoteAudioPlaying](#li_z49_qor_vey)|停止或恢复远端所有的音频播放。|1.16.2|
 |[startAudioCapture](#li_e73_dpj_v18)|开启音频采集。|1.1|
+|[startAudioCapture](#li_51e_4el_kqi)|开启音频采集|2.2|
 |[stopAudioCapture](#li_o7w_2u1_bns)|关闭音频采集。|1.1|
 |[startAudioPlayer](#li_6ga_pdo_ifu)|开启音频播放设备。|1.1|
 |[stopAudioPlayer](#li_v17_agk_r4j)|关闭音频播放。|1.1|
@@ -188,10 +191,11 @@ keyword: [AliRtcEngine, Android]
 |---|--|-------|
 |[startLiveStreaming](#li_ixf_hmb_n69)|开始直播拉流。|2.1|
 |[stopLiveStreaming](#li_5h8_jkt_wzz)|停止直播拉流。|2.1|
-|[startPublishLiveStream](#li_d2b_5hp_bme)|开启旁路直播。|2.1|
-|[updatePublishLiveStream](#li_oxl_4qc_act)|更新旁路直播相关参数。|2.1|
+|[startPublishLiveStream](#li_d2b_5hp_bme)|开启旁路直播。|2.4|
+|[updatePublishLiveStream](#li_oxl_4qc_act)|更新旁路直播相关参数。|2.4|
 |[stopPublishLiveStream](#li_cmj_t1c_khw)|停止旁路直播。|2.1|
 |[setLiveStreamingViewConfig](#li_xak_ry0_y43)|设置直播拉流窗口及渲染参数。|2.1|
+|[getPublishLiveStreamState](#li_004)|获取旁路直播状态。|2.4|
 
 跨频道连麦接口
 
@@ -235,6 +239,7 @@ keyword: [AliRtcEngine, Android]
 |[stopIntelligentDenoise](#li_j9m_uhy_8x4)|关闭智能降噪。|1.17.19|
 |[refreshAuthInfo](#li_nyd_yoh_98q)|刷新鉴权信息。|1.17.41|
 |[getCurrentConnectionStatus](#li_4f6_0cb_6st)|获取当前网络链接状态。|2.1|
+|[showDebugView](#li_005)|显示仪表盘。|2.4|
 
 ## 接口详情
 
@@ -248,9 +253,8 @@ keyword: [AliRtcEngine, Android]
 
     |参数|类型|描述|
     |--|--|--|
-    |enable|int|设置是否兼容H5，取值：    -   0：不兼容H5。
-    -   1：兼容H5。
-默认值为0。|
+    |enable|int|设置是否兼容H5，取值：    -   0（默认值）：不兼容H5。
+    -   1：兼容H5。 |
 
     **说明：** 当前版本不支持在创建AliRtcEngine实例之后更改H5兼容模式，必须在创建实例之前就调用此接口。
 
@@ -469,9 +473,8 @@ keyword: [AliRtcEngine, Android]
 
     |参数|类型|描述|
     |--|--|--|
-    |enable|boolean|是否发布相机流，取值：    -   true：发布相机流。
-    -   false：不发布相机流。
-默认值为true。|
+    |enable|boolean|是否发布相机流，取值：    -   true（默认值）：发布相机流。
+    -   false：不发布相机流。 |
 
 -   isLocalVideoStreamPublished：查询当前是否发布相机流。
 
@@ -503,9 +506,8 @@ keyword: [AliRtcEngine, Android]
 
     |参数|类型|描述|
     |--|--|--|
-    |enable|boolean|是否发布音频流，取值：    -   true：发布音频流。
-    -   false：不发布音频流。
-默认值为true。|
+    |enable|boolean|是否发布音频流，取值：    -   true（默认值）：发布音频流。
+    -   false：不发布音频流。 |
 
     返回说明
 
@@ -532,8 +534,7 @@ keyword: [AliRtcEngine, Android]
     |参数|类型|描述|
     |--|--|--|
     |enable|boolean|是否发布次要视频流，取值：    -   true：发布次要视频流。
-    -   false：不发布次要视频流。
-默认值为false。|
+    -   false（默认值）：不发布次要视频流。 |
 
     返回说明
 
@@ -592,9 +593,8 @@ keyword: [AliRtcEngine, Android]
 
     |参数|类型|描述|
     |--|--|--|
-    |sub|boolean|是否默认接收音频流，取值：    -   true：默认接收音频流。
-    -   false：默认不接收音频流。
-默认值为true。|
+    |sub|boolean|是否默认接收音频流，取值：    -   true（默认值）：默认接收音频流。
+    -   false：默认不接收音频流。 |
 
     返回说明
 
@@ -610,9 +610,8 @@ keyword: [AliRtcEngine, Android]
 
     |参数|类型|描述|
     |--|--|--|
-    |sub|boolean|是否接收所有远端音频流，取值：    -   true：接收所有远端音频流。
-    -   false：不接收所有远端音频流。
-默认值为true。|
+    |sub|boolean|是否接收所有远端音频流，取值：    -   true（默认值）：接收所有远端音频流。
+    -   false：不接收所有远端音频流。 |
 
     返回说明
 
@@ -629,9 +628,8 @@ keyword: [AliRtcEngine, Android]
     |参数|类型|描述|
     |--|--|--|
     |uid|String|远端用户ID。|
-    |sub|boolean|停止或恢复特定远端用户的音频流拉取，取值：    -   true：恢复。
-    -   false：停止。
-默认值为true。|
+    |sub|boolean|停止或恢复特定远端用户的音频流拉取，取值：    -   true（默认值）：恢复。
+    -   false：停止。 |
 
     返回说明
 
@@ -647,9 +645,8 @@ keyword: [AliRtcEngine, Android]
 
     |参数|类型|描述|
     |--|--|--|
-    |sub|boolean|是否默认接收视频流，取值：    -   true：默认接收。
-    -   false：默认不接收。
-默认值为true。|
+    |sub|boolean|是否默认接收视频流，取值：    -   true（默认值）：默认接收。
+    -   false：默认不接收。 |
 
     返回说明
 
@@ -665,9 +662,8 @@ keyword: [AliRtcEngine, Android]
 
     |参数|类型|描述|
     |--|--|--|
-    |sub|boolean|停止或恢复接收所有远端视频流，取值：    -   true：恢复。
-    -   false：停止。
-默认值为true。|
+    |sub|boolean|停止或恢复接收所有远端视频流，取值：    -   true（默认值）：恢复。
+    -   false：停止。 |
 
     返回说明
 
@@ -685,9 +681,8 @@ keyword: [AliRtcEngine, Android]
     |--|--|--|
     |uid|Srring|远端用户ID。|
     |track|[AliRtcVideoTrack](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)|视频流类型。|
-    |sub|boolean|停止或恢复特定远端用户的视频流拉取，取值：    -   true：恢复。
-    -   false：停止。
-默认值为true。|
+    |sub|boolean|停止或恢复特定远端用户的视频流拉取，取值：    -   true（默认值）：恢复。
+    -   false：停止。 |
 
     返回说明
 
@@ -772,22 +767,6 @@ keyword: [AliRtcEngine, Android]
 
     0表示方法调用成功，其他表示方法调用失败。
 
--   setDeviceOrientationMode：设置设备方向。
-
-    ```
-    public abstract void setDeviceOrientationMode(AliRtcOrientationMode mode);
-    ```
-
-    参数说明
-
-    |参数|类型|描述|
-    |--|--|--|
-    |mode|[AliRtcOrientationMode](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)|设备方向。默认值为AliRtcOrientationModeAuto（自适应横竖屏模式）。|
-
-    返回说明
-
-    0表示方法调用成功，其他表示方法调用失败。
-
 -   enableLocalVideo：禁用或重新启用本地视频采集。
 
     ```
@@ -798,9 +777,8 @@ keyword: [AliRtcEngine, Android]
 
     |参数|类型|描述|
     |--|--|--|
-    |enable|boolean|禁用或重新启用本地视频采集，取值：    -   true：重新启用。
-    -   false：禁用。
-默认值为true。|
+    |enable|boolean|禁用或重新启用本地视频采集，取值：    -   true（默认值）：重新启用。
+    -   false：禁用。 |
 
     返回说明
 
@@ -817,8 +795,7 @@ keyword: [AliRtcEngine, Android]
     |参数|类型|描述|
     |--|--|--|
     |mute|boolean|停止或恢复本地视频数据发送，取值：    -   true：停止。
-    -   false：恢复。
-默认值为false。|
+    -   false（默认值）：恢复。 |
     |track|[AliRtcVideoTrack](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)|需要改变发布状态的视频流类型。|
 
     返回说明
@@ -840,8 +817,7 @@ keyword: [AliRtcEngine, Android]
     |参数|类型|描述|
     |--|--|--|
     |mute|boolean|停止或恢复远端所有的视频渲染，取值：    -   true：停止渲染，所有视频为黑帧。
-    -   false表示恢复渲染。
-默认值为false。|
+    -   false（默认值）：表示恢复渲染。 |
 
     返回说明
 
@@ -1045,8 +1021,7 @@ keyword: [AliRtcEngine, Android]
     |参数|类型|描述|
     |--|--|--|
     |flash|boolean|摄像头闪光灯是否打开，取值：    -   true：开启。
-    -   false：关闭。
-默认值为false。|
+    -   false（默认值）：关闭。 |
 
     返回说明
 
@@ -1127,8 +1102,7 @@ keyword: [AliRtcEngine, Android]
     |参数|类型|描述|
     |--|--|--|
     |enable|boolean|是否开启摄像头人脸对焦，取值：    -   true：开启。
-    -   false：关闭。
-默认值为false。|
+    -   false（默认值）：关闭。 |
 
     返回说明
 
@@ -1183,8 +1157,7 @@ keyword: [AliRtcEngine, Android]
     |参数|类型|描述|
     |--|--|--|
     |audioOnly|boolean|设置音频模式还是音视频模式，取值：    -   true：只有音频推流和拉流。
-    -   false：音视频都支持。
-默认值为false。|
+    -   false（默认值）：音视频都支持。 |
 
     返回说明
 
@@ -1211,8 +1184,7 @@ keyword: [AliRtcEngine, Android]
     |参数|类型|描述|
     |--|--|--|
     |mute|boolean|停止或恢复本地音频数据发送，取值：    -   true：本地音频发送静音帧。
-    -   false：恢复。
-默认值为false。|
+    -   false（默认值）：恢复。 |
     |mode|[AliRtcMuteLocalAudioMode](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)|静音模式，默认麦克风静音模式。|
 
     返回说明
@@ -1231,8 +1203,7 @@ keyword: [AliRtcEngine, Android]
     |--|--|--|
     |uid|String|用户ID。|
     |mute|boolean|停止或恢复远端的音频播放，取值：    -   true：停止播放。
-    -   false：恢复播放。
-默认值为false。|
+    -   false（默认值）：恢复播放。 |
 
     返回说明
 
@@ -1249,8 +1220,7 @@ keyword: [AliRtcEngine, Android]
     |参数|类型|描述|
     |--|--|--|
     |mute|boolean|停止或恢复远端所有的音频播放，取值：    -   true：停止播放。
-    -   false：恢复播放。
-默认值为false。|
+    -   false（默认值）：恢复播放。 |
 
     返回说明
 
@@ -1261,6 +1231,23 @@ keyword: [AliRtcEngine, Android]
     ```
     public abstract int startAudioCapture();
     ```
+
+    返回说明
+
+    0表示方法调用成功，其他表示方法调用失败。
+
+-   startAudioCapture：开启音频采集。
+
+    ```
+    public abstract int startAudioCapture(boolean keepAlive);
+    ```
+
+    参数说明
+
+    |参数|类型|描述|
+    |--|--|--|
+    |keepAlive|boolean|离会后采集设备的状态，取值：    -   true：离会后采集设备保持开启状态。
+    -   false（默认值）：离会后采集设备关闭。 |
 
     返回说明
 
@@ -1419,8 +1406,7 @@ keyword: [AliRtcEngine, Android]
     |参数|类型|描述|
     |--|--|--|
     |enable|boolean|开启本地音频流量控制，取值：    -   true：开启。
-    -   false：关闭。
-默认值为false。|
+    -   false（默认值）：关闭。 |
 
     返回说明
 
@@ -1437,8 +1423,7 @@ keyword: [AliRtcEngine, Android]
     |参数|类型|描述|
     |--|--|--|
     |enable|boolean|开启本地音频流量控制，取值：    -   true：开启。
-    -   false：关闭。
-默认值为false。|
+    -   false（默认值）：关闭。 |
 
     返回说明
 
@@ -1711,8 +1696,7 @@ keyword: [AliRtcEngine, Android]
     |filePath|String|音效文件路径。|
     |cycles|int|循环次数，-1表示一直循环。|
     |publish|boolean|是否将音效音频流推到远端，取值：    -   true：将音效音频流推到远端。
-    -   false：不将音效音频流推到远端。
-默认值为false。|
+    -   false（默认值）：不将音效音频流推到远端。 |
 
     返回说明
 
@@ -1905,8 +1889,7 @@ keyword: [AliRtcEngine, Android]
     |参数|类型|描述|
     |--|--|--|
     |enable|boolean|是否启用耳返，取值：    -   true：开启耳返。
-    -   false：关闭耳返。
-默认值为false。|
+    -   false（默认值）：关闭耳返。 |
 
     返回说明
 
@@ -2063,11 +2046,9 @@ keyword: [AliRtcEngine, Android]
     |参数|类型|描述|
     |--|--|--|
     |enable|boolean|启用外部视频输入源，取值：    -   true：启用。
-    -   false：关闭。
-默认值为false。|
+    -   false（默认值）：关闭。 |
     |useTexture|boolean|是否使用texture模式，取值：    -   true：使用。
-    -   fase：不使用。
-默认值为false。|
+    -   false（默认值）：不使用。 |
     |type|[AliRtcVideoTrack](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)|视频流类型。|
     |renderMode|[AliRtcRenderMode](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)|渲染模式。|
 
@@ -2099,8 +2080,7 @@ keyword: [AliRtcEngine, Android]
     |参数|类型|描述|
     |--|--|--|
     |enable|boolean|是否启用外部音频输入源。    -   true：开启。
-    -   false：关闭。
-默认值为false。|
+    -   false（默认值）：关闭。 |
     |sampleRate|int|采样率。|
     |channelsPerFrame|int|声道数，取值1或2。|
 
@@ -2162,9 +2142,8 @@ keyword: [AliRtcEngine, Android]
 
     |参数|类型|描述|
     |--|--|--|
-    |mixed|boolean|是否与麦克风采集音频混合，取值：    -   true：混合。
-    -   false：完全替换麦克风采集数据。
-默认值为true。|
+    |mixed|boolean|是否与麦克风采集音频混合，取值：    -   true（默认值）：混合。
+    -   false：完全替换麦克风采集数据。 |
 
     返回说明
 
@@ -2181,8 +2160,7 @@ keyword: [AliRtcEngine, Android]
     |参数|类型|描述|
     |--|--|--|
     |enable|boolean|是否启用外部输入音频播放，取值：    -   true：开启。
-    -   false：关闭。
-默认值为false。|
+    -   false（默认值）：关闭。 |
     |sampleRate|int|采样率。|
     |channelsPerFrame|int|声道数，取值1或2。|
 
@@ -2238,7 +2216,7 @@ keyword: [AliRtcEngine, Android]
 -   startPublishLiveStream：开启旁路直播。
 
     ```
-    public abstract int startPublishLiveStream(String streamUrl,AliRtcLiveTranscoding transcoding);
+    public abstract int startPublishLiveStream(String streamUrl,AliRtcLiveTranscodingParam transcodingParam);
     ```
 
     参数说明
@@ -2246,7 +2224,7 @@ keyword: [AliRtcEngine, Android]
     |参数|类型|描述|
     |--|--|--|
     |streamUrl|String|推流地址。|
-    |transcoding|[AliRtcLiveTranscoding](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)|推流所需参数。|
+    |transcodingParam|[AliRtcLiveTranscodingParam](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)|推流参数。|
 
     返回说明
 
@@ -2255,7 +2233,7 @@ keyword: [AliRtcEngine, Android]
 -   updatePublishLiveStream：更新旁路直播相关参数。
 
     ```
-    public abstract int updatePublishLiveStream(String streamUrl,AliRtcLiveTranscoding transcoding);
+    public abstract int updatePublishLiveStream(String streamUrl,AliRtcLiveTranscodingParam transcodingParam);
     ```
 
     参数说明
@@ -2263,7 +2241,7 @@ keyword: [AliRtcEngine, Android]
     |参数|类型|描述|
     |--|--|--|
     |streamUrl|String|推流地址。|
-    |transcoding|[AliRtcLiveTranscoding](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)|推流所需参数。|
+    |transcodingParam|[AliRtcLiveTranscodingParam](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)|推流参数。|
 
     返回说明
 
@@ -2595,5 +2573,92 @@ keyword: [AliRtcEngine, Android]
     返回说明
 
     当前网络链接状态。
+
+-   getVideoCaptureData：主动获取缓存的采集帧。
+
+    ```
+    public abstract boolean getVideoCaptureData(AliRtcEngine.AliRtcVideoTrack track, AliRtcEngine.AliRtcVideoSample videoSample);
+    ```
+
+    参数说明
+
+    |参数|类型|说明|
+    |--|--|--|
+    |track|[AliRtcVideoTrack](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)|视频流类型。|
+    |videoSample|[AliRtcVideoSample](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)|视频样本。|
+
+    返回说明
+
+    true表示方法调用成功，false表示方法调用失败。
+
+-   getVideoPreEncoderData：主动获取缓存的编码前帧。
+
+    ```
+    public abstract boolean getVideoPreEncoderData(AliRtcEngine.AliRtcVideoTrack track, AliRtcEngine.AliRtcVideoSample videoSample);
+    ```
+
+    参数说明
+
+    |参数|类型|说明|
+    |--|--|--|
+    |track|[AliRtcVideoTrack](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)|视频流类型。|
+    |videoSample|[AliRtcVideoSample](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)|视频样本。|
+
+    返回说明
+
+    true表示方法调用成功，false表示方法调用失败。
+
+-   getVideoRenderData：主动获取缓存的拉流帧。
+
+    ```
+    public abstract boolean getVideoRenderData(String userId, AliRtcEngine.AliRtcVideoTrack track, AliRtcEngine.AliRtcVideoSample videoSample);
+    ```
+
+    参数说明
+
+    |参数|类型|说明|
+    |--|--|--|
+    |userId|String|远端用户ID。|
+    |track|[AliRtcVideoTrack](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)|视频流类型。|
+    |videoSample|[AliRtcVideoSample](/cn.zh-CN/SDK参考/Android SDK/数据类型.md)|视频样本。|
+
+    返回说明
+
+    true表示方法调用成功，false表示方法调用失败。
+
+-   getPublishLiveStreamState：获取旁路直播状态。
+
+    ```
+    public abstract AliRtcEngine.AliRtcLiveTranscodingState getPublishLiveStreamState(String streamUrl);
+    ```
+
+    参数说明
+
+    |参数|类型|说明|
+    |--|--|--|
+    |streamUrl|String|旁路直播推流地址。|
+
+    返回说明
+
+    返回旁路直播状态。
+
+-   showDebugView：显示仪表盘。
+
+    ```
+    public abstract void showDebugView(ViewGroup viewGroup, int showType, String userId);
+    ```
+
+    参数说明
+
+    |参数|类型|说明|
+    |--|--|--|
+    |viewGroup|ViewGroup|View，由业务侧来负责布局。|
+    |showType|int|显示类型，取值：    -   0（默认值）：不显示。
+    -   1：音频。
+    -   2：视频。
+    -   3: 网络。
+    -   4: 全部。
+**说明：** 对于不公开的数据，可以设置特殊值。 |
+    |userId|String|指定用户的相关数据。|
 
 
