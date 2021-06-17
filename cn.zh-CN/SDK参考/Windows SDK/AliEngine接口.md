@@ -94,6 +94,13 @@ keyword: [Windows SDK, AliEngine]
 |[SetCameraExposurePoint](#li_060)|设置摄像头曝光点（适用于Android或iOS端）。|2.1|
 |[IsCameraAutoFocusFaceModeSupported](#li_061)|摄像头是否支持人脸聚焦（适用于Android或iOS端）。|2.1|
 |[SetCameraAutoFocusFaceModeEnabled](#li_062)|设置摄像头人脸对焦（适用于Android或iOS端）。|2.1|
+|[GetIfUserFetchObserverData](#li_219)|视频输出数据是否由用户来获取。|2.4|
+|[GetVideoAlignment](#li_220)|视频输出宽度对齐方式。|2.4|
+|[GetObserverDataMirrorApplied](#li_221)|视频输出数据是否需要镜像。|2.4|
+|[GetSmoothRenderingEnabled](#li_222)|拉流视频数据是否平滑输出。|2.4|
+|[GetVideoCaptureData](#li_223)|主动获取采集数据。|2.4|
+|[GetVideoPreEncoderData](#li_224)|主动获取编码前数据。|2.4|
+|[GetVideoRenderData](#li_225)|主动获取拉流数据。|2.4|
 
 共享视频接口
 
@@ -121,6 +128,7 @@ keyword: [Windows SDK, AliEngine]
 |[MuteRemoteAudio](#li_078)|设置是否停止播放远端音频流。|1.1|
 |[MuteAllRemoteAudio](#li_079)|停止或恢复远端所有的音频播放。|1.16.2|
 |[StartAudioCapture](#li_080)|开启音频采集。|1.11|
+|[StartAudioCapture](#li_080_002)|开启音频采集。此接口可以控制提前打开音频采集，如果不设置，则SDK会在合适的时机打开音频采集。|2.2|
 |[StopAudioCapture](#li_081)|关闭音频采集。|1.11|
 |[StartAudioPlayer](#li_082)|开启音频播放设备。|1.11|
 |[StopAudioPlayer](#li_083)|关闭音频播放。|1.11|
@@ -172,6 +180,10 @@ keyword: [Windows SDK, AliEngine]
 |[IsSystemAudioRecording](#li_130)|当前是否开启系统声音采集推送。|2.1|
 |[SetSystemAudioRecordingVolume](#li_131)|设置系统声音采集推送音量。|2.1|
 |[GetSystemAudioRecordingVolume](#li_132)|获取当前设置系统声音采集推送音量。|2.1|
+|[SetRecordingDeviceMute](#li_215)|静音音频采集设备。|2.4|
+|[GetRecordingDeviceMute](#li_216)|获取音频采集设备静音状态。|2.4|
+|[SetPlaybackDeviceMute](#li_217)|静音音频播放设备。|2.4|
+|[GetPlaybackDeviceMute](#li_218)|获取音频播放设备静音状态。|2.4|
 
 音频设备管理接口
 
@@ -242,11 +254,12 @@ keyword: [Windows SDK, AliEngine]
 |---|--|-------|
 |[StartLiveStreaming](#li_181)|开始直播拉流。|2.1|
 |[StopLiveStreaming](#li_182)|停止直播拉流。|2.1|
-|[StartPublishLiveStream](#li_183)|开启旁路直播。|2.1|
-|[UpdatePublishLiveStream](#li_184)|更新旁路直播相关参数。|2.1|
+|[StartPublishLiveStream](#li_183)|开启旁路直播。|2.4|
+|[UpdatePublishLiveStream](#li_184)|更新旁路直播相关参数。|2.4|
 |[StopPublishLiveStream](#li_185)|停止旁路直播。|2.1|
 |[SetLiveStreamingViewConfig](#li_186)|设置直播拉流窗口及渲染参数。|2.1|
 |[UpdateLiveStreamingViewConfig](#li_187)|更新直播拉流窗口及渲染参数。|2.1|
+|[GetPublishLiveStreamState](#li_211)|获取旁路直播状态。|2.4|
 
 跨频道连麦接口
 
@@ -255,6 +268,8 @@ keyword: [Windows SDK, AliEngine]
 |[StartChannelRelay](#li_188)|开启跨频道连麦。|2.1|
 |[UpdateChannelRelay](#li_189)|更新跨频道连麦。|2.1|
 |[StopChannelRelay](#li_190)|停止跨频道连麦。|2.1|
+|[EnableBackgroundExchange](#li_213)|开启或关闭虚拟背景替换功能。|2.4|
+|[EnableBackgroundBlur](#li_214)|开启或关闭虚拟背景虚化功能。|2.4|
 
 预览接口
 
@@ -290,6 +305,7 @@ keyword: [Windows SDK, AliEngine]
 |[RefreshAuthInfo](#li_208)|刷新令牌。|1.17.41|
 |[SetAudioSessionOperationRestriction](#li_209)|设置SDK对AVAudioSession的控制权限（适用于iOS端）。|2.1|
 |[GetCurrentConnectionStatus](#li_210)|获取当前网络链接状态。|2.1|
+|[ShowDebugView](#li_212)|展示用户Debug数据。|2.4|
 
 ## 接口详情
 
@@ -1038,7 +1054,7 @@ keyword: [Windows SDK, AliEngine]
 -   AddVideoWatermark：添加水印。
 
     ```
-    int AddVideoWatermark(AliEngineVideoTrack track, const char* image_url, const AliEngineWaterMarkConfig &options);
+    int AddVideoWatermark(AliEngineVideoTrack track, const char* imageUrl, const AliEngineWaterMarkConfig &options);
     ```
 
     参数说明
@@ -1046,7 +1062,7 @@ keyword: [Windows SDK, AliEngine]
     |名称|类型|描述|
     |--|--|--|
     |track|[AliEngineVideoTrack](/cn.zh-CN/SDK参考/Windows SDK/数据类型.md)|数据流类型。|
-    |image\_url|const char\*|水印图片路径。|
+    |imageUrl|const char\*|水印图片路径。|
     |options|const [AliEngineWaterMarkConfig](/cn.zh-CN/SDK参考/Windows SDK/数据类型.md) &|水印配置。|
 
     返回说明
@@ -1474,6 +1490,23 @@ keyword: [Windows SDK, AliEngine]
 
     0表示方法调用成功，其他表示方法调用失败。
 
+-   StartAudioCapture：开启音频采集。此接口可以控制提前打开音频采集，如果不设置，则SDK会在合适的时机打开音频采集。
+
+    ```
+    int StartAudioCapture(bool keepAlive);
+    ```
+
+    参数说明
+
+    |名称|类型|描述|
+    |--|--|--|
+    |keepAlive|bool|采集设备状态，取值：    -   true（默认值）：离会后采集设备保持开启状态。
+    -   false：离会后采集设备关闭。 |
+
+    返回说明
+
+    0表示方法调用成功，其他表示方法调用失败。
+
 -   StopAudioCapture：关闭音频采集。
 
     ```
@@ -1619,15 +1652,15 @@ keyword: [Windows SDK, AliEngine]
 -   SetAudioProfile：设置音频Profile。
 
     ```
-    int SetAudioProfile(int audio_profile, int audio_scene);
+    int SetAudioProfile(int audioProfile, int audioScene);
     ```
 
     参数说明
 
     |名称|类型|描述|
     |--|--|--|
-    |audio\_profile|int|音频采集或编码模式参数，默认值为AliEngineBasicQualityMode，详情请参见[AliEngineAudioProfile](/cn.zh-CN/SDK参考/Windows SDK/数据类型.md)。|
-    |audio\_scene|int|音频场景模式参数，默认值为AliEngineSceneDefaultMode，详情请参见[AliEngineAudioScenario](/cn.zh-CN/SDK参考/Windows SDK/数据类型.md)。|
+    |audioProfile|int|音频采集或编码模式参数，默认值为AliEngineBasicQualityMode，详情请参见[AliEngineAudioProfile](/cn.zh-CN/SDK参考/Windows SDK/数据类型.md)。|
+    |audioScene|int|音频场景模式参数，默认值为AliEngineSceneDefaultMode，详情请参见[AliEngineAudioScenario](/cn.zh-CN/SDK参考/Windows SDK/数据类型.md)。|
 
     返回说明
 
@@ -1904,14 +1937,14 @@ keyword: [Windows SDK, AliEngine]
 -   SetAudioAccompanyPosition：设置音频文件的播放位置（适用于Android或iOS端）。
 
     ```
-    int SetAudioAccompanyPosition(int pos_ms);
+    int SetAudioAccompanyPosition(int pos);
     ```
 
     参数说明
 
     |名称|类型|描述|
     |--|--|--|
-    |pos\_ms|int|进度条位置，单位为毫秒。|
+    |pos|int|进度条位置，单位为毫秒。|
 
     返回说明
 
@@ -2916,7 +2949,7 @@ keyword: [Windows SDK, AliEngine]
 -   StartPublishLiveStream：开启旁路直播。
 
     ```
-    int StartPublishLiveStream(const String& streamURL, const AliEngineLiveTranscoding &transcoding);
+    int StartPublishLiveStream(const String& streamURL, const AliEngineLiveTranscodingParam &transcoding);
     ```
 
     参数说明
@@ -2924,7 +2957,7 @@ keyword: [Windows SDK, AliEngine]
     |名称|类型|描述|
     |--|--|--|
     |streamURL|const String&|推流地址。|
-    |transcoding|const [AliEngineLiveTranscoding](/cn.zh-CN/SDK参考/Windows SDK/数据类型.md) &|推流所需参数。|
+    |transcoding|const [AliEngineLiveTranscodingParam](/cn.zh-CN/SDK参考/Windows SDK/数据类型.md) &|推流所需参数。|
 
     返回说明
 
@@ -2933,7 +2966,7 @@ keyword: [Windows SDK, AliEngine]
 -   UpdatePublishLiveStream：更新旁路直播相关参数。
 
     ```
-    int UpdatePublishLiveStream(const String& streamURL, const AliEngineLiveTranscoding &transcoding);
+    int UpdatePublishLiveStream(const String& streamURL, const AliEngineLiveTranscodingParam &transcoding);
     ```
 
     参数说明
@@ -2941,7 +2974,7 @@ keyword: [Windows SDK, AliEngine]
     |名称|类型|描述|
     |--|--|--|
     |streamURL|const String&|推流地址。|
-    |transcoding|const [AliEngineLiveTranscoding](/cn.zh-CN/SDK参考/Windows SDK/数据类型.md) &|推流所需参数。|
+    |transcoding|const [AliEngineLiveTranscodingParam](/cn.zh-CN/SDK参考/Windows SDK/数据类型.md) &|推流所需参数。|
 
     返回说明
 
@@ -3296,5 +3329,228 @@ keyword: [Windows SDK, AliEngine]
     返回说明
 
     返回当前网络连接状态。
+
+-   GetPublishLiveStreamState：获取旁路直播状态。
+
+    ```
+    AliEngineLiveTranscodingState GetPublishLiveStreamState(const String& streamURL);
+    ```
+
+    参数说明
+
+    |参数|类型|描述|
+    |--|--|--|
+    |streamURL|const String&|旁路直播推流地址。|
+
+    返回说明
+
+    返回旁路直播状态。
+
+-   ShowDebugView：展示用户Debug数据。
+
+    ```
+    int ShowDebugView(void* view,const AliEngineShowDebugViewType showType,const char *uid);
+    ```
+
+    参数说明
+
+    |参数|类型|描述|
+    |--|--|--|
+    |view|void \*|View，由业务侧来负责布局。|
+    |showType|[AliEngineShowDebugViewType](/cn.zh-CN/SDK参考/Windows SDK/数据类型.md)|显示类型，取值：    -   0（默认值）：不显示。
+    -   1：音频。
+    -   2：视频。
+    -   3: 网络。
+    -   4: 全部。
+**说明：** 对于不公开的数据，可以设置特殊值。 |
+    |uid|const char \*|对应用户ID。|
+
+    返回说明
+
+    0表示方法调用成功，非0表示方法调用失败。
+
+-   EnableBackgroundExchange：开启或关闭虚拟背景替换功能。
+
+    ```
+    int EnableBackgroundExchange(bool enable, const char* path,const AliEngineBokehScaleModel model);
+    ```
+
+    参数说明
+
+    |参数|类型|描述|
+    |--|--|--|
+    |enable|bool|是否开启背景替换功能。取值：    -   true：开启。
+    -   false：关闭。 |
+    |path|const char\*|本地图片路径，支持JPG、PNG格式。|
+    |model|const [AliEngineBokehScaleModel](/cn.zh-CN/SDK参考/Windows SDK/数据类型.md)|背景图缩放模式。取值：    -   AliEngineBokehScaleModelCrop：等比裁剪。
+    -   AliEngineBokehScaleModelFill：填充黑边。 |
+
+    返回说明
+
+    0表示方法调用成功，非0表示方法调用失败。
+
+-   EnableBackgroundBlur：开启或关闭虚拟背景虚化功能。
+
+    ```
+    int EnableBackgroundBlur(bool enable, uint32_t degree);
+    ```
+
+    参数说明
+
+    |参数|类型|描述|
+    |--|--|--|
+    |enable|bool|是否开启背景虚化功能。取值：    -   true：开启。
+    -   false：关闭。 |
+    |degree|uint32\_t|虚化程度，取值范围：\[0,100\]。|
+
+    返回说明
+
+    0表示方法调用成功，非0表示方法调用失败。
+
+-   SetRecordingDeviceMute：静音音频采集设备。
+
+    ```
+    int SetRecordingDeviceMute(bool mute);
+    ```
+
+    参数说明
+
+    |参数|类型|描述|
+    |--|--|--|
+    |mute|bool|设备是否静音，取值：    -   true：设备设置为静音。
+    -   false：设备设置为非静音。 |
+
+    返回说明
+
+    0表示方法调用成功，非0表示方法调用失败。
+
+-   GetRecordingDeviceMute：获取音频采集设备静音状态。
+
+    ```
+    bool GetRecordingDeviceMute();
+    ```
+
+    返回说明
+
+    true表示静音状态，false表示非静音状态。
+
+-   SetPlaybackDeviceMute：静音音频播放设备。
+
+    ```
+    int SetPlaybackDeviceMute(bool mute);
+    ```
+
+    参数说明
+
+    |参数|类型|描述|
+    |--|--|--|
+    |mute|bool|设备是否静音，取值：    -   true：设备设置为静音。
+    -   false：设备设置为非静音。 |
+
+    返回说明
+
+    0表示方法调用成功，非0表示方法调用失败。
+
+-   GetPlaybackDeviceMute：获取音频播放设备静音状态。
+
+    ```
+    bool GetPlaybackDeviceMute();
+    ```
+
+    返回说明
+
+    true表示静音状态，false表示非静音状态。
+
+-   GetIfUserFetchObserverData：视频输出数据是否由用户来获取。
+
+    ```
+    bool GetIfUserFetchObserverData();
+    ```
+
+    返回说明
+
+    true表示视频输出数据由用户来获取，false表示视频输出数据由SDK回调获取，默认值为false。
+
+-   GetVideoAlignment：视频输出宽度对齐方式。
+
+    ```
+    AliEngineVideoObserAlignment GetVideoAlignment();
+    ```
+
+    返回说明
+
+    返回裸数据回调数据对齐类型，默认值为AliEngineAlignmentDefault。
+
+-   GetObserverDataMirrorApplied：视频输出数据是否需要镜像。
+
+    ```
+    bool GetObserverDataMirrorApplied();
+    ```
+
+    返回说明
+
+    true表示视频输出数据需要镜像，false表示视频输出数据不需要镜像，默认值为false。
+
+-   GetSmoothRenderingEnabled：拉流视频数据是否平滑输出。
+
+    ```
+    bool GetSmoothRenderingEnabled();
+    ```
+
+    返回说明
+
+    true表示拉流视频数据平滑输出，false表示拉流视频数据直接输出，默认值为false。
+
+-   GetVideoCaptureData：主动获取采集数据。
+
+    ```
+    bool GetVideoCaptureData(AliEngineVideoTrack type, AliEngineVideoRawData &videoRaw);
+    ```
+
+    参数说明
+
+    |参数|类型|描述|
+    |--|--|--|
+    |type|[AliEngineVideoTrack](/cn.zh-CN/SDK参考/Windows SDK/数据类型.md)|视频流类型。|
+    |videoRaw|[AliEngineVideoRawData](/cn.zh-CN/SDK参考/Windows SDK/数据类型.md) &|裸数据。|
+
+    返回说明
+
+    true表示方法调用成功，false表示方法调用失败。
+
+-   GetVideoPreEncoderData：主动获取编码前数据。
+
+    ```
+    bool GetVideoPreEncoderData(AliEngineVideoTrack type, AliEngineVideoRawData &videoRaw);
+    ```
+
+    参数说明
+
+    |参数|类型|描述|
+    |--|--|--|
+    |type|[AliEngineVideoTrack](/cn.zh-CN/SDK参考/Windows SDK/数据类型.md)|视频流类型。|
+    |videoRaw|[AliEngineVideoRawData](/cn.zh-CN/SDK参考/Windows SDK/数据类型.md) &|裸数据。|
+
+    返回说明
+
+    true表示方法调用成功，false表示方法调用失败。
+
+-   GetVideoRenderData：主动获取拉流数据。
+
+    ```
+    bool GetVideoRenderData(const char *uid,AliEngineVideoTrack type, AliEngineVideoRawData &videoRaw);
+    ```
+
+    参数说明
+
+    |参数|类型|描述|
+    |--|--|--|
+    |uid|const char \*|远端用户ID。|
+    |type|[AliEngineVideoTrack](/cn.zh-CN/SDK参考/Windows SDK/数据类型.md)|视频流类型。|
+    |videoRaw|[AliEngineVideoRawData](/cn.zh-CN/SDK参考/Windows SDK/数据类型.md) &|裸数据。|
+
+    返回说明
+
+    true表示方法调用成功，false表示方法调用失败。
 
 
