@@ -36,7 +36,7 @@ com.aliyun.rtc:AliRTC-Full:2.4.1.2106161546375
 |Mac|[Mac](/cn.zh-CN/快速入门/集成客户端SDK/Mac.md)|[Mac接口说明](/cn.zh-CN/SDK参考/iOS和Mac SDK/AliRtcEngine接口.md)|[V2.4.1](https://alivc-demo-cms.alicdn.com/versionProduct/sourceCode/rtc/2.4.1/AliRTCSdk_2.4.1(Mac).zip)|[Mac示例代码](https://github.com/aliyunvideo/AliRtcAppSample_Mac)|
 |Web|[Web](/cn.zh-CN/快速入门/集成客户端SDK/Web.md)|[Web接口说明](/cn.zh-CN/SDK参考/Web SDK/AliRtcEngine接口.md)|下载地址：
 
-[V1.15.2](https://alivc-demo-cms.alicdn.com/versionProduct/sourceCode/rtc/web/aliyun-webrtc-sdk-1.15.2.zip)
+[V1.15.4](https://alivc-demo-cms.alicdn.com/versionProduct/sourceCode/rtc/web/aliyun-webrtc-sdk-1.15.4.zip)
 
 npm地址：
 
