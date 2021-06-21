@@ -12,7 +12,7 @@ keyword: [Web, AliRtcEngine]
 
 |API|描述|以上版本支持|
 |---|--|------|
-|[isSupport](#li_tug_pff_d6o)|检测浏览器是否支持RTC SDK。|1.14|
+|[isSupport](#li_tug_pff_d6o)|检测浏览器是否支持Web SDK。|1.12|
 |[getDevices](#li_oue_oog_rv0)|获取设备信息。|1.2|
 |[getAvailableResolutions](#li_od6_3v6_cff)|获取可支持的分辨率。|1.2|
 |[isSupportScreenShare](#li_jsg_21y_eqb)|是否支持屏幕共享。|1.12|
@@ -95,7 +95,7 @@ keyword: [Web, AliRtcEngine]
 
 ## 接口详情
 
--   isSupport：检测浏览器是否支持RTC SDK。
+-   isSupport：检测浏览器是否支持Web SDK。
 
     ```
     aliWebrtc.isSupport(option).then(re =>{
@@ -111,6 +111,7 @@ keyword: [Web, AliRtcEngine]
     |--|--|--|
     |option|isReceiveOnly|Boolean|是否为纯订阅模式。取值：true\|false（默认值）。|
     |isDebug|Boolean|是否为本地调试模式。取值：true\|false（默认值）。|
+    |customPlay|Boolean|是否为自定义播放模式。取值：true\|false（默认值）。**说明：** 设置customPlay后，当订阅发生变化时，由onMediaStreamUpdate消息响应，setDisplayRemoteVideo、muteRemoteAudioPlaying、muteAllRemoteAudioPlaying、setAudioVolume、getAudioVolume接口将失效。 |
 
     线上环境必须使用https协议。您可以添加\{isDebug: true\}参数进行localhost（本地主机）调试跳过https协议检测。
 
