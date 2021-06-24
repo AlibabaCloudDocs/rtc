@@ -7,7 +7,7 @@ AccessKey包括AccessKeyId和AccessKeySecret。
 -   AccessKeyId：用于标识用户。
 -   AccessKeySecret：用于验证用户的密钥。AccessKeySecret必须保密。
 
-**警告：** 主账号Accesskey泄露会威胁您所有资源的安全。建议使用子账号（RAM用户）Accesskey进行操作，可有效降低Accesskey泄露的风险。
+**警告：** 主账号AccessKey泄露会威胁您所有资源的安全。建议使用子账号（RAM用户）AccessKey进行操作，可有效降低AccessKey泄露的风险。
 
 具体操作步骤，请参见[创建AccessKey]()。
 
