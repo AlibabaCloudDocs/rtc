@@ -12,16 +12,16 @@ Android端具体环境要求，更多信息，请参见[使用限制](/cn.zh-CN/
 
 ## 集成SDK
 
-方法一：maven集成（推荐）
+方法一：Maven集成（推荐）
 
-1.  在根目录的build.gradle中添加maven仓库地址：
+1.  在根目录的build.gradle中添加Maven仓库地址：
 
     ```
     allprojects {
         repositories {
             google()
             jcenter()
-            //添加RTC需要的maven地址
+            //添加RTC需要的Maven地址
             maven {
                 url "http://maven.aliyun.com/nexus/content/groups/public/"
             }
@@ -39,7 +39,7 @@ Android端具体环境要求，更多信息，请参见[使用限制](/cn.zh-CN/
     }
     ```
 
-    **说明：** 此处maven依赖的版本仅供参考，获取最新的maven依赖，请参见[客户端SDK](/cn.zh-CN/SDK参考/SDK下载.md)。
+    **说明：** 此处Maven依赖的版本仅供参考，获取最新的Maven依赖，请参见[t170901.md\#khd\_sdk\_1](/cn.zh-CN/SDK参考/SDK下载.md)。
 
 3.  在/app/src/main/AndroidManifest.xml文件中添加如下代码，获取相应的设备权限。
 
@@ -66,7 +66,7 @@ Android端具体环境要求，更多信息，请参见[使用限制](/cn.zh-CN/
 
 方法二：手动集成
 
-1.  下载并解压Android SDK，下载地址，请参见[客户端SDK](/cn.zh-CN/SDK参考/SDK下载.md)。
+1.  下载并解压Android SDK，下载地址，请参见[t170901.md\#khd\_sdk\_1](/cn.zh-CN/SDK参考/SDK下载.md)。
 
 2.  复制SDK文件AliRTCSdk.aar到App模块下的libs文件夹中。
 
