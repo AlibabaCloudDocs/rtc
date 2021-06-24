@@ -16,7 +16,7 @@ iOS端具体环境要求，更多信息，请参见[使用限制](/cn.zh-CN/产�
 
 ## 集成SDK
 
-1.  下载并解压Mac SDK，下载地址请参见[客户端SDK](/cn.zh-CN/SDK参考/SDK下载.md)。
+1.  下载并解压Mac SDK，下载地址请参见[t170901.md\#khd\_sdk\_1](/cn.zh-CN/SDK参考/SDK下载.md)。
 
 2.  新建工程，将解压后的SDK文件复制到工程中。
 
@@ -32,7 +32,7 @@ iOS端具体环境要求，更多信息，请参见[使用限制](/cn.zh-CN/产�
 
 4.  在**Build Phases**页签中添加以下系统依赖。
 
-    相关系统库如下所示。
+    相关系统库如下所示：
 
     -   libc++.tbd
     -   libresolv.tbd
