@@ -10,8 +10,8 @@ keyword: [Web, AliRtcEngine]
 
 基础接口
 
-|API|描述|以上版本支持|
-|---|--|------|
+|API|描述|支持的最低版本|
+|---|--|-------|
 |[isSupport](#li_tug_pff_d6o)|检测浏览器是否支持Web SDK。|1.12|
 |[getDevices](#li_oue_oog_rv0)|获取设备信息。|1.2|
 |[getAvailableResolutions](#li_od6_3v6_cff)|获取可支持的分辨率。|1.2|
@@ -22,15 +22,15 @@ keyword: [Web, AliRtcEngine]
 
 频道相关接口
 
-|API|描述|以上版本支持|
-|---|--|------|
+|API|描述|支持的最低版本|
+|---|--|-------|
 |[joinChannel](#li_oc0_s51_2gm)|加入频道。|1.2|
 |[leaveChannel](#li_4gx_qmo_cfz)|离开频道。|1.2|
 
 发布相关接口
 
-|API|描述|以上版本支持|
-|---|--|------|
+|API|描述|支持的最低版本|
+|---|--|-------|
 |[configLocalAudioPublish](#li_zq3_78u_31m)|设置是否允许发布音频流。|1.9|
 |[configLocalCameraPublish](#li_342_kx3_twr)|设置是否允许发布相机流。|1.9|
 |[configLocalScreenPublish](#li_yi7_0js_vo7)|设置是否允许发布屏幕共享流。|1.9|
@@ -39,8 +39,8 @@ keyword: [Web, AliRtcEngine]
 
 订阅相关接口
 
-|API|描述|以上版本支持|
-|---|--|------|
+|API|描述|支持的最低版本|
+|---|--|-------|
 |[configRemoteAudio](#li_22b_5dy_94j)|设置是否订阅远端音频流。|1.9|
 |[configRemoteCameraTrack](#li_2oq_y38_8fr)|设置是否订阅远端相机流。|1.9|
 |[configRemoteScreenTrack](#li_fep_s8y_b92)|设置是否订阅远端屏幕流。|1.9|
@@ -49,8 +49,8 @@ keyword: [Web, AliRtcEngine]
 
 视频相关接口
 
-|API|描述|以上版本支持|
-|---|--|------|
+|API|描述|支持的最低版本|
+|---|--|-------|
 |[currentCamera](#li_7kr_1ot_5vf)|指定摄像头设备。|1.9|
 |[videoProfile](#li_eph_agq_kbu)|设置视频流参数。|1.9|
 |[muteLocalCamera](#li_22i_jy6_nt0)|是否停止本地视频采集。|1.2|
@@ -60,8 +60,8 @@ keyword: [Web, AliRtcEngine]
 
 音频相关接口
 
-|API|描述|以上版本支持|
-|---|--|------|
+|API|描述|支持的最低版本|
+|---|--|-------|
 |[currentAudioCapture](#li_e0n_h1y_fvj)|指定麦克风设备。|1.9|
 |[muteLocalMic](#li_kx3_f9b_xai)|是否停止本地音频采集。|1.2|
 |[muteRemoteAudioPlaying](#li_dgb_8yu_48m)|设置是否停止播放远端音频流。|1.12.2|
@@ -72,23 +72,23 @@ keyword: [Web, AliRtcEngine]
 
 预览接口
 
-|API|描述|以上版本支持|
-|---|--|------|
+|API|描述|支持的最低版本|
+|---|--|-------|
 |[startPreview](#li_q8y_3m7_5z9)|预览本地摄像头。|1.2|
 |[stopPreview](#li_rnn_eih_bir)|结束预览本地摄像头。|1.2|
 |[enableHighDefinitionPreview](#li_j6u_7vu_nyd)|设置是否开启高清预览。|1.12.1|
 
 远端用户查询接口
 
-|API|描述|以上版本支持|
-|---|--|------|
+|API|描述|支持的最低版本|
+|---|--|-------|
 |[getUserList](#li_r4b_x22_2me)|获取当前房间在线用户。|1.9|
 |[getUserInfo](#li_vor_zpx_gsi)|获取用户信息。|1.9|
 
 其他接口
 
-|API|描述|以上版本支持|
-|---|--|------|
+|API|描述|支持的最低版本|
+|---|--|-------|
 |[on](#li_rdp_eyf_b1p)|订阅事件。|1.2|
 |[off](#li_bz5_z76_25m)|取消订阅事件。|1.2|
 |[setExternalMediaTrack](#li_la6_ta9_c59)|设置外部输入音视频流替换。|1.12.1|
@@ -109,11 +109,15 @@ keyword: [Web, AliRtcEngine]
 
     |名称|类型|描述|
     |--|--|--|
-    |option|isReceiveOnly|Boolean|是否为纯订阅模式。取值：true\|false（默认值）。|
-    |isDebug|Boolean|是否为本地调试模式。取值：true\|false（默认值）。|
-    |customPlay|Boolean|是否为自定义播放模式。取值：true\|false（默认值）。**说明：** 设置customPlay后，当订阅发生变化时，由onMediaStreamUpdate消息响应，setDisplayRemoteVideo、muteRemoteAudioPlaying、muteAllRemoteAudioPlaying、setAudioVolume、getAudioVolume接口将失效。 |
+    |option|isReceiveOnly|Boolean|是否为纯订阅模式。取值：    -   true：是。
+    -   false（默认值）：否。 |
+    |isDebug|Boolean|是否为本地调试模式。取值：    -   true：是。
+    -   false（默认值）：否。 |
+    |customPlay|Boolean|是否为自定义播放模式。取值：    -   true：是。
+    -   false（默认值）：否。
+**说明：** 设置customPlay后，当订阅发生变化时，由onMediaStreamUpdate消息响应，setDisplayRemoteVideo、muteRemoteAudioPlaying、muteAllRemoteAudioPlaying、setAudioVolume、getAudioVolume接口将失效。 |
 
-    线上环境必须使用https协议。您可以添加\{isDebug: true\}参数进行localhost（本地主机）调试跳过https协议检测。
+    线上环境必须使用HTTPS协议。您可以添加\{isDebug: true\}参数进行localhost（本地主机）调试跳过HTTPS协议检测。
 
     **说明：**
 
@@ -131,15 +135,21 @@ keyword: [Web, AliRtcEngine]
 
     |名称|类型|描述|
     |--|--|--|
-    |audioDevice|Boolean|音频设备是否可用。取值：true\|false。|
+    |audioDevice|Boolean|音频设备是否可用。取值：    -   true：是。
+    -   false：否。 |
     |browser|String|浏览器名称。|
     |browser\_version|String|浏览器版本。|
-    |isSupported|Boolean|是否支持webRTC。取值：true\|false。|
+    |isSupported|Boolean|是否支持webRTC。取值：    -   true：是。
+    -   false：否。 |
     |message|String|错误信息。|
-    |supportH264|Boolean|是否支持H264。取值：true\|false。|
-    |supportScreenShare|Boolean|是否支持屏幕分享。取值：true\|false。|
-    |supportMixBackgroundAudio|Boolean|是否支持屏幕声音分享。取值：true\|false。|
-    |videoDevice|Boolean|摄像头是否可用。取值：true\|false。|
+    |supportH264|Boolean|是否支持H264。取值：    -   true：是。
+    -   false：否。 |
+    |supportScreenShare|Boolean|是否支持屏幕分享。取值：    -   true：是。
+    -   false：否。 |
+    |supportMixBackgroundAudio|Boolean|是否支持屏幕声音分享。取值：    -   true：是。
+    -   false：否。 |
+    |videoDevice|Boolean|摄像头是否可用。取值：    -   true：是。
+    -   false：否。 |
 
 -   getDevices：获取设备信息，返回摄像头和音频输入设备。如果外接设备重新插拔后获取不到设备信息，请尝试重新启动电脑。
 
@@ -181,9 +191,8 @@ keyword: [Web, AliRtcEngine]
 
     |名称|类型|描述|
     |--|--|--|
-    |channelProfile|Number|频道模式。取值：     -   0：普通模式。
-    -   1：互动模式。
-默认取值0。|
+    |channelProfile|Number|频道模式。取值：     -   0（默认值）：普通模式。
+    -   1：互动模式。 |
 
 -   setClientRole：设置角色。
 
@@ -195,9 +204,8 @@ keyword: [Web, AliRtcEngine]
 
     |名称|类型|描述|
     |--|--|--|
-    |role|Number|角色类型。取值：     -   0：互动身份。
-    -   1：观众身份。
-默认取值0。|
+    |role|Number|角色类型。取值：     -   0（默认值）：互动身份。
+    -   1：观众身份。 |
 
 -   setAudioOnlyMode：设置是否为纯音频模式。
 
@@ -209,7 +217,8 @@ keyword: [Web, AliRtcEngine]
 
     |名称|类型|描述|
     |--|--|--|
-    |audioOnly|Boolean|是否开启纯音频模式，取值：true\|false（默认值）。|
+    |audioOnly|Boolean|是否开启纯音频模式，取值：    -   true：是。
+    -   false（默认值）：否。 |
 
     **说明：** 需要早调用isSupport接口之前调用该接口。设置纯音频模式后，可以在调用isSupport时不再检测摄像头。加入频道后无法进行本地预览，推拉流只能是音频流。
 
@@ -264,7 +273,8 @@ keyword: [Web, AliRtcEngine]
 
     |名称|类型|描述|
     |--|--|--|
-    |enable|Boolean|是否允许发布音频流。true表示允许发布音频流，false表示不允许发布音频流。默认为允许发布音频流。|
+    |enable|Boolean|是否允许发布音频流。取值：    -   true（默认值）：是。
+    -   false：否。 |
 
     **说明：** 需要调用publish才能生效。
 
@@ -278,7 +288,8 @@ keyword: [Web, AliRtcEngine]
 
     |名称|类型|描述|
     |--|--|--|
-    |enable|Boolean|是否允许发布相机流。true表示允许发布相机流，false表示不允许发布相机流。默认为允许发布相机流。|
+    |enable|Boolean|是否允许发布相机流。取值：    -   true（默认值）：是。
+    -   false：否。 |
 
     **说明：** 需要调用publish进行推流后，设置才能生效。
 
@@ -292,7 +303,8 @@ keyword: [Web, AliRtcEngine]
 
     |名称|类型|描述|
     |--|--|--|
-    |enable|Boolean|是否表示允许发布屏幕共享流。true表示允许发布屏幕共享流，false表示不允许发布屏幕共享流。默认为不允许发布屏幕共享流。|
+    |enable|Boolean|是否允许发布屏幕共享流。取值：    -   true：是。
+    -   false（默认值）：否。 |
 
 -   publish：发布本地视频流。
 
@@ -329,7 +341,8 @@ keyword: [Web, AliRtcEngine]
     |名称|类型|描述|
     |--|--|--|
     |userId|String|用户ID。|
-    |enable|Boolean|是否订阅远端音频流。true表示订阅远端音频流，false表示不订阅远端音频流。默认为订阅远端音频流。|
+    |enable|Boolean|是否订阅远端音频流。取值：    -   true（默认值）：是。
+    -   false：否。 |
 
     **说明：** 需要调用subscribe后，才能设置生效。
 
@@ -345,8 +358,10 @@ keyword: [Web, AliRtcEngine]
     |名称|类型|描述|
     |--|--|--|
     |userId|String|用户ID。|
-    |preferMaster|Boolean|true表示优先订阅大流，false表示优先订阅次小流。默认为订阅大流。|
-    |enable|Boolean|是否订阅远端相机流，true表示订阅远端相机流，false表示不订阅远端相机流。默认不订阅。|
+    |preferMaster|Boolean|优先订阅大流还是次小流。取值：    -   true（默认值）：订阅大流。
+    -   false：订阅次小流。 |
+    |enable|Boolean|是否订阅远端相机流。取值：    -   true：是。
+    -   false（默认值）：否。 |
 
     相机流包含大流和小流，大流分辨率更高，小流分辨率较低··
 
@@ -363,7 +378,8 @@ keyword: [Web, AliRtcEngine]
     |名称|类型|描述|
     |--|--|--|
     |userId|String|用户ID。|
-    |enable|Boolean|是否订阅远端屏幕流。true表示订阅远端屏幕流，false表示不订阅远端屏幕流。默认不订阅远端屏幕流。|
+    |enable|Boolean|是否订阅远端屏幕流。取值：    -   true：是。
+    -   false（默认值）：否。 |
 
     **说明：** 需要调用subscribe后，才能设置生效。
 
@@ -454,11 +470,12 @@ keyword: [Web, AliRtcEngine]
 
     |名称|类型|描述|
     |--|--|--|
-    |mute|Boolean|是否停止本地视频采集。true表示停止本地视频采集，false表示不停止本地视频采集。默认不采集本地视频。|
+    |mute|Boolean|是否停止本地视频采集。取值：    -   true（默认值）：停止本地视频采集。
+    -   false：不停止本地视频采集。 |
 
     返回说明
 
-    true表示成功，false表示失败。
+    true表示调用成功，false表示调用失败。
 
     **说明：** 1.10及以上版本，该接口增加返回值。该接口需要在推流状态下设置有效。
 
@@ -499,14 +516,13 @@ keyword: [Web, AliRtcEngine]
     -   屏幕共享：960（默认值）。 |
     |height|Number|高度。取值：     -   摄像头：480（默认值）。
     -   屏幕共享：540（默认值）。 |
-    |frameRate|Number|帧率。取值范围：5~30。默认取值：
-
-    -   摄像头：15（默认值）。
+    |frameRate|Number|帧率。取值范围：5~30。取值：    -   摄像头：15（默认值）。
     -   屏幕共享：10（默认值）。 |
     |maxBitrate|Number|最大码率。取值：     -   摄像头：500000（默认值）。
     -   屏幕共享：1500000（默认值）。
 **说明：** 1.13.2版本已删除该参数，SDK会根据设置的分辨率和帧率自动设置最大码率。1.13.2以下版本如果调用setVideoProfile，还需要配置该参数。 |
-    |type|Number|1表示摄像头，2表示屏幕共享。|
+    |type|Number|设置类型。取值：    -   1：摄像头。
+    -   2：屏幕共享。 |
 
     **说明：** 屏幕共享清晰度与网络质量、设备性能有关，而不是设置的分辨率越高显示的越清晰。该接口设置之后需要重新发布。
 
@@ -520,7 +536,8 @@ keyword: [Web, AliRtcEngine]
 
     |名称|类型|描述|
     |--|--|--|
-    |enable|Boolean|设置是否允许使用摄像头。true表示允许使用摄像头，false表示不允许使用摄像头。默认为允许使用摄像头。|
+    |enable|Boolean|设置是否允许使用摄像头。取值：    -   true（默认值）：允许。
+    -   false：不允许。 |
 
     **说明：** 该接口需要在isSupport之前调用，设置后isSupport将不再检测摄像头。
 
@@ -550,11 +567,12 @@ keyword: [Web, AliRtcEngine]
 
     |名称|类型|描述|
     |--|--|--|
-    |mute|Boolean|是否停止本地音频采集。true表示停止本地音频采集，false表示不停止本地音频采集。默认不采集本地音频。|
+    |mute|Boolean|是否停止本地音频采集。取值：    -   true（默认值）：停止本地音频采集。
+    -   false：不停止本地音频采集。 |
 
     返回说明
 
-    true表示成功，false表示失败。
+    true表示调用成功，false表示调用失败。
 
     **说明：** 1.10及以上版本，该接口增加返回值。该接口需要在推流状态下设置有效。
 
@@ -568,8 +586,9 @@ keyword: [Web, AliRtcEngine]
 
     |名称|类型|描述|
     |--|--|--|
-    |userId|String|用户ID|
-    |muted|Boolean|是否开启静音，true表示开启静音，false表示不开启静音。默认不开启静音。|
+    |userId|String|用户ID。|
+    |muted|Boolean|是否开启静音。取值：    -   true：开启。
+    -   false（默认值）：不开启。 |
 
 -   muteAllRemoteAudioPlaying：设置是否停止远端的所有音频流的播放
 
@@ -581,7 +600,8 @@ keyword: [Web, AliRtcEngine]
 
     |名称|类型|描述|
     |--|--|--|
-    |muted|Boolean|是否开启全员静音，true开启全员静音，false不开启全员静音。默认为不静音。|
+    |muted|Boolean|是否开启全员静音。取值：    -   true：开启。
+    -   false（默认值）：不开启。 |
 
 -   setAudioVolume：设置订阅用户音量。
 
@@ -593,8 +613,12 @@ keyword: [Web, AliRtcEngine]
 
     |名称|类型|描述|
     |--|--|--|
-    |userId|String|用户ID|
-    |volume|Number|音量值，取值\[0,1\]。设置成功返回true，失败返回false。|
+    |userId|String|用户ID。|
+    |volume|Number|音量值，取值：\[0,1\]。|
+
+    返回说明
+
+    true表示调用成功，false表示调用失败。
 
     **说明：**
 
@@ -610,13 +634,13 @@ keyword: [Web, AliRtcEngine]
 
     |名称|类型|描述|
     |--|--|--|
-    |userId|String|用户ID|
+    |userId|String|用户ID。|
 
     返回参数
 
     |名称|类型|描述|
     |--|--|--|
-    |volume|Number|音量值，取值\[0,1\]|
+    |volume|Number|音量值，取值：\[0,1\]。|
 
 -   enableAudioVolumeIndicator：设置接收音频音量值回调。
 
@@ -628,7 +652,8 @@ keyword: [Web, AliRtcEngine]
 
     |名称|类型|描述|
     |--|--|--|
-    |enable|Boolean|是否接收。true表示接收，false表示不接受。默认为false不接收。|
+    |enable|Boolean|是否接收音频音量值回调。取值：    -   true：接收。
+    -   false（默认值）：不接收。 |
 
 -   startPreview：预览本地摄像头。
 
@@ -662,7 +687,8 @@ keyword: [Web, AliRtcEngine]
 
     |名称|类型|描述|
     |--|--|--|
-    |enable|Boolean|是否开启高清预览，true表示开启高清预览，false表示不开启高清预览。默认为开启高清预览。|
+    |enable|Boolean|是否开启高清预览。取值：    -   true（默认值）：开启。
+    -   false：不开启。 |
 
 -   getUserList：获取当前房间在线用户。返回当前房间所有在线用户列表信息。
 
@@ -676,12 +702,16 @@ keyword: [Web, AliRtcEngine]
     |--|--|--|
     |displayName|String|用户名称。|
     |userId|String|用户ID。|
-    |muteAudioPlaying|Boolean|是否设置静音。取值：true\|false。|
+    |muteAudioPlaying|Boolean|是否设置静音。取值：    -   true：是。
+    -   false：否。 |
     |streamConfigs|—|Array|音视频流数组。|
     |label|String|流标签。|
-    |state|String|active表示流可用，inactive表示流不可用。|
-    |subscribed|Boolean|是否订阅远端用户。取值：true\|false。|
-    |type|String|audio表示音频，video表示视频。|
+    |state|String|流状态，取值：    -   active：流可用。
+    -   inactive：流不可用。 |
+    |subscribed|Boolean|是否订阅远端用户。取值：    -   true：是。
+    -   false：否。 |
+    |type|String|音视频类型，取值：    -   audio：音频。
+    -   video：视频。 |
 
 -   getUserInfo：获取用户信息。
 
@@ -695,12 +725,16 @@ keyword: [Web, AliRtcEngine]
     |--|--|--|
     |displayName|String|用户名称。|
     |userId|String|用户ID。|
-    |muteAudioPlaying|Boolean|是否设置静音。取值：true\|false。|
-    |streamConfigs|——|Array|音视频流数组。|
+    |muteAudioPlaying|Boolean|是否设置静音。取值：    -   true：是。
+    -   false：否。 |
+    |streamConfigs|-|Array|音视频流数组。|
     |label|String|流标签。|
-    |state|String|active表示流可用，inactive表示流不可用。|
-    |subscribed|Boolean|是否订阅远端用户。取值：true\|false。|
-    |type|String|audio表示音频，video表示视频。|
+    |state|String|流状态，取值：    -   active：流可用。
+    -   inactive：流不可用。 |
+    |subscribed|Boolean|是否订阅远端用户。取值：    -   true：是。
+    -   false：否。 |
+    |type|String|音视频类型，取值：    -   audio：音频。
+    -   video：视频。 |
 
 -   on：订阅事件。
 
@@ -738,7 +772,8 @@ keyword: [Web, AliRtcEngine]
 
     |名称|类型|描述|
     |--|--|--|
-    |track|MediaStreamTrack|媒体流，传入音频流类型（audiotrack）或视频流类型（videotrack）。|
+    |track|MediaStreamTrack|媒体流类型，取值：    -   audiotrack：传入音频流类型。
+    -   videotrack：传入视频流类型。 |
     |type|Number|替换的流类型。取值：     -   0：音频流。
     -   1：视频流。
     -   2：屏幕共享流。 |
