@@ -6,22 +6,22 @@
 
 基础接口
 
-|API|描述|以上版本支持|
-|---|--|------|
+|API|描述|支持的最低版本|
+|---|--|-------|
 |[createInstance](#li_0fz_o4e_94s)|创建AliRTCEngine实例。|1.18.1|
 |[destroy](#li_n0w_nj6_9ks)|销毁AliRTCEngine实例。|1.18.1|
 
 频道相关接口
 
-|API|描述|以上版本支持|
-|---|--|------|
+|API|描述|支持的最低版本|
+|---|--|-------|
 |[joinChannel](#li_ewc_9e8_wqb)|加入频道。|1.18.1|
 |[leaveChannel](#li_6uz_mpg_9jz)|离开频道。|1.18.1|
 
 发布相关接口
 
-|API|描述|以上版本支持|
-|---|--|------|
+|API|描述|支持的最低版本|
+|---|--|-------|
 |[setVideoProfile](#li_t59_nbp_sf4)|设置视频流推流参数。|1.18.1|
 |[getVideoProfile](#li_pz0_k9d_80p)|获取视频流推流参数。|1.18.1|
 |[configLocalCameraPublish](#li_79a_htx_se4)|设置是否允许推送相机流。|1.18.1|
@@ -36,15 +36,15 @@
 
 录制相关接口
 
-|API|描述|以上版本支持|
-|---|--|------|
+|API|描述|支持的最低版本|
+|---|--|-------|
 |[startRecording](#li_37q_jb1_tfr)|手动开启录制。|1.18.1|
 |[stopRecording](#li_hxw_9ba_wag)|手动停止录制。|1.18.1|
 
 视频相关接口
 
-|API|描述|以上版本支持|
-|---|--|------|
+|API|描述|支持的最低版本|
+|---|--|-------|
 |[setExternalVideoSource](#li_4yu_74q_31m)|设置是否启用外部视频输入源。|1.18.1|
 |[pushExternalVideoFrame](#li_i55_kih_8sw)|输入外部视频数据。|1.18.1|
 |[addVideoWatermark](#li_304_swt_rsf)|添加水印。|1.18.11|
@@ -52,8 +52,8 @@
 
 音频相关接口
 
-|API|描述|以上版本支持|
-|---|--|------|
+|API|描述|支持的最低版本|
+|---|--|-------|
 |[setExternalAudioSource](#li_rg0_qma_zc3)|设置是否启用外部音频输入推流。|1.18.1|
 |[pushExternalAudioFrameRawData](#li_6oq_ux1_0w6)|输入外部音频数据推流。|1.18.1|
 |[setExternalAudioPublishVolume](#li_8y8_bso_w1d)|设置外部输入音频推流混音音量。|1.18.1|
@@ -62,8 +62,8 @@
 
 媒体播放器相关接口
 
-|API|描述|以上版本支持|
-|---|--|------|
+|API|描述|支持的最低版本|
+|---|--|-------|
 |[createMediaPlayer](#li_uu2_b7c_ml2)|创建媒体播放器。|1.18.1|
 |[destroyMediaPlayer](#li_ubz_21z_drb)|销毁媒体播放器。|1.18.1|
 |[setEventHandler](#li_xd8_47w_whn)|设置播放器状态和事件回调通知。|1.18.1|
@@ -158,13 +158,18 @@
 
     |参数名|类型|描述|
     |---|--|--|
-    |enable|boolean|是否允许推送相机流。true：允许，false：禁止。|
+    |enable|boolean|是否允许推送相机流。取值：    -   true：允许。
+    -   false：禁止。 |
 
--   isLocalCameraPublishEnabled：查询是否允许推送相机流。返回值，true表示允许，false表示禁止。
+-   isLocalCameraPublishEnabled：查询是否允许推送相机流。
 
     ```
     public abstract boolean isLocalCameraPublishEnabled();
     ```
+
+    返回说明
+
+    返回true表示允许，false表示禁止。
 
 -   configLocalScreenPublish：设置是否允许推送屏幕流。
 
@@ -176,13 +181,18 @@
 
     |参数名|类型|描述|
     |---|--|--|
-    |enable|boolean|是否允许推送屏幕流。true：允许，false：禁止。|
+    |enable|boolean|是否允许推送屏幕流。取值：    -   true：允许。
+    -   false：禁止。 |
 
--   isLocalScreenPublishEnabled：查询是否允许推送屏幕流。返回值，true表示允许，false表示禁止。
+-   isLocalScreenPublishEnabled：查询是否允许推送屏幕流。
 
     ```
     public abstract boolean isLocalScreenPublishEnabled();
     ```
+
+    返回说明
+
+    返回true表示允许，false表示禁止。
 
 -   configLocalAudioPublish：设置是否允许推送音频流。
 
@@ -194,13 +204,18 @@
 
     |参数名|类型|描述|
     |---|--|--|
-    |enable|boolean|是否允许推送音频流。true：允许，false：禁止。|
+    |enable|boolean|是否允许推送音频流。取值：    -   true：允许。
+    -   false：禁止。 |
 
--   isLocalAudioPublishEnabled：查询是否允许推送音频流。返回值，true表示允许，false表示禁止。
+-   isLocalAudioPublishEnabled：查询是否允许推送音频流。
 
     ```
     public abstract boolean isLocalAudioPublishEnabled();
     ```
+
+    返回说明
+
+    返回true表示允许，false表示禁止。
 
 -   configLocalSimulcast：设置是否允许推送次要视频流小流。
 
@@ -212,14 +227,19 @@
 
     |参数名|类型|描述|
     |---|--|--|
-    |enabled|boolean|是否允许推送次要视频流小流。true：允许，false：禁止。|
+    |enabled|boolean|是否允许推送次要视频流小流。取值：    -   true：允许。
+    -   false：禁止。 |
     |track|[VideoTrack](/cn.zh-CN/SDK参考/Linux SDK/Java/数据类型.md)|视频流的类型，详细请参见[VideoTrack](/cn.zh-CN/SDK参考/Linux SDK/Java/数据类型.md)。|
 
--   isLocalSimulcastEnabled：查询是否允许推送次要视频流小流。返回值，true表示允许，false表示禁止。
+-   isLocalSimulcastEnabled：查询是否允许推送次要视频流小流。
 
     ```
     public abstract boolean isLocalSimulcastEnabled();
     ```
+
+    返回说明
+
+    返回true表示允许，false表示禁止。
 
 -   publish：手动推送视频和音频流。
 
@@ -253,7 +273,8 @@
 
     |参数名|类型|描述|
     |---|--|--|
-    |enable|boolean|是否启用外部视频输入源。true：开启，false：关闭。|
+    |enable|boolean|是否启用外部视频输入源。取值：    -   true：启用。
+    -   false：关闭。 |
     |useTexture|boolean|是否使用texture模式，目前只支持false。|
     |source|[VideoSource](/cn.zh-CN/SDK参考/Linux SDK/Java/数据类型.md)|流类型。|
     |renderMode|[RenderMode](/cn.zh-CN/SDK参考/Linux SDK/Java/数据类型.md)|绘制模式。|
@@ -310,7 +331,7 @@
       public abstract int clearVideoWatermark(VideoSource sourceType);
     ```
 
--   setExternalAudioSource：设置是否启用外部音频输入推流。返回值，大于等于0表示成功，小于0表示失败。
+-   setExternalAudioSource：设置是否启用外部音频输入推流。
 
     **说明：** 您可以通过[setExternalAudioPublishVolume](#li_8y8_bso_w1d)设置输入音频推流音量。
 
@@ -320,13 +341,16 @@
 
     |参数名|类型|描述|
     |---|--|--|
-    |enable|boolean|是否启用外部音频输入推流。true：开启，false：关闭。|
+    |enable|boolean|是否启用外部音频输入推流。取值：    -   true：启用。
+    -   false：关闭。 |
     |sampleRate|int|采样率。|
     |channelsPerFrame|int|采样率。|
 
--   pushExternalAudioFrameRawData：输入外部音频数据推流。返回值，大于等于0表示成功，小于0表示失败。
+    返回说明
 
-    **说明：** 当返回值为ERR\_AUDIO\_BUFFER\_FULL时，需要在间隔投递数据时间长度后再次重试投递。
+    返回值大于等于0表示设置成功，小于0表示设置失败。
+
+-   pushExternalAudioFrameRawData：输入外部音频数据推流。
 
     ```
     public abstract int pushExternalAudioFrameRawData(byte[] audioSamples, int sampleLength, long timestamp);
@@ -337,6 +361,12 @@
     |audioSamples|byte\[\]|音频数据。|
     |sampleLength|int|音频数据长度。|
     |timestamp|long|时间戳。|
+
+    返回说明
+
+    返回值大于等于0表示调用成功，小于0表示调用失败。
+
+    **说明：** 当返回值为ERR\_AUDIO\_BUFFER\_FULL时，需要在间隔投递数据时间长度后再次重试投递。
 
 -   setExternalAudioPublishVolume：设置外部输入音频推流混音音量。
 
@@ -368,7 +398,7 @@
 
     返回说明
 
-    0表示接口调用成功，-1表示接口调用失败。
+    返回0表示调用成功，-1表示调用失败。
 
 -   createMediaPlayer：创建媒体播放器。
 
@@ -382,7 +412,7 @@
     public abstract int destroyMediaPlayer(AliRTCLinuxMediaPlayer player);
     ```
 
--   setEventHandler：设置播放器状态和事件回调通知。返回0表示成功，其他表示失败。
+-   setEventHandler：设置播放器状态和事件回调通知。
 
     ```
     public int setEventHandler(AliRTCLinuxMediaPlayerListener eventHandler);
@@ -392,7 +422,11 @@
     |---|--|--|
     |eventHandler|AliRTCLinuxMediaPlayerListener|播放器状态和事件回调句柄。|
 
--   loadResource：加载播放资源。返回0表示接口调用成功，其他表示失败。真正加载资源的成功与否需要通过OnStateChange回调接口中的状态来确定。
+    返回说明
+
+    返回0表示设置成功，其他表示设置失败。
+
+-   loadResource：加载播放资源。真正加载资源的成功与否需要通过OnStateChange回调接口中的状态来确定。
 
     ```
     public int loadResource(String path);
@@ -402,7 +436,11 @@
     |---|--|--|
     |path|String|播放资源的地址，目前支持本地绝对路径和在线地址。|
 
--   start：开始播放。返回0表示接口调用成功，其他表示失败。
+    返回说明
+
+    返回0表示调用成功，其他表示调用失败。
+
+-   start：开始播放。
 
     **说明：** 该接口需要等到播放器状态变为MediaPlayerStatePrepared才能调用。
 
@@ -410,25 +448,41 @@
     public int start();
     ```
 
--   stop：停止播放。return 0表示接口调用成功，其他表示接口调用失败。
+    返回说明
+
+    返回0表示调用成功，其他表示调用失败。
+
+-   stop：停止播放。
 
     ```
     public int stop();
     ```
 
--   pause：暂停播放。返回0表示接口调用成功，其他表示失败。
+    返回说明
+
+    返回0表示调用成功，其他表示调用失败。
+
+-   pause：暂停播放。
 
     ```
     public int pause();
     ```
 
--   resume：恢复播放。返回0表示接口调用成功，其他表示失败。
+    返回说明
+
+    返回0表示调用成功，其他表示调用失败。
+
+-   resume：恢复播放。
 
     ```
     public int resume();
     ```
 
--   seekTo：跳转播放。返回0表示接口调用成功，其他表示失败。
+    返回说明
+
+    返回0表示调用成功，其他表示调用失败。
+
+-   seekTo：跳转播放。
 
     ```
     public int seekTo(long millisecond);
@@ -438,7 +492,11 @@
     |---|--|--|
     |millisecond|long|跳转到的播放位置，毫秒为单位。|
 
--   setVideoSource：设置播放器的视频数据是否推流。返回0为接口调用成功，其他表示失败。
+    返回说明
+
+    返回0表示调用成功，其他表示调用失败。
+
+-   setVideoSource：设置播放器的视频数据是否推流。
 
     ```
     public int setVideoSource(boolean enable, AliRTCLinuxEngine.VideoSource source, AliRTCLinuxEngine.RenderMode renderMode);
@@ -446,11 +504,16 @@
 
     |参数名|类型|描述|
     |---|--|--|
-    |enable|boolean|是否推流。true：允许，false：禁止。|
+    |enable|boolean|是否推流。取值：    -   true：允许。
+    -   false：禁止。 |
     |source|AliRTCLinuxEngine.[VideoSource](/cn.zh-CN/SDK参考/Linux SDK/Java/数据类型.md)|选择视频源推流。|
     |renderMode|AliRTCLinuxEngine.[RenderMode](/cn.zh-CN/SDK参考/Linux SDK/Java/数据类型.md)|视频源的缩放方式。|
 
--   enableAudioSource：设置播放器的音频数据是否推流。返回0为接口调用成功，其他表示失败。
+    返回说明
+
+    返回0表示调用成功，其他表示调用失败。
+
+-   enableAudioSource：设置播放器的音频数据是否推流。
 
     ```
     public int enableAudioSource(boolean enable);
@@ -458,9 +521,14 @@
 
     |参数名|类型|描述|
     |---|--|--|
-    |enable|boolean|是否推流。true：允许，false：禁止。|
+    |enable|boolean|是否推流。取值：    -   true：允许。
+    -   false：禁止。 |
 
--   setVolume：设置播放器的音量（影响推流出去的音量）。返回0为接口调用成功，其他表示失败。
+    返回说明
+
+    返回0表示调用成功，其他表示调用失败。
+
+-   setVolume：设置播放器的音量（影响推流出去的音量）。
 
     ```
     public int setVolume(int volume);
@@ -469,6 +537,10 @@
     |参数名|类型|描述|
     |---|--|--|
     |volume|int|音量，取值范围0~100。|
+
+    返回说明
+
+    返回0表示调用成功，其他表示调用失败。
 
 -   getDuration：获取播放的总时长。
 
