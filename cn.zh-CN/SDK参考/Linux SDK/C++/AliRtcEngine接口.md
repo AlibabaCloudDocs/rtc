@@ -6,23 +6,23 @@
 
 基础接口
 
-|API|描述|以上版本支持|
-|---|--|------|
+|API|描述|支持的最低版本|
+|---|--|-------|
 |[CreateAliRTCEngine](#li_wpl_vhy_k45)|创建AliRTCEngine实例。|1.18.1|
 |[Release](#li_2cr_csc_hgv)|释放AliRTCEngine实例。|1.18.1|
 |[GetEventHandler](#li_pm8_mct_3l0)|获取事件回调句柄。|1.18.1|
 
 频道相关接口
 
-|API|描述|以上版本支持|
-|---|--|------|
+|API|描述|支持的最低版本|
+|---|--|-------|
 |[JoinChannel](#li_lp7_1fk_i0r)|加入频道。|1.18.1|
 |[LeaveChannel](#li_vk8_dmy_5qx)|离开频道。|1.18.1|
 
 发布相关接口
 
-|API|描述|以上版本支持|
-|---|--|------|
+|API|描述|支持的最低版本|
+|---|--|-------|
 |[SetVideoProfile](#li_nbc_k0o_jkl)|设置视频流推流参数。|1.18.1|
 |[GetVideoProfile](#li_a5i_rk5_7ha)|获取视频流推流参数。|1.18.1|
 |[ConfigLocalCameraPublish](#li_gbb_iev_fo5)|设置是否允许推送相机流。|1.18.1|
@@ -37,15 +37,15 @@
 
 录制相关接口
 
-|API|描述|以上版本支持|
-|---|--|------|
+|API|描述|支持的最低版本|
+|---|--|-------|
 |[StartRecording](#li_au1_g0n_813)|手动开启录制。|1.18.1|
 |[StopRecording](#li_ylf_u1j_e81)|手动停止录制。|1.18.1|
 
 视频相关接口
 
-|API|描述|以上版本支持|
-|---|--|------|
+|API|描述|支持的最低版本|
+|---|--|-------|
 |[SetExternalVideoSource](#li_gfj_kml_mjj)|设置是否启用外部视频输入源。|1.18.1|
 |[PushExternalVideoFrame](#li_y8p_drt_qih)|输入外部视频数据。|1.18.1|
 |[AddVideoWatermark](#li_1qe_qv2_hhe)|添加水印。|1.18.11|
@@ -53,8 +53,8 @@
 
 音频相关接口
 
-|API|描述|以上版本支持|
-|---|--|------|
+|API|描述|支持的最低版本|
+|---|--|-------|
 |[SetExternalAudioSource](#li_vo8_1fn_wco)|设置是否启用外部音频输入推流。|1.18.1|
 |[PushExternalAudioFrameRawData](#li_3jo_g18_sbm)|输入外部音频数据推流。|1.18.1|
 |[SetExternalAudioPublishVolume](#li_etn_4fx_7t1)|设置外部输入音频推流混音音量。|1.18.1|
@@ -63,8 +63,8 @@
 
 媒体播放器相关接口
 
-|API|描述|以上版本支持|
-|---|--|------|
+|API|描述|支持的最低版本|
+|---|--|-------|
 |[CreateMediaPlayer](#li_wi0_ls1_7xl)|创建媒体播放器。|1.18.1|
 |[DestroyMediaPlayer](#li_kyr_fyn_tn9)|销毁媒体播放器。|1.18.1|
 |[SetEventHandler](#li_muq_76g_yj5)|设置播放器状态和事件回调通知。|1.18.1|
@@ -108,19 +108,19 @@ AliRTCEngineInterface * CreateAliRTCEngine(EngineEventHandlerInterface * eventHa
 -   Release：释放AliRTCEngine实例。
 
     ```
-    virtual void Release() = 0;
+    void Release();
     ```
 
 -   GetEventHandler：获取事件回调句柄。
 
     ```
-    virtual EngineEventHandlerInterface * GetEventHandler() = 0;
+    EngineEventHandlerInterface * GetEventHandler();
     ```
 
 -   JoinChannel：加入频道。
 
     ```
-    virtual int JoinChannel(const AuthInfo &authInfo, const JoinChannelConfig &config) = 0;
+    int JoinChannel(const AuthInfo &authInfo, const JoinChannelConfig &config);
     ```
 
     |参数名|类型|描述|
@@ -131,7 +131,7 @@ AliRTCEngineInterface * CreateAliRTCEngine(EngineEventHandlerInterface * eventHa
 -   LeaveChannel：离开频道。
 
     ```
-    virtual int LeaveChannel() = 0;
+    int LeaveChannel();
     ```
 
 -   SetVideoProfile：设置视频流推流参数。
@@ -139,7 +139,7 @@ AliRTCEngineInterface * CreateAliRTCEngine(EngineEventHandlerInterface * eventHa
     **说明：** 设置之后等到下次推流的时候才能生效。
 
     ```
-    virtual void SetVideoProfile(AliRTCSdk::Linux::VideoProfile profile, AliRTCSdk::Linux::VideoTrack track) = 0;
+    void SetVideoProfile(AliRTCSdk::Linux::VideoProfile profile, AliRTCSdk::Linux::VideoTrack track);
     ```
 
     |参数名|类型|描述|
@@ -152,7 +152,7 @@ AliRTCEngineInterface * CreateAliRTCEngine(EngineEventHandlerInterface * eventHa
     **说明：** 返回的是正在使用的（已经推流中）或者即将被使用的（下一次推流才会生效）视频分辨率和帧率，详细请参见[VideoProfile](/cn.zh-CN/SDK参考/Linux SDK/C++/数据类型.md) 。返回值不一定是正在使用的[VideoProfile](/cn.zh-CN/SDK参考/Linux SDK/C++/数据类型.md)，另外VideoTrackScreen是不支持的。
 
     ```
-    virtual AliRTCSdk::Linux::VideoProfile GetVideoProfile(AliRTCSdk::Linux::VideoTrack track) = 0;
+    AliRTCSdk::Linux::VideoProfile GetVideoProfile(AliRTCSdk::Linux::VideoTrack track);
     ```
 
     |参数名|类型|描述|
@@ -164,80 +164,100 @@ AliRTCEngineInterface * CreateAliRTCEngine(EngineEventHandlerInterface * eventHa
     **说明：** 需要调用[Publish](#li_p7r_dnm_syc)接口才能生效。默认允许相机流推流。
 
     ```
-    virtual void ConfigLocalCameraPublish(bool enable) = 0;
+    void ConfigLocalCameraPublish(bool enable);
     ```
 
     |参数名|类型|描述|
     |---|--|--|
-    |enable|bool|是否允许推送相机流。true：允许，false：禁止。|
+    |enable|bool|是否允许推送相机流。取值：    -   true：允许。
+    -   false：禁止。 |
 
--   IsLocalCameraPublishEnabled：查询是否允许推送相机流。返回值，true表示允许，false表示禁止。
+-   IsLocalCameraPublishEnabled：查询是否允许推送相机流。
 
     ```
-    virtual bool IsLocalCameraPublishEnabled() = 0;
+    bool IsLocalCameraPublishEnabled();
     ```
+
+    返回说明
+
+    返回true表示允许，false表示禁止。
 
 -   ConfigLocalScreenPublish：设置是否允许推送屏幕流。
 
     **说明：** 需要调用[Publish](#li_p7r_dnm_syc)接口才能生效。默认不允许屏幕流推流。
 
     ```
-    virtual void ConfigLocalScreenPublish(bool enable) = 0;
+    void ConfigLocalScreenPublish(bool enable);
     ```
 
     |参数名|类型|描述|
     |---|--|--|
-    |enable|bool|是否允许推送屏幕流。true：允许，false：禁止。|
+    |enable|bool|是否允许推送屏幕流。取值：    -   true：允许。
+    -   false：禁止。 |
 
--   IsLocalScreenPublishEnabled：查询是否允许推送屏幕流。返回值，true表示允许，false表示禁止。
+-   IsLocalScreenPublishEnabled：查询是否允许推送屏幕流。
 
     ```
-    virtual bool IsLocalScreenPublishEnabled() = 0;
+    bool IsLocalScreenPublishEnabled();
     ```
+
+    返回说明
+
+    返回true表示允许，false表示禁止。
 
 -   ConfigLocalAudioPublish：设置是否允许推送音频流。
 
     **说明：** 需要调用[Publish](#li_p7r_dnm_syc)接口才能生效，默认允许音频推流。
 
     ```
-    virtual void ConfigLocalAudioPublish(bool enable) = 0;
+    void ConfigLocalAudioPublish(bool enable);
     ```
 
     |参数名|类型|描述|
     |---|--|--|
-    |enable|bool|是否允许推送音频流小流。true：允许，false：禁止。|
+    |enable|bool|是否允许推送音频流小流。取值：    -   true：允许。
+    -   false：禁止。 |
 
--   IsLocalAudioPublishEnabled：查询是否允许推送音频流小流。返回值，true表示允许，false表示禁止。
+-   IsLocalAudioPublishEnabled：查询是否允许推送音频流小流。
 
     ```
-    virtual bool IsLocalAudioPublishEnabled() = 0;
+    bool IsLocalAudioPublishEnabled();
     ```
+
+    返回说明
+
+    返回true表示允许，false表示禁止。
 
 -   ConfigLocalSimulcast：设置是否允许推送次要视频流小流。
 
     **说明：** 需要调用[Publish](#li_p7r_dnm_syc)接口才能生效。默认允许推送次要视频流。目前只支持相机流，不支持屏幕流。
 
     ```
-    virtual int ConfigLocalSimulcast(bool enabled, AliRTCSdk::Linux::VideoTrack track) = 0;
+    int ConfigLocalSimulcast(bool enabled, AliRTCSdk::Linux::VideoTrack track);
     ```
 
     |参数名|类型|描述|
     |---|--|--|
-    |enabled|bool|是否允许推送次要视频流小流。true：允许，false：禁止。|
+    |enabled|bool|是否允许推送次要视频流小流。取值：    -   true：允许。
+    -   false：禁止。 |
     |track|AliRTCSdk::Linux::[VideoTrack](/cn.zh-CN/SDK参考/Linux SDK/C++/数据类型.md)|视频流的类型，详细请参见[VideoTrack](/cn.zh-CN/SDK参考/Linux SDK/C++/数据类型.md)。|
 
--   IsLocalSimulcastEnabled：查询是否允许推送次要视频流小流。返回值，true表示允许，false表示禁止。
+-   IsLocalSimulcastEnabled：查询是否允许推送次要视频流小流。
 
     ```
-    virtual bool IsLocalSimulcastEnabled() = 0;
+    bool IsLocalSimulcastEnabled();
     ```
+
+    返回说明
+
+    返回true表示允许，false表示禁止。
 
 -   Publish：手动推送视频和音频流。
 
     **说明：** 需要推送的流通过API [ConfigLocalAudioPublish](#li_f7p_epu_ssn)，[ConfigLocalCameraPublish](#li_gbb_iev_fo5)和[ConfigLocalScreenPublish](#li_f4d_pqa_91i)进行设置。
 
     ```
-    virtual int Publish() = 0;
+    int Publish();
     ```
 
 -   StartRecording：手动开启录制。
@@ -245,13 +265,13 @@ AliRTCEngineInterface * CreateAliRTCEngine(EngineEventHandlerInterface * eventHa
     **说明：** 如果需要手工配置所有推流和拉流，请通过[JoinChannelConfig](/cn.zh-CN/SDK参考/Linux SDK/C++/数据类型.md)字段，再[JoinChannel](#li_lp7_1fk_i0r)时，选择RecordingManually。
 
     ```
-    virtual int StartRecording() = 0;
+    int StartRecording();
     ```
 
 -   StopRecording：手动停止录制。
 
     ```
-    virtual int StopRecording() = 0;
+    int StopRecording();
     ```
 
 -   SetExternalVideoSource：设置是否启用外部视频输入源。
@@ -259,12 +279,13 @@ AliRTCEngineInterface * CreateAliRTCEngine(EngineEventHandlerInterface * eventHa
     **说明：** 启用后使用PushExternalVideoFrame接口输入视频数据。
 
     ```
-    virtual int SetExternalVideoSource(bool enable, bool useTexture, AliRTCSdk::Linux::VideoSource sourceType, AliRTCSdk::Linux::RenderMode renderMode = AliRTCSdk::Linux::RenderModeFill) = 0;
+    int SetExternalVideoSource(bool enable, bool useTexture, AliRTCSdk::Linux::VideoSource sourceType, AliRTCSdk::Linux::RenderMode renderMode = AliRTCSdk::Linux::RenderModeFill);
     ```
 
     |参数名|类型|描述|
     |---|--|--|
-    |enabled|bool|是否启用外部视频输入源。true：允许，false：关闭。|
+    |enabled|bool|是否启用外部视频输入源。取值：    -   true：启用。
+    -   false：关闭。 |
     |useTexture|bool|是否使用texture模式，目前仅支持false。|
     |sourceType|AliRTCSdk::Linux::[VideoSource](/cn.zh-CN/SDK参考/Linux SDK/C++/数据类型.md)|流类型。|
 
@@ -273,7 +294,7 @@ AliRTCEngineInterface * CreateAliRTCEngine(EngineEventHandlerInterface * eventHa
     **说明：** 目前输入视频类型只支持I420。
 
     ```
-    virtual int PushExternalVideoFrame(AliRTCSdk::Linux::VideoDataSample *frame, AliRTCSdk::Linux::VideoSource sourceType) = 0;
+    int PushExternalVideoFrame(AliRTCSdk::Linux::VideoDataSample *frame, AliRTCSdk::Linux::VideoSource sourceType);
     ```
 
     |参数名|类型|描述|
@@ -292,9 +313,9 @@ AliRTCEngineInterface * CreateAliRTCEngine(EngineEventHandlerInterface * eventHa
      * @return 0:接口调用成功，-1:接口调用失败
      * @note 该接口返回值只表示接口调用是否成功，真正的水印是否添加成功通过回调函数返回
      */
-    virtual int AddVideoWatermark(AliRTCSdk::Linux::VideoSource sourceType,
+    int AddVideoWatermark(AliRTCSdk::Linux::VideoSource sourceType,
                                   const char* image_url,
-                                  const AliRTCSdk::Linux::WaterMarkConfig & options) = 0;
+                                  const AliRTCSdk::Linux::WaterMarkConfig & options);
     ```
 
     ```
@@ -307,10 +328,10 @@ AliRTCEngineInterface * CreateAliRTCEngine(EngineEventHandlerInterface * eventHa
      * @return 0:接口调用成功，-1:接口调用失败
      * @note 该接口返回值只表示接口调用是否成功，真正的水印是否添加成功通过回调函数返回
      */
-    virtual int AddVideoWatermark(AliRTCSdk::Linux::VideoSource sourceType,
+    int AddVideoWatermark(AliRTCSdk::Linux::VideoSource sourceType,
                                   const uint8_t* imageData,
                                   const int32_t imageLength,
-                                const AliRTCSdk::Linux::WaterMarkConfig & options) = 0;
+                                const AliRTCSdk::Linux::WaterMarkConfig & options);
     ```
 
 -   ClearVideoWatermark：清除对应数据流水印信息。
@@ -322,29 +343,34 @@ AliRTCEngineInterface * CreateAliRTCEngine(EngineEventHandlerInterface * eventHa
      * @return 0:接口调用成功，-1:接口调用失败
      * @note 该接口返回值只表示接口调用是否成功，真正的水印是否清除成功通过回调函数返回
      */
-    virtual int ClearVideoWatermark(AliRTCSdk::Linux::VideoSource sourceType) = 0;
+    virtual int ClearVideoWatermark(AliRTCSdk::Linux::VideoSource sourceType);
     ```
 
--   SetExternalAudioSource：设置是否启用外部音频输入推流。返回值，大于等于0表示成功，小于0表示失败。
+-   SetExternalAudioSource：设置是否启用外部音频输入推流。
 
     **说明：** 通过[SetExternalAudioPublishVolume](#li_etn_4fx_7t1)设置输入音频推流音量。
 
     ```
-    virtual int SetExternalAudioSource(bool enable, unsigned int sampleRate,  unsigned int channelsPerFrame) = 0;
+    int SetExternalAudioSource(bool enable, unsigned int sampleRate,  unsigned int channelsPerFrame);
     ```
 
     |参数名|类型|描述|
     |---|--|--|
-    |enable|bool|是否启用外部音频输入推流。true：开启，false：关闭。|
+    |enable|bool|是否启用外部音频输入推流。取值：    -   true：启用。
+    -   false：关闭。 |
     |sampleRate|unsigned int|采样率。|
     |channelsPerFrame|unsigned int|采样率。|
 
--   PushExternalAudioFrameRawData：输入外部音频数据推流。返回值，大于等于0表示成功，小于0表示失败。
+    返回说明
+
+    返回值大于等于0表示设置成功，小于0表示设置失败。
+
+-   PushExternalAudioFrameRawData：输入外部音频数据推流。
 
     **说明：** 当返回值为ERR\_AUDIO\_BUFFER\_FULL时，需要在间隔投递数据时间长度后再次重试投递。
 
     ```
-    virtual int PushExternalAudioFrameRawData(const void* audioSamples, unsigned int sampleLength, long long timestamp) = 0;
+    int PushExternalAudioFrameRawData(const void* audioSamples, unsigned int sampleLength, long long timestamp);
     ```
 
     |参数名|类型|描述|
@@ -353,10 +379,14 @@ AliRTCEngineInterface * CreateAliRTCEngine(EngineEventHandlerInterface * eventHa
     |sampleLength|unsigned int|音频数据长度。|
     |timestamp|long long|时间戳。|
 
+    返回说明
+
+    返回值大于等于0表示设置成功，小于0表示设置失败。
+
 -   SetExternalAudioPublishVolume：设置外部输入音频推流混音音量。
 
     ```
-    virtual int SetExternalAudioPublishVolume(int volume) = 0;
+    int SetExternalAudioPublishVolume(int volume);
     ```
 
     |参数名|类型|描述|
@@ -366,13 +396,13 @@ AliRTCEngineInterface * CreateAliRTCEngine(EngineEventHandlerInterface * eventHa
 -   GetExternalAudioPublishVolume：获取外部输入音频推流混音音量。
 
     ```
-    virtual int GetExternalAudioPublishVolume() = 0;
+    int GetExternalAudioPublishVolume();
     ```
 
 -   setAudioChannels：设置音频的推流模式。
 
     ```
-    virtual int SetAudioChannels(AliRTCSdk::Linux::ExpectedAudioType type) = 0;
+    int SetAudioChannels(AliRTCSdk::Linux::ExpectedAudioType type);
     ```
 
     参数说明
@@ -383,120 +413,162 @@ AliRTCEngineInterface * CreateAliRTCEngine(EngineEventHandlerInterface * eventHa
 
     返回说明
 
-    0表示接口调用成功，-1表示接口调用失败。
+    返回0表示调用成功，-1表示调用失败。
 
 -   CreateMediaPlayer：创建媒体播放器。
 
     ```
-    virtual AliRTCMediaPlayerInterface * CreateMediaPlayer() = 0;
+    AliRTCMediaPlayerInterface * CreateMediaPlayer();
     ```
 
 -   DestroyMediaPlayer：销毁媒体播放器。
 
     ```
-    virtual int DestroyMediaPlayer(AliRTCMediaPlayerInterface *mediaPlayer) = 0;
+    int DestroyMediaPlayer(AliRTCMediaPlayerInterface *mediaPlayer);
     ```
 
 -   SetEventHandler：设置播放器状态和事件回调通知。返回0表示成功，其他表示失败。
 
     ```
-    virtual int SetEventHandler(AliRTCMediaPlayerEventHandlerInterface *eventHandler) = 0;
+    int SetEventHandler(AliRTCMediaPlayerEventHandlerInterface *eventHandler);
     ```
 
     |参数名|类型|描述|
     |---|--|--|
     |eventHandler|AliRTCMediaPlayerEventHandlerInterface \*|播放器状态和事件回调句柄。|
 
+    返回说明
+
+    返回0表示设置成功，其他表示设置失败。
+
 -   GetEventHandler：取播放器状态和事件回调句柄。
 
     ```
-    virtual AliRTCMediaPlayerEventHandlerInterface *GetEventHandler() = 0;
+    AliRTCMediaPlayerEventHandlerInterface *GetEventHandler();
     ```
 
--   LoadResource：加载播放资源。返回0表示接口调用成功，其他表示失败。真正加载资源的成功与否需要通过OnStateChange回调接口中的状态来确定。
+-   LoadResource：加载播放资源。真正加载资源的成功与否需要通过OnStateChange回调接口中的状态来确定。
 
     ```
-    virtual int LoadResource(const char *path) = 0;
+    int LoadResource(const char *path);
     ```
 
     |参数名|类型|描述|
     |---|--|--|
     |path|const char \*|播放资源的地址，目前支持本地绝对路径和在线地址。|
 
--   Start：开始播放。返回0表示接口调用成功，其他表示失败。
+    返回说明
+
+    返回0表示调用成功，其他表示调用失败。
+
+-   Start：开始播放。
 
     **说明：** 该接口需要等到播放器状态变为MediaPlayerStatePrepared才能调用。
 
     ```
-    virtual int Start() = 0;
+    int Start();
     ```
 
--   Stop：停止播放。返回0表示接口调用成功，其他表示失败。
+    返回说明
+
+    返回0表示调用成功，其他表示调用失败。
+
+-   Stop：停止播放。
 
     ```
-    virtual int Stop() = 0;
+    int Stop();
     ```
 
--   Pause：暂停播放。返回0为接口调用成功，其他表示失败。
+    返回说明
+
+    返回0表示调用成功，其他表示调用失败。
+
+-   Pause：暂停播放。
 
     ```
-    virtual int Pause() = 0;
+    int Pause();
     ```
 
--   Resume：恢复播放。返回0为接口调用成功，其他表示失败。
+    返回说明
+
+    返回0表示调用成功，其他表示调用失败。
+
+-   Resume：恢复播放。
 
     ```
-    virtual int Resume() = 0;
+    int Resume();
     ```
 
--   SeekTo：跳转播放。返回0为接口调用成功，其他表示失败。
+    返回说明
+
+    返回0表示调用成功，其他表示调用失败。
+
+-   SeekTo：跳转播放。
 
     ```
-    virtual int SeekTo(unsigned long long millisecond) = 0;
+    int SeekTo(unsigned long long millisecond);
     ```
 
     |参数名|类型|描述|
     |---|--|--|
     |millisecond|unsigned long long|跳转到的播放位置，单位为毫秒。|
 
--   SetVolume：设置播放器的音量（影响推流出去的音量）。返回0为接口调用成功，其他表示失败。
+    返回说明
+
+    返回0表示调用成功，其他表示调用失败。
+
+-   SetVolume：设置播放器的音量（影响推流出去的音量）。
 
     ```
-    virtual int SetVolume(int volume) = 0;
+    int SetVolume(int volume);
     ```
 
     |参数名|类型|描述|
     |---|--|--|
     |volume|int|音量，取值范围0~100。|
 
--   SetVideoSource：设置播放器的视频数据是否推流。返回0为接口调用成功，其他表示失败。
+    返回说明
+
+    返回0表示调用成功，其他表示调用失败。
+
+-   SetVideoSource：设置播放器的视频数据是否推流。
 
     ```
-    virtual int SetVideoSource(bool enable, AliRTCSdk::Linux::VideoSource sourceType, AliRTCSdk::Linux::RenderMode renderMode) = 0;
+    int SetVideoSource(bool enable, AliRTCSdk::Linux::VideoSource sourceType, AliRTCSdk::Linux::RenderMode renderMode);
     ```
 
     |参数名|类型|描述|
     |---|--|--|
-    |enable|bool|是否推流。true：允许，false：禁止。|
+    |enable|bool|是否推流。取值：    -   true：允许。
+    -   false：禁止。 |
     |sourceType|AliRTCSdk::Linux::[VideoSource](/cn.zh-CN/SDK参考/Linux SDK/C++/数据类型.md)|选择视频源推流。|
     |renderMode|AliRTCSdk::Linux::[RenderMode](/cn.zh-CN/SDK参考/Linux SDK/C++/数据类型.md)|视频源的缩放方式。|
 
--   EnableAudioSource：设置播放器的音频数据是否推流。返回0为接口调用成功，其他表示失败。
+    返回说明
+
+    返回0表示调用成功，其他表示调用失败。
+
+-   EnableAudioSource：设置播放器的音频数据是否推流。
 
     ```
-    virtual int EnableAudioSource(bool enable) = 0;
+    int EnableAudioSource(bool enable);
     ```
 
     |参数名|类型|描述|
     |---|--|--|
-    |enable|bool|是否推流。true：允许，false：禁止。|
+    |enable|bool|是否推流。取值：    -   true：允许。
+    -   false：禁止。 |
+
+    返回说明
+
+    返回0表示调用成功，其他表示调用失败。
 
 -   GetDuration：获取播放的总时长。
 
     **说明：** 需要等到播放器的状态为MediaPlayerStatePrepared才能获取到准确的时长。
 
     ```
-    virtual unsigned long long GetDuration() = 0;
+    unsigned long long GetDuration();
     ```
 
 -   GetCurrentPlaybackTime：获取当前的播放位置。
@@ -504,7 +576,7 @@ AliRTCEngineInterface * CreateAliRTCEngine(EngineEventHandlerInterface * eventHa
     **说明：** 需要等到播放器的状态为MediaPlayerStatePrepared才能获取到准确的当前位置。
 
     ```
-    virtual unsigned long long GetCurrentPlaybackTime() = 0;
+    unsigned long long GetCurrentPlaybackTime();
     ```
 
 -   GetCurrentVomume：获取当前的播放音量。
@@ -512,13 +584,13 @@ AliRTCEngineInterface * CreateAliRTCEngine(EngineEventHandlerInterface * eventHa
     **说明：** 需要等到播放器的状态为MediaPlayerStatePrepared才能获取到准确的当前音量。
 
     ```
-    virtual int GetCurrentVomume() = 0;
+    int GetCurrentVomume();
     ```
 
 -   GetCurrentPlaybackState：获取当前的播放状态。
 
     ```
-    virtual AliRTCSdk::Linux::MediaPlayerState GetCurrentPlaybackState() = 0;
+    AliRTCSdk::Linux::MediaPlayerState GetCurrentPlaybackState();
     ```
 
 -   GetIndex：获取当前的播放器ID。
@@ -526,7 +598,7 @@ AliRTCEngineInterface * CreateAliRTCEngine(EngineEventHandlerInterface * eventHa
     **说明：** 可以支持同时创建多个播放器，该接口可以用来区分各个播放器。
 
     ```
-    virtual int GetIndex() = 0;
+    int GetIndex();
     ```
 
 
