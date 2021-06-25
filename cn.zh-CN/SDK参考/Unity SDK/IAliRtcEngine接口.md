@@ -6,8 +6,8 @@
 
 基础接口
 
-|API|描述|以上版本支持|
-|---|--|------|
+|API|描述|支持的最低版本|
+|---|--|-------|
 |[SetH5CompatibleMode](#li_vxt_gz9_qqm)|设置H5兼容模式。|1.15|
 |[GetH5CompatibleMode](#li_5yq_r4f_jbn)|检查当前是否兼容H5。|1.15|
 |[GetEngine](#li_cm7_m68_lfx)|创建IAliRtcEngine实例（同一时间只会存在一个实例）。|1.15|
@@ -16,8 +16,8 @@
 
 频道相关接口
 
-|API|描述|以上版本支持|
-|---|--|------|
+|API|描述|支持的最低版本|
+|---|--|-------|
 |[SetAutoPublish](#li_tpm_vei_wk1)|设置是否自动发布，是否自动订阅。|1.15|
 |[JoinChannel](#li_0do_wfw_25n)|加入频道。|1.15|
 |[LeaveChannel](#li_qla_3ql_d4a)|离开频道。|1.15|
@@ -26,8 +26,8 @@
 
 发布相关接口
 
-|API|描述|以上版本支持|
-|---|--|------|
+|API|描述|支持的最低版本|
+|---|--|-------|
 |[IsAutoPublish](#li_tai_xlw_36d)|查询当前是否为自动发布模式。|1.15|
 |[ConfigLocalCameraPublish](#li_a1t_jz0_znq)|设置是否允许发布相机流。|1.15|
 |[IsLocalCameraPublishEnabled](#li_06o_v8e_ifs)|查询当前是否允许发布相机流。|1.15|
@@ -41,8 +41,8 @@
 
 订阅相关接口
 
-|API|描述|以上版本支持|
-|---|--|------|
+|API|描述|支持的最低版本|
+|---|--|-------|
 |[IsAutoSubscribe](#li_gab_q95_i89)|查询当前是否为自动订阅模式。|1.15|
 |[ConfigRemoteCameraTrack](#li_gk1_ize_cca)|设置是否订阅远端相机流。|1.15|
 |[ConfigRemoteScreenTrack](#li_53z_cnu_j6k)|设置是否订阅远端屏幕流。|1.15|
@@ -51,8 +51,8 @@
 
 视频相关接口
 
-|API|描述|以上版本支持|
-|---|--|------|
+|API|描述|支持的最低版本|
+|---|--|-------|
 |[SetVideoProfile](#li_17u_pzn_5v4)|设置视频流的参数。|1.15|
 |[GenerateTexture](#li_whn_mry_c8u)|生成渲染纹理（仅iOS、Android）。|1.15|
 |[SetTexture](#li_eee_98k_fte)|设置纹理（仅iOS、Android）。|1.15|
@@ -74,8 +74,8 @@
 
 音频相关接口
 
-|API|描述|以上版本支持|
-|---|--|------|
+|API|描述|支持的最低版本|
+|---|--|-------|
 |[SetAudioOnlyMode](#li_z8q_jwb_qjp)|设置是否为纯音频模式还是音视频模式。|1.15|
 |[IsAudioOnly](#li_xp9_sab_nnc)|查询当前是否为纯音频模式。|1.15|
 |[MuteLocalMic](#li_1ak_53n_t4j)|设置是否停止发布本地音频。|1.15|
@@ -92,28 +92,28 @@
 
 预览接口
 
-|API|描述|以上版本支持|
-|---|--|------|
+|API|描述|支持的最低版本|
+|---|--|-------|
 |[StartPreview](#li_4qc_6m1_pwd)|开始本地预览。|1.15|
 |[StopPreview](#li_8v5_m41_8mp)|停止本地预览。|1.15|
 
 远端用户查询接口
 
-|API|描述|以上版本支持|
-|---|--|------|
+|API|描述|支持的最低版本|
+|---|--|-------|
 |[GetOnlineRemoteUsers](#li_io3_ppc_2t8)|获取远端在线用户列表。|1.15|
 
 其他接口
 
-|API|描述|以上版本支持|
-|---|--|------|
+|API|描述|支持的最低版本|
+|---|--|-------|
 |[SetLogLevel](#li_i6q_4wg_f7t)|设置日志级别。|1.15|
 |[GetSdkVersion](#li_azz_yg7_emu)|获取SDK版本号。|1.15|
 |[SetClientRole](#li_tor_i4a_rm5)|设置用户角色。|1.15|
 
 ## 接口详情
 
--   SetH5CompatibleMode：检查当前是否兼容H5，返回YES标识兼容H5，NO表示不兼容H5。
+-   SetH5CompatibleMode：检查当前是否兼容H5。
 
     您需要在创建AliRtcEngine实例前调用该接口。
 
@@ -125,13 +125,17 @@
     |--|--|--|
     |comp|bool|YES为兼容H5模式，NO为不兼容H5。|
 
--   GetH5CompatibleMode：检查当前是否兼容H5，返回YES标识兼容H5，NO表示不兼容H5。
+-   GetH5CompatibleMode：检查当前是否兼容H5。
 
     您需要在创建AliRtcEngine实例前调用该接口。
 
     ```
      public static bool GetH5CompatibleMode();
     ```
+
+    返回说明
+
+    返回true表示兼容H5，false表示不兼容H5。
 
 -   GetEngine：创建AliRtcEngine实例。
 
@@ -185,13 +189,17 @@
     public void LeaveChannel();
     ```
 
--   IsInCall：检查当前是否在频道中，返回true表示在频道中，false表示不在频道中。
+-   IsInCall：检查当前是否在频道中。
 
     ```
     public bool IsInCall();
     ```
 
--   SetChannelProfile：设置频道模式，返回0为成功，非0表示失败。
+    返回说明
+
+    返回true表示在频道中，false表示不在频道中。
+
+-   SetChannelProfile：设置频道模式。
 
     **说明：** 您只可以在加入频道之前调用，会议中不可以重新设置，离开频道后可以重新设置。
 
@@ -203,11 +211,15 @@
     |--|--|--|
     |profile|int|频道模式类型。|
 
--   IsAutoPublish：查询当前是否为自动发布模式，返回true为自动发布，false为手动发布。
+-   IsAutoPublish：查询当前是否为自动发布模式。
 
     ```
     public bool IsAutoPublish();
     ```
+
+    返回说明
+
+    返回true表示自动发布，false表示手动发布。
 
 -   ConfigLocalCameraPublish：设置是否允许发布相机流。默认为允许发布相机流，手动发布时，需要调用publish才能生效。
 
@@ -219,11 +231,15 @@
     |--|--|--|
     |enable|bool|true为允许发布相机流，false为不允许。|
 
--   IsLocalCameraPublishEnabled：查询当前是否允许发布相机流，返回true为允许，false为不允许。
+-   IsLocalCameraPublishEnabled：查询当前是否允许发布相机流。
 
     ```
     public bool IsLocalCameraPublishEnabled();
     ```
+
+    返回说明
+
+    返回true表示允许，false表示不允许。
 
 -   ConfigLocalScreenPublish（仅Mac、Windows可用）：设置是否允许发布屏幕流。默认为不允许发布屏幕流，手动发布时，需要调用publish才能生效。
 
@@ -235,11 +251,15 @@
     |--|--|--|
     |enable|bool|true为允许发布屏幕流，false为不允许发布屏幕流。|
 
--   IsLocalScreenPublishEnabled（仅Mac、Windows可用）：查询当前是否允许发布屏幕流，返回true为允许，false为不允许。
+-   IsLocalScreenPublishEnabled（仅Mac、Windows可用）：查询当前是否允许发布屏幕流。
 
     ```
     public bool IsLocalScreenPublishEnabled();
     ```
+
+    返回说明
+
+    返回true表示允许，false表示不允许。
 
 -   ConfigLocalAudioPublish：设置是否允许发布音频流。默认为允许发布音频流，手动发布时，需要调用publish才能生效。
 
@@ -251,7 +271,7 @@
     |--|--|--|
     |enable|bool|true为允许发布音频流，false为不允许。|
 
--   IsLocalAudioPublishEnabled：查询当前是否允许发布音频流，返回true为允许，false为不允许。
+-   IsLocalAudioPublishEnabled：查询当前是否允许发布音频流。
 
     ```
     public void ConfigLocalSimulcast(bool enable, int track);
@@ -273,11 +293,15 @@
     |enabled|bool|true表示允许发布次要流，false表示不允许。|
     |track|AliRTCVideoTrack|流类型，当前只支持相机流：VIDEO\_TRACK\_CAMERA。|
 
--   IsLocalSimulcastEnabled：查询当前是否允许发布次要视频流，返回true为允许，false为不允许。
+-   IsLocalSimulcastEnabled：查询当前是否允许发布次要视频流。
 
     ```
     public bool IsLocalSimulcastEnabled();
     ```
+
+    返回说明
+
+    返回true表示允许，false表示不允许。
 
 -   Publish：手动发布视频和音频流。
 
@@ -290,11 +314,15 @@
     public void Publish();
     ```
 
--   IsAutoSubscribe：查询当前是否为自动订阅模式，返回true为自动订阅，false为手动订阅。
+-   IsAutoSubscribe：查询当前是否为自动订阅模式。
 
     ```
     public bool IsAutoSubscribe();
     ```
+
+    返回说明
+
+    返回true表示自动订阅，false表示手动订阅。
 
 -   ConfigRemoteCameraTrack：设置是否订阅远端相机流。默认为订阅大流，手动订阅时，需要调用Subscribe才能生效。
 
@@ -355,11 +383,15 @@
     |profile|AliRTCVideoProfile|视频流参数。|
     |track|AliRTCVideoTrack|需要设置的videoTrack类型。|
 
--   GenerateTexture（仅iOS、Android可用）：生成渲染纹理，返回值大于0为有效的纹理id，其他无效。
+-   GenerateTexture（仅iOS、Android可用）：生成渲染纹理。
 
     ```
     public int GenerateTexture();
     ```
+
+    返回说明
+
+    返回值大于0表示有效的纹理ID，其他表示无效。
 
 -   SetTexture：设置纹理（仅iOS、Android可用）。
 
@@ -381,7 +413,7 @@
 
     |参数|类型|描述|
     |--|--|--|
-    |textureId|int|纹理id。|
+    |textureId|int|纹理ID。|
 
 -   ConfigExternalVideoRendering：设置外部渲染模式（仅Mac、Windows可用）。
 
@@ -450,13 +482,17 @@
     |--|--|--|
     |deviceName|string|摄像头名称。|
 
--   SwitchCamera（仅iOS、Android可用）：切换前后摄像头，返回0为切换成功，其他为切换失败。
+-   SwitchCamera（仅iOS、Android可用）：切换前后摄像头。
 
     ```
     public int SwitchCamera();
     ```
 
--   SetCameraZoom（仅iOS、Android可用）：设置摄像头参数，返回0表示设置成功，其他表示设置失败。
+    返回说明
+
+    返回0表示切换成功，其他表示切换失败。
+
+-   SetCameraZoom（仅iOS、Android可用）：设置摄像头参数。
 
     ```
     public int SetCameraZoom(float zoom, bool flash, bool autoFocus);
@@ -468,31 +504,41 @@
     |flash|bool|是否打开闪光灯。|
     |autoFocus|bool|是否打开自动对焦。|
 
--   IsCameraOn：检查摄像头是否打开，true表示摄像头已打开，false表示摄像头没有打开。
+    返回说明
+
+    返回0表示设置成功，其他表示设置失败。
+
+-   IsCameraOn：检查摄像头是否打开。
 
     ```
     public bool IsCameraOn();
     ```
 
--   IsCameraFocusPointSupported（仅iOS、Android可用）：摄像头是否支持手动聚焦。
+    返回说明
 
-    该方法返回true表示支持，false表示不支持。
+    返回true表示摄像头已打开，false表示摄像头没有打开。
+
+-   IsCameraFocusPointSupported（仅iOS、Android可用）：摄像头是否支持手动聚焦。
 
     ```
     public bool IsCameraFocusPointSupported();
     ```
 
--   IsCameraExposurePointSupported（仅iOS、Android可用）：摄像头是否支持设置曝光区域。
+    返回说明
 
-    该方法返回true表示支持，false表示不支持。
+    返回true表示支持，false表示不支持。
+
+-   IsCameraExposurePointSupported（仅iOS、Android可用）：摄像头是否支持设置曝光区域。
 
     ```
     public bool IsCameraExposurePointSupported();
     ```
 
--   SetCameraFocusPoint（仅iOS、Android可用）：设置摄像头手动聚焦。
+    返回说明
 
-    该方法返回0表示成功，其他表示失败。
+    返回true表示支持，false表示不支持。
+
+-   SetCameraFocusPoint（仅iOS、Android可用）：设置摄像头手动聚焦。
 
     ```
     public int SetCameraFocusPoint(float x, float y);
@@ -503,9 +549,11 @@
     |x|float|聚焦点x坐标。|
     |y|float|聚焦点y坐标。|
 
--   SetCameraExposurePoint（仅iOS、Android可用）：设置摄像头曝光点。
+    返回说明
 
-    该方法返回0表示成功，其他表示失败。
+    返回0表示设置成功，其他表示设置失败。
+
+-   SetCameraExposurePoint（仅iOS、Android可用）：设置摄像头曝光点。
 
     ```
     public int SetCameraExposurePoint(float x, float y);
@@ -516,7 +564,11 @@
     |x|float|聚焦点x坐标。|
     |y|float|聚焦点y坐标。|
 
--   SetAudioOnlyMode：设置是否为纯音频模式还是音视频模式，返回0代表设置成功，其他代表设置失败。默认为音视频模式（非纯音频），必须在JoinChannel之前设置。
+    返回说明
+
+    返回0表示设置成功，其他表示设置失败。
+
+-   SetAudioOnlyMode：设置是否为纯音频模式还是音视频模式。默认为音视频模式（非纯音频），必须在JoinChannel之前设置。
 
     ```
     public void SetAudioOnlyMode(bool audioOnly);
@@ -526,11 +578,15 @@
     |--|--|--|
     |audioOnly|bool|true表示只有音频发布和订阅，false表示音视频都支持。|
 
--   IsAudioOnly：查询当前是否为纯音频模式，返回true为纯音频，false为音视频。
+-   IsAudioOnly：查询当前是否为纯音频模式。
 
     ```
     public bool IsAudioOnly();
     ```
+
+    返回说明
+
+    返回true表示纯音频，false表示音视频。
 
 -   MuteLocalMic：设置是否停止发布本地音频，不改变当前音频的采集状态。
 
@@ -542,7 +598,7 @@
     |--|--|--|
     |mute|bool|true表示停止发布本地音频，false表示恢复发布。|
 
--   MuteRemoteAudioPlaying：设置是否停止播放远端音频流，返回0表示设置成功，-1表示设置失败。
+-   MuteRemoteAudioPlaying：设置是否停止播放远端音频流。
 
     ```
     public int MuteRemoteAudioPlaying(string userId, bool mute);
@@ -552,6 +608,10 @@
     |--|--|--|
     |userId|string|用户ID，从AppServer获取的唯一标示符。|
     |mute|bool|true表示停止播放，false表示恢复播放。|
+
+    返回说明
+
+    返回0表示设置成功，-1表示设置失败。
 
 -   EnableSpeakerphone（仅iOS、Android可用）：切换听筒、扬声器输出。
 
@@ -609,7 +669,7 @@
     public void StartAudioPlayer();
     ```
 
--   StopAudioPlayer：关闭音频播放。您可以控制关闭音频播放。
+-   StopAudioPlayer：关闭音频播放。
 
     ```
     public void StopAudioPlayer();
