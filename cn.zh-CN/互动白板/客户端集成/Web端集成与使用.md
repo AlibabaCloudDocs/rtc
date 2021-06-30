@@ -350,10 +350,10 @@ interface IBrushItem {
     |clearBoard|aliyunBoard.clearBoard\(\)|清空当前页白板。|
     |unSelectAll|aliyunBoard.unSelectAll\(\)|取消形状选中。|
     |setEraserSize|aliyunBoard.setEraserSize\(size: number\)|设置橡皮工具可擦除范围。|
-    |updateSelectedTextStyle|aliyunBoard.updateSelectedTextStyle\(textStyle: \{\[key: string\]: any\}\) |设置选中文字的字号、斜体、加粗或下划线，详情如下所示：    -   设置斜体：aliyunBoard.updateSelectedTextStyle\(\{'fontStyle': 'italic'\}\)
-    -   设置字号：aliyunBoard.updateSelectedTextStyle\(\{'fontSize': 64\}\)
-    -   设置加粗：aliyunBoard.updateSelectedTextStyle\(\{'fontWeight': 'bord'\}\)
-    -   设置下划线：aliyunBoard.updateSelectedTextStyle\(\{'textDecoration': 'underline'\}\) |
+    |updateSelectedTextStyle|aliyunBoard.updateSelectedTextStyle\(textStyle: \{\[key: string\]: any\}\)|设置选中文字的字号、斜体、加粗或下划线，详情如下所示：    -   设置斜体：aliyunBoard.updateSelectedTextStyle\(\{'fontStyle': 'italic'\}\)
+    -   设置字号：aliyunBoard.updateSelectedTextStyle\(\{'fontSize': 64\}\)
+    -   设置加粗：aliyunBoard.updateSelectedTextStyle\(\{'fontWeight': 'bord'\}\)
+    -   设置下划线：aliyunBoard.updateSelectedTextStyle\(\{'textDecoration': 'underline'\}\) |
 
 -   其他接口
 
@@ -384,6 +384,7 @@ interface IBrushItem {
     |getPreviewData|aliyunBoard.getPreviewData\(index?:number\)|获取序号为index的白板页image对象，如果不传，则返回所有页的image对象列表。返回值：Image\[\] \| Image。**说明：** 仅支持Web端，暂不支持Native端调用。 |
     |setPinchable|aliyunBoard.setPinchable\(true:boolean\)|设置是否开启移动端手势缩放。|
     |getPinchable|aliyunBoard.getPinchable\(true:boolean\)|返回是否开启了移动端手势缩放。|
+    |destroy|aliyunBoard.destroy\(\)|销毁协同实例，即断开白板和协同引擎的链接。**说明：** 正常情况不需要手动调用此方法。 |
 
 -   事件监听接口
 
