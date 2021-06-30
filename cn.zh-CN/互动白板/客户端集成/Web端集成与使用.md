@@ -15,7 +15,7 @@
 
 ## 操作步骤
 
-1.  集成互动白板SDK，此处以Web SDK 0.0.7版本为例介绍。
+1.  集成互动白板SDK，此处以Web SDK 0.0.8版本为例介绍。
 
     -   JS示例：
 
@@ -28,15 +28,15 @@
           <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
           <meta http-equiv="X-UA-Compatible" content="ie=edge" />
           <title>demo</title>
-          <!-- Web SDK版本：0.0.7 -->
-          <link rel="stylesheet" href="https://g.alicdn.com/alidocs/wb-sdk/0.0.7/universal/index.css">
+          <!-- Web SDK版本：0.0.8 -->
+          <link rel="stylesheet" href="https://g.alicdn.com/alidocs/wb-sdk/0.0.8/universal/index.css">
         </head>
         
         <body>
           <div id="root"></div>
           <script crossorigin src="https://g.alicdn.com/code/lib/babel-polyfill/7.10.4/polyfill.js"></script>
-          <!-- Web SDK版本：0.0.7 -->
-          <script crossorigin src="https://g.alicdn.com/alidocs/wb-sdk/0.0.7/universal/index.js"></script>
+          <!-- Web SDK版本：0.0.8 -->
+          <script crossorigin src="https://g.alicdn.com/alidocs/wb-sdk/0.0.8/universal/index.js"></script>
         </body>
         
         </html>
@@ -56,8 +56,8 @@
           <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
           <meta http-equiv="X-UA-Compatible" content="ie=edge" />
           <title>demo</title>
-          <!-- Web SDK版本：0.0.7 -->
-          <link rel="stylesheet" href="https://g.alicdn.com/alidocs/wb-sdk/0.0.7/umd/index.css">
+          <!-- Web SDK版本：0.0.8 -->
+          <link rel="stylesheet" href="https://g.alicdn.com/alidocs/wb-sdk/0.0.8/umd/index.css">
         </head>
         
         <body>
@@ -65,8 +65,8 @@
           <script crossorigin src="https://g.alicdn.com/code/lib/babel-polyfill/7.10.4/polyfill.js"></script>
           <script crossorigin
             src="//g.alicdn.com/alidocs/static/??react/16.13.1/react.production.min.js,react-dom/16.13.1/react-dom.production.min.js"></script>
-          <!-- Web SDK版本：0.0.7 -->
-          <script crossorigin src="https://g.alicdn.com/alidocs/wb-sdk/0.0.7/umd/index.js"></script>
+          <!-- Web SDK版本：0.0.8 -->
+          <script crossorigin src="https://g.alicdn.com/alidocs/wb-sdk/0.0.8/umd/index.js"></script>
         </body>
         
         </html>
@@ -206,6 +206,8 @@ interface IBrushItem {
     -   false（默认）：关闭。 |
     |replay|boolean|是否开启进入回放模式。开启后白板会进入操作回放模式，需要配合服务端的录制接口同时使用。取值：    -   true：开启。
     -   false（默认）：关闭。 |
+    |cornerFixRatio|boolean|选中形状区域的四个角时是否开启等比例缩放。取值：    -   true：开启。
+    -   false（默认）：关闭。 |
 
 3.  使用示例说明。
 
@@ -304,6 +306,7 @@ interface IBrushItem {
     |---|----|--|
     |preScene|aliyunBoard.preScene\(\)|向前翻页。|
     |nextScene|aliyunBoard.nextScene\(\)|向后翻页。|
+    |getScenesCount|aliyunBoard.getScenesCount\(\)|获取当前的总页数，返回类型为number。|
     |gotoScene|aliyunBoard.gotoScene\(pageNum: number\)|跳转至指定页面。|
     |getCurrentSceneIndex|aliyunBoard.getCurrentSceneIndex\(\)|获取当前页index。|
     |addScene|aliyunBoard.addScene\(\)|增加页面。|
@@ -347,6 +350,10 @@ interface IBrushItem {
     |clearBoard|aliyunBoard.clearBoard\(\)|清空当前页白板。|
     |unSelectAll|aliyunBoard.unSelectAll\(\)|取消形状选中。|
     |setEraserSize|aliyunBoard.setEraserSize\(size: number\)|设置橡皮工具可擦除范围。|
+    |updateSelectedTextStyle|aliyunBoard.updateSelectedTextStyle\(textStyle: \{\[key: string\]: any\}\) |设置选中文字的字号、斜体、加粗或下划线，详情如下所示：    -   设置斜体：aliyunBoard.updateSelectedTextStyle\(\{'fontStyle': 'italic'\}\)
+    -   设置字号：aliyunBoard.updateSelectedTextStyle\(\{'fontSize': 64\}\)
+    -   设置加粗：aliyunBoard.updateSelectedTextStyle\(\{'fontWeight': 'bord'\}\)
+    -   设置下划线：aliyunBoard.updateSelectedTextStyle\(\{'textDecoration': 'underline'\}\) |
 
 -   其他接口
 
@@ -382,7 +389,7 @@ interface IBrushItem {
 
     |API|使用示例|描述|
     |---|----|--|
-    |on|aliyunBoard.on\(eventType, \(...args: any\[\]\) =\> \{ console.log\(args\)\}\)|在aliyunBoard对象上注册事件监听。时间类型eventType取值请参见。|
+    |on|aliyunBoard.on\(eventType, \(...args: any\[\]\) =\> \{ console.log\(args\)\}\)|在aliyunBoard对象上注册事件监听。事件类型请参见[eventType取值](#p_bji_1nn_b77)。|
 
     事件类型eventType取值如下所示：
 
@@ -396,12 +403,12 @@ interface IBrushItem {
     |ALIYUNBOARD\_PINCH\_END|双指缩放结束事件。|
     |ALIYUNBOARD\_EXECUTE|协同消息执行完成后的回调事件。回调参数为：    ```
 {
-uid: string | number
-nick: string
-commandType: string
-type: string
-sceneId?: string
-shapeId?: string
+uid: string | number;
+nick: string;
+commandType: string;
+type: string;
+sceneId?: string;
+shapeId?: string;
 x?: number;
 y?: number;
 width?: number;
@@ -410,5 +417,13 @@ ready?: boolean;
 action: 'redo' | 'undo';
 }
     ``` |
+    |ALIYUNBOARD\_PAGINATION\_CHANGE|白板页改变后的回调事件（供应用方修改页码相关的UI），回调参数为：    ```
+{
+type: 'add' | 'remove' | 'index'; // type表示操作类型，add为添加页面，remove为删除页面，index为改变当前页
+index: number; // index表示相应操作的页面索引值
+}
+    ```
+
+**说明：** 该事件只在接收到远端页码变更后回调，本地修改页码时不会调用。 |
 
 
