@@ -22,7 +22,7 @@ Android端具体环境要求，更多信息，请参见[使用限制](/cn.zh-CN/
 
     4.  单击**操作**列的**查询AppKey**，获取AppKey。
 
-    **说明：** 如果应用列表中没有您需要的应用，可以单击**创建应用**，创建新的应用。更多信息，请参见[应用管理](/cn.zh-CN/控制台指南/管理应用.md)。
+    **说明：** 如果应用列表中没有您需要的应用，可以单击**创建应用**，创建新的应用。具体操作，请参见[创建应用](/cn.zh-CN/快速入门/创建应用.md)。
 
 2.  下载并解压Demo，更多信息，请参见[Demo源码下载](/cn.zh-CN/.md)。
 
@@ -39,7 +39,7 @@ Android端具体环境要求，更多信息，请参见[使用限制](/cn.zh-CN/
 
     **说明：** 此处配置的AppID和AppKey很容易被反编译破解，如果被破解，攻击者可以盗用您的阿里云流量，因此AppID和AppKey仅适用于Demo演示及功能调试。在正式环境中您可以将Token计算代码集成到服务器中，并提供面向App的接口，在需要Token时由App向业务服务器发起请求获取动态Token。更多信息，请参见[生成Token](/cn.zh-CN/基础功能/生成Token.md)。
 
-4.  运行Demo。如果编译过程中出现问题或无法正常通话，请参见[Android端运行常见问题]()。
+4.  运行Demo。
 
     1.  打开Android Studio，单击**Open an Existing Project**，选择Android文件夹。
 
@@ -47,7 +47,7 @@ Android端具体环境要求，更多信息，请参见[使用限制](/cn.zh-CN/
 
         ![002](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/3201134161/p243312.png)
 
-    3.  将Android设备与电脑有线连接，并在Android Studio中选择相对应的设备（暂不支持模拟器运行），单击![003](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/2352221161/p228915.png)，编译并运行。
+    3.  将Android设备与电脑有线连接，并在Android Studio中选择相对应的设备（暂不支持模拟器运行），单击![003](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/2352221161/p228915.png)，编译并运行。如果编译过程中出现问题或无法正常通话，请参见[Android端运行常见问题]()。
 
         ![003](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/3201134161/p243313.png)
 
@@ -56,7 +56,7 @@ Android端具体环境要求，更多信息，请参见[使用限制](/cn.zh-CN/
 
 ## Demo目录结构说明
 
-app程序入口目录说明：
+应用程序入口目录说明：
 
 |文件名|说明|
 |---|--|
