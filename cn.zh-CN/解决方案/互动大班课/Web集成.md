@@ -8,8 +8,8 @@ Web端具体环境要求，更多信息，请参见[使用限制](/cn.zh-CN/产�
 
 ## 前提条件
 
--   您已经注册阿里云账号，并完成实名认证，更多信息，请参见[t12832.md\#]()。
--   您已经开通音视频通信服务，更多信息，请参见[音视频通信服务开通](/cn.zh-CN/快速入门/开通服务.md)。
+-   您已经注册阿里云账号，并完成实名认证。具体操作，请参见[t12832.md\#]()。
+-   您已经开通音视频通信服务。具体操作，请参见[音视频通信服务开通](/cn.zh-CN/快速入门/开通服务.md)。
 -   环境中已安装Node.js 6.0或以上版本。具体操作，请参见[安装Node.js]()。
 -   如果设备为Mac，需要为浏览器打开屏幕录制权限。
 
@@ -25,9 +25,9 @@ Web端具体环境要求，更多信息，请参见[使用限制](/cn.zh-CN/产�
 
     4.  单击**操作**列的**查询AppKey**，获取AppKey。
 
-    **说明：** 如果应用列表中没有您需要的应用，可以单击**创建应用**，创建新的应用。更多信息，请参见[应用管理](/cn.zh-CN/控制台指南/管理应用.md)。
+    **说明：** 如果应用列表中没有您需要的应用，可以单击**创建应用**，创建新的应用。具体操作，请参见[创建应用](/cn.zh-CN/快速入门/创建应用.md)。
 
-2.  下载并解压Demo，更多信息，请参见[Demo源码下载](/cn.zh-CN/Demo/Demo体验.md)。
+2.  下载并解压Demo，更多信息，请参见[Demo源码下载](/cn.zh-CN/.md)。
 
     **说明：**
 
@@ -38,9 +38,9 @@ Web端具体环境要求，更多信息，请参见[使用限制](/cn.zh-CN/产�
 
     根据[步骤1](#step_adr_9nh_tt0)中获取的AppID和AppKey修改web/src/core/data/config.js文件中`appID`和`appKey`的值。
 
-    ![001](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/4877031161/p230778.png)
+    ![001](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/4869630261/p230778.png)
 
-    **说明：** 此处配置的AppID和AppKey很容易被反编译破解，如果被破解，攻击者可以盗用您的阿里云流量，因此AppID和AppKey仅适用于Demo演示及功能调试。在正式环境中您可以将Token计算代码集成到服务器中，并提供面向App的接口，在需要Token时由App向业务服务器发起请求获取动态Token。更多信息，请参见[生成Token](/cn.zh-CN/常用功能/生成Token.md)。
+    **说明：** 此处配置的AppID和AppKey很容易被反编译破解，如果被破解，攻击者可以盗用您的阿里云流量，因此AppID和AppKey仅适用于Demo演示及功能调试。在正式环境中您可以将Token计算代码集成到服务器中，并提供面向App的接口，在需要Token时由App向业务服务器发起请求获取动态Token。更多信息，请参见[生成Token](/cn.zh-CN/基础功能/生成Token.md)。
 
 4.  运行Demo。
 
