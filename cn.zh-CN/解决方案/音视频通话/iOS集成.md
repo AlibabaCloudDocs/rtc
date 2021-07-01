@@ -23,9 +23,9 @@ iOS端具体环境要求，更多信息，请参见[使用限制](/cn.zh-CN/产�
 
     4.  单击**操作**列的**查询AppKey**，获取AppKey。
 
-    **说明：** 如果应用列表中没有您需要的应用，可以单击**创建应用**，创建新的应用。更多信息，请参见[应用管理](/cn.zh-CN/控制台指南/管理应用.md)。
+    **说明：** 如果应用列表中没有您需要的应用，可以单击**创建应用**，创建新的应用。具体操作，请参见[创建应用](/cn.zh-CN/快速入门/创建应用.md)。
 
-2.  下载并解压Demo，更多信息，请参见[Demo源码下载](/cn.zh-CN/Demo/Demo体验.md)。
+2.  下载并解压Demo，更多信息，请参见[Demo源码下载](/cn.zh-CN/.md)。
 
     **说明：**
 
@@ -38,7 +38,7 @@ iOS端具体环境要求，更多信息，请参见[使用限制](/cn.zh-CN/产�
 
     ![001](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/2623514161/p243046.jpg)
 
-    **说明：** 此处配置的AppID和AppKey很容易被反编译破解，如果被破解，攻击者可以盗用您的阿里云流量，因此AppID和AppKey仅适用于Demo演示及功能调试。在正式环境中您可以将Token计算代码集成到服务器中，并提供面向App的接口，在需要Token时由App向业务服务器发起请求获取动态Token。更多信息，请参见[生成Token](/cn.zh-CN/常用功能/生成Token.md)。
+    **说明：** 此处配置的AppID和AppKey很容易被反编译破解，如果被破解，攻击者可以盗用您的阿里云流量，因此AppID和AppKey仅适用于Demo演示及功能调试。在正式环境中您可以将Token计算代码集成到服务器中，并提供面向App的接口，在需要Token时由App向业务服务器发起请求获取动态Token。更多信息，请参见[生成Token](/cn.zh-CN/基础功能/生成Token.md)。
 
 4.  运行Demo。
 
@@ -58,11 +58,9 @@ iOS端具体环境要求，更多信息，请参见[使用限制](/cn.zh-CN/产�
 
         **说明：** 如果之前没有添加过账号，可以选择**Add an Account...**，根据提示添加账号，然后在此处选择新添加的账号。
 
-    5.  单击![004](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/2963821161/p228524.png)，编译并运行。
+    5.  单击![004](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/2963821161/p228524.png)，编译并运行。如果在编译过程中出现问题或无法正常通话，请参见[iOS端运行常见问题]()。
 
         ![005](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/3963821161/p228530.png)
-
-    **说明：** 如果在签名、编译过程中出现问题或无法正常通话，请参见[iOS端运行常见问题]()。
 
 
 ## Demo目录结构说明
