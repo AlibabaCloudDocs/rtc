@@ -24,11 +24,11 @@ Android端具体环境要求，更多信息，请参见[支持的平台](/cn.zh-
 
 3.  集成阿里云播放器SDK，具体操作，请参见[Android端集成](/cn.zh-CN/播放器SDK/Android播放器/集成文档.md)。
 
-    需要集成阿里云播放器SDK 5.3.4版本，如下所示：
+    需要集成阿里云播放器SDK 5.4.1.2版本，如下所示：
 
     ```
     dependencies {
-        implementation 'com.aliyun.sdk.android:AliyunPlayer:5.3.4-full-14838371'
+        implementation 'com.aliyun.sdk.android:AliyunPlayer:5.4.1.2-full-15000558'
     }
     ```
 
