@@ -18,32 +18,28 @@ pod版本号：
 
 2.4.1
 
-|[iOS示例代码](https://github.com/aliyunvideo/AliRtcAppSample_iOS)|
+|[示例代码](https://github.com/aliyun/AliRTCSample)|
 |Android|[Android](/cn.zh-CN/快速入门/集成客户端SDK/Android.md)|[Android接口说明](/cn.zh-CN/SDK参考/Android SDK/AliRtcEngine接口.md)|下载地址：
 
 [V2.4.1](https://alivc-demo-cms.alicdn.com/versionProduct/sourceCode/rtc/2.4.1/AliRTCSdk_2.4.1(Android).zip)
 
 Maven依赖：
 
-com.aliyun.rtc:AliRTC-Full:2.4.1.2106161546375
-
-|[Android示例代码](https://github.com/aliyunvideo/AliRtcAppSample_Android)|
+com.aliyun.rtc:AliRTC-Full:2.4.1.2106161546375 |
 |Windows|[Windows](/cn.zh-CN/快速入门/集成客户端SDK/Windows.md)|[Windows接口说明](/cn.zh-CN/SDK参考/Windows SDK/AliEngine接口.md)|x86版本：
 
 [V2.4.1\(x86\)](https://alivc-demo-cms.alicdn.com/versionProduct/sourceCode/rtc/2.4.1/AliRTCSdk_2.4.1(Windows_x86).zip)x64版本：
 
-[V2.4.1\(x64\)](https://alivc-demo-cms.alicdn.com/versionProduct/sourceCode/rtc/2.4.1/AliRTCSdk_2.4.1(Windows_x64).zip)|[Windows示例代码](https://github.com/aliyunvideo/AliRtcAppSample_Windows/tree/master/MFC%20Demo)|
-|Mac|[Mac](/cn.zh-CN/快速入门/集成客户端SDK/Mac.md)|[Mac接口说明](/cn.zh-CN/SDK参考/iOS和Mac SDK/AliRtcEngine接口.md)|[V2.4.1](https://alivc-demo-cms.alicdn.com/versionProduct/sourceCode/rtc/2.4.1/AliRTCSdk_2.4.1(Mac).zip)|[Mac示例代码](https://github.com/aliyunvideo/AliRtcAppSample_Mac)|
+[V2.4.1\(x64\)](https://alivc-demo-cms.alicdn.com/versionProduct/sourceCode/rtc/2.4.1/AliRTCSdk_2.4.1(Windows_x64).zip)|
+|Mac|[Mac](/cn.zh-CN/快速入门/集成客户端SDK/Mac.md)|[Mac接口说明](/cn.zh-CN/SDK参考/iOS和Mac SDK/AliRtcEngine接口.md)|[V2.4.1](https://alivc-demo-cms.alicdn.com/versionProduct/sourceCode/rtc/2.4.1/AliRTCSdk_2.4.1(Mac).zip)|
 |Web|[Web](/cn.zh-CN/快速入门/集成客户端SDK/Web.md)|[Web接口说明](/cn.zh-CN/SDK参考/Web SDK/AliRtcEngine接口.md)|下载地址：
 
 [V1.15.4](https://alivc-demo-cms.alicdn.com/versionProduct/sourceCode/rtc/web/aliyun-webrtc-sdk-1.15.4.zip)
 
 npm地址：
 
-[npm](https://www.npmjs.com/package/aliyun-webrtc-sdk)
-
-|[Web示例代码](https://alivc-demo-cms.alicdn.com/versionProduct/sourceCode/rtc/web/AliRTC-WebSample.zip)|
-|Unity|[Unity](/cn.zh-CN/快速入门/运行Demo示例/运行Unity Demo.md)|[Unity接口说明](/cn.zh-CN/SDK参考/Unity SDK/IAliRtcEngine接口.md)|[V1.15](https://docs-aliyun.cn-hangzhou.oss.aliyun-inc.com/assets/attach/137418/cn_zh/1589335526814/alirtc_unity_sdk_1.15.0_release.zip)|[Unity示例代码](https://github.com/aliyunvideo/AliRtcAppSample_Unity)|
+[npm](https://www.npmjs.com/package/aliyun-webrtc-sdk) |
+|Unity|[Unity](/cn.zh-CN/快速入门/运行Demo示例/运行Unity Demo.md)|[Unity接口说明](/cn.zh-CN/SDK参考/Unity SDK/IAliRtcEngine接口.md)|[V1.15](https://docs-aliyun.cn-hangzhou.oss.aliyun-inc.com/assets/attach/137418/cn_zh/1589335526814/alirtc_unity_sdk_1.15.0_release.zip)|
 |Linux|-   [Linux（C++）](/cn.zh-CN/快速入门/集成客户端SDK/Linux/C++.md)
 -   [Linux（Java）](/cn.zh-CN/快速入门/集成客户端SDK/Linux/Java.md)
 
