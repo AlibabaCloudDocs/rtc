@@ -91,18 +91,14 @@ HTTP STATUS 200
 
 |是
 
-|用户ID。
-
-| |
+|用户ID。 |
 |SessionId
 
 |string
 
 |是
 
-|用户SessionID。
-
-| |
+|用户SessionID。 |
 |EventTag
 
 |string
@@ -114,18 +110,14 @@ HTTP STATUS 200
  -   **Join**：入会。
 -   **Leave**：离会。
 -   **CameraOpen**：摄像头开启。
--   **CameraClose**：摄像头关闭。
-
-| |
+-   **CameraClose**：摄像头关闭。 |
 |Timestamp
 
 |number
 
 |是
 
-|事件发生的时间戳。
-
-| |
+|事件发生的时间戳。 |
 
 ## ChannelEvent频道事件
 
@@ -146,18 +138,14 @@ HTTP STATUS 200
 |事件类型，取值：
 
  -   **Open**：会议开始。
--   **Close**：会议结束。
-
-| |
+-   **Close**：会议结束。 |
 |Timestamp
 
 |number
 
 |是
 
-|事件发生的时间戳。
-
-|C |
+|事件发生的时间戳。 |
 
 ## 返回数据
 
@@ -184,10 +172,10 @@ http(s)://rtc.aliyuncs.com/?Action=CreateEventSubscribe
 `XML`格式
 
 ```
-<CreateEventSubscribeResbonse>
+<CreateEventSubscribeResponse>
   <RequestId>760bad53276431c499e30dc36f6b26be</RequestId>
-  <SubscribeId>ad53276431c499e</SubscribeId>
-</CreateEventSubscribeResbonse>
+  <SubscribeId>ad53276431c****</SubscribeId>
+</CreateEventSubscribeResponse>
 ```
 
 `JSON`格式
@@ -195,7 +183,7 @@ http(s)://rtc.aliyuncs.com/?Action=CreateEventSubscribe
 ```
 {
   "RequestId": "760bad53276431c499e30dc36f6b26be", 
-  "SubscribeId": "ad53276431c499e"
+  "SubscribeId": "ad53276431c****"
 }
 ```
 
