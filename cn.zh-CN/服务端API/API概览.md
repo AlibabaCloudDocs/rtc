@@ -49,3 +49,10 @@
 |[StopRecordTask](/cn.zh-CN/服务端API/云端录制/StopRecordTask.md)|停止视频录制任务。|
 |[UpdateRecordTask](/cn.zh-CN/服务端API/云端录制/UpdateRecordTask.md)|更新录制视频任务。|
 
+## 事件回调
+
+|API|描述|
+|---|--|
+|[CreateEventSubscribe]()|创建订阅房间消息的回调。|
+|[DeleteEventSubscribe]()|删除订阅房间消息的回调。|
+
