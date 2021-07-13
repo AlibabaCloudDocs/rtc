@@ -15,7 +15,7 @@
 
 ## 操作步骤
 
-1.  集成互动白板SDK，此处以Web SDK 0.0.8版本为例介绍。
+1.  集成互动白板SDK，此处以Web SDK 0.0.9版本为例介绍。
 
     -   JS示例：
 
@@ -28,15 +28,15 @@
           <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
           <meta http-equiv="X-UA-Compatible" content="ie=edge" />
           <title>demo</title>
-          <!-- Web SDK版本：0.0.8 -->
-          <link rel="stylesheet" href="https://g.alicdn.com/alidocs/wb-sdk/0.0.8/universal/index.css">
+          <!-- Web SDK版本：0.0.9 -->
+          <link rel="stylesheet" href="https://g.alicdn.com/alidocs/wb-sdk/0.0.9/universal/index.css">
         </head>
         
         <body>
           <div id="root"></div>
           <script crossorigin src="https://g.alicdn.com/code/lib/babel-polyfill/7.10.4/polyfill.js"></script>
-          <!-- Web SDK版本：0.0.8 -->
-          <script crossorigin src="https://g.alicdn.com/alidocs/wb-sdk/0.0.8/universal/index.js"></script>
+          <!-- Web SDK版本：0.0.9 -->
+          <script crossorigin src="https://g.alicdn.com/alidocs/wb-sdk/0.0.9/universal/index.js"></script>
         </body>
         
         </html>
@@ -56,8 +56,8 @@
           <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
           <meta http-equiv="X-UA-Compatible" content="ie=edge" />
           <title>demo</title>
-          <!-- Web SDK版本：0.0.8 -->
-          <link rel="stylesheet" href="https://g.alicdn.com/alidocs/wb-sdk/0.0.8/umd/index.css">
+          <!-- Web SDK版本：0.0.9 -->
+          <link rel="stylesheet" href="https://g.alicdn.com/alidocs/wb-sdk/0.0.9/umd/index.css">
         </head>
         
         <body>
@@ -65,8 +65,8 @@
           <script crossorigin src="https://g.alicdn.com/code/lib/babel-polyfill/7.10.4/polyfill.js"></script>
           <script crossorigin
             src="//g.alicdn.com/alidocs/static/??react/16.13.1/react.production.min.js,react-dom/16.13.1/react-dom.production.min.js"></script>
-          <!-- Web SDK版本：0.0.8 -->
-          <script crossorigin src="https://g.alicdn.com/alidocs/wb-sdk/0.0.8/umd/index.js"></script>
+          <!-- Web SDK版本：0.0.9 -->
+          <script crossorigin src="https://g.alicdn.com/alidocs/wb-sdk/0.0.9/umd/index.js"></script>
         </body>
         
         </html>
