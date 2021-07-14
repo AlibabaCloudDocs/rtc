@@ -1,30 +1,31 @@
-# 操作流程
+---
+keyword: Appkey
+---
 
-本文为您提供搭建1对1语音聊天场景全套流程，您可以快速搭建一整套1对1语音聊天场景。
+# 查询AppKey
 
-## 前提条件
+本文为您介绍了在控制台查询AppKey的具体操作步骤，您可以使用该AppKey生成频道鉴权信息。
 
--   您已经完成注册阿里云账号，并完成实名认证，详情请参见[阿里云账号注册流程](https://help.aliyun.com/document_detail/37195.html#concept-gpr-axx-wdb)。
--   您已经开通音视频通信服务，详情请参见[音视频开通服务](https://help.aliyun.com/document_detail/111590.html#task-1797646)。
+您需要先创建应用，具体步骤请参见[创建应用](/cn.zh-CN/快速入门/创建应用.md)。
 
-## 源码下载
+**说明：** AppKey是应用的唯一鉴权凭证，请您妥善保管。如果不慎泄露，为避免造成严重损失，请及时[提交工单](https://selfservice.console.aliyun.com/ticket/createIndex)，申请更新AppKey。
 
-请单击[Demo下载](https://github.com/aliyun/AliRTC-UserCase-VoiceCallSolution_1To1/tree/master)，下载源码。
+1.  登录[音视频通信RTC控制台](https://rtc.console.aliyun.com)。
 
-## 实现流程
+2.  在左侧导航栏，单击**应用管理**。
 
-实现流程如下图所示：
+3.  在应用ID的右侧，单击**查询AppKey**。
 
-![实现流程](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/3754607061/p120567.png)
+    ![查询AppKey](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/4380367951/p51654.png)
 
-|步骤|操作|描述|
-|--|--|--|
-|1|[开通服务](/cn.zh-CN/快速入门/开通服务.md)|-   您可以快速开通RTC服务。
--   RTC默认采取后付费的模式，您可以在阿里云账户充值任意金额进行测试。 |
-|2|[创建应用](/cn.zh-CN/快速入门/创建应用.md)|通过在控制台创建应用，可以获取您的应用ID。|
-|3|[服务端集成](/cn.zh-CN/解决方案/1对1语音聊天/集成服务端.md)|在集成移动端源码前，您需要先集成服务端源码。|
-|4|移动端源码集成 -   [iOS端集成](/cn.zh-CN/解决方案/1对1语音聊天/集成iOS端.md)
--   [Android端集成](/cn.zh-CN/解决方案/1对1语音聊天/集成Android端.md)
+4.  在弹出框中，单击**确定**。
 
-|快速搭建移动端1对1语音聊天。|
+5.  单击**点击获取**，填写**校验码**并单击**确定**。
+
+    ![验证](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/4380367951/p51656.png)
+
+    查询成功，您可以复制并使用AppKey。
+
+
+当您成功查询AppKey，您可以生成频道鉴权令牌信息，具体操作请参见[生成Token](/cn.zh-CN/基础功能/生成Token.md)。
 
