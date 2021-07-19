@@ -25,7 +25,7 @@ keyword: Unity Demo
 
 ## 集成SDK
 
-1.  下载并解压Unity SDK，下载地址，请参见[客户端SDK](/cn.zh-CN/SDK参考/SDK下载.md)。
+1.  下载并解压Unity SDK及示例代码，下载地址，请参见[t170901.md\#khd\_sdk\_1](/cn.zh-CN/SDK参考/SDK下载.md)。
 
     解压后包含sample和sdk两个目录，sample目录为Unity对接工程，sdk目录为Unity版本SDK。
 
