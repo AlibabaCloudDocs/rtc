@@ -2488,7 +2488,7 @@ keyword: [AliRtcEngine, Android]
     public abstract int uplinkChannelMessage(String contentType, String content);
     ```
 
-    Saas客户端发送信令消息到Saas服务端。
+    SaaS客户端发送信令消息到SaaS服务端。
 
     参数说明
 
