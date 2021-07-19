@@ -13,7 +13,7 @@ keyword: [常见问题, Web SDK]
     ![未使用https](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/6341158951/p63712.jpeg)
 
 -   解决方案：
-    -   AppServer和网页需要使用https协议。
+    -   AppServer和网页需要使用HTTPS协议。
     -   检测是否禁用或者占用摄像头和麦克风设备。
 
 ## Web端和其它端无法互通
