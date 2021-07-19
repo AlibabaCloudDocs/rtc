@@ -6,16 +6,16 @@ Android SDK提供so文件动态加载的功能，可以有效的减少安装包�
 
 ## 集成SDK
 
-方法一：maven集成
+方法一：Maven集成
 
-1.  在根目录的build.gradle中添加maven仓库地址：
+1.  在根目录的build.gradle中添加Maven仓库地址：
 
     ```
     allprojects {
         repositories {
             google()
             jcenter()
-            //添加RTC需要的maven地址
+            //添加RTC需要的Maven地址
             maven {
                 url "http://maven.aliyun.com/nexus/content/groups/public/"
             }
@@ -33,7 +33,7 @@ Android SDK提供so文件动态加载的功能，可以有效的减少安装包�
     }
     ```
 
-    **说明：** 此处maven依赖的版本仅供参考，获取最新的maven依赖，请参见[精简版SDK](/cn.zh-CN/SDK参考/SDK下载.md)。
+    **说明：** 此处Maven依赖的版本仅供参考，获取最新的Maven依赖，请参见[精简版SDK](/cn.zh-CN/SDK参考/SDK下载.md)。
 
 3.  下载并解压so文件，下载地址，请参见[精简版SDK](/cn.zh-CN/SDK参考/SDK下载.md)。
 
