@@ -22,14 +22,14 @@ RTC SDK提供了获取音频数据的功能，您可以将获取到的语音数�
 
 ## 接口及使用
 
-通过调用接口[subscribeAudioData](/cn.zh-CN/SDK参考/iOS和Mac SDK/AliRtcEngine接口.md)得到回调数据，从回调接口[onAudioSampleCallback](/cn.zh-CN/SDK参考/iOS和Mac SDK/回调及监听.md)获取音频数据，并根据业务场景使用相应的数据源。
+通过调用接口[subscribeAudioData](/cn.zh-CN/SDK参考（旧版）/iOS和Mac SDK/AliRtcEngine接口.md)得到回调数据，从回调接口[onAudioSampleCallback](/cn.zh-CN/SDK参考（旧版）/iOS和Mac SDK/回调及监听.md)获取音频数据，并根据业务场景使用相应的数据源。
 
 onAudioSampleCallback接口参数如下：
 
 |参数|类型|描述|
 |--|--|--|
-|audioSource|[AliRtcAudioSource](/cn.zh-CN/SDK参考/iOS和Mac SDK/数据类型.md)|音频裸数据源类型。|
-|audioSample|[AliRtcAudioDataSample \*](/cn.zh-CN/SDK参考/iOS和Mac SDK/数据类型.md)|音频裸数据。|
+|audioSource|[AliRtcAudioSource](/cn.zh-CN/SDK参考（旧版）/iOS和Mac SDK/数据类型.md)|音频裸数据源类型。|
+|audioSample|[AliRtcAudioDataSample \*](/cn.zh-CN/SDK参考（旧版）/iOS和Mac SDK/数据类型.md)|音频裸数据。|
 
 ## 语音数据处理
 
@@ -51,7 +51,7 @@ RTC获取音频数据方式如下：
     }
     ```
 
-    **说明：** extras为json字符串，如果当前使用了其他key值的extras配置，可以共存。
+    **说明：** extras为JSON字符串，如果当前使用了其他key值的extras配置，可以共存。
 
     音乐模式示例代码如下所示：
 
