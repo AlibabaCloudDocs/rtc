@@ -98,7 +98,7 @@
 |UserPanes.N.Texts.N.FontColor|Integer|否|1|文字颜色（RGB）。计算公式为R+G×256+B×65536，R（红）、G（绿）、B（蓝）的取值：**0~255**。 |
 |UserPanes.N.Texts.N.ZOrder|Integer|否|0|叠放顺序，0为最底层，1层在0层之上，以此类推。 |
 
-**MediaEncode**枚举值如下所示。
+**MediaEncode枚举值：**
 
 |ID
 
@@ -363,7 +363,7 @@
 
 |15 |
 
-**TaskProfile**枚举值：
+**TaskProfile枚举值：**
 
 **说明：** Mixed\_Audio（纯音频）不限制最大输入路数，其余规格根据第一个数字判断支持最大输入路数，例如：4IN\_720P代表支持最大输入路数为4。
 
@@ -446,6 +446,75 @@
 |名称|类型|示例值|描述|
 |--|--|---|--|
 |RequestId|String|760bad53276431c499e30dc36f6b\*\*\*\*|请求ID。 |
+
+**录制结果回调**
+
+录制产生的结果文件写入到用户MNS队列或者将结果文件通过JSON格式以HTTP POST方式回调，参数定义如下所示：
+
+|参数名称
+
+|类型
+
+|说明 |
+|------|----|----|
+|AppId
+
+|String
+
+|应用ID。 |
+|ChannelId
+
+|String
+
+|频道ID。 |
+|TaskId
+
+|String
+
+|录制任务ID。 |
+|Event
+
+|String
+
+|事件类型，目前仅支持FileCreated事件。 |
+|MsgId
+
+|String
+
+|消息ID。 |
+|StartTime
+
+|String
+
+|录制开始时间。 |
+|StopTime
+
+|String
+
+|录制结束时间。 |
+|Url
+
+|String
+
+|录制到OSS的文件HTTP地址。 |
+
+示例说明：
+
+```
+
+{
+    "AppId": "9q****",
+    "ChannelId": "record-004",
+    "Duration": 1792.257,
+    "Event": "FileCreated",
+    "MsgId": "83eaaf62-19e8-45df-929b-79f4753b****",
+    "StartTime": "2020-09-02T10:23:54Z",
+    "StopTime": "2020-09-02T10:53:46Z",
+    "TaskId": "task-005",
+    "Url": "http://rtc-record.oss-cn-shanghai.aliyuncs.com/record/0902-1/9q****/record-004_task-005/2020-09-02-18-23-56_2020-09-02-18-53-56.m3u8"
+}
+
+```
 
 ## 示例
 
